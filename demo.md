@@ -113,7 +113,7 @@ Xanthan is a simple website framework that facilitates digital storytelling with
 
 {% include background.html
   height="50"
-  image-url="/assets/bg-images/image_1.jpg"
+  image-url="assets/bg-images/image_1.jpg"
   title="fishing"
 %}
 
