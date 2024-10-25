@@ -53,20 +53,20 @@ body {
 
 /* Background images for different sections */
 .section-1 {
-    background-image: url('./assets/bg-images/image_1.jpg'); /* Replace with your image */
+    background-image: url('{{site.baseurl}}/assets/bg-images/image_1.jpg'); /* Replace with your image */
     background-size: cover;
     background-position: center;
 }
 
 .section-2 {
-    background-image: url('./assets/bg-images/image_2.jpg'); /* Replace with your image */
+    background-image: url('{{site.baseurl}}/assets/bg-images/image_2.jpg'); /* Replace with your image */
     height: 20vh; /* Full screen height */
     background-size: cover;
     background-position: center;
 }
 
 .section-3 {
-    background-image: url('./assets/bg-images/image_3.jpg'); /* Replace with your image */
+    background-image: url('{{site.baseurl}}/assets/bg-images/image_3.jpg'); /* Replace with your image */
     background-size: cover;
     background-position: center;
 }
