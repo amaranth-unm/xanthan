@@ -1,10 +1,16 @@
 {% if include.abs-image-url %}
   {% capture img-url %}
     {{ site.baseurl }}{{ include.image-url }}
-    {% endcapture %}
-{% else %}
+  {% endcapture %}
+
+{% elsif include.essay-image-url %}
   {% capture img-url %}
     {{ site.baseurl }}{{site.essay-images}}/{{ include.image-url }}
+  {% endcapture %}
+
+{% else %}
+  {% capture img-url %}
+    {{ site.baseurl }}/assets/images/{{ include.image-url }}
   {% endcapture %}
 {% endif %}
 
