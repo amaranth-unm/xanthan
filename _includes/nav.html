@@ -1,59 +1,33 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{{site.baseurl}}">Jekylton</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<nav>
+  <div class="navbar">
+    <a href="{{site.baseurl}}">Home</a>
+    <a href="{{site.baseurl}}/about">About</a>
+    <a href="{{site.baseurl}}/guides/getting-started">Getting Started</a>
+    <div class="dropdown">
+      <button class="dropbtn">Sample Pages
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a class="dropdown-item" href="{{site.baseurl}}/samples/images">Headers and backgrounds</a>
+        <a class="dropdown-item" href="{{site.baseurl}}/samples/bg-scrollbox">Backgrounds with scrolly boxes</a>
+        <a class="dropdown-item" href="{{site.baseurl}}/samples/bg-switch">Background switching with scrolly boxes</a>
+        <a class="dropdown-item" href="{{site.baseurl}}/samples/side-scroll">Side scrolling text</a>
+        <a class="dropdown-item" href="{{site.baseurl}}/samples/directory">Directory</a>
+        <!-- <a class="dropdown-item" href="{{site.baseurl}}/samples/map">Map</a> -->
+      </div>
+    </div>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="{{site.baseurl}}">Home <span class="sr-only">(current)</span></a>
-      </li>
-
-      <li class="nav-item"><a class="nav-link" href="{{site.baseurl}}/directory">Directory</a></li>
-      <li class="nav-item"><a class="nav-link" href="{{site.baseurl}}/credits">Credits</a></li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="{{'/guides/getting-started' | absolute_url}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Instruction Guides
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{'/guides/getting-started' | absolute_url}}"">Getting started</a>
-          <a class="dropdown-item" href="{{site.baseurl}}/guides/loading-images">Loading images</a>
-          <a class="dropdown-item" href="{{site.baseurl}}/guides/code">Code samples</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">More to come...</a>
-        </div>
-      </li>
-<!--
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
--->
-    </ul>
-<!--
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
--->
+    <div class="dropdown">
+      <button class="dropbtn">Guides
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a class="dropdown-item" href="{{site.baseurl}}/guides/getting-started">Getting Started</a>
+        <a class="dropdown-item" href="{{site.baseurl}}/guides/editing-your-site">Editing Your Site</a>
+        <a class="dropdown-item" href="{{site.baseurl}}/guides/loading-images">Loading images</a>
+        <a class="dropdown-item" href="{{site.baseurl}}/guides/working-locally">Working Locally</a>
+        <a class="dropdown-item" href="{{site.baseurl}}/guides/code">Code samples</a>
+      </div>
+    </div>
   </div>
 </nav>
-
-
-<!--
-<nav class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="{{site.baseurl}}/">Generic Digital History Framework</a>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item"><a class="nav-link" href="{{site.baseurl}}/">Home</a></li>
-      <li class="nav-item"><a class="nav-link" href="{{site.baseurl}}/directory">Directory</a></li>
-      <li class="nav-item"><a class="nav-link" href="{{site.baseurl}}/credits">Credits</a></li>
-      <li class="nav-item"><a class="nav-link" href="{{site.baseurl}}/guides">Instruction Guides</a></li>
-    </ul>
-  </div>
-</nav>
--->

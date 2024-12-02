@@ -1,6 +1,6 @@
 {% if include.abs-image-url %}
   {% capture img-url %}
-    {{ site.baseurl }}{{ include.image-url }}
+    {{ site.baseurl }}{{ include.abs-image-url }}
   {% endcapture %}
 
 {% elsif include.essay-image-url %}
@@ -29,7 +29,7 @@
 
 {% endif %}
 
-<figure class="{{ include.class }}" style="width:{{include.width | default: '40%'}}">
+<figure class="{{ include.class }}" style="width: {{ include.width | default: '40%' }}">
   <a class="image" href="{{ img-url }}"><img src="{{ img-url }}" alt="{{ include.caption }}" width="100%"></a>
 
 <figcaption class="{{ include.class }}">
