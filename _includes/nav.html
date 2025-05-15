@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Xanthan</a>
+    <a class="navbar-brand" href="{{site.baseurl}}/">Xanthan</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,26 +8,43 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{site.baseurl}}">Home</a>
+          <a class="nav-link active" aria-current="page" href="{{site.baseurl}}/">Home</a>
         </li>
         
         <li class="nav-item">
           <a class="nav-link" href="{{site.baseurl}}/about">About</a>
         </li>
-        
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{site.baseurl}}/directory-yml">Directory</a>
+        </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Scrolly Boxes
+            Special Pages
           </a>
           <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{site.baseurl}}/special-pages/directory">Directory pages</a></li>
+            <li><a class="dropdown-item nav-link disabled" aria-disabled="true">Map</a>
+            </li>
+          </ul> 
+          </li>
+
+
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Page components
+          </a>
+          <ul class="dropdown-menu">
+            
               <li><a class="dropdown-item" href="{{site.baseurl}}/samples/images">Basic backgrounds & headers</a></li>
               <li><a class="dropdown-item" href="{{site.baseurl}}/samples/bg-scrollbox">Backgrounds with scrolly boxes</a></li>
               <li><a class="dropdown-item" href="{{site.baseurl}}/samples/bg-switch">Background switching with scrolly boxes</a></li>
               <li><a class="dropdown-item" href="{{site.baseurl}}/samples/side-scroll">Side scrolling text</a></li>
-              <li><a class="dropdown-item" href="{{site.baseurl}}/samples/directory">Directory</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="{{site.baseurl}}/guides/code">Code samples</a></li>
           </ul>
         </li>
 
@@ -38,10 +55,10 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{{site.baseurl}}/guides/getting-started">Getting Started</a></li>
-            <li><a class="dropdown-item" href="{{site.baseurl}}/guides/editing-your-site">Editing Your Site</a></li>
-            <li><a class="dropdown-item" href="{{site.baseurl}}/guides/using-images">Loading images</a></li>
+            <li><a class="dropdown-item" href="{{site.baseurl}}/guides/understanding-your-site">Understanding Your Site</a></li>
+            <li><a class="dropdown-item" href="{{site.baseurl}}/guides/editing-your-site">Editing Your Site</a></li>          
             <li><a class="dropdown-item" href="{{site.baseurl}}/guides/working-locally">Working Locally</a></li>
-            <li><a class="dropdown-item" href="{{site.baseurl}}/guides/code">Code samples</a></li>
+            
           </ul> 
           </li>
 <!--

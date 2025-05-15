@@ -17,7 +17,8 @@ date: 2019-09-23
 
 
 ---
-There is one basic way we will embed images in our essay files. Note that it is totally different how you would it with pure Markdown. This is because if we want to maintain consistency between images, like how the captions appear, we have to make sure we display all images exactly the same way. Using the small code blocks make this as easy as it can be.
+There is one basic way we will embed images in our essay files. Note that it is totally different how you would it with pure Markdown. This is because if we want to maintain consistency between images, like how the captions appear, we have to make sure we display all images exactly the same way. Using the small code blocks (in the _includes folder) make this as easy!
+
 
 ## Image Preparation
 
@@ -123,7 +124,7 @@ To achieve two images side by side use (note the 49% width for each):
 class="img-left"
 width="49%"
 caption="Here's an image on the left."
-image-url="Herder.jpg"
+image-url="images/Herder.jpg"
 source-url=""
 %}
 
@@ -131,7 +132,7 @@ source-url=""
 class="img-left"
 width="49%"
 caption="Here's an image on the right."
-image-url="Johann.jpg"
+image-url="images/Johann.jpg"
 source-url=""
 %}
 

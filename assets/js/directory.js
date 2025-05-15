@@ -51,15 +51,17 @@ function createCard(i,page) {
     var filename = page.filename + '.html';
     console.log("processing " + filename);
 
-    var rowString = '<a href="sites/'+filename+'">';
-    rowString += '<div class="card">';
-    rowString += '<img class="card-img-top" src="essays/images/' + page.image + '" alt="Essay image">';
-    rowString += '<div class="card-block">';
-    rowString += '<h4 class="card-title">' + page.title + '</h4>';
+    var rowString = "";
+    rowString += '<div class="col">';
+    rowString += '<div class="card v-card">';
+    rowString += '<a href="sites/'+filename+'">';
+    rowString += '<img class="card-img-top" src="/essays/sample-essay/images/' + page.image + '" alt="Essay image">';
+    rowString += '<div class="card-body">';
+    rowString += '<h3 class="card-title">' + page.title + '</h3>';
     rowString += '<p class="card-text">' + page.description + '</p>';
-    rowString += '</div></div></a>';
-    //rowString += '</div></div>';
+    rowString += '</div></a></div></div>';
+
     console.log("just made row: " + rowString);
-    //console.log($('.map-popup').html());
+    
     $('.cards').append(rowString);
 }

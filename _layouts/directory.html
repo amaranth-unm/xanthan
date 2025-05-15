@@ -12,19 +12,17 @@
     <script src="{{site.baseurl}}/assets/js/sheetrock.min.js"></script>
     <script src="{{site.baseurl}}/assets/js/directory.js"></script>
 
+    <div class="container">
 
     {{ content }}
 
     <!--Sheetrock expects to be outputting HTML for each row, so here's a place to put it.-->
     <div id="sheetrock"></div>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="cards"></div>
-          </div>
-        </div>
-      </div>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="cards"></div>    
+    </div>
 
       </div> <!-- /main -->
 
