@@ -71,7 +71,7 @@ Keep scrolling! This image will set around until the whole image is visible, but
 
 
 <!-- 
-{% include bg.html
+{% include scrollybox/bg.html
   height="220"
   image-url="/assets/bg-images/image_3.jpg"
   pre-box-space="100"
