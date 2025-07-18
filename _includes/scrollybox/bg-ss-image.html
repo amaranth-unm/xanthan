@@ -1,6 +1,10 @@
-<div class="bg-switch" id="{{ include.switch-id }}"
-    style="background-image: url('{{site.baseurl}}/{{include.image-url}}')">
 </div>
+
+<div class="ss-image-container" id="{{ include.ss-id }}">
+<img class="ss-image" src="{{site.baseurl}}{{include.image-url}}"/>
+</div>
+
+<div id="{{ include.ss-id }}-textbox" class="ss-text-box" markdown="1"> 
 
 <script>
 /* switch_marker = document.getElementById('{{ include.switch-id }}'); */
