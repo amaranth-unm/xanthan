@@ -36,7 +36,7 @@ When the image gets to the top of the page, it will stop scrolling and a large t
 
 
 <!-- this is an unclosed div that needs to be closed with bg-multi-long-close-->
-{% include bg-multi-long.html
+{% include scrollybox/bg-multi-long.html
   bg-id="bg1"
   image-url="/assets/bg-images/fish-1.jpg"
   pre-box-space="0"
@@ -51,7 +51,7 @@ Phasellus rhoncus elit rutrum magna cursus viverra. Cras lobortis pulvinar matti
 
 ### IMAGE SWITCH HERE 
 
-{% include bg-switch.html
+{% include scrollybox/bg-switch.html
   image-url="/assets/bg-images/fish-2.jpg"
   switch-id="switch1"
   bg-id="bg1"
@@ -62,7 +62,7 @@ Duis ut dui dolor. Integer eu lectus at tellus accumsan euismod eget a ligula. M
 Phasellus rhoncus elit rutrum magna cursus viverra. Cras lobortis pulvinar mattis. Nullam mattis varius enim vel vestibulum. Ut non blandit elit. Mauris sagittis commodo sapien, a elementum ipsum dapibus at. Nullam sapien nisl, ultrices eu felis id, blandit sagittis turpis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla facilisi. Ut at ullamcorper diam. Aenean nec metus orci. Fusce nunc est, interdum ut elit eget, placerat imperdiet sem. Maecenas facilisis dui risus, quis cursus leo auctor non. Praesent dolor nunc, tristique nec orci nec, mattis rhoncus est. Praesent viverra pharetra nulla quis commodo. Nullam dapibus elementum vehicula. Phasellus fermentum urna ut nisl porttitor, et aliquam odio consequat.
 
 {%raw%} 
-{% include bg-switch.html<br>
+{% include scrollybox/bg-switch.html<br>
   image-url="/assets/bg-images/fish-3.jpg"<br>
   switch-id="switch2"<br>
   bg-id="bg1"<br>
@@ -72,7 +72,7 @@ Phasellus rhoncus elit rutrum magna cursus viverra. Cras lobortis pulvinar matti
 
 ### IMAGE SWITCH HERE
 
-{% include bg-switch.html
+{% include scrollybox/bg-switch.html
   image-url="/assets/bg-images/fish-4.jpg"
   switch-id="switch2"
   bg-id="bg1"
@@ -88,7 +88,7 @@ Phasellus rhoncus elit rutrum magna cursus viverra. Cras lobortis pulvinar matti
 This is the end of the story, and you should see the text box scroll out of view followed by the background image.
 
 
-{% include bg-multi-long-close.html %}
+{% include scrollybox/bg-multi-long-close.html %}
 
 ### And here we go on our way.
 Now we're back in our regular text flow. 

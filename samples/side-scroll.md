@@ -18,13 +18,13 @@ When the image on the right gets to the top of the page, it will stop scrolling,
 
 
 <!-- this is an unclosed div that needs to be closed with ss-close-->
-{% include ss.html
+{% include scrollybox/ss.html
   ss-id="ss1"
   pre-box-space="0"
 %}
 
 
-{% include ss-image.html
+{% include scrollybox/ss-image.html
   image-url="/assets/bg-images/flowers-1.jpg"
   switch-id="switch1"
   ss-id="ss1"
@@ -43,7 +43,7 @@ Duis ut dui dolor. Integer eu lectus at tellus accumsan euismod eget a ligula. M
 
 ### ANOTHER IMAGE
 
-{% include ss-image.html
+{% include scrollybox/ss-image.html
   image-url="/assets/bg-images/flowers-2.jpg"
   switch-id="switch2"
   ss-id="ss1"
@@ -60,7 +60,7 @@ Duis ut dui dolor. Integer eu lectus at tellus accumsan euismod eget a ligula. M
 This is the end of the section, and you should see the text and images scrolling away as the next section scrolls up.
 
 
-{% include ss-close.html %}
+{% include scrollybox/ss-close.html %}
 
 ### And here we go on our way.
 That was fun!
