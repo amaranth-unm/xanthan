@@ -64,7 +64,7 @@ Keep scrolling! This image will set around until the whole image is visible, but
 
 <!--bg images look like they are being revealed; try having image that comes up and moves away and can lock into place.-->
 
-{% include bg.html
+{% include scrollybox/bg.html
   height="100"
   image-url="/assets/bg-images/image_3.jpg"
 %}
@@ -100,7 +100,7 @@ You may have noticed that the last section heading was "fixed" to the scrolling 
 
 We can set also the create the effect of the header revealing parts of a larger image as is happening below (also with or without a section heading):
 
-{% include bg.html
+{% include scrollybox/bg.html
   height="40"
   image-url="/assets/bg-images/pano-1.jpg"
   title="Section Heading"
