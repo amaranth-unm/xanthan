@@ -1,25 +1,84 @@
 ---
+title: Directory
 layout: base
-title: Directory Pages
-author: Fred Gibbs
-date: 2019-10-03
+date: 2024-10-26
+cards: 
+  - title: "Feasting with the Gods: Rituals and Symbolism in Viking Foodways"
+    card-image: https://viking.style/wp-content/uploads/2024/04/galileus2505_During_Viking_seasonal_celebrations_Viking_feasts__d22f4d95-2b9b-4521-8933-4277c04de6e0.jpg
+    card-blurb: This chapter explores the ceremonial and religious aspects of food in Viking society, examining feasts, sacrificial offerings, and mythological references to food and drink in Norse texts.
+    card-link: "thesis/chapter-1"
+
+  - title: "From Fjord to Farm: Everyday Diets and Ingredients"
+    card-image: "https://www.hurstwic.org/history/articles/daily_living/pix/jonsbok_whale_flensing_illumination.jpg"
+    card-blurb: Focusing on the archaeological and environmental evidence, this chapter reconstructs the daily diet of the Viking Age, highlighting key ingredients, farming practices, and seasonal food cycles.
+    card-link: "thesis/chapter-2"
 ---
 
-# {{page.title}}
 
-<!--
-### Table of Contents
-* TOC
-{:toc}
--->
+# Directory
 
-There are two kinds of directory pages, which you can find in your home folder:
+It's easy to make a basic grid of "cards" to link to pages on your site.
 
-## directory-gs
-The [directory-gs](directory-gs) page shows how to create directory cards where the data comes from a Google Sheet. This is good for when there are many people creating their own cards at once, or for directory pages with lots of cards.
+There are a few ways to get data on to the cards:
+- From the data in the page header on the directory page
+- From the data in the headers of individual pages in the same folder
 
-## directory-yml
-The [directory-yml](directory-yml) page shows how to create directory cards where the data comes from the YML header at the top of the page. This is good for when there are only a handful of directory items and don't change very often. 
+Which you use depends on if you're just linking to a few pages that are in different folders, or a group of files in the same folder. Either way, you call the same include file to display the cards, you just send it data from different places.
 
 
-If you want a directory page at all, you'll probably want to rename one or both of these. Of course you can have multiple directory pages for different items.
+## Cards from pages in a folder
+Below, we create a set of cards from data on pages in the `essays folder`. First we define a variable called essays that gathers all the metadata from the pages in the essays folder. Then we pass that to our include file that has the code to generate the cards themselves.
+```
+{%raw%}{% assign essays = site.pages | where_exp: "page", "page.path contains 'essays/'" %}
+
+{% include card-grid.html cards = essays%}{%endraw%}
+```
+
+{% assign essays = site.pages | where_exp: "page", "page.path contains 'essays/'" 
+%}
+
+{% include card-grid.html 
+cards = essays
+%}
+
+All the HTML code that makes the cards follows the standard [Bootstrap card model](https://getbootstrap.com/docs/5.3/components/card/), which makes it easy to adjust the layout following Bootstrap documentation and examples.
+
+
+
+
+## Cards from data on THIS page
+```
+{%raw%}{% assign cards = page.cards %}
+
+{% include card-grid.html cards = cards%}{%endraw%}
+```
+
+{% assign cards = page.cards %}
+
+{% include card-grid.html cards = cards %}
+
+
+
+## A stacked layout
+This works exactly like above, but calls a different include file that present a stack of long, short cards in a vertical display. 
+
+```
+{%raw%} {% assign cards = page.cards %}
+
+{% include card-list.html 
+cards = cards 
+%}{%endraw%}
+
+```
+
+{% assign cards = page.cards %}
+
+{% include card-list.html 
+cards = cards 
+%}
+
+
+## All done
+It's also possible to create a directory through data on an external Google Sheet. See [this page](directory-gs) for an example.
+
+This concludes our card display demo.

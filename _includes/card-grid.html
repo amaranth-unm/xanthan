@@ -1,18 +1,23 @@
+{% assign cards = include.cards %}
+
 <!-- change row-cold-md-2 to 3 or 4 for different number of cols -->
 <div class="row row-cols-1 row-cols-md-2 g-4">
-
-{% for card in page.cards %}
-<div class="col">
-  <div class="card v-card">
-    <a href="{{card.link}}">
-    <img src="{{ card.image }}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h3 class="card-title">{{ card.title }}</h3>
-      <p class="card-text">{{ card.summary }}</p>
+  {% for card in cards %}
+  {% if card.title and card.card-blurb %}
+  <div class="col">
+    <div class="card v-card">
+      {% assign card_href = card.link | default: card.url %}
+      <a href="{{ card_href }}">
+        {% if card.card-image %}
+        <img src="{{ card.dir }}{{ card.card-image }}" class="card-img-top" alt="...">
+        {% endif %}
+        <div class="card-body">
+          <h3 class="card-title">{{ card.title }}</h3>
+          <p class="card-text">{{ card.card-blurb }}</p>
+        </div>
+      </a>
     </div>
-    </a>
   </div>
-</div>
-{% endfor %}
-
+  {% endif %}
+  {% endfor %}
 </div>

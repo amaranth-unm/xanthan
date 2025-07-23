@@ -55,7 +55,7 @@ function createCard(i,page) {
     rowString += '<div class="col">';
     rowString += '<div class="card v-card">';
     rowString += '<a href="sites/'+filename+'">';
-    rowString += '<img class="card-img-top" src="/essays/sample-essay/images/' + page.image + '" alt="Essay image">';
+    rowString += '<img class="card-img-top" src="/assets/images/' + page.image + '" alt="Essay image">';
     rowString += '<div class="card-body">';
     rowString += '<h3 class="card-title">' + page.title + '</h3>';
     rowString += '<p class="card-text">' + page.description + '</p>';

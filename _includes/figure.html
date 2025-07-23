@@ -1,19 +1,8 @@
-{% if include.abs-image-url %}
-  {% capture img-url %}
-    {{ site.baseurl }}{{ include.abs-image-url }}
-  {% endcapture %}
+{% capture img_url %}
+{% include image-path.html abs-image-url=include.abs-image-url image-url=include.image-url %}
+{% endcapture %}
 
-{% elsif include.essay-image-url %}
-  {% capture img-url %}
-    {{ site.baseurl }}{{site.essay-images}}/{{ include.image-url }}
-  {% endcapture %}
-
-{% else %}
-  {% capture img-url %}
-    {{ site.baseurl }}/assets/images/{{ include.image-url }}
-  {% endcapture %}
-{% endif %}
-
+{% assign img_url = img_url | strip %}
 
 {% if include.source-url %}
 
@@ -30,7 +19,7 @@
 {% endif %}
 
 <figure class="{{ include.class }}" style="width: {{ include.width | default: '40%' }}">
-  <a class="image" href="{{ img-url }}"><img src="{{ img-url }}" alt="{{ include.caption }}" width="100%"></a>
+  <a class="image" href="{{ img_url }}"><img src="{{ img_url }}" alt="{{ include.caption }}" width="100%"></a>
 
 <figcaption class="{{ include.class }}">
   {{ full-caption }}

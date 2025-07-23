@@ -1,12 +1,14 @@
 ---
-title: mesa-vista-hall
+title: Mesa Vista Hall
 author: Fred Gibbs
-layout: unm-base
-date: 2015-04-14
+layout: base
+date: 2025-07-21
 header-image: images/mvh-construction.jpg
+card-image: images/mvh-construction.jpg
+card-blurb: Originally a men's dormitory, this iconic building has become home to several academic departments, programs, and services.
 header-title: Mesa Vista Hall 
 header-height: 50vh
-background-position: 20px
+background-position: 0px
 ---
 
 ## A Sample Essay
@@ -14,7 +16,12 @@ This essay shows the kinds of essay elements you can employ on your essay pages.
 
 
 ## Second heading
-{% include figure.html class="img-right" width="48%" caption="Mauris dolor ante, vehicula a turpis at, finibus suscipit mauris. [Source](https://rmoa.unm.edu/docviewer.php?docId=nmu1unma028.xml)" src="images/mvh-history-stays.jpg" %}
+{% include figure.html 
+class="img-right" 
+width="48%" 
+caption="Mauris dolor ante, vehicula a turpis at, finibus suscipit mauris. [Source](https://rmoa.unm.edu/docviewer.php?docId=nmu1unma028.xml)" 
+image-url="images/mvh-history-stays.jpg" 
+%}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium, nibh vel posuere pretium, neque ipsum maximus libero, ac maximus quam ante sit amet dolor. Integer pharetra semper sem sed sagittis. Curabitur mauris tortor, elementum non felis id, hendrerit efficitur metus. Praesent libero mi, pharetra vel neque sit amet, elementum tempor purus.[^note1]
 
@@ -97,7 +104,7 @@ This is the end of the story, and you should see the text box scroll out of view
 
 
 ## Duis vehicula erat et diam
-{% include figure.html class="img-right" width="60%" caption="Duis in sagittis arcu. Donec dictum aliquam congue. [Source](https://rmoa.unm.edu/docviewer.php?docId=nmu1unma028.xml)" src="images/mvh-floorplan.jpg" %}
+{% include figure.html class="img-right" width="60%" caption="Duis in sagittis arcu. Donec dictum aliquam congue. [Source](https://rmoa.unm.edu/docviewer.php?docId=nmu1unma028.xml)" image-url="images/mvh-floorplan.jpg" %}
 
 Duis ut dui dolor. Integer eu lectus at tellus accumsan euismod eget a ligula. Morbi venenatis, elit eu varius fermentum, ligula est dictum massa, sit amet ullamcorper augue nisl ut nunc. Integer placerat vitae metus vitae faucibus. Pellentesque consectetur augue ac volutpat dignissim. Sed laoreet congue ligula sit amet vestibulum. Duis vehicula erat et diam pharetra iaculis. Etiam rutrum scelerisque nunc, ut interdum justo pellentesque sit amet. Vivamus cursus massa mauris, a finibus felis laoreet quis. Integer vel molestie neque. Quisque in ipsum eget dui mattis efficitur sed in diam. In odio sem, tincidunt non venenatis a, consequat sed ligula.
 

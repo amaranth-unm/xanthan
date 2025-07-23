@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
-  {% include header-default.html %}
+  {% include page-header.html %}
 
   <body>
 
     {% include nav.html %}
 
-    {% include bottom-js.html %}
+    {% include page-js.html %}
 
     <script src="{{site.baseurl}}/assets/js/sheetrock.min.js"></script>
     <script src="{{site.baseurl}}/assets/js/directory.js"></script>
