@@ -1,5 +1,7 @@
-{% if include.abs-image-url %}
-  {{ site.baseurl }}{{ include.abs-image-url }}
-{% else %}
-  {{ include.image-url }}
+{% if include.image-url %}
+  {% if include.image-url | slice: 0, 1 == '/' %}
+    {{ site.baseurl }}{{ include.image-url }}
+  {% else %}
+    {{ include.image-url }}
+  {% endif %}
 {% endif %}

@@ -1,15 +1,19 @@
 {% assign carousel_id = include.id | default: 'carouselExample' %}
-<div id="{{ carousel_id }}" class="carousel slide {{ include.class }}" style="width: {{ include.width | default: '100%' }};">
+<div id="{{ carousel_id }}" class="carousel slide {{ include.class }}"
+  style="width: {{ include.width | default: '100%' }};">
   <div class="carousel-inner">
     {% for image in include.images %}
-      <div class="carousel-item {% if forloop.first %}active{% endif %}">
-        <img src="{{image}}" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          {% assign index = forloop.index | minus: 1 %}          
-          <h5>{{ include.headers[index] }}</h5>
-          <p>{{ include.captions[index] }}</p>
-        </div>
+    {% capture img_url %}
+    {% include image-path.html image-url=image %}
+    {% endcapture %}
+    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+      <img src="{{ img_url | strip }}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        {% assign index = forloop.index | minus: 1 %}
+        <h5>{{ include.headers[index] }}</h5>
+        <p>{{ include.captions[index] }}</p>
       </div>
+    </div>
     {% endfor %}
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#{{ carousel_id }}" data-bs-slide="prev">

@@ -6,7 +6,7 @@ date: 2024-10-24
 
 {% include jumbotron.html
   height="60"
-  abs-image-url="/assets/bg-images/pano-1.jpg"
+  image-url="/assets/bg-images/pano-1.jpg"
   title="Image Examples"
 %}
 
@@ -16,8 +16,9 @@ We use a small include file called `figure.html` to help format our images consi
 - class: `img-left`,  `img-center`, `img-right`
 - width: specify a value for the width, usually as a percent of the page with
 - caption: self-explanatory
-- image-url: a RELATIVE path to your image, usually for pages with their own `images` folder
-- abs-image-url: an ABSOLUTE path to your image, which means the path starts with a `/` and begins from the root folder of your website. 
+- image-url: a path to your image
+  - Your path will often look like `images/filename.jpg`. This is a "relative" path because the image location is RELATIVE to the page on which you're trying to load the image.
+  - You can also use an ABSOLUTE path to your image, which means the path starts with a `/` and begins from the root folder of your website. 
 
 ```
 {%raw%}
@@ -25,7 +26,7 @@ We use a small include file called `figure.html` to help format our images consi
   class="img-right"
   width="60%"
   caption="What a nice view"
-  abs-image-url="/assets/bg-images/hike-1.jpg"
+  image-url="/assets/bg-images/hike-1.jpg"
 %}
 {%endraw%}
 ```
@@ -39,7 +40,7 @@ It's easy to place images in your story, ones are "fixed" to the page and move a
   class="img-right"
   width="60%"
   caption="What a nice view"
-  abs-image-url="/assets/bg-images/hike-1.jpg"
+  image-url="/assets/bg-images/hike-1.jpg"
 %}
 
 ### You can have them off to the right.
@@ -53,7 +54,7 @@ In hac habitasse platea dictumst. Sed ultrices venenatis nunc et eleifend. Praes
   class="img-left"
   width="30%"
   caption="What a nice view, again"
-  abs-image-url="/assets/bg-images/hike-1.jpg"
+  image-url="/assets/bg-images/hike-1.jpg"
 %}
 
 ### You can have them off to the left. You can control the width.
@@ -79,14 +80,14 @@ To achieve two images side by side use, make sure the width for each is 48%. (It
 class="img-left"
 width="48%"
 caption="Here's an image on the left."
-abs-image-url="/assets/images/default.jpg"
+image-url="/assets/images/default.jpg"
 %}
 
 {% include figure.html
 class="img-left"
 width="48%"
 caption="Here's an image on the right."
-abs-image-url="/assets/images/default.jpg"
+image-url="/assets/images/default.jpg"
 %}
 ```
 {%endraw%}
@@ -117,7 +118,7 @@ In that case, go jumbo! You can make an image be the whole width of the browser 
 
 {% include jumbotron.html
   height="50"
-  abs-image-url="/assets/images/default.jpg"
+  image-url="/assets/images/default.jpg"
   title=""
 %}
 
@@ -135,16 +136,16 @@ It's easy to set up a slider to compare historic and contemporary photos. If you
 
 
 {% include juxtapose.html
-image1="images/mvh-tv-room.jpg"
-image2="images/mvh-hist-common-room.jpg"
+image1="/essays/mesa-vista-hall/images/mvh-tv-room.jpg"
+image2="/essays/mesa-vista-hall/images/mvh-hist-common-room.jpg"
 caption="From the TV room to the Chair room (actually, the History Department Common Room). With a less good view of the mountains."
 %}
 
 
 ```
 {%raw%}{% include juxtapose.html
-image1="images/kimo-1928.jpg"
-image2="images/kimo-1938.jpg"
+image1="/essays/mesa-vista-hall/images/mvh-tv-room.jpg"
+image2="/essays/mesa-vista-hall/images/mvh-hist-common-room.jpg"
 caption="These sliders are way more effective the more closely you line up the before and after images."
 %}{%endraw%}
 ```
@@ -165,9 +166,9 @@ You can use `width` and `class` like figures to size and position your carousel.
 
 {% 
 assign images = 
-"images/mvh-construction.jpg,
-images/mvh-room-cost.jpg,
-images/mvh-tv-room.jpg" | split: ','
+"/essays/mesa-vista-hall/images/mvh-construction.jpg,
+/essays/mesa-vista-hall/images/mvh-room-cost.jpg,
+/essays/mesa-vista-hall/images/mvh-tv-room.jpg" | split: ','
 %}
 
 {% 
@@ -202,9 +203,9 @@ The following code generates the slide deck above. Be sure to just copy and past
 ```
 {%raw%}{% 
 assign images = 
-"images/mvh-construction.jpg,
-images/mvh-room-cost.jpg,
-images/mvh-tv-room.jpg" | split: ','
+"/essays/mesa-vista-hall/images/mvh-construction.jpg,
+/essays/mesa-vista-hall/images/mvh-room-cost.jpg,
+/essays/mesa-vista-hall/images/mvh-tv-room.jpg" | split: ','
 %}
 
 {% 
