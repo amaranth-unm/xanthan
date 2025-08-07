@@ -79,6 +79,4 @@ cards = cards
 
 
 ## All done
-It's also possible to create a directory through data on an external Google Sheet. See [this page](directory-gs) for an example.
-
 This concludes our card display demo.
