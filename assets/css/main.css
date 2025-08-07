@@ -156,6 +156,62 @@ li ul li {
 }
 
 
+/*****************************************************
+PODCASTS
+*****************************************************/
+
+/* Add to your main.css or podcasts.css */
+.profile-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.profile-photo {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 2rem;
+  border: 2px solid #eee;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-name {
+  font-size: 2rem;
+  margin: 0;
+  color: #222;
+}
+
+.profile-role {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+.profile-location {
+  font-size: 1rem;
+  color: #888;
+}
+
+.profile-bio {
+  margin-bottom: 2rem;
+  color: #444;
+}
+
 
 /*****************************************************
 PULLQUOTES
