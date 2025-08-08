@@ -8,12 +8,7 @@
     <div class="card v-card">
       {% assign card_href = card.link | default: card.url %}
       <a href="{{ card_href }}">
-        {% if card.thumbnail %}
-        {% capture img_url %}
-        {% include image-path.html image-path=card.thumbnail %}
-        {% endcapture %}
-        {% assign img_url = img_url | strip %}
-        <img src="{{ img_url }}" class="card-img-top" alt="...">
+        <img src="{{site.baseurl}}{{ card.dir }}{{ card.thumbnail }}" class="card-img-top" alt="...">
         {% endif %}
         <div class="card-body">
           <h3 class="card-title">{{ card.title }}</h3>

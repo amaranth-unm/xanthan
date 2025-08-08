@@ -5,14 +5,8 @@
   {% assign card_href = card.link | default: card.url %}
   <a href="{{ card.href }}">
     <div class="row g-0">
-      <div class="col-sm-4">
-        {% if card.thumbnail %}
-        {% capture img_url %}
-        {% include image-path.html image-path=card.thumbnail %}
-        {% endcapture %}
-        {% assign img_url = img_url | strip %}
-        <img src="{{ img_url }}" class="img-fluid rounded-start card-image" alt="...">
-        {% endif %}
+      <div class="col-sm-4">                
+        <img src="{{site.baseurl}}{{ card.dir }}{{ card.thumbnail }}" class="img-fluid rounded-start card-image" alt="...">
       </div>
       <div class="col-sm-8">
         <div class="card-body">
