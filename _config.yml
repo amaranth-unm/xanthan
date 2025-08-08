@@ -1,5 +1,7 @@
 port: 4001
 
+baseurl: xanthan/
+
 essay-images: /essays/images
 
 defaults:
