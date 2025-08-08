@@ -5,16 +5,16 @@ date: 2024-12-02
 ---
 
 
+# Your home page
+
 {% include figure.html
-  class="img-right"
+  class="right"
   width="33%"
   caption="Xanthan chemical structure"
-  image-url="assets/images/Xanthan.svg"
+  image-path="/assets/images/Xanthan.svg"
   source-url="https://commons.wikimedia.org/wiki/File:Xanthan.svg"
 %}
 
-
-# Your home page
 
 This is your home page! It's the `index.md` file in your repository.
 
