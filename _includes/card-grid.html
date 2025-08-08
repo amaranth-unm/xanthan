@@ -8,8 +8,7 @@
     <div class="card v-card">
       {% assign card_href = card.link | default: card.url %}
       <a href="{{ card_href }}">
-        <img src="{{site.baseurl}}{{ card.dir }}{{ card.thumbnail }}" class="card-img-top" alt="...">
-        {% endif %}
+        <img src="{{site.baseurl}}{{ card.dir }}{{ card.thumbnail }}" class="card-img-top" alt="...">      
         <div class="card-body">
           <h3 class="card-title">{{ card.title }}</h3>
           <p class="card-text">{{ card.summary }}</p>
