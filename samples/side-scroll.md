@@ -25,7 +25,7 @@ When the image on the right gets to the top of the page, it will stop scrolling,
 
 
 {% include scrollybox/bg-ss-image.html
-  image-url="/assets/bg-images/flowers-1.jpg"
+  image-path="/assets/images/backgrounds/flowers-1.jpg"
   switch-id="switch1"
   ss-id="ss1"
 %}
@@ -44,7 +44,7 @@ Duis ut dui dolor. Integer eu lectus at tellus accumsan euismod eget a ligula. M
 ### ANOTHER IMAGE
 
 {% include scrollybox/bg-ss-image.html
-  image-url="/assets/bg-images/flowers-2.jpg"
+  image-path="/assets/images/backgrounds/flowers-2.jpg"
   switch-id="switch2"
   ss-id="ss1"
 %}

@@ -1,0 +1,37 @@
+<!-- Single Podcast Display Include 
+Expected input: podcast (single podcast page with yml data as indicated below)
+-->
+<div class="col">
+  <div class="profile-container">
+    <div class="profile-header">
+      {% if include.podcast.image %}
+      <img src="{{ include.podcast.image | relative_url }}" alt="{{ include.podcast.title }}" class="profile-photo">
+      {% endif %}
+      <div class="profile-info">
+        <h2 class="profile-name">
+          <a href="{{ include.podcast.url | relative_url }}">{{ include.podcast.title }}</a>
+        </h2>
+        {% if include.podcast.role %}
+        <h3 class="profile-role">{{ include.podcast.role }}</h3>
+        {% endif %}
+        {% if include.podcast.location %}
+        <p class="profile-location">{{ include.podcast.location }}</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="profile-bio">
+      {% if include.podcast.summary %}
+      <p>{{ include.podcast.summary }}</p>
+      {% endif %}
+      <!-- Display tags if they exist -->
+      {% if include.podcast.tags %}
+      <div class="tags">
+        {% for tag in include.podcast.tags %}
+          <span class="badge bg-secondary me-1">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <!-- Optionally show excerpt or more details -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+{% for section in site.data.nav-sections.sections %}
+
+{% if {{section.display}} != 'none'}} %}
+<h2 class="navigation-section">{{section.display}}</h2>
+{% endif %}
+
+{% assign pages = site.pages | sort: 'order' %}
+
+<ul>
+  {% for page in pages %}
+    {% if page.toc-section == section.name %}
+      <li class="navigation-list-item {% if page.url == page.url %}active{% endif %}">
+        <a href="{{site.baseurl}}{{page.url}}">{{ page.title }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+
+{% endfor %}

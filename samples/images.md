@@ -2,31 +2,26 @@
 title: Image Examples
 layout: base
 date: 2024-10-24
+header-image: /assets/images/backgrounds/lake-1.jpg 
 ---
-
-{% include jumbotron.html
-  height="60"
-  image-url="/assets/bg-images/pano-1.jpg"
-  title="Image Examples"
-%}
 
 We use a small include file called `figure.html` to help format our images consistently across different pages. You can copy and paste this code and put it anywhere you want an image. The gray box below shows the code you can use, and the rest of the page provides further examples and a few other image tools, like an image carousel and a before/after slider for comparing two images.
 
  A few formatting options for basic images:
-- class: `img-left`,  `img-center`, `img-right`
+- class: `left`,  `center`, `right`
 - width: specify a value for the width, usually as a percent of the page with
 - caption: self-explanatory
-- image-url: a path to your image
+- image-path: a path to your image
   - Your path will often look like `images/filename.jpg`. This is a "relative" path because the image location is RELATIVE to the page on which you're trying to load the image.
   - You can also use an ABSOLUTE path to your image, which means the path starts with a `/` and begins from the root folder of your website. 
 
 ```
 {%raw%}
 {% include figure.html
-  class="img-right"
+  class="right"
   width="60%"
   caption="What a nice view"
-  image-url="/assets/bg-images/hike-1.jpg"
+  image-path="/assets/images/backgrounds/hike-1.jpg"
 %}
 {%endraw%}
 ```
@@ -40,7 +35,7 @@ It's easy to place images in your story, ones are "fixed" to the page and move a
   class="img-right"
   width="60%"
   caption="What a nice view"
-  image-url="/assets/bg-images/hike-1.jpg"
+  image-path="/assets/images/backgrounds/hike-1.jpg"
 %}
 
 ### You can have them off to the right.
@@ -54,7 +49,7 @@ In hac habitasse platea dictumst. Sed ultrices venenatis nunc et eleifend. Praes
   class="img-left"
   width="30%"
   caption="What a nice view, again"
-  image-url="/assets/bg-images/hike-1.jpg"
+  image-path="/assets/images/backgrounds/hike-1.jpg"
 %}
 
 ### You can have them off to the left. You can control the width.
@@ -67,9 +62,9 @@ In hac habitasse platea dictumst. Sed ultrices venenatis nunc et eleifend. Praes
 ### Side by side
 To achieve two images side by side use, make sure the width for each is 48%. (It's less than 50% to make room for margins.)
 
-{% include figure.html class="img-left" width="48%" abs-image-url="/assets/images/default.jpg" caption="Here's an image on the left."%}
+{% include figure.html class="left" width="48%" image-path="/assets/images/default.jpg" caption="Here's an image on the left."%}
 
-{% include figure.html class="img-left" width="48%" abs-image-url="/assets/images/default.jpg" caption="Here's an image on the right."%}
+{% include figure.html class="left" width="48%" abs-image-path="/assets/images/default.jpg" caption="Here's an image on the right."%}
 
 <p style="clear:both"></p>
 
@@ -77,17 +72,17 @@ To achieve two images side by side use, make sure the width for each is 48%. (It
 {%raw%}
 ```
 {% include figure.html
-class="img-left"
+class="left"
 width="48%"
 caption="Here's an image on the left."
-image-url="/assets/images/default.jpg"
+image-path="/assets/images/default.jpg"
 %}
 
 {% include figure.html
-class="img-left"
+class="left"
 width="48%"
 caption="Here's an image on the right."
-image-url="/assets/images/default.jpg"
+image-path="/assets/images/default.jpg"
 %}
 ```
 {%endraw%}
@@ -96,16 +91,16 @@ image-url="/assets/images/default.jpg"
 ### Full-width
 Of course you can have the image take 100% of the page container, but make sure you're image is large enough to look nice. Unlike the below example.
 
-{% include figure.html class="img-center" width="100%" caption="Make sure your image is large enough to be 100% width or it will look grainy. See above."  abs-image-url="/assets/images/default.jpg" %}
+{% include figure.html class="center" width="100%" caption="Make sure your image is large enough to be 100% width or it will look grainy. See above."  image-path="/assets/images/default.jpg" %}
 
 
 {%raw%}
 ```
 {% include figure.html
-  class="img-center"
+  class="center"
   width="100%"
   caption="Make sure your image is large enough to be 100% width or it will look grainy. See above."
-  image-url="images/default.jpg" %}
+  image-path="/assets/images/default.jpg" %}
 ```
 {%endraw%}
 
@@ -118,14 +113,14 @@ In that case, go jumbo! You can make an image be the whole width of the browser 
 
 {% include jumbotron.html
   height="50"
-  image-url="/assets/images/default.jpg"
+  image-path="/assets/images/default.jpg"
   title=""
 %}
 
 ```
 {%raw%}{% include jumbotron.html
   height="50"
-  image-url="images/default.jpg"
+  image-path="/assets/images/default.jpg"
   title=""
 %}{%endraw%}
 ```
@@ -136,16 +131,16 @@ It's easy to set up a slider to compare historic and contemporary photos. If you
 
 
 {% include juxtapose.html
-image1="/essays/mesa-vista-hall/images/mvh-tv-room.jpg"
-image2="/essays/mesa-vista-hall/images/mvh-hist-common-room.jpg"
+image1="/essays/forest/images/mvh-tv-room.jpg"
+image2="/essays/forest/images/mvh-hist-common-room.jpg"
 caption="From the TV room to the Chair room (actually, the History Department Common Room). With a less good view of the mountains."
 %}
 
 
 ```
 {%raw%}{% include juxtapose.html
-image1="/essays/mesa-vista-hall/images/mvh-tv-room.jpg"
-image2="/essays/mesa-vista-hall/images/mvh-hist-common-room.jpg"
+image1="/essays/forest/images/mvh-tv-room.jpg"
+image2="/essays/forest/images/mvh-hist-common-room.jpg"
 caption="These sliders are way more effective the more closely you line up the before and after images."
 %}{%endraw%}
 ```
@@ -229,37 +224,6 @@ headers = headers
 captions = captions 
 %}{%endraw%}
 ```
-
-
-
-
-
-
-
-## Section Header Images
-We've already seen the the jumbotron image that you can use as a section divider. 
-
-You can also add a title and subtitle to make more of a section header.
-
-{% include jumbotron.html
-  height="30"
-  image-url="/assets/bg-images/pano-1.jpg"
-  title="Section Heading"
-  subtitle="Your subtitle goes here"
-%}
-
-
-##  Peekaboo Headers
-You may have noticed that the last section heading was "fixed" to the scrolling page and scrolled past out of view with the text. 
-
-We can set also the create the effect of the header revealing parts of a larger image as is happening below (also with or without a section heading):
-
-{% include scrollybox/bg.html
-  height="40"
-  image-url="/assets/bg-images/pano-1.jpg"
-  title="Section Heading"
-%}
-
 
 
 ## That's a wrap 

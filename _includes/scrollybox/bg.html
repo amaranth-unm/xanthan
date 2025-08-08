@@ -1,8 +1,15 @@
+{% capture image-path %}
+{% include image-path.html image-path=include.image-path %}
+{% endcapture %}
+
+{% assign image-path = image-path | strip %}
+
+
 {::nomarkdown}
 </div>
 {:/nomarkdown}
 
-<div class="bg-image" style="background-image: url('{{ site.baseurl}}{{ include.image-url }}'); height: {{ include.height }}vh">
+<div class="bg-image" style="background-image: url('{{ image-path }}'); height: {{ include.height }}">
   <h1 id="page-title">{{ include.title}}</h1>
   <h2 id="page-subtitle">{{ include.text }}</h2>
 

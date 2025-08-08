@@ -4,7 +4,7 @@
   <div class="carousel-inner">
     {% for image in include.images %}
     {% capture img_url %}
-    {% include image-path.html image-url=image %}
+    {% include image-path.html image-path=image %}
     {% endcapture %}
     <div class="carousel-item {% if forloop.first %}active{% endif %}">
       <img src="{{ img_url | strip }}" class="d-block w-100" alt="...">

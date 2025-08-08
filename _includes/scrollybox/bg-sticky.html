@@ -1,3 +1,9 @@
+{% capture image-path %}
+{% include image-path.html image-path=include.image-path %}
+{% endcapture %}
+
+{% assign image-path = image-path | strip %}
+
 {::nomarkdown}
 </div>
 {:/nomarkdown}
@@ -5,7 +11,7 @@
 
 <div class="sticky_bg_container">
   <div class="sticky_bg"
-    style="background-image: url('{{ site.baseurl}}{{ include.image-url }}'); height: {{ include.height }}">
+    style="background-image: url('{{ image-path }}'); height: {{ include.height }}">
   </div>
 
   {% if include.box-content %}

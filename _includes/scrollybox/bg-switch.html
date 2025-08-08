@@ -1,5 +1,11 @@
+{% capture image-path %}
+{% include image-path.html image-path=include.image-path %}
+{% endcapture %}
+
+{% assign image-path = image-path | strip %}
+
 <div class="bg-switch" id="{{ include.switch-id }}"
-    style="background-image: url('{{site.baseurl}}{{include.image-url}}')">
+    style="background-image: url('{{image-path}}')">
 </div>
 
 <script>

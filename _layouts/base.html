@@ -4,33 +4,29 @@
   {% include page-header.html %}
 
   <body>
-
     
-
-    {% include nav.html %}
-
+    {% include nav-top.html %}
 
     {% assign headerimage = page.header-image %}
     {% assign headertitle = page.header-title %}
     {% assign headerheight = page.header-height %}
-    {% assign backgroundposition = page.background-position %}
+    {% assign headerposition = page.header-position %}
     
     {% if headerimage %}
     
-    {% include essay-header.html
-    height = headerheight
-    image-url = headerimage
-    title = headertitle
-    background-position = backgroundposition
-    %}
+      {% include header-image.html
+        image-path = headerimage
+        title = headertitle
+        height = headerheight                
+        background-position = headerposition
+      %}
     
     {% endif %}
 
 
     <div class="container">
       {{ content }}
-    </div> <!-- /main -->
-
+    </div> <!-- /container -->
 
     {% if jekyll.environment == 'production' and site.analytics_id %}{% include google_analytics.html %}{% endif %}
 

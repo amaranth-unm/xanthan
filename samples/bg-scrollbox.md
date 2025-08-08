@@ -2,14 +2,11 @@
 title: Getting Started
 layout: base
 date: 2024-10-24
+header-image: /assets/images/backgrounds/flowers-3.jpg
 ---
 
-{% include jumbotron.html
-  height="50"
-  abs-image-url="/assets/bg-images/flowers-3.jpg"
-  title="Background scroll boxes"
-%}
 
+# Background Scroll Boxes
 
 ## Revealed images
 Fixed images move along with scrolling, but sometimes it's fun to have a background image be revealed as the reader scrolls down the page.
@@ -24,7 +21,7 @@ Keep scrolling! This image will set around until the whole image is visible, but
 
 {% include scrollybox/bg.html
   height="100"
-  image-url="/assets/bg-images/image_3.jpg"
+  image-path="/assets/images/backgrounds/image_3.jpg"
 %}
 
 
@@ -50,7 +47,7 @@ Nunc posuere metus quis tempus dapibus. Sed hendrerit dapibus risus, gravida lac
 
 {% include scrollybox/bg.html
   height="220"
-  image-url="/assets/bg-images/hike-3.jpg"
+  image-path="/assets/images/backgrounds/hike-3.jpg"
   pre-box-space="100"
   box-content=" 
        See, there is a text box scrolling by, visible after the whole background came into view. Once this text box scrolls off the top of the page, you'll start to see the next section emerge at the bottom of the screen."
@@ -69,7 +66,7 @@ The image freeze it when it gets to the top of the viewport, and a textbox can s
 
 {% include scrollybox/bg-sticky.html
   height="100vh"
-  image-url="/assets/bg-images/hike-4.jpg"
+  image-path="/assets/images/backgrounds/hike-4.jpg"
   pre-box-space="100vh"
   box-content="
        This text box is scrolling. And as soon as it leaves the viewport, the background image will begin to scroll away. 

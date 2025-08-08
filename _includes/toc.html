@@ -1,0 +1,20 @@
+{% assign rows = include.rows %}
+
+{% for row in rows %}
+<div class="toc-row">
+  {% assign link = row.link | default: row.url %}
+  <a href="{{ link }}">
+    <div class="row g-0">
+      <div class="col-sm-4">
+        <!-- <img src="{{ row.dir }}{{ row.thumbnail }}" class="img-fluid rounded-start card-image" alt="..."> -->
+      </div>
+      <div class="col-sm-12">
+        <div class="card-body">
+            <h3 class="card-title">{{ row.title }}</h3>
+            <p class="card-text"> {{ row.summary }} </p>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+{% endfor %}

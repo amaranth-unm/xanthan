@@ -30,6 +30,22 @@ html, body {
   clear:both;
 }
 
+.page-content h1 {
+  font-family: 'Abril Fatface', sans-serif;
+  color: #333;
+  font-size: 2.5rem;
+  text-align: left;
+  margin-bottom: 1em;
+}
+
+.page-content h2 {
+  font-family: 'Abril Fatface', sans-serif;
+  color: #555;
+  font-size: 1.8rem;
+  text-align: left;
+  margin-bottom: 1em;
+}
+
 
 /*****************************************************
 TYPOGRAPHY
@@ -157,6 +173,60 @@ li ul li {
 
 
 /*****************************************************
+ToC ROWS
+*****************************************************/
+
+.toc-row {
+  background: #fff;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  padding-bottom: 1rem;
+  border-bottom:2px solid #eee;
+}
+
+.toc-row a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.toc-row:hover {
+  background-color: #f5f5f5;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.toc-row .row {
+  align-items: center;
+}
+
+.toc-row img.card-image {
+  object-fit: cover;
+  height: 100%;
+  max-height: 16rem;
+  width: 100%;
+}
+
+.toc-row .card-body {
+  padding: 0rem 0rem;
+}
+
+.toc-row .card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.toc-row .card-text {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0;
+}
+
+
+
+/*****************************************************
 PODCASTS
 *****************************************************/
 
@@ -281,20 +351,20 @@ figure {
   /* no bottom padding; handled with caption */
 }
 
-.img-right {
+.right {
   float:right;
   padding:0 0px 0px 2rem;
   text-align:left;
   margin-right:0px;
 }
 
-.img-left {
+.left {
   float:left;
   padding:0 2rem 0px 0px;
   margin-left:0px;
 }
 
-.img-center {
+.center {
   text-align:center;
   margin-left:auto;
   margin-right:auto;
@@ -310,17 +380,17 @@ figcaption {
   line-height: 1.1rem;
 }
 
-figcaption.img-right {
+figcaption.right {
   text-align: justify;
   padding:0 0px 0px 0rem;
 }
 
-figcaption.img-left {
+figcaption.left {
   text-align: justify;
   padding:0;
 }
 
-figcaption.img-center {
+figcaption.center {
   text-align:justify;
   padding:0;
 }
@@ -354,10 +424,6 @@ DIRECTORY CARDS
   opacity:.8;
   min-height: 15rem;
   transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
-}
-
-.v-card {
-  height: 60vh;
 }
 
 

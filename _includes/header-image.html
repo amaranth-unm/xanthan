@@ -9,7 +9,7 @@
  -->
 
 {% capture img_url %}
-{% include image-path.html abs-image-url=include.abs-image-url image-url=include.image-url %}
+{% include image-path.html image-path=include.image-path %}
 {% endcapture %}
 
 {% assign img_url = img_url | strip %}

@@ -38,7 +38,7 @@ When the image gets to the top of the page, it will stop scrolling and a large t
 <!-- this is an unclosed div that needs to be closed with bg-multi-long-close-->
 {% include scrollybox/bg-multi-long.html
   bg-id="bg1"
-  image-url="/assets/bg-images/fish-1.jpg"
+  image-path="/assets/images/backgrounds/fish-1.jpg"
   pre-box-space="0"
 %}
 
@@ -52,7 +52,7 @@ Phasellus rhoncus elit rutrum magna cursus viverra. Cras lobortis pulvinar matti
 ### IMAGE SWITCH HERE 
 
 {% include scrollybox/bg-switch.html
-  image-url="/assets/bg-images/fish-2.jpg"
+  image-path="/assets/images/backgrounds/fish-2.jpg"
   switch-id="switch1"
   bg-id="bg1"
 %}
@@ -63,7 +63,7 @@ Phasellus rhoncus elit rutrum magna cursus viverra. Cras lobortis pulvinar matti
 
 {%raw%} 
 {% include scrollybox/bg-switch.html<br>
-  image-url="/assets/bg-images/fish-3.jpg"<br>
+  image-path="/assets/images/backgrounds/fish-2.jpg"<br>
   switch-id="switch2"<br>
   bg-id="bg1"<br>
 %}
@@ -73,7 +73,7 @@ Phasellus rhoncus elit rutrum magna cursus viverra. Cras lobortis pulvinar matti
 ### IMAGE SWITCH HERE
 
 {% include scrollybox/bg-switch.html
-  image-url="/assets/bg-images/fish-4.jpg"
+  image-path="/assets/images/backgrounds/fish-4.jpg"
   switch-id="switch2"
   bg-id="bg1"
 %}

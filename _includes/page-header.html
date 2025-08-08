@@ -22,7 +22,7 @@
   <link href="{{site.baseurl}}/assets/css/backgrounds.css" rel="stylesheet">
   <link href="{{site.baseurl}}/assets/css/nav.css" rel="stylesheet">
 
-  <!-- if the YAML has a page: somepage.css parameter, load it -->
+  <!-- if the page specifies a page-specific css file in the YAML header (css: my_styles.css), load it -->
   {% if page.css %}
   <link href="{{site.baseurl}}/assets/css/{{page.css}}" rel="stylesheet">
   {% endif %}

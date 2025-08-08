@@ -1,18 +1,17 @@
-{% capture img_url %}
-{% include image-path.html 
-  abs-image-url=include.abs-image-url 
-  image-url=include.image-url 
+{% capture image-path %}
+{% include image-path.html
+  image-path=include.image-path 
 %}
 {% endcapture %}
 
-{% assign img_url = img_url | strip %}
+{% assign img_url = image-path | strip %}
 
 {::nomarkdown}
 </div>
 {:/nomarkdown}
 
 <div class="jumbotron" style="
-      height: {{ include.height }}vh; 
+      height: {{ include.height }}; 
       background-image: url('{{ img_url }}')">
     <h1 id="page-title">{{ include.title}}</h1>
     <h2 id="page-subtitle">{{ include.text }}</h2>

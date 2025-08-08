@@ -46,19 +46,6 @@ All the HTML code that makes the cards follows the standard [Bootstrap card mode
 
 
 
-## Cards from data on THIS page
-```
-{%raw%}{% assign cards = page.cards %}
-
-{% include card-grid.html cards = cards%}{%endraw%}
-```
-
-{% assign cards = page.cards %}
-
-{% include card-grid.html cards = cards %}
-
-
-
 ## A stacked layout
 This works exactly like above, but calls a different include file that present a stack of long, short cards in a vertical display. 
 

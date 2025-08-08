@@ -1,11 +1,15 @@
 ---
-title: Jonathan Seyfried
-role: Host / Producer
+title: My First Podcast
+author: Jonathan Seyfried
 location: Albuquerque, NM
-image: /assets/images/team/froilan-orozco.jpg
-summary: F**Jonathan Seyfried** is a **Ph.D. student** in the **History Department** at the University of New Mexico. He holds a **B.A. in English and Sociology** from the University of Michigan and an **M.A. in Education (Secondary, History)** from Stanford University ([history.unm.edu][1], [ims.unm.edu][2]).
+image: /assets/images/Johann.jpg
+summary: This is my first episode summary. Delicious!
 date: 2025-08-01
-layout: podcast
+layout: base
+tags:
+  - history
+  - technology
+  - education
 ---
 
 **Jonathan Seyfried** is a **Ph.D. student** in the **History Department** at the University of New Mexico. He holds a **B.A. in English and Sociology** from the University of Michigan and an **M.A. in Education (Secondary, History)** from Stanford University ([history.unm.edu][1], [ims.unm.edu][2]).
