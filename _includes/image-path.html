@@ -1,5 +1,6 @@
 {% if include.image-path %}
-  {% if include.image-path | slice: 0, 1 == '/' %}
+  {% assign first_char = include.image-path | slice: 0, 1 %}
+  {% if first_char == '/' %}
     {{ site.baseurl }}{{ include.image-path }}
   {% else %}
     {{ include.image-path }}
