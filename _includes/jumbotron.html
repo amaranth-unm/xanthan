@@ -11,7 +11,7 @@
 {:/nomarkdown}
 
 <div class="jumbotron" style="
-      height: {{ include.height }}; 
+      height: {{ include.height | default: '40vh' }}; 
       background-image: url('{{ img_url }}')">
     <h1 id="page-title">{{ include.title}}</h1>
     <h2 id="page-subtitle">{{ include.text }}</h2>
