@@ -1,12 +1,1 @@
-port: 4001
-
 baseurl: /xanthan/
-
-essay-images: /essays/images
-
-defaults:
-  -
-    scope:
-      path: "essays"
-    values:
-      layout: "base"

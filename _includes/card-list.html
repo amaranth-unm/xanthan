@@ -3,10 +3,14 @@
 {% for card in cards %}
 <div class="card mb-3">
   {% assign card_href = card.link | default: card.url %}
-  <a href="{{ card.href }}">
+  <a href="{{ card_href }}">
     <div class="row g-0">
-      <div class="col-sm-4">                
-        <img src="{{site.baseurl}}{{ card.dir }}{{ card.thumbnail }}" class="img-fluid rounded-start card-image" alt="...">
+      <div class="col-sm-4">
+        {% capture card_image_url %}
+        {% include image-path.html image-path=card.thumbnail %}
+        {% endcapture %}
+        {% assign card_image_url = card_image_url | strip %}
+        <img src="{{ card_image_url }}" class="img-fluid rounded-start card-image" alt="...">
       </div>
       <div class="col-sm-8">
         <div class="card-body">
