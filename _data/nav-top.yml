@@ -48,6 +48,8 @@
       url: "/docs/navigation/top-nav"
     - title: "Cards"
       url: "/docs/navigation/cards"
+    - title: "Tags"
+      url: "/docs/tags"
     - title: "Left Nav Demo"
       url: "/docs/navigation/nav-left-demo"
     - title: "Left Profile Demo"
