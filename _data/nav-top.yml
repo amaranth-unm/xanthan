@@ -34,9 +34,7 @@
     - title: "Colors, Fonts, Themes"
       url: "/docs/content-design/colors-fonts-themes"
     - divider: true
-    - title: "Using AI Assistance"
-      url: "/docs/content-design/using-ai-assistance"
-    - title: "Troubleshooting"
+    - title: "General Troubleshooting"
       url: "/docs/content-design/troubleshooting"
 
 - title: "Navigation"
@@ -57,6 +55,17 @@
 
     - title: "Map"
       url: "/docs/navigation/map"
+
+- title: "Using AI"
+  items:
+    - title: "Using AI Assistance"
+      url: "/docs/content-design/ai-overview"
+    - title: "Tips for Using AI"
+      url: "/docs/content-design/ai-tips"
+    - title: "Examples of AI Assistance"
+      url: "/docs/content-design/ai-examples"
+    - title: "Using AI for Xanthan Design System"
+      url: "/docs/content-design/ai-design-system"
 
 
 - title: "ScrollStories"

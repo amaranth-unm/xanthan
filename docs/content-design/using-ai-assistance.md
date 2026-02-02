@@ -8,7 +8,7 @@ date: 2024-12-30
 
 {% include nav/scrollspy-toc.html %}
 
-If you're working locally with VS Code, you have access to AI coding assistants that can help you customize your site. These tools can translate what you want ("make the spacing bigger") into the actual code changes needed. You don't need to know CSS or HTML—you just need to describe what you want to change.
+If you're working locally with VS Code, you have access to AI coding assistants that can help you customize your site. These tools can translate what you want ("make the spacing bigger") into the code changes needed. You don't need to know CSS or HTML—you just need to describe what you want to change.
 
 ## What AI Assistants Can Do
 
