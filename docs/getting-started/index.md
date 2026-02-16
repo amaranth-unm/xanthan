@@ -1,28 +1,26 @@
 ---
 layout: xanthan
-title: Getting Started
+title: Create Your Site
 date: 2025-10-07
-summary: Learn how to create your Xanthan site in 10 minutes with our step-by-step guide for GitHub Pages hosting.
+summary: Create your Xanthan site in 10 minutes with this step-by-step guide.
 ---
 
-# Getting Started
+# Create Your Site
 
-**Build a project or portfolio website in 10 minutes.** No software installation required—everything happens in your browser. By the end, you'll have a live site and understand how it works well enough to customize it yourself (esp with AI assistance).
+**A live website in 10 minutes.** No software to install—everything happens in your browser. By the end, you'll have a site on the open web and understand how it works well enough to start making it your own.
 
-## What You'll Need
+## What you'll need
 - A free GitHub account (we'll create this in Step 1)
 - A web browser
-- 10-15 minutes
+- 10--15 minutes
 
-**No coding or web experience necessary.** You'll be editing text files and clicking buttons. If you can use Google Docs, you can do this.
+No coding or web experience necessary. You'll be editing text files and clicking buttons.
 
 ---
 
-## Step 1: Choose Your Template
+## Step 1: Choose your template
 
-First, decide what kind of site you're building. Pick the template that matches your project—you can always add features or switch templates later.
-
-**Tip:** Click "View Demo" to see each template in action before choosing. 
+Pick the starting point closest to what you're building. Not sure? See the [template overview](templates) for details on each option, or just start with Portfolio—you can always change direction later.
 
 <style>
 .setup-selector {
@@ -252,9 +250,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Initialize with default option
-  const defaultTemplate = templates.find(t => t.default);
-  updateContent(defaultTemplate.id);
+  // Check for ?template= query parameter (from templates page)
+  const urlParams = new URLSearchParams(window.location.search);
+  const requestedTemplate = urlParams.get('template');
+  if (requestedTemplate && templates.find(t => t.id === requestedTemplate)) {
+    selectTemplate(requestedTemplate);
+  } else {
+    const defaultTemplate = templates.find(t => t.default);
+    updateContent(defaultTemplate.id);
+  }
 });
 </script>
 
@@ -411,50 +415,14 @@ text="
 
 ---
 
-## 🎉 Congratulations! Your Site is Live
+## Your site is live
 
-You just built and deployed a professional website using GitHub Pages. Here's what you accomplished:
+You now have a website on the open web, built from plain text files under your control. Every change you make is versioned---you can always undo mistakes---and the whole thing runs on infrastructure that's free, open, and not going anywhere.
 
-✅ Created a GitHub account and repository
-<br>
-✅ Configured your site settings
-<br>
-✅ Published your first website to the open web
-
-
-### What You've Learned 
-By completing this walkthrough, you now understand:
-
-- **How websites get hosted**: GitHub Pages turns text files into a live site
-- **How version control works**: Every change you make is saved (you can undo mistakes)
-- **How configuration files work**: `_config.yml` controls site-wide settings
-- **The relationship between files and URLs**: Your repository structure becomes your website structure
-
-**Why this matters:** This foundational knowledge lets you work productively with AI assistants. When you ask Claude or ChatGPT to "add a new page" or "change the color scheme," you'll understand what it's doing and be able to evaluate the suggestions.
+This is the same workflow professional developers use daily. The tools are just text files and version control---nothing proprietary, nothing you can't take with you.
 
 ---
 
-## What's Next? Choose Your Own Adventure
+## Next step
 
-### 🗂️ Understand Your Site Structure
-**[Understanding Folders](understanding-folders)** explains how your site is organized and where to find things. Start here if you want to know what each folder does before making changes.
-
-
-### ✏️ Make a Quick Edit
-**[Editing Your Site](editing-in-github)** walks you through changing text, adding pages, and uploading images—all in your browser.
-
-
-### 🎨 Customize the Design
-**[Colors, Fonts, and Themes](../content-design/colors-fonts-themes)** shows you how to change your site's visual appearance to match your project's character.
-
-### 🤖 Get AI Help
-**[Using AI Assistance](../content-design/using-ai-assistance)** teaches you how to work with Claude or ChatGPT to customize faster and solve problems.
-
----
-
-### 💻 Edit Locally (Recommended for longer-term editing)
-**[Editing Locally](editing-locally)** shows you how to get all your website files on your own computer (that's the _local_ part) and edit offline to avoid internet glitches.
-
-
-### 💻 Work Locally (Recommended for power users)
-**[Previewing Locally](previewing-locally)** shows you how to set up a local development environment so you can preview changes before publishing.
+**[Make Your First Edit](first-edit)** --- change something on your site and see it go live.

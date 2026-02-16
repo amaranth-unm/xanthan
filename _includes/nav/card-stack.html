@@ -15,7 +15,7 @@
 
 {% for card in include.cards %}
 {% if card.title and card.title != "" %}
-  {% assign card_image = card.thumbnail | default: card.header-image %}
+  {% assign card_image = card.thumbnail %}
   {% assign card_summary = card.summary | default: card.description | default: card.excerpt | strip_html | truncate: 160 %}
   {% if tag_data and card.tags %}
     {% assign page_tags = card.tags | join: "|" | downcase %}

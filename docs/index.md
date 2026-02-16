@@ -1,38 +1,53 @@
 ---
 title: Documentation
 layout: xanthan
-date: 2026-01-04
+date: 2026-02-14
 summary: Complete documentation for the Xanthan framework
 ---
 
 # Xanthan Documentation
 
-This is the overview to the Xanthan documentation. 
-
 {% assign getting_started = site.pages | where_exp: "page", "page.path contains 'docs/getting-started'" | sort: "order" %}
-{% assign content_design = site.pages | where_exp: "page", "page.path contains 'docs/content-design'" | sort: "order" %}
-{% assign navigation = site.pages | where_exp: "page", "page.path contains 'docs/navigation'" | sort: "order" %}
+{% assign editing = site.pages | where_exp: "page", "page.path contains 'docs/editing'" | sort: "order" %}
+{% assign reference = site.pages | where_exp: "page", "page.path contains 'docs/reference'" | sort: "order" %}
+{% assign using_ai = site.pages | where_exp: "page", "page.path contains 'docs/using-ai'" | sort: "order" %}
 {% assign scrollstories = site.pages | where_exp: "page", "page.path contains 'docs/scrollstories'" | sort: "order" %}
 
 ## Getting Started
+
+From zero to a live site in 15 minutes. Choose a template, create your repository, make your first edit.
 
 {% include nav/card-toc.html rows=getting_started %}
 
 ---
 
-## Content & Design
+## Editing
 
-{% include nav/card-toc.html rows=content_design %}
+Make it yours. Pages, typography, images, colors, navigation---everything you need to customize your site.
+
+{% include nav/card-toc.html rows=editing %}
 
 ---
 
-## Navigation
+## Reference
 
-{% include nav/card-toc.html rows=navigation %}
+Look things up. Site structure, component library, troubleshooting, and color palettes.
+
+{% include nav/card-toc.html rows=reference %}
+
+---
+
+## Using AI
+
+Work with Claude, ChatGPT, or other AI assistants to customize your site faster.
+
+{% include nav/card-toc.html rows=using_ai %}
 
 ---
 
 ## ScrollStories
+
+Build immersive, scroll-driven visual narratives.
 
 {% include nav/card-toc.html rows=scrollstories %}
 
@@ -40,11 +55,5 @@ This is the overview to the Xanthan documentation.
 
 ## Additional Resources
 
-- [Main Xanthan Site](https://xanthan-web.github.io/xanthan/) - Latest documentation and updates
-- [FAQs](/faqs) - Common questions and answers
-- [About Xanthan](/about) - Philosophy and approach
-
----
-
-{: .text-muted}
-**Note:** You can safely delete this `/docs/` folder whenever you want. However, you might keep it for reference and remove the link from your top-nav.
+- [FAQs](/faqs) --- Common questions and answers
+- [About Xanthan](/about) --- Philosophy and approach

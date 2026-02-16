@@ -40,10 +40,16 @@ File names are case-sensitive! Check:
 
 ### 3. Relative vs. Absolute paths
 
-- **Absolute path** starts with `/`: `/assets/images/photo.jpg` (works from any page)
-- **Relative path** has no `/`: `images/photo.jpg` (relative to current page location)
+{% include typography/alert.html
+  class="warning"
+  title="This is the most common image problem"
+  text="Paths can be **absolute** or **relative**, and mixing them up is almost always the issue.
 
-**Recommendation:** Always use absolute paths starting with `/` to avoid confusion.
+- **Absolute path** (starts with `/`): `/assets/images/photo.jpg` --- works from any page, because it starts from the site root. **Use this by default.**
+- **Relative path** (no leading `/`): `images/photo.jpg` --- relative to the current page's folder. A path that works on one page may break on another if the image isn't in the right place relative to that page.
+
+Paths are also case-sensitive: `Photo.jpg` is not the same as `photo.jpg`."
+%}
 
 
 ---

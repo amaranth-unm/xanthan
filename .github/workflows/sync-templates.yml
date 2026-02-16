@@ -61,7 +61,11 @@ jobs:
           rsync -av --delete xanthan-source/assets/css/ portfolio-template/assets/css/
           rsync -av --delete xanthan-source/assets/js/ portfolio-template/assets/js/
           rsync -av --delete xanthan-source/scrollstories/ portfolio-template/scrollstories/
-          rsync -av --delete --exclude='index.md' xanthan-source/docs/ portfolio-template/docs/
+
+          # Sync docs (editing, reference, using-ai, scrollstories, navigation, getting-started)
+          # Exclude only the root index.md — each template has its own docs landing page
+          # Subdirectory index.md files (editing/index.md, reference/index.md, etc.) ARE synced
+          rsync -av --delete --exclude='/index.md' xanthan-source/docs/ portfolio-template/docs/
 
           # Sync shared background images but preserve template-specific images
           rsync -av --delete xanthan-source/assets/images/backgrounds/ portfolio-template/assets/images/backgrounds/ 2>/dev/null || true
@@ -70,8 +74,11 @@ jobs:
           cp xanthan-source/Gemfile portfolio-template/Gemfile
           cp xanthan-source/.gitignore portfolio-template/.gitignore
           cp xanthan-source/CHANGELOG.md portfolio-template/XANTHAN_CHANGELOG.md
-                  
-          # DO NOT sync _config.yml, nav-sections.yml, or top-nav.yml - they are template-specific
+
+          # Sync data files needed by doc pages (nav demos)
+          cp xanthan-source/_data/nav-profile.yml portfolio-template/_data/nav-profile.yml 2>/dev/null || true
+
+          # DO NOT sync _config.yml, nav-sections.yml, or nav-top.yml - they are template-specific
 
           echo "✓ Synced core files to portfolio-template"
 
@@ -151,7 +158,11 @@ jobs:
           rsync -av --delete xanthan-source/assets/css/ scrollstory-template/assets/css/
           rsync -av --delete xanthan-source/assets/js/ scrollstory-template/assets/js/
           rsync -av --delete xanthan-source/scrollstories/ scrollstory-template/scrollstories/
-          rsync -av --delete --exclude='index.md' xanthan-source/docs/ scrollstory-template/docs/
+
+          # Sync docs (editing, reference, using-ai, scrollstories, navigation, getting-started)
+          # Exclude only the root index.md — each template has its own docs landing page
+          # Subdirectory index.md files (editing/index.md, reference/index.md, etc.) ARE synced
+          rsync -av --delete --exclude='/index.md' xanthan-source/docs/ scrollstory-template/docs/
 
           # Sync shared background images but preserve template-specific images
           rsync -av --delete xanthan-source/assets/images/backgrounds/ scrollstory-template/assets/images/backgrounds/ 2>/dev/null || true
@@ -160,11 +171,11 @@ jobs:
           cp xanthan-source/Gemfile scrollstory-template/Gemfile
           cp xanthan-source/.gitignore scrollstory-template/.gitignore
           cp xanthan-source/CHANGELOG.md scrollstory-template/XANTHAN_CHANGELOG.md
-          
-          # Sync sample data files (template-agnostic)
+
+          # Sync data files needed by doc pages (nav demos)
           cp xanthan-source/_data/nav-profile.yml scrollstory-template/_data/nav-profile.yml 2>/dev/null || true
 
-          # DO NOT sync _config.yml, nav-sections.yml, or top-nav.yml - they are template-specific
+          # DO NOT sync _config.yml, nav-sections.yml, or nav-top.yml - they are template-specific
 
           echo "✓ Synced core files to scrollstory-template"
 
@@ -240,7 +251,11 @@ jobs:
           rsync -av --delete xanthan-source/assets/css/ class-project-template/assets/css/
           rsync -av --delete xanthan-source/assets/js/ class-project-template/assets/js/
           rsync -av --delete xanthan-source/scrollstories/ class-project-template/scrollstories/
-          rsync -av --delete --exclude='index.md' xanthan-source/docs/ class-project-template/docs/
+
+          # Sync docs (editing, reference, using-ai, scrollstories, navigation, getting-started)
+          # Exclude only the root index.md — each template has its own docs landing page
+          # Subdirectory index.md files (editing/index.md, reference/index.md, etc.) ARE synced
+          rsync -av --delete --exclude='/index.md' xanthan-source/docs/ class-project-template/docs/
 
           # Sync shared background images but preserve template-specific images
           rsync -av --delete xanthan-source/assets/images/backgrounds/ class-project-template/assets/images/backgrounds/ 2>/dev/null || true
@@ -250,7 +265,10 @@ jobs:
           cp xanthan-source/.gitignore class-project-template/.gitignore
           cp xanthan-source/CHANGELOG.md class-project-template/XANTHAN_CHANGELOG.md
 
-          # DO NOT sync _config.yml or _data/ - they are template-specific
+          # Sync data files needed by doc pages (nav demos)
+          cp xanthan-source/_data/nav-profile.yml class-project-template/_data/nav-profile.yml 2>/dev/null || true
+
+          # DO NOT sync _config.yml, nav-sections.yml, or nav-top.yml - they are template-specific
 
           echo "✓ Synced core files to class-project-template"
 

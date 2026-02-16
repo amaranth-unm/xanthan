@@ -1,11 +1,11 @@
 ---
 layout: xanthan
-title: Understanding Folders
+title: Site Structure
 author: Fred Gibbs
 date: 2019-10-03
 ---
 
-# Understanding Folders
+# Site Structure
 
 Your Xanthan site is organized into folders, each serving a specific purpose. When you look at your repository on GitHub, you'll see these folders and files listed in alphabetical order. Understanding what each folder does will help you know where to find things and where to put your own content.
 
@@ -49,20 +49,10 @@ This is where your site's visual elements live. Inside you'll find:
 
 The assets folder is one you'll interact with frequently—adding images and occasionally tweaking CSS to customize colors or fonts.
 
-### `getting-started/`
-**Getting started guides and tutorials**
+### `docs/`
+**Documentation and guides**
 
-Introductory guides that help you create your site, understand how folders and pages work, and learn to edit both in GitHub and locally. These step-by-step tutorials are designed for first-time users.
-
-### `content-design/`
-**Content and design documentation**
-
-Example pages demonstrating how to use typography, images, headers, colors, and themes. These pages serve as both documentation and copy-paste references showing you how to create rich, visually compelling content.
-
-### `navigation/`
-**Navigation pattern examples**
-
-This folder shows you different ways to organize and present your content—top navigation bars, card grids, sidebar menus, and maps. These pages explain and demonstrate each navigation pattern so you can choose the best approach for your site structure.
+All the documentation for Xanthan, organized into sections: `getting-started/` (setup tutorials), `editing/` (content and customization guides), `reference/` (this page and other lookup resources), `using-ai/` (AI assistance guides), and `scrollstories/` (scrolling narrative documentation). You can safely delete this entire folder when you no longer need the guides—it won't affect your site.
 
 ### `scrollstories/`
 **ScrollStory essay templates**
@@ -121,5 +111,5 @@ Everything else? You'll learn it as you need it. The components, guides, and nav
 
 ## Next Steps
 
-- **[Understanding Pages](understanding-pages)** - Learn how individual page files are structured
-- **[Editing in GitHub](editing-your-site)** - Make your first changes to your site
+- **[Pages & Front Matter](pages-and-front-matter)** - Learn how individual page files are structured
+- **[Editing Workflows](../editing/)** - Make your first changes to your site

@@ -1,72 +1,66 @@
 
 - title: "Getting Started"
   items:
-    - title: "Creating your site"
+    - title: "Choose a Template"
+      url: "/docs/getting-started/templates"
+    - title: "Create Your Site"
       url: "/docs/getting-started/"
-    - title: "Understanding Folders"
-      url: "/docs/getting-started/understanding-folders"
-    - title: "Understanding Pages"
-      url: "/docs/getting-started/understanding-pages"
-    - title: "Editing in GitHub"
-      url: "/docs/getting-started/editing-in-github"
-    - title: "Adding Images in GitHub"
-      url: "/docs/getting-started/adding-images-in-github"
-    - divider: true
-    - title: "Editing Locally"
-      url: "/docs/getting-started/editing-locally"
-    - title: "Previewing Locally"
-      url: "/docs/getting-started/previewing-locally"
+    - title: "Make Your First Edit"
+      url: "/docs/getting-started/first-edit"
+    - title: "Add an Image"
+      url: "/docs/getting-started/add-an-image"
 
-
-- title: "Content & Design"
+- title: "Editing"
   items:
-    - title: "Overview"
-      url: "/docs/content-design/"
+    - title: "Editing Workflows"
+      url: "/docs/editing/"
+
     - divider: true
+
     - title: "Typography"
-      url: "/docs/content-design/typography"
+      url: "/docs/editing/typography"
     - title: "Images"
-      url: "/docs/content-design/images"
+      url: "/docs/editing/images"
     - title: "Media"
-      url: "/docs/content-design/media"
-    - title: "Image Headers"
-      url: "/docs/content-design/image-headers"
-    - title: "Colors, Fonts, Themes"
-      url: "/docs/content-design/colors-fonts-themes"
-    - divider: true
-    - title: "General Troubleshooting"
-      url: "/docs/content-design/troubleshooting"
+      url: "/docs/editing/media"
+    - title: "Colors & Fonts"
+      url: "/docs/editing/colors-and-fonts"
+    - title: "Themes"
+      url: "/docs/editing/themes"
 
-- title: "Navigation"
-  items:
-    - title: "Overview"
-      url: "/docs/navigation/"
     - divider: true
-    - title: "Top Navbar"
-      url: "/docs/navigation/top-nav"
-    - title: "Cards"
-      url: "/docs/navigation/cards"
+
+    - title: "Navigation"
+      url: "/docs/editing/navigation"
     - title: "Tags"
-      url: "/docs/tags"
-    - title: "Left Nav Demo"
-      url: "/docs/navigation/nav-left-demo"
-    - title: "Left Profile Demo"
-      url: "/docs/navigation/nav-profile-demo"
+      url: "/docs/editing/tags"
 
-    - title: "Map"
-      url: "/docs/navigation/map"
+    - divider: true
+
+    - title: "Previewing Locally"
+      url: "/docs/editing/previewing-locally"
+
+- title: "Reference"
+  items:
+    - title: "Site Structure"
+      url: "/docs/reference/"
+    - title: "Pages & Front Matter"
+      url: "/docs/reference/pages-and-front-matter"
+    - title: "Component Library"
+      url: "/docs/reference/component-library"
+    - title: "Troubleshooting"
+      url: "/docs/reference/troubleshooting"
+    - title: "Color Palettes"
+      url: "/docs/reference/color-palettes"
 
 - title: "Using AI"
   items:
     - title: "Using AI Assistance"
-      url: "/docs/content-design/ai-overview"
-    - title: "Tips for Using AI"
-      url: "/docs/content-design/ai-tips"
-    - title: "Examples of AI Assistance"
-      url: "/docs/content-design/ai-examples"
-    - title: "Using AI for Xanthan Design System"
-      url: "/docs/content-design/ai-design-system"
-
+      url: "/docs/using-ai/"
+    - title: "Your First AI Edit"
+      url: "/docs/using-ai/first-edit"
+    - title: "Building with AI"
+      url: "/docs/using-ai/prompts"
 
 - title: "ScrollStories"
   items:
@@ -86,8 +80,5 @@
     - title: "Forest Essay"
       url: "/scrollstories/forest"
 
-
-
 - title: "FAQs"
   url: "/faqs"
-

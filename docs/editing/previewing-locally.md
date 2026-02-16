@@ -137,7 +137,7 @@ Once you have Docker installed, here's your typical workflow to edit your site:
 4. **Open browser** to `http://localhost:4000`
 5. **Edit files** in VS Code and watch changes appear instantly
 6. **When done**, press `Ctrl + C` in the terminal to stop the server
-7. **Commit and push** your changes to GitHub (see [Working Locally](working-locally) guide)
+7. **Commit and push** your changes to GitHub (see [Editing Workflows](../editing/) guide)
 
 {% include typography/alert.html
   class="info"
@@ -227,9 +227,9 @@ Error messages appear immediately in your terminal, making it much easier to fig
 
 Now that you have local development working:
 
-1. **Explore [Using AI Assistance](using-ai-assistance)** - AI tools work great with local development
-2. **Learn about [Customizing Your Site](customizing-your-site)** - Easier to experiment when you can see changes instantly
-3. **Check out the [Typography](../content-design/typography) and [Images](../content-design/images) pages** - Test different styles locally before publishing
+1. **Explore [Using AI Assistance](../using-ai/)** - AI tools work great with local development
+2. **Learn about [Colors & Fonts](colors-and-fonts)** - Easier to experiment when you can see changes instantly
+3. **Check out the [Typography](typography) and [Images](images) pages** - Test different styles locally before publishing
 
 ---
 

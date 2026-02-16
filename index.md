@@ -147,7 +147,7 @@ While digital humanists have debated the most versatile coding language to use, 
 - "My image carousel is not loading my images. Can you double check the code and if files are in the right place?" 
 
 {: .link-callout}
-[See our AI assistance guide →](docs/content-design/using-ai-assistance)
+[See our AI assistance guide →](docs/using-ai/)
 
 ---
 

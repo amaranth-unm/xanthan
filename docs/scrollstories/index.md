@@ -73,6 +73,6 @@ No matter what Xanthan template you start with, you'll get a folder with the all
 
 - **If you don't have have a site:** [Follow the getting started guide](../getting-started/)
 
-- **Duplicate a sample essay** and edit away following the [design guides](../content-design/) as you need them. 
+- **Duplicate a sample essay** and edit away following the [editing guides](../editing/) as you need them.
 
-- **Stuck?** See [Tips on troubleshooting](../content-design/troubleshooting)
+- **Stuck?** See [Tips on troubleshooting](../reference/troubleshooting)

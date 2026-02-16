@@ -178,6 +178,49 @@ a:hover {
 }
 
 /*****************************************************
+TABLES
+*****************************************************/
+
+table {
+  /* Box Model */
+  width: 100%;
+  margin-bottom: var(--spacing-lg);
+
+  /* Visual */
+  border-collapse: collapse;
+}
+
+th,
+td {
+  /* Box Model */
+  padding: 0.6rem 1rem;
+
+  /* Typography */
+  text-align: left;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+th {
+  /* Typography */
+  font-weight: 600;
+  color: var(--sage-deep);
+
+  /* Visual */
+  border-bottom: 2px solid var(--sage-pale);
+}
+
+td {
+  /* Visual */
+  border-bottom: 1px solid var(--warm-light);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+
+/*****************************************************
 CODE BLOCKS
 *****************************************************/
 

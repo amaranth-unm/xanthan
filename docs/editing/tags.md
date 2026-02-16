@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: xanthan
 title: Using Tags
 summary: How to use the tagging system in Xanthan
 date: 2026-01-29
@@ -7,7 +7,7 @@ date: 2026-01-29
 
 # Using Tags in Xanthan
 
-Xanthan includes a built-in tagging system that makes it easy to organize and filter content across your site. The system is designed to be simple, requiring only YAML frontmatter tags on your pages and a single tags page. This page describes how tagging works, and you can see it work on our [sample tag page](../tags.md).
+Xanthan includes a built-in tagging system that makes it easy to organize and filter content across your site. The system is designed to be simple, requiring only YAML frontmatter tags on your pages and a single tags page. This page describes how tagging works, and you can see it work on our [sample tag page](/tags).
 
 
 ## How It Works
@@ -67,7 +67,7 @@ Users can click tag badges on the tags page, or you can link directly to filtere
 
 ### Change the Source Folder
 
-By default, the tags page looks for pages in `/scrollstories/`. To change this, edit the `tag-folders` parameter in the frontmatter of [tags.md](../tags.md):
+By default, the tags page looks for pages in `/scrollstories/`. To change this, edit the `tag-folders` parameter in the frontmatter of [tags.md](/tags):
 
 **Single folder:**
 ```yaml
@@ -119,7 +119,7 @@ tag-folders: scrollstories, essays, projects
 
 ### Styling Tags
 
-Tag styles are defined in [assets/css/cards.css](assets/css/cards.css):
+Tag styles are defined in [assets/css/cards.css](/assets/css/cards.css):
 
 - `.tag-pill` - Small tags shown on cards
 - `.tag-badge` - Large clickable filter tags
@@ -218,7 +218,7 @@ Add tag filters to your main navigation by editing `_data/top-nav.yml`:
 - Ensure pages have `tags:` in frontmatter (not `tag:`)
 
 **Filtering doesn't work**
-- JavaScript must be enabled (built into [tags.md](tags.md))
+- JavaScript must be enabled (built into [tags.md](/tags))
 - Check browser console for errors
 - Verify tag names match exactly (though matching is case-insensitive)
 

@@ -18,7 +18,7 @@
 <div class="card-grid {{ grid_class }}">
   {% for card in include.cards %}
   {% if card.title %}
-    {% assign card_image = card.thumbnail | default: card.header-image %}
+    {% assign card_image = card.thumbnail %}
     {% assign card_href = card.link | default: card.url %}
     {% assign card_summary = card.summary | default: card.description | default: card.excerpt | strip_html | truncate: 160 %}
     {% if tag_data and card.tags %}
