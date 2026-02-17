@@ -1,174 +1,135 @@
 ---
 title: Troubleshooting
 layout: xanthan
-date: 2024-12-02
+date: 2026-02-16
 ---
 
 # Troubleshooting
 
 {% include nav/scrollspy-toc.html %}
 
-Having problems? This guide covers common issues and how to fix them.
+Minor errors are a normal part of editing---they happen to everyone, and they're almost always easy to fix. Most issues come down to a small typo, a mismatched filename, or a missing character. This page helps you figure out what's going on, fix it, and move on. None of these problems are deep technical rabbit holes. They're the equivalent of a missing period at the end of a sentence: once you see it, the fix is obvious.
 
+**When in doubt, paste the error message into your AI assistant.** It will usually tell you exactly what's wrong and where to fix it. That's often the fastest path to a solution.
 
-## Images Not Showing
+---
 
-**Problem:** Your image code looks correct but the image doesn't appear.
+## Images not showing
 
-**Common causes:**
+This is the most common issue, and the fix is almost always one of three things.
 
-### 1. File path doesn't match actual location
+### 1. The filename doesn't match exactly
 
-Check:
-- Where is your actual image in your repository?
-- Does your code point to the EXACT location with exactly matching folder and filename?
+This is the number one cause. Filenames are case-sensitive and must match character for character---including the extension.
+
+- `photo.jpg` is not the same as `Photo.jpg` or `photo.JPG`
+- `.jpg`, `.jpeg`, and `.png` are all different extensions
+- Spaces in filenames can cause problems (use hyphens instead: `my-photo.jpg`)
+
+**How to check:** Look at the actual filename in your repository (in the `assets/images/` folder or wherever you uploaded it) and compare it letter by letter to what's in your code. Pay close attention to capitalization and the file extension.
+
+### 2. The file path doesn't match the actual location
+
+Your image code has to point to exactly where the file lives in your repository. If the image is at `assets/images/projects/photo.jpg` but your code says `assets/images/photo.jpg`, it won't show up.
+
+**How to check:** In GitHub, navigate to the image file and look at the path in the URL bar or the breadcrumb trail at the top of the page. That's the path your code needs to use.
+
+### 3. Relative vs. absolute paths
+
+This is the one that confuses people most, but the rule is simple:
+
+- **Absolute path** (starts with `/`): `/assets/images/photo.jpg` --- works from any page on your site, because it starts from the root. **Use this by default.**
+- **Relative path** (no leading `/`): `images/photo.jpg` --- looks for the image relative to the current page's folder. This works fine if the image is in the right place relative to that specific page, but it will break if you move the page or use the same code on a different page.
+
+If an image works on one page but not another, this is almost certainly why.
+
+---
+
+## Site not updating
+
+**Symptom:** You made changes and committed them, but your site looks the same after several minutes.
+
+**What's probably happening:** A syntax error is preventing your site from building. GitHub tried to rebuild your site, hit the error, and stopped. Your site stays on the last working version until the error is fixed.
+
+The two most common causes are a typo in a [component include tag](#syntax-errors-in-includes) or a problem with the [front matter](#front-matter-errors) at the top of a page. Both are minor and easy to fix once you find them.
+
+### How to find the error
+
+1. Go to your repository on GitHub
+2. Click the **Actions** tab (in the top menu, next to "Pull requests")
+3. Look at the most recent workflow run---if it has a red X, the build failed
+4. Click on that run, then click on the step called **"Build with Jekyll"**
+5. Scroll through the output until you see text in red. That's your error message
+
+### How to fix it
+
+The error message usually tells you what went wrong and which file it's in. It looks something like:
+
+```
+Liquid Exception: Liquid syntax error (line 42): Expected end_of_string...
+  in /home/runner/work/my-site/essays/water-rights.md
+```
+
+This tells you there's a syntax error on line 42 of `essays/water-rights.md`---probably a missing `%}` or a mismatched quote.
+
+**If the error message makes sense to you:** Go to the file, find the line, fix the typo, and commit the change. GitHub will automatically try to rebuild.
+
+**If the error message doesn't make sense:** Copy the entire error message and paste it into your AI assistant with a question like *"My Jekyll site won't build. Here's the error message---what's wrong and how do I fix it?"* The AI will tell you exactly which file to edit and what to change.
+
+After you commit the fix, go back to the **Actions** tab and wait for the new build (1-2 minutes). A green checkmark means your site is live again.
+
+---
+
+## Syntax errors in includes
+
+Includes are how you add components to your pages---images, alerts, carousels, audio players. They look like `{%raw%}{% include images/figure.html ... %}{%endraw%}` and have parameters that tell the component what to display. They're just text with a very specific format, which means typos in the wrong place can prevent your site from building. The errors are always small (a missing character, a mismatched quote), but they can be hard to spot because the syntax is unfamiliar. These are one of the most common reasons a [site stops updating](#site-not-updating).
+
+**Symptom:** A component isn't rendering, or your site won't build and the error mentions "Liquid syntax."
+
+Here are the usual culprits:
+
+### Missing or wrong delimiters
+
+The opening tag must be `{%raw%}{%{%endraw%}` and the closing must be `{%raw%}%}{%endraw%}`. Missing or wrong characters will break the build.
 
 ```liquid
-{%raw%}{% include images/figure.html
-  image-path="images/photo.jpg"   ← Must match actual location
+{%raw%}❌ { include images/figure.html %}        ← missing %
+❌ {% include images/figure.html }        ← missing %
+✅ {% include images/figure.html %}{%endraw%}
+```
+
+### Mismatched quotes
+
+Every opening quote needs a matching closing quote of the same type.
+
+```liquid
+{%raw%}❌ {% include images/figure.html caption="broken' %}     ← " and '
+✅ {% include images/figure.html caption="works" %}{%endraw%}
+```
+
+### Missing closing tag
+
+If an include spans multiple lines, it's easy to forget the closing `{%raw%}%}{%endraw%}`:
+
+```liquid
+{%raw%}❌ {% include images/figure.html
+     image-path="/assets/images/photo.jpg"
+
+✅ {% include images/figure.html
+     image-path="/assets/images/photo.jpg"
 %}{%endraw%}
 ```
 
-### 2. Filename doesn't match EXACTLY
-
-File names are case-sensitive! Check:
-- `photo.jpg` ≠ `Photo.jpg` ≠ `photo.JPG`
-- Extensions: `.jpg`, `.JPG`, `.jpeg`, `.png` are all different
-- Spaces in filenames can cause issues (avoid them!)
-
-**Fix:** Make sure your code matches the filename EXACTLY, including capitalization and extension.
-
-### 3. Relative vs. Absolute paths
-
-{% include typography/alert.html
-  class="warning"
-  title="This is the most common image problem"
-  text="Paths can be **absolute** or **relative**, and mixing them up is almost always the issue.
-
-- **Absolute path** (starts with `/`): `/assets/images/photo.jpg` --- works from any page, because it starts from the site root. **Use this by default.**
-- **Relative path** (no leading `/`): `images/photo.jpg` --- relative to the current page's folder. A path that works on one page may break on another if the image isn't in the right place relative to that page.
-
-Paths are also case-sensitive: `Photo.jpg` is not the same as `photo.jpg`."
-%}
-
-
 ---
 
-## Site Not Updating / Build Failed
+## Front matter errors
 
-**Problem:** You made changes but your site isn't updating after 5+ minutes, or GitHub Actions shows a build failure.
+Front matter is the small block of settings at the top of every page---it tells the site the page's title, which layout to use, and other details. It's just a few lines of plain text between two rows of dashes. If the formatting is slightly off (a missing dash, an extra blank line), the page either won't build or will render as unstyled text. Like include errors, these are typos, not deep technical problems, and they're the other common reason a [site stops updating](#site-not-updating).
 
-**Most common cause:** A syntax error is preventing Jekyll from building your site.
+**Symptom:** A page won't build, or it renders as raw text without any styling.
 
-### Step-by-step fix:
+Every page needs front matter at the very top of the file---three dashes, a few fields, three more dashes:
 
-**Step 1: Find the error**
-- In your repository, click the **Actions** tab (it's in the top menu next to "Pull requests")
-- Click on the most recent workflow run (the top item in the list)
-- You'll see steps with checkmarks ✓ or X marks
-- Click on the step called **"Build with Jekyll"** to expand it
-- Scroll through the output to find text in red - that's your error message
-
-**Step 2: Understand what it's telling you**
-The error message usually looks like:
-```
-Liquid Exception: Liquid syntax error (line 42): Expected end_of_string but found...
-  in /home/runner/work/my-site/guides/getting-started.md
-```
-
-This tells you:
-- **What's wrong**: "Liquid syntax error" (missing a `%}` or similar)
-- **Where**: Line 42 in the file `guides/getting-started.md`
-
-**Step 3: Go to that file and fix it**
-- In GitHub, click the **Code** tab to go back to your files
-- Navigate to the file mentioned (like `guides/getting-started.md`)
-- Click the pencil icon (Edit) in the upper right
-- Go to the line number mentioned (GitHub shows line numbers on the left)
-- Look for the problem:
-  - Missing closing `%}` on an include?
-  - Mismatched quotes (`"` vs `'`)?
-  - Typo in the front matter?
-- Fix the error
-
-**Step 4: Save your fix**
-- Scroll to the bottom of the edit page
-- Click the green **"Commit changes"** button
-- GitHub will automatically rebuild your site
-
-**Step 5: Check if it worked**
-- Go back to the **Actions** tab
-- Wait for the new build to finish (takes 1-2 minutes)
-- Look for a green checkmark ✓
-- If it's green, your site is live!
-- If it's still red ✗, repeat from Step 1 with the new error message
-
----
-
----
-
-## Syntax Errors in Include Blocks
-
-**Problem:** Your component code isn't working.
-
-### Common mistakes:
-
-#### 1. Missing or incorrect delimiters
-
-❌ **Wrong:**
-```liquid
-{%raw%}{ include figure.html %}           ← Missing %
-{& include figure.html %}          ← Wrong symbol
-{% include images/figure.html }           ← Missing %{%endraw%}
-```
-
-✅ **Correct:**
-```liquid
-{%raw%}{% include images/figure.html %}{%endraw%}
-```
-
-#### 2. Mismatched quotes
-
-❌ **Wrong:**
-```liquid
-{%raw%}{% include images/figure.html
-  caption="This is broken'        ← Mismatch " and '
-  width='50%"                     ← Mismatch ' and "
-%}{%endraw%}
-```
-
-✅ **Correct:**
-```liquid
-{%raw%}{% include images/figure.html
-  caption="This works correctly"
-  width="50%"
-%}{%endraw%}
-```
-
-#### 3. Missing closing tag
-
-❌ **Wrong:**
-```liquid
-{%raw%}{% include images/figure.html
-  image-path="/assets/images/photo.jpg"{%endraw%}
-```
-
-✅ **Correct:**
-```liquid
-{%raw%}{% include images/figure.html
-  image-path="/assets/images/photo.jpg"
-%}                                ← Don't forget closing %}{%endraw%}
-```
-
----
-
-## YAML Front Matter Errors
-
-**Problem:** Page won't build due to front matter issues.
-
-Every page needs front matter at the very top:
-
-✅ **Correct:**
 ```yaml
 ---
 title: My Page
@@ -179,71 +140,68 @@ date: 2024-12-02
 # Page content starts here
 ```
 
-### Common mistakes:
-
-❌ Must start on first line (no blank lines before `---`)
-❌ Must have three dashes `---` not two `--`
-❌ Must close with `---` on its own line
-❌ Indentation matters in YAML (use spaces, not tabs)
-
-
-## Links Not Working
-
-**Problem:** Links to other pages return 404 errors.
-
-### Check:
-
-1. **File extension in URL:**
-   - Link to `/about` not `/about.md`
-   - Jekyll converts `.md` to `.html` automatically
-
-2. **Correct path:**
-   ```markdown
-   ❌ [Link](guides/getting-started.md)
-   ✅ [Link](/guides/getting-started)
-   ✅ [Link](guides/getting-started)
-   ```
-
-3. **Baseurl issues:**
-   - If using a project site (not username.github.io), check `_config.yml`
-   - Baseurl should be `/repository-name/`
+**Common mistakes:**
+- Blank lines before the first `---` (it must be the very first line of the file)
+- Two dashes `--` instead of three `---`
+- Missing the closing `---`
+- Using tabs instead of spaces for indentation (YAML requires spaces)
+- A colon in a title without quotes: `title: My Project: Phase 2` should be `title: "My Project: Phase 2"`
 
 ---
 
-## Styles Not Applying
+## Links not working
 
-**Problem:** CSS changes aren't showing up.
+**Symptom:** Clicking a link gives a 404 error.
 
-1. **Hard refresh your browser:**
-   - Windows/Linux: `Ctrl + Shift + R`
-   - Mac: `Cmd + Shift + R`
+**Check the file extension.** Link to `/about`, not `/about.md`. Jekyll converts Markdown files to HTML automatically, so the URL drops the `.md` extension.
 
-2. **Check file location:**
-   - CSS files should be in `/assets/css/`
-   - Linked correctly in `_includes/page-header.html`
+```markdown
+❌ [About me](about.md)
+✅ [About me](about)
+✅ [About me](/about)
+```
 
-3. **CSS syntax errors:**
-   - Missing semicolons `;`
-   - Unclosed brackets `}`
-   - Invalid property names
+**Check the path.** If a page is at `essays/water-rights.md`, the URL is `/essays/water-rights`. Make sure your link matches the file's actual location in your repository.
+
+**Check baseurl.** If your site is a project site (like `username.github.io/my-project/` rather than just `username.github.io`), make sure `baseurl` in `_config.yml` is set to `/my-project`. This affects how all paths resolve.
 
 ---
 
-## Still Stuck?
+## Styles not applying
 
-### Before asking for help:
+**Symptom:** You changed something in a CSS file but your site looks the same.
 
-1. **Check the error message** - It usually tells you exactly what's wrong
-2. **Compare your code** to working examples on the component pages
-3. **Look for typos** - Most issues are small syntax errors
-4. **Try removing recent changes** - Did it work before? What changed?
+**Try a hard refresh first.** Browsers cache CSS files aggressively. Force a fresh load:
+- Mac: `Cmd + Shift + R`
+- Windows/Linux: `Ctrl + Shift + R`
 
-### Getting help:
+If that doesn't help:
 
-- **[Open an issue](https://github.com/xanthan-web/xanthan-web.github.io/issues)** on GitHub with:
-  - Description of the problem
-  - What you've tried
-  - Error messages (if any)
-  - Link to your repository (if public)
+- **Check the file location** --- CSS files should be in `assets/css/` and linked in `_includes/page-header.html`
+- **Check for CSS syntax errors** --- a missing semicolon or unclosed bracket can cause everything after it to be ignored. Your AI assistant can spot these instantly if you paste the file contents
 
-- **Check existing issues** - Someone might have already solved your problem
+---
+
+## Using AI to troubleshoot
+
+Your AI assistant is often the fastest way to solve problems you can't diagnose yourself. Here are some prompts that work well:
+
+> *"My image isn't showing up. Here's the include code I'm using and the file is at assets/images/field-site.jpg. What's wrong?"*
+
+> *"My site won't build. Here's the error from GitHub Actions: [paste the error]. What do I need to fix?"*
+
+> *"I changed the heading color in base.css but nothing changed on my site. Can you check if I made a syntax error?"*
+
+> *"This page looks different from my other pages---the layout seems wrong. Can you compare the front matter to a working page and tell me what's different?"*
+
+The AI can cross-reference your code against the component's expected parameters, check YAML formatting, validate file paths, and interpret error messages. These are exactly the tasks that are tedious to do manually and trivial for AI.
+
+---
+
+## Still stuck?
+
+If you've tried the fixes above and checked with your AI assistant:
+
+- **Compare your code** to working examples in the [Component Library](/docs/reference/component-library)
+- **Try removing recent changes** --- if it worked before, the most recent edit is probably the culprit
+- **[Open an issue](https://github.com/xanthan-web/xanthan/issues)** on GitHub with a description of the problem, what you've tried, and any error messages
