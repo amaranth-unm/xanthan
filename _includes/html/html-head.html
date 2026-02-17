@@ -55,6 +55,11 @@
   <link href="{{site.baseurl}}/assets/css/scrollstory.css" rel="stylesheet">
   {% endif %}
 
+  <!-- docs CSS - consistent table column widths for /docs/ pages -->
+  {% if page.url contains '/docs/' %}
+  <link href="{{site.baseurl}}/assets/css/docs.css" rel="stylesheet">
+  {% endif %}
+
   <!-- page specific CSS -->
   <!-- individual pages can specify a css file in the YAML header with
     css: my_styles.css
