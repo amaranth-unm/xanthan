@@ -50,6 +50,8 @@ Browse the options below, then click "Use this template" to jump into the setup 
 
 ## Portfolio
 
+{% include images/figure.html image-path="/assets/images/portfolio-screenshot.png" class="right" width="45%" alt-text="Portfolio template screenshot" caption="" %}
+
 A personal or professional site for presenting your work, interests, and credentials. Comes with an about page, a CV, and sample project pages---the kind of structure that helps you own your professional identity rather than renting it from LinkedIn. This is the most common starting point for individual projects: a handful of pages with a clear top navigation bar connecting them.
 
 <div class="template-buttons">
@@ -61,6 +63,8 @@ A personal or professional site for presenting your work, interests, and credent
 
 ## Class Project
 
+{% include images/figure.html image-path="/assets/images/class-project-screenshot.png" class="right" width="45%" alt-text="Class Project template screenshot" caption="" %}
+
 Built for collaboration. Where the Portfolio template assumes one author with a few pages, this one assumes many contributors producing individual pieces---student essays, research entries, case studies---that belong together as a collection. Card-based directory pages organize contributions automatically, so the site grows as people add to it. The instructor sets up the structure; students fill it in.
 
 <div class="template-buttons">
@@ -71,6 +75,8 @@ Built for collaboration. Where the Portfolio template assumes one author with a 
 ---
 
 ## ScrollStory
+
+{% include images/figure.html image-path="/assets/images/forest-scroll.gif" class="right" width="45%" alt-text="ScrollStory template example" caption="" %}
 
 A single immersive narrative rather than a multi-page site. Background images shift as you scroll, text panels slide in from the side, and the reading experience becomes part of the argument. If you've used ESRI StoryMaps or Knight Lab's StoryMap, this is the open-source alternative you actually own. Start here if your project is one sustained visual essay rather than a collection of separate pages.
 
