@@ -15,10 +15,10 @@ TOPNAV
   /* Typography */
   font-family: var(--font-body);
   font-size: 1rem;
-  color: var(--text-on-dark) !important;
+  color: var(--text-on-dark);
 
   /* Visual */
-  background-color: var(--bg-nav) !important;
+  background-color: var(--bg-nav);
   border-bottom: 1px solid var(--accent-border);
 
   /* Position — sticky so nav locks to top when scrolled past */
@@ -27,11 +27,31 @@ TOPNAV
   z-index: 99;
 }
 
+/* Inner wrapper centers brand + nav as a group */
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+@media (min-width: 992px) {
+  .navbar-inner {
+    justify-content: center;
+    gap: var(--spacing-lg);
+    flex-wrap: nowrap;
+  }
+}
+
 .navbar-brand {
   /* Typography */
   font-size: 1.1rem;
-  font-weight: 600 !important;
-  color: var(--text-on-dark) !important;  /* Explicit color for template users */
+  font-weight: 600;
+  color: var(--text-on-dark);
   text-decoration: none;
 
   /* Visual */
@@ -40,40 +60,86 @@ TOPNAV
 
 .navbar-brand:hover {
   /* Typography */
-  color: var(--text-on-dark) !important;
+  color: var(--text-on-dark);
 }
 
+/* Remove global link styles from all nav elements */
+.navbar a,
+.navbar a:visited {
+  border-bottom: none;
+  color: inherit;
+}
+
+.navbar a:visited:hover,
+.navbar a:visited:focus {
+  color: var(--interactive-hover);
+}
+
+/* Hamburger button — hidden on desktop */
 .navbar-toggler {
-  /* Visual */
-  border-color: var(--text-on-dark);
+  display: flex;
+  align-items: center;
+  padding: 0.35rem 0.5rem;
+  background: transparent;
+  border: 1px solid var(--text-on-dark);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
 }
 
 .navbar-toggler:focus {
-  /* Visual */
-  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
 }
 
 .navbar-toggler-icon {
-  /* Visual - Use Bootstrap's icon but with custom color */
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(232, 228, 223, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-/* Large screens: center brand + nav links as a group */
+/* Collapsible nav — hidden by default on mobile */
+.navbar-collapse {
+  display: none;
+  width: 100%;
+  padding-bottom: var(--spacing-sm);
+}
+
+.navbar-collapse.show {
+  display: block;
+}
+
+/* Desktop: always show the nav, no hamburger */
 @media (min-width: 992px) {
-  .navbar > .container-fluid {
-    justify-content: center;
+  .navbar-toggler {
+    display: none;
   }
 
-  .navbar .navbar-collapse {
-    flex-grow: 0;
+  .navbar-collapse {
+    display: flex !important;
+    align-items: center;
+    width: auto;
+    padding-bottom: 0;
   }
 }
 
 .navbar-nav {
   /* Display */
   display: flex;
+  flex-direction: column;
   list-style: none;
-  gap: var(--spacing-md);
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+@media (min-width: 992px) {
+  .navbar-nav {
+    flex-direction: row;
+    gap: var(--spacing-md);
+  }
 }
 
 /* Use Bootstrap's .nav-link class for consistency */
@@ -106,58 +172,91 @@ TOPNAV
 
 
 ul .dropdown-menu {
+  /* Visibility — hidden by default, shown via JS .show class */
+  display: none;
+
+  /* Positioning */
+  position: absolute;
+  z-index: 100;
+  min-width: 12rem;
+
   /* Box Model */
-  padding: 0.25rem 0 !important;
+  padding: 0.25rem 0;
+  list-style: none;
 
   /* Visual */
-  background-color: var(--bg-nav) !important;
-  border: 1px solid var(--border-light) !important;
-  box-shadow: var(--shadow-md) !important;
+  background-color: var(--bg-nav);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+}
+
+ul .dropdown-menu.show {
+  display: block;
+}
+
+/* On mobile, dropdown flows inline (not absolutely positioned) */
+@media (max-width: 991px) {
+  ul .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    border-left: 2px solid var(--border-light);
+    border-radius: 0;
+    padding-left: var(--spacing-md);
+    margin-left: var(--spacing-sm);
+  }
 }
 
 .dropdown-item {
+  /* Display */
+  display: block;
+
   /* Box Model */
-  padding: 0.25rem 0.75rem !important;
+  padding: 0.25rem 0.75rem;
 
   /* Typography */
-  font-size: 0.85rem !important;
-  line-height: 1.3 !important;
-  color: var(--text-on-dark) !important;
-  text-decoration: none !important;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  color: var(--text-on-dark);
+  text-decoration: none;
 
   /* Visual */
-  background: transparent !important;
-  border-left: 2px solid transparent !important;
+  background: transparent;
+  border-left: 2px solid transparent;
 
   /* Interactivity */
-  transition: border-color var(--transition-fast) !important;
+  transition: border-color var(--transition-fast);
 }
 
 .dropdown-item:hover,
 .dropdown-item:focus {
   /* Typography */
-  color: var(--interactive-hover) !important;
+  color: var(--interactive-hover);
 
   /* Visual */
-  background: transparent !important;
-  border-left-color: var(--interactive-hover) !important;
+  background: transparent;
+  border-left-color: var(--interactive-hover);
 }
 
 .dropdown-divider {
   /* Box Model */
-  margin: 0.1rem 0 !important;
+  margin: 0.1rem 0;
 
   /* Visual */
-  border-color: var(--text-on-dark) !important;
-  opacity: 0.3 !important;
+  border: none;
+  border-top: 1px solid var(--text-on-dark);
+  opacity: 0.3;
 }
 
-.nav-link.dropdown-toggle.show {
-  /* Typography */
+.nav-link.dropdown-toggle[aria-expanded="true"] {
   color: var(--text-on-dark);
-
-  /* Visual */
   background-color: transparent;
+}
+
+/* Position parent li relative for dropdown absolute positioning */
+.nav-item.dropdown {
+  position: relative;
 }
 
 
@@ -207,19 +306,15 @@ BREADCRUMB NAVIGATION
   padding: 0 1rem;
 }
 
-.navbar-workshop-toggle .form-switch {
-  margin: 0;
-}
-
-.navbar-workshop-toggle .form-check-input {
+.navbar-workshop-toggle input[type="checkbox"] {
   cursor: pointer;
 }
 
-.navbar-workshop-toggle .form-check-label {
+.navbar-workshop-toggle label {
   cursor: pointer;
   margin-left: 0.5rem;
   font-size: 0.9rem;
-  color: var(--bs-navbar-color);
+  color: var(--text-on-dark);
 }
 
 

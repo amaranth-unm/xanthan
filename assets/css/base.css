@@ -111,10 +111,26 @@ html, body {
   min-height: 100vh;
 }
 
+/*
+  CSS Grid full-bleed layout.
+  Named lines create two zones:
+    full:    spans the full container width (for jumbotrons, section backgrounds)
+    content: centered content column, max 48rem wide
+
+  All direct children default to the content column.
+  Full-bleed elements use: grid-column: full;
+*/
 .container {
-  max-width: 48rem;
-  margin: 0 auto;
-  clear: both;
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(var(--spacing-sm), 1fr)
+    [content-start] min(48rem, 100% - 2 * var(--spacing-sm))
+    [content-end] minmax(var(--spacing-sm), 1fr)
+    [full-end];
+}
+
+.container > * {
+  grid-column: content;
 }
 
 
@@ -124,35 +140,23 @@ SECTION BACKGROUNDS - Subtle visual rhythm
 
 /* Alternating section backgrounds for visual hierarchy - full width */
 .section-alt {
+  grid-column: full;
   background-color: var(--bg-card);
-  padding: var(--spacing-lg) 0;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  padding: var(--spacing-lg) max(var(--spacing-sm), calc(50% - 24rem));
 }
 
-.section-alt h2:first-child,
-.section-alt .container > h2:first-child {
+.section-alt h2:first-child {
   margin-top: 0;
 }
 
 /* Warm golden section background - for special/whimsical moments */
 .section-warm {
+  grid-column: full;
   background-color: var(--bg-accent);
-  padding: var(--spacing-lg) 0;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  padding: var(--spacing-lg) max(var(--spacing-sm), calc(50% - 24rem));
 }
 
-.section-warm h2:first-child,
-.section-warm .container > h2:first-child {
+.section-warm h2:first-child {
   margin-top: 0;
 }
 
@@ -209,12 +213,13 @@ JUMBOTRON
       Use box-align: left | right | center in the include to position text
       and control gradient direction. */
 .jumbotron {
-  /* Display & Positioning */
+  /* Display */
   display: flex;
   align-items: center;
 
-  /* Box Model */
-  width: 100%;
+  /* Grid breakout — full viewport width */
+  grid-column: full;
+  overflow: hidden;
 
   /* Visual */
   background-size: cover;
@@ -304,41 +309,22 @@ figure {
 }
 
 .right {
-  /* Positioning */
-  float: right;
-  
-  /* Box Model */
-  margin-left: var(--spacing-lg);
-  margin-right: 0;
+  /* Grid alignment within content column */
+  justify-self: end;
   margin-bottom: var(--spacing-md);
-  
-  /* Typography */
   text-align: left;
 }
 
 .left {
-  /* Positioning */
-  float: left;
-  
-  /* Box Model */
-  margin-left: 0;
-  margin-right: 1rem;
+  /* Grid alignment within content column */
+  justify-self: start;
   margin-bottom: var(--spacing-md);
 }
 
 .center {
-  /* Display */
-  display: block;
-  
-  /* Box Model */
-  margin-left: auto;
-  margin-right: auto;
+  /* Grid alignment within content column */
+  justify-self: center;
   margin-bottom: var(--spacing-md);
-  
-  /* Positioning */
-  clear: both;
-  
-  /* Typography */
   text-align: center;
 }
 
@@ -372,9 +358,58 @@ figcaption p {
 figcaption a {
   /* Typography */
   font-weight: normal;
-  
+
   /* Visual */
   opacity: 0.5;
+}
+
+/*****************************************************
+FIGURE WRAP — two-column image + text layout
+*****************************************************/
+
+.figure-wrap {
+  /* Display */
+  display: grid;
+  grid-template-columns: var(--figure-wrap-image-width, 40%) 1fr;
+  gap: var(--spacing-lg);
+  align-items: start;
+
+  /* Box Model */
+  margin-bottom: var(--spacing-lg);
+}
+
+.figure-wrap--right {
+  grid-template-columns: 1fr var(--figure-wrap-image-width, 40%);
+}
+
+.figure-wrap--right .figure-wrap__image {
+  order: 2;
+}
+
+.figure-wrap--right .figure-wrap__text {
+  order: 1;
+}
+
+.figure-wrap__image {
+  margin: 0;
+}
+
+.figure-wrap__image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .figure-wrap,
+  .figure-wrap--right {
+    grid-template-columns: 1fr;
+  }
+
+  .figure-wrap--right .figure-wrap__image,
+  .figure-wrap--right .figure-wrap__text {
+    order: unset;
+  }
 }
 
 /*****************************************************
@@ -724,44 +759,6 @@ ul li.highlighted::marker {
 } /* end media screen */
 
 
-/*****************************************************
-BOOTSTRAP OVERRIDES
-*****************************************************/
-
-/* Override Bootstrap alert colors to use theme variables */
-.alert-info {
-  /* Visual */
-  background-color: rgba(91, 154, 160, 0.15);
-  border-color: var(--info);
-  color: #2d5154;
-}
-
-.alert-info .alert-link {
-  /* Typography */
-  color: #1e3638;
-}
-
-.alert-warning {
-  /* Visual */
-  background-color: rgba(255, 193, 7, 0.15);
-  border-color: var(--warning);
-  color: #664d03;
-}
-
-.alert-success {
-  /* Visual */
-  background-color: rgba(40, 167, 69, 0.15);
-  border-color: var(--success);
-  color: #0f5132;
-}
-
-.alert-danger {
-  /* Visual */
-  background-color: rgba(220, 53, 69, 0.15);
-  border-color: var(--error);
-  color: #842029;
-}
-
 
 /*****************************************************************************/
 /*
@@ -794,20 +791,12 @@ BOOTSTRAP OVERRIDES
     padding-right: var(--spacing-md);
   }
 
-  /* Make figures full width without padding */
+  /* On small screens, figures fill the full content column width */
   figure {
     width: 100% !important;
     max-width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    margin-bottom: var(--spacing-md) !important;
-    float: none !important;
-  }
-
-  /* Remove floats from positioned figures */
-  figure.left,
-  figure.right {
-    float: none !important;
+    justify-self: stretch !important;
+    margin-bottom: var(--spacing-md);
   }
 
 }

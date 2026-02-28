@@ -28,10 +28,6 @@
   {% assign gradient_dir = 'to right' %}
 {% endif %}
 
-{::nomarkdown}
-</div>
-{:/nomarkdown}
-
 <div class="jumbotron jumbotron--{{ box_align }}" style="
       {% if include.height %}height: {{ include.height }};{% endif %}
       background-size: {{ include.zoom | default: 'cover' }};
@@ -58,7 +54,4 @@
 
 </div>
 
-{::nomarkdown}
-<div class="container">
-{:/nomarkdown}
 {% if include.caption %}<figcaption>{{ include.caption | markdownify }}</figcaption>{% endif %}

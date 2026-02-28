@@ -342,8 +342,7 @@ FOOTNOTE STYLING
 /*****************************************************
 BLOCKQUOTE
 *****************************************************/
-/* 👉 To change blockquote style, edit this block.
-      To align a single blockquote, use box-align: left | right in the include. */
+/* Native <blockquote> element — used via Markdown > syntax */
 blockquote {
   /* Box Model */
   max-width: 80%;
@@ -359,92 +358,148 @@ blockquote {
   border-left: 4px solid var(--text-muted);
 }
 
-/* Horizontal alignment variants — use box-align: left | right in the include */
-blockquote.blockquote--left {
-  margin-left: 0;
-  margin-right: auto;
-}
-
-blockquote.blockquote--right {
-  margin-left: auto;
-  margin-right: 0;
-}
-
 
 
 /*****************************************************
 PULLQUOTES
 *****************************************************/
-/* 👉 To change pullquote style, edit this block.
-      To align a single pullquote, use box-align: left | right in the include.
-      Default is right — text wraps around it on the left. */
+/* 👉 To change pullquote style, edit this block */
 .pullquote {
   /* Box Model */
-  margin: 1em auto;
-  padding: 1em;
+  position: relative;
+  width: 70%;
+  margin: var(--spacing-lg) auto var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-xs);
+  justify-self: center;
 
   /* Typography */
   color: var(--text-body);
+}
 
-  /* Visual */
-  border-top: 4px solid var(--golden-clay);
-  border-bottom: 4px solid var(--golden-clay);
+.pullquote::before {
+  content: '\201C'; /* left double quotation mark */
+  position: absolute;
+  top: -0.05em;
+  left: -0.05em;
+  z-index: 0;
+
+  /* Typography */
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 14rem;
+  line-height: 0.8;
+  color: var(--accent-primary);
+  opacity: 0.22;
+  pointer-events: none;
 }
 
 .pullquote p {
+  /* Display */
+  position: relative;
+  z-index: 1;
+
   /* Typography */
-  font-family: var(--font-body);
-  font-size: 1.4rem;
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  line-height: 1.6;
+  font-style: italic;
+  text-align: center;
+}
+
+
+/*****************************************************
+ALERTS
+*****************************************************/
+
+.alert {
+  /* Box Model */
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  border-radius: var(--radius-md);
+  border-left: 4px solid transparent;
+
+  /* Typography */
+  font-size: 0.95rem;
   line-height: 1.5;
-  text-align: left;
+}
+
+.alert-heading {
+  /* Box Model */
+  margin-top: 0;
+  margin-bottom: var(--spacing-xs);
+
+  /* Typography */
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.alert-info {
+  background: color-mix(in srgb, var(--info) 12%, var(--bg-page));
+  border-left-color: var(--info);
+  color: var(--text-body);
+}
+
+.alert-warning {
+  background: color-mix(in srgb, var(--warning) 12%, var(--bg-page));
+  border-left-color: var(--warning);
+  color: var(--text-body);
+}
+
+.alert-danger {
+  background: color-mix(in srgb, var(--error) 12%, var(--bg-page));
+  border-left-color: var(--error);
+  color: var(--text-body);
+}
+
+.alert-success {
+  background: color-mix(in srgb, var(--success) 12%, var(--bg-page));
+  border-left-color: var(--success);
+  color: var(--text-body);
+}
+
+/*****************************************************
+BUTTONS
+*****************************************************/
+
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--accent-primary);
+  color: var(--text-on-dark);
+  border-color: var(--accent-primary);
+}
+
+.btn-primary:hover {
+  background: var(--interactive-hover);
+  border-color: var(--interactive-hover);
+  color: var(--text-on-dark);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+.btn-secondary:hover {
+  background: var(--accent-primary);
+  color: var(--text-on-dark);
 }
 
 
 } /* end regular styles */
 
 
-/* tablet styles */
-@media screen and (min-width: 34em) {
-  /* Default pullquote floats left; --right floats right; --center stays centered */
-  .pullquote,
-  .pullquote--left {
-    float: left;
-    width: 50%;
-    padding: 1.2em 0 1.2em 0;
-    margin: .8em 2em .8em 0;
-  }
-
-  /* .pullquote.right kept for backward compatibility */
-  .pullquote.right,
-  .pullquote--right {
-    float: right;
-    margin: .8em 0 .8em 2em;
-  }
-
-  .pullquote--center {
-    float: none;
-    margin: 1em auto;
-  }
-}
-
-
-/* desktop styles */
-@media screen and (min-width: 1280px) {
-  .pullquote {
-    margin-left: -10%;
-  }
-
-  aside.right {
-    margin-left: 0;
-    left: 0;
-    width: 100%;
-  }
-
-  aside p {
-    margin: 0;
-  }
-
-}
 
 
 
@@ -478,17 +533,14 @@ PULLQUOTES
     font-size: 1.1rem;
   }
 
-  /* Make pullquotes and blockquotes full width on mobile */
+  /* Pullquotes fill full width on mobile */
   .pullquote {
-    float: none !important;
-    width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
   }
 
   .pullquote p {
     font-size: 1.2rem;
-    line-height: 1.5;
   }
 
   blockquote {
@@ -496,22 +548,5 @@ PULLQUOTES
     margin-left: 0 !important;
     margin-right: 0 !important;
     padding: var(--spacing-xs) var(--spacing-sm) !important;
-  }
-
-  aside {
-    position:relative;
-    width:100%;
-    padding: .4em;
-    margin-bottom:1em;
-  }
-
-  aside.aside-right {
-    margin-left:0;
-    left:0;
-    width:100%;
-  }
-
-  aside p{
-    margin:0;
   }
 }

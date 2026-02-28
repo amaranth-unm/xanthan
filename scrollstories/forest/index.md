@@ -75,7 +75,7 @@ The next section uses a basic scrollybox like you saw in Sapling. Keep scrolling
 
 
 ## Pull Quotes for Emphasis
-{% include typography/aside.html class="left" text="
+{% include typography/pullquote.html text="
 Pull quotes still work in Forest essays. Mix them with scrollyboxes depending on what your narrative needs at any given moment." %}
 
 Notice how you can shift between immersive full-screen scrollyboxes and traditional pull quotes within the same essay. **Choose the right tool for the moment:**

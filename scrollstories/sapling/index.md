@@ -62,8 +62,8 @@ That was a **scrollybox**—text that appears in a semi-transparent box over a f
 
 
 ## Pull Quotes Still Work
-{% include typography/aside.html class="left" text="
-This left-aligned pull quote is the same component you learned in Seedling. Sapling essays can mix scrollyboxes with traditional pull quotes depending on what fits your narrative." %}
+{% include typography/pullquote.html text="
+This pull quote is the same component you learned in Seedling. Sapling essays can mix scrollyboxes with traditional pull quotes depending on what fits your narrative." %}
 
 Notice how this pull quote appears alongside regular text, while the scrollybox took over the entire screen. Different tools for different purposes:
 

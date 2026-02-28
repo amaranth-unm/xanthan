@@ -1,15 +1,15 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
+<nav class="navbar">
+  <div class="navbar-inner">
     <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.title | default: "Your Site" }}</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mb-2 mb-lg-0">
+    <div class="navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav">
         {% for item in site.data.nav-top %}
           {% if item.items %}
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false">
                 {{ item.title }}
               </a>
               <ul class="dropdown-menu">
@@ -27,15 +27,8 @@
               <a class="nav-link" href="{{site.baseurl}}{{ item.url }}">{{ item.title }}</a>
             </li>
           {% endif %}
-        {% endfor %}        
+        {% endfor %}
       </ul>
-      <!-- Search bar - not functional by default
-           To implement search, uncomment the code below and see: guides/adding-search.md (documentation coming soon)
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-      -->
     </div>
   </div>
 </nav>
