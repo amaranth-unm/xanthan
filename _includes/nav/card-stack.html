@@ -12,16 +12,19 @@
 
 {% assign show_tags = include.show-tags | default: true %}
 {% assign tag_data = include.tag-data | default: false %}
+{% assign sorted_cards = include.cards | sort: "position" %}
 
-{% for card in include.cards %}
+{% for card in sorted_cards %}
 {% if card.title and card.title != "" %}
   {% assign card_image = card.thumbnail %}
+  {% assign card_href = card.link | default: card.url %}
+  {% capture card_href_resolved %}{% include links/link-path.html link=card_href %}{% endcapture %}
   {% assign card_summary = card.summary | default: card.description | default: card.excerpt | strip_html | truncate: 160 %}
   {% if tag_data and card.tags %}
     {% assign page_tags = card.tags | join: "|" | downcase %}
   {% endif %}
   <div class="card h-card{% if tag_data %} tag-card{% endif %}"{% if tag_data and page_tags %} data-tags="{{ page_tags }}"{% endif %}>
-    <a href="{{ site.baseurl }}{{ card.link | default: card.url }}" class="card-link">
+    <a href="{{ card_href_resolved | strip }}" class="card-link">
       
       <!-- Image -->
       {% if card_image %}

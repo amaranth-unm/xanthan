@@ -1,0 +1,18 @@
+{% comment %}
+  Google Analytics — loaded by layouts when jekyll.environment == 'production'
+  and site.analytics_id is set in _config.yml.
+
+  To enable analytics, add to _config.yml:
+    analytics_id: G-XXXXXXXXXX
+{% endcomment %}
+
+{% if site.analytics_id %}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics_id }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ site.analytics_id }}');
+</script>
+{% endif %}

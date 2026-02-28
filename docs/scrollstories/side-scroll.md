@@ -4,6 +4,8 @@ layout: xanthan
 date: 2024-10-24
 ---
 
+{% include nav/scrollspy-toc.html %}
+
 ## Side Scroll
 Sometimes it's useful to keep an image on the screen while text scrolls up past it.
 

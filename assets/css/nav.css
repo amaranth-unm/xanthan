@@ -10,16 +10,21 @@ TOPNAV
 
 .navbar {
   /* Box Model */
-  padding: 0.15rem var(--spacing-sm);  /* Compact modern height ~48-50px */
+  padding: 0.25rem var(--spacing-sm);
 
   /* Typography */
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--text-on-dark) !important;
 
   /* Visual */
   background-color: var(--bg-nav) !important;
   border-bottom: 1px solid var(--accent-border);
+
+  /* Position — sticky so nav locks to top when scrolled past */
+  position: sticky;
+  top: 0;
+  z-index: 99;
 }
 
 .navbar-brand {
@@ -68,7 +73,7 @@ TOPNAV
   /* Display */
   display: flex;
   list-style: none;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-md);
 }
 
 /* Use Bootstrap's .nav-link class for consistency */

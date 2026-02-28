@@ -19,7 +19,8 @@
       &nbsp;
     </div>
 
-    <div class="bg-text-box">
+    {% assign box_align = include.box-align | default: 'center' %}
+    <div class="bg-text-box{% if box_align != 'center' %} bg-text-box--{{ box_align }}{% endif %}">
       {{ include.box-content | markdownify }}
     </div>
 

@@ -205,48 +205,29 @@ SECTION BACKGROUNDS - Subtle visual rhythm
 /*****************************************************
 JUMBOTRON
 *****************************************************/
+/* 👉 To change text width or font, edit .jumbotron-content.
+      Use box-align: left | right | center in the include to position text
+      and control gradient direction. */
 .jumbotron {
   /* Display & Positioning */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  
-  /* Box Model */
-  width: 100%;
-  
-  /* Typography */
-  color: white;
-  text-shadow: black 0.3em 0.3em 0.3em;
-  
-  /* Visual */
-  background-size: cover; 
-  background-repeat: no-repeat;
-  opacity: 1;
-}
-
-.jumbotron p {
-  text-align: center;
-}
-
-/* Jumbotron with gradient fade to background image */
-.jumbotron-gradient {
-  /* Display & Positioning */
-  display: flex;
   align-items: center;
 
   /* Box Model */
   width: 100%;
-  padding-left: var(--spacing-lg);
 
   /* Visual */
-  background-blend-mode: normal;
   background-size: cover;
-  background-position: center right;
   background-repeat: no-repeat;
 }
 
-.jumbotron-gradient .jumbotron-content {
+/* Text position + gradient direction — set via box-align parameter */
+.jumbotron--left  { justify-content: flex-start; }
+.jumbotron--right { justify-content: flex-end; }
+.jumbotron--center { justify-content: center; }
+
+/* 👉 To change text width, padding, or font for all jumbotrons, edit here. */
+.jumbotron-content {
   /* Box Model */
   max-width: 45rem;
   padding: var(--spacing-lg);
@@ -255,45 +236,55 @@ JUMBOTRON
   color: var(--text-body);
 }
 
-.jumbotron-gradient h2 {
+/* Center mode: text overlays the image directly — use shadow for legibility */
+.jumbotron--center .jumbotron-content {
+  text-align: center;
+  color: white;
+  text-shadow:
+    0 0 20px rgba(0, 0, 0, 0.7),
+    0 0 50px rgba(0, 0, 0, 0.4);
+}
+
+.jumbotron-content h2 {
   /* Box Model */
   margin-top: 0;
   margin-bottom: var(--spacing-md);
 
   /* Typography */
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--text-heading);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: var(--sage);
 }
 
-.jumbotron-gradient .jumbotron-text {
+.jumbotron--center .jumbotron-content h2 {
+  color: white;
+}
+
+.jumbotron-text {
   /* Typography */
   font-size: 1.1rem;
   line-height: 1.6;
-  color: var(--text-body);
 }
 
-.jumbotron-gradient .jumbotron-text p {
+.jumbotron-text p {
   margin-bottom: var(--spacing-md);
 }
 
-/* Responsive: smaller padding and font on mobile */
+/* Responsive */
 @media (max-width: 768px) {
-  .jumbotron-gradient {
-    padding: var(--spacing-md);
-    height: auto !important;
+  .jumbotron {
+    min-height: 50vh;
   }
 
-  .jumbotron-gradient .jumbotron-content {
+  .jumbotron-content {
     max-width: 100%;
     padding: var(--spacing-md);
   }
 
-  .jumbotron-gradient h2 {
+  .jumbotron-content h2 {
     font-size: 1.5rem;
   }
 
-  .jumbotron-gradient .jumbotron-text {
+  .jumbotron-text {
     font-size: 1rem;
   }
 }
@@ -375,7 +366,7 @@ figcaption p {
   
   /* Typography */
   font-size: 0.8rem;
-  line-height: 1.2rem;
+  line-height: 1rem !important;
 }
 
 figcaption a {
@@ -555,18 +546,6 @@ footer {
   }
 }
 
-.site-footer {
-  /* Box Model */
-  margin-top: 32px;
-  padding-top: 16px;
-
-  /* Typography */
-  font-size: 0.9rem;
-  color: var(--text-body);
-
-  /* Visual */
-  border-top: 1px solid var(--accent-border);
-}
 
 
 /*****************************************************

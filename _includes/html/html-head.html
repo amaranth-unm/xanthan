@@ -60,6 +60,11 @@
   <link href="{{site.baseurl}}/assets/css/docs.css" rel="stylesheet">
   {% endif %}
 
+  <!-- header-studio CSS: loaded when page has a header image -->
+  {% if page.header-image %}
+  <link href="{{site.baseurl}}/assets/css/headers.css" rel="stylesheet">
+  {% endif %}
+
   <!-- page specific CSS -->
   <!-- individual pages can specify a css file in the YAML header with
     css: my_styles.css

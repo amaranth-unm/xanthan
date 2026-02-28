@@ -5,6 +5,8 @@ summary: How to use the tagging system in Xanthan
 date: 2026-01-29
 ---
 
+{% include nav/scrollspy-toc.html %}
+
 # Using Tags in Xanthan
 
 Xanthan includes a built-in tagging system that makes it easy to organize and filter content across your site. The system is designed to be simple, requiring only YAML frontmatter tags on your pages and a single tags page. This page describes how tagging works, and you can see it work on our [sample tag page](/tags).

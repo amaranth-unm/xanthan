@@ -105,11 +105,10 @@ GitHub Pages hosting costs nothing. No ads, no freemium upsells, no surprise bil
 {:/nomarkdown}
 
 
-{% include images/jumbotron-gradient.html
+{% include images/jumbotron.html
   image-path="/assets/images/scaffolding-hand.png"
   fade-start="50%"
   fade-end="100%"
-  title=""
   text="
 
 ## Built for AI Collaboration

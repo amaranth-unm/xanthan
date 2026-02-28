@@ -5,6 +5,8 @@ author: Fred Gibbs
 date: 2019-10-03
 ---
 
+{% include nav/scrollspy-toc.html %}
+
 # Site Structure
 
 Your Xanthan site is organized into folders, each serving a specific purpose. When you look at your repository on GitHub, you'll see these folders and files listed in alphabetical order. Understanding what each folder does will help you know where to find things and where to put your own content.

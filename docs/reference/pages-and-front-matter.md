@@ -4,6 +4,8 @@ title: Pages & Front Matter
 date: 2026-02-14
 ---
 
+{% include nav/scrollspy-toc.html %}
+
 # Pages & Front Matter
 
 Every page on your site is a plain text file with an `.md` extension. The file has two parts: a **front matter** block at the top (metadata about the page) and the **content** below it (what people actually read). Understanding this structure gives you control over how every page looks, how it appears in navigation, and how it connects to the rest of your site.
@@ -47,13 +49,21 @@ Every page should have these:
 
 ### Header image fields
 
-Add a large image across the top of any page:
+Add a full-width header image to any page. The `header-tier` controls visual weight; `header-filter` transforms how the image appears.
 
 | Field | Example | What it does |
 |-------|---------|--------------|
-| `header-image` | `header-image: /assets/images/canyon.jpg` | Path to the header image |
-| `header-height` | `header-height: 50vh` | Height of the header (default: 40vh) |
-| `header-position` | `header-position: center` | Which part of the image is visible (useful for cropping) |
+| `header-image` | `header-image: /assets/images/canyon.jpg` | Path to header image (required to show a header) |
+| `header-tier` | `header-tier: section` | `hero` (full height), `section` (60vh), or `banner` (22vh) |
+| `header-filter` | `header-filter: photo` | `photo`, `botanical`, `sketch`, `woodcut`, or `etching` |
+| `header-title` | `header-title: River Crossings` | Title overlaid on the image |
+| `header-eyebrow` | `header-eyebrow: Part One` | Small caps line above title (hero only) |
+| `header-subtitle` | `header-subtitle: A story of...` | Paragraph below title (hero only) |
+| `header-divider` | `header-divider: ✦` | Text between decorative lines (hero only) |
+| `header-position` | `header-position: center right` | CSS `background-position` — which part of the image to show |
+| `header-opacity` | `header-opacity: 0.4` | Override image opacity (0–1) |
+| `header-zoom` | `header-zoom: 150%` | Zoom in; shows less of the image but larger |
+| `header-height` | `header-height: 60vh` | Override the tier's default height |
 
 ### Navigation and organization fields
 
@@ -83,7 +93,10 @@ date: 2026-01-20
 author: Carlos Medina
 summary: How community irrigation systems shaped settlement patterns in the Rio Grande Valley.
 header-image: /assets/images/acequia.jpg
-header-height: 50vh
+header-tier: section
+header-filter: photo
+header-title: Acequia Landscapes
+header-position: center right
 tags: [landscape, water, community]
 geo: [34.52, -105.97]
 placename: Manzano

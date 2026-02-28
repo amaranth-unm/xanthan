@@ -4,6 +4,8 @@ layout: xanthan
 date: 2026-02-16
 ---
 
+{% include nav/scrollspy-toc.html %}
+
 # Your First AI Edit
 
 This page is for people who have never used AI to make a technical change. We'll walk through a few real edits---changing a color, swapping a font, asking the AI to explain what's happening---so you can see how the conversation works before trying anything ambitious.

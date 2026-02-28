@@ -4,6 +4,8 @@ layout: xanthan
 date: 2024-10-24
 ---
 
+{% include nav/scrollspy-toc.html %}
+
 ### Changing Backgrounds while Scrolling
 Sometimes it's fun to have the background change as a user is scrolling up some text boxes and moving through a story. It's an effective way of highlighting a difference that you're describing in text. 
 

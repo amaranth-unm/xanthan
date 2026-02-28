@@ -4,6 +4,8 @@ layout: xanthan
 date: 2019-10-05
 ---
 
+{% include nav/scrollspy-toc.html %}
+
 # ScrollStories
 
 ScrollStories transform academic writing into immersive visual narratives. By combining scholarly depth with dynamic scrolling, they invite readers to experience research as a journey—guided by full-screen images, creative typography, and layered design.
@@ -12,67 +14,34 @@ Perfect for public humanities projects, digital history, or visual essays, Scrol
 
 ---
 
-## What Makes a ScrollStory?
+## How ScrollStories work
 
-ScrollStories use specialized components that respond to scrolling, creating a cinematic reading experience:
+ScrollStories use components that respond to scrolling, creating a cinematic reading experience. The core techniques are [background images with scrolling text overlays](bg-scrollbox), [backgrounds that switch as you scroll](bg-switch), and [side-scrolling text panels](side-scroll) that move horizontally while an image stays fixed. You can mix these freely with standard page elements—images, pull quotes, footnotes—to build a narrative rhythm that suits your content.
 
-### Background Images with Text Overlays
-Full-screen background images that change as you scroll, with text appearing in semi-transparent boxes over the imagery.
-
-- **[Backgrounds with Scrolly Boxes](bg-scrollbox)** - Static background images with text boxes that scroll over them
-- **[Background Switching](bg-switch)** - Background images that change as you scroll through different sections
-
-### Side-Scrolling Sections
-Horizontal scrolling text panels that move left while images remain fixed, creating a unique reading flow.
-
-- **[Side Scrolling Text](side-scroll)** - Horizontal text panels with fixed background images
-
-### Standard Components
-ScrollStories also use all the standard page components—images, pull quotes, footnotes, headers—styled specifically for the scrolling format.
+Each technique is documented with examples you can copy and modify. But the fastest way to learn is to look at the sample essays below, find effects you like, and adapt them.
 
 ---
 
-## Sample Essays: Three Levels of Complexity
+## Sample essays
 
-We've created three template essays at different complexity levels. Each uses the same content, but demonstrates progressively more features. **View them, then duplicate and modify them** to create your own ScrollStory.
+We've created three template essays at increasing levels of complexity. Each uses the same content but demonstrates progressively more features. Open one, read through it, then duplicate the file and start replacing our content with yours.
 
-### [Seedling Essay](scrollstories/seedling)
-**For first-time users, students learning basics**
+### [Seedling](scrollstories/seedling)
 
-The simplest ScrollStory, focusing on fundamentals:
-- Section headings and body text
-- Basic images with captions
-- Pull quotes and footnotes
-- Clean, straightforward layout
+The simplest ScrollStory. Section headings, body text, images with captions, pull quotes, and footnotes—a clean, straightforward layout that works well for a first attempt or for narratives that don't need heavy visual effects.
 
+### [Sapling](scrollstories/sapling)
 
-### [Sapling Essay](scrollstories/sapling)
-**For intermediate users ready for a few more features**
+Everything Seedling does, plus background images with text overlays and more varied layout patterns. This is where a ScrollStory starts to feel cinematic without requiring much extra effort.
 
-Adds visual sophistication:
-- Everything from Seedling
-- Background images with text overlays
-- Mixed layout patterns
-- More complex image arrangements
+### [Forest](scrollstories/forest)
 
-
-### [Forest Essay](scrollstories/forest)
-**For anyone wanting all features at their fingertips**
-
-Shows everything Xanthan can do:
-- Everything from Sapling
-- Background switching on scroll
-- Side-scrolling text panels
-- Complex multi-column layouts
-- Full cinematic experience
+The full range of what's possible: background switching on scroll, side-scrolling text panels, and complex multi-section layouts. If you want to see every feature working together, start here and strip out what you don't need.
 
 ---
 
-## Ready to Create?
-No matter what Xanthan template you start with, you'll get a folder with the all the scrollstory examples. 
+## Getting started
 
-- **If you don't have have a site:** [Follow the getting started guide](../getting-started/)
+Every Xanthan template includes a folder with all three sample essays, so you already have working examples to build from. If you don't have a site yet, [follow the getting started guide](../getting-started/). Otherwise, duplicate a sample essay file, start editing, and consult the [editing guides](../editing/) as questions come up.
 
-- **Duplicate a sample essay** and edit away following the [editing guides](../editing/) as you need them.
-
-- **Stuck?** See [Tips on troubleshooting](../reference/troubleshooting)
+If something isn't working, see [Troubleshooting](../reference/troubleshooting).

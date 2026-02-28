@@ -1,10 +1,10 @@
 ---
 title: Images
 layout: xanthan
-header-image: /assets/images/backgrounds/lake-1.jpg
-header-height: 60vh
 date: 2026-02-14
 ---
+
+{% include nav/scrollspy-toc.html %}
 
 # Images
 
@@ -165,6 +165,104 @@ If you don't include an `alt-text` parameter, the caption will be used as the al
 
 ---
 
+## Jumbotron images
+
+A jumbotron expands to fill the full browser width, breaking out of the page's text margins. Use one as a pure visual break between sections, or add a text overlay---the gradient fade is applied automatically so text reads cleanly against the image.
+
+```
+{% raw %}{% include images/jumbotron.html
+  image-path="/assets/images/backgrounds/pano-1.jpg"
+  height="50vh"
+  box-align="left"
+  title="Optional heading"
+  text="A pull quote or caption on the clear side of the image."
+  background-position="center right"
+%}{% endraw %}
+```
+
+{% include images/jumbotron.html
+  image-path="/assets/images/backgrounds/pano-1.jpg"
+  height="50vh"
+  box-align="left"
+  title="Optional heading"
+  text="A pull quote or caption on the clear side of the image."
+  background-position="center right"
+%}
+
+### Parameters
+
+| Parameter | Default | What it does |
+|-----------|---------|--------------|
+| `image-path` | (required) | Path to image |
+| `height` | `40vh` | CSS height, e.g. `50vh` or `400px` |
+| `box-align` | `left` | `left`, `right`, or `center` — text position and gradient direction |
+| `title` | (none) | Heading above the text |
+| `text` | (none) | Body text; supports Markdown. Gradient applied automatically when present |
+| `zoom` | `cover` | CSS `background-size`; e.g. `150%` to zoom in |
+| `background-position` | `center` | CSS `background-position`; aim the subject away from the text side |
+| `fade-start` | `0%` | Where the opaque gradient begins |
+| `fade-end` | `60%` | Where the gradient becomes fully transparent |
+| `bg-color` | `var(--bg-page)` | Color of the opaque side; matches page background by default |
+| `caption` | (none) | Caption below the image; supports Markdown |
+
+**`box-align` controls both text placement and gradient direction:**
+
+| `box-align` | Text position | Gradient |
+|-------------|---------------|----------|
+| `left` (default) | Left side | Opaque left → transparent right |
+| `right` | Right side | Opaque right → transparent left |
+| `center` | Centered over image | No gradient; text shadow used for legibility |
+
+If you omit `text` and `title`, the gradient is skipped and the jumbotron renders as a clean full-width image break---useful as section dividers on long pages.
+
+### No text or fade
+
+Omit `title` and `text` entirely for a plain visual break with no gradient.
+
+```
+{% raw %}{% include images/jumbotron.html
+  image-path="/assets/images/backgrounds/pano-1.jpg"
+  height="30vh"
+  background-position="center 60%"
+%}{% endraw %}
+```
+
+{% include images/jumbotron.html
+  image-path="/assets/images/backgrounds/pano-1.jpg"
+  height="30vh"
+  background-position="center 60%"
+%}
+
+### Heading, zoom, and custom fade
+
+Use `zoom` to enlarge the image and `fade-start`/`fade-end` to control how quickly the gradient appears and disappears.
+
+```
+{% raw %}{% include images/jumbotron.html
+  image-path="/assets/images/backgrounds/pano-1.jpg"
+  height="50vh"
+  box-align="right"
+  title="Landscape at dusk"
+  zoom="150%"
+  background-position="center left"
+  fade-start="10%"
+  fade-end="80%"
+%}{% endraw %}
+```
+
+{% include images/jumbotron.html
+  image-path="/assets/images/backgrounds/pano-1.jpg"
+  height="50vh"
+  box-align="right"
+  title="Landscape at dusk"
+  zoom="150%"
+  background-position="center left"
+  fade-start="10%"
+  fade-end="80%"
+%}
+
+---
+
 ## Header images
 
 A header image is a large banner across the top of the page. You set it in the page's front matter rather than in the content:
@@ -197,36 +295,6 @@ header-position: center
 | `header-position` | (browser default) | Which part of the image to show (`center`, `top`, `200px`, `50% 80%`) |
 
 `header-position` is particularly useful when you have a large image but only a specific part---the sky, the bottom half---is what you want visible in the header crop.
-
----
-
-## Jumbotron images
-
-Even a "full-width" inline image is constrained by the page margins. A jumbotron breaks out to fill the entire browser window, and you control the height.
-
-```
-{% raw %}{% include images/jumbotron.html
-  height="50vh"
-  image-path="/assets/images/default.jpg"
-  title=""
-%}{% endraw %}
-```
-
-{% include images/jumbotron.html
-  height="50vh"
-  image-path="/assets/images/default.jpg"
-  title=""
-%}
-
-| Parameter | Default | What it does |
-|-----------|---------|--------------|
-| `height` | `40vh` | Height of the jumbotron |
-| `image-path` | (required) | Path to the image |
-| `title` | (none) | Optional heading overlaid on the image |
-| `text` | (none) | Optional subtitle |
-| `background-position` | (browser default) | Which part of the image to show |
-
-Jumbotrons also work well as section dividers between major parts of a long page.
 
 ---
 
@@ -331,21 +399,11 @@ captions = captions
 
 ---
 
-## Peekaboo headers
+## ScrollStory images
 
-A peekaboo header creates a parallax-like effect where a background image is revealed as you scroll. Unlike a jumbotron (which scrolls with the page), a peekaboo header stays fixed and the page content slides over it.
+For more cinematic image effects, ScrollStories offer techniques where images stay fixed while text scrolls over them, backgrounds switch as the reader advances, and panels slide horizontally alongside fixed visuals. These go beyond standard image placement into full narrative design.
 
-```
-{% raw %}{% include scrollybox/bg.html
-  height="40vh"
-  image-path="/assets/images/backgrounds/pano-1.jpg"
-%}{% endraw %}
-```
-
-{% include scrollybox/bg.html
-  height="40vh"
-  image-path="/assets/images/backgrounds/pano-1.jpg"
-%}
+See the [ScrollStories overview](/docs/scrollstories) to learn what's available, or jump directly to [Peekaboo images](/docs/scrollstories/peekaboo) for a parallax-style reveal effect that works on any page.
 
 ---
 

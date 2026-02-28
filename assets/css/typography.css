@@ -342,20 +342,32 @@ FOOTNOTE STYLING
 /*****************************************************
 BLOCKQUOTE
 *****************************************************/
-
+/* 👉 To change blockquote style, edit this block.
+      To align a single blockquote, use box-align: left | right in the include. */
 blockquote {
   /* Box Model */
   max-width: 80%;
   margin: var(--spacing-sm) auto;
   padding: var(--spacing-xs);
-  
+
   /* Typography */
   font-size: 120%;
   font-style: italic;
   quotes: """ """ "'" "'";
-  
+
   /* Visual */
   border-left: 4px solid var(--text-muted);
+}
+
+/* Horizontal alignment variants — use box-align: left | right in the include */
+blockquote.blockquote--left {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+blockquote.blockquote--right {
+  margin-left: auto;
+  margin-right: 0;
 }
 
 
@@ -363,7 +375,9 @@ blockquote {
 /*****************************************************
 PULLQUOTES
 *****************************************************/
-
+/* 👉 To change pullquote style, edit this block.
+      To align a single pullquote, use box-align: left | right in the include.
+      Default is right — text wraps around it on the left. */
 .pullquote {
   /* Box Model */
   margin: 1em auto;
@@ -391,16 +405,25 @@ PULLQUOTES
 
 /* tablet styles */
 @media screen and (min-width: 34em) {
-  .pullquote {
+  /* Default pullquote floats left; --right floats right; --center stays centered */
+  .pullquote,
+  .pullquote--left {
     float: left;
     width: 50%;
     padding: 1.2em 0 1.2em 0;
     margin: .8em 2em .8em 0;
   }
 
-  .pullquote.right {
+  /* .pullquote.right kept for backward compatibility */
+  .pullquote.right,
+  .pullquote--right {
     float: right;
     margin: .8em 0 .8em 2em;
+  }
+
+  .pullquote--center {
+    float: none;
+    margin: 1em auto;
   }
 }
 

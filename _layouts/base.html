@@ -7,22 +7,30 @@
     
     <div class="page-wrap">
       
-    {% include nav/nav-top.html %}
+    {% unless page.nav-below-hero %}
+      {% include nav/nav-top.html %}
+    {% endunless %}
 
-    {% assign headerimage = page.header-image %}
-    {% assign headertitle = page.header-title %}
-    {% assign headerheight = page.header-height %}
-    {% assign headerposition = page.header-position %}
-    
-    {% if headerimage %}
-    
+    {% if page.header-image %}
+
       {% include layout/header-image.html
-        image-path = headerimage
-        title = headertitle
-        height = headerheight                
-        background-position = headerposition
+        image-path  = page.header-image
+        title       = page.header-title
+        subtitle    = page.header-subtitle
+        eyebrow     = page.header-eyebrow
+        divider     = page.header-divider
+        tier        = page.header-tier
+        filter      = page.header-filter
+        bg-position = page.header-position
+        bg-opacity  = page.header-opacity
+        zoom        = page.header-zoom
+        height      = page.header-height
       %}
-    
+
+    {% endif %}
+
+    {% if page.nav-below-hero %}
+      {% include nav/nav-top.html %}
     {% endif %}
 
     

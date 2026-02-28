@@ -40,6 +40,8 @@ date: 2026-02-14
 }
 </style>
 
+{% include nav/scrollspy-toc.html %}
+
 # Choose a Template
 
 Xanthan offers four starting points, each designed for a different kind of project. Pick the one closest to what you're building---you can always add features later.
@@ -65,7 +67,7 @@ A personal or professional site for presenting your work, interests, and credent
 
 {% include images/figure.html image-path="/assets/images/class-project-screenshot.png" class="right" width="45%" alt-text="Class Project template screenshot" caption="" %}
 
-Built for collaboration. Where the Portfolio template assumes one author with a few pages, this one assumes many contributors producing individual pieces---student essays, research entries, case studies---that belong together as a collection. Card-based directory pages organize contributions automatically, so the site grows as people add to it. The instructor sets up the structure; students fill it in.
+This template shows how you might organize many individual scrollstories or pages of any kind that belong together as a collection. Card-based directory pages organize contributions automatically, so the site grows as people add to it. The instructor sets up the structure; students follow clear directions to fill it in.
 
 <div class="template-buttons">
   <a class="template-btn primary" href="/docs/getting-started/?template=class-project">Use this template</a>
@@ -78,7 +80,7 @@ Built for collaboration. Where the Portfolio template assumes one author with a 
 
 {% include images/figure.html image-path="/assets/images/forest-scroll.gif" class="right" width="45%" alt-text="ScrollStory template example" caption="" %}
 
-A single immersive narrative rather than a multi-page site. Background images shift as you scroll, text panels slide in from the side, and the reading experience becomes part of the argument. If you've used ESRI StoryMaps or Knight Lab's StoryMap, this is the open-source alternative you actually own. Start here if your project is one sustained visual essay rather than a collection of separate pages.
+Sometimes a whole website is overkill, and what you really want to make is a single immersive narrative. The scrollstory template gives you a main scrollstory page (of course you can always add more), where background images shift as you scroll, text panels slide in from the side, and the reading experience becomes part of the argument. If you've used ESRI StoryMaps this will seem very familiar, but it's driven with simple text files that are super quick to edit. 
 
 <div class="template-buttons">
   <a class="template-btn primary" href="/docs/getting-started/?template=scrollstory">Use this template</a>
@@ -87,17 +89,7 @@ A single immersive narrative rather than a multi-page site. Background images sh
 
 ---
 
-## Full Xanthan
-
-Everything. All templates, all documentation, all components, all examples. More than most people need to start with, but useful if you want to see every feature in context before deciding what to keep. Also the right choice for instructors setting up a reference site or anyone who plans to build something that doesn't fit neatly into the categories above.
-
-<div class="template-buttons">
-  <a class="template-btn primary" href="/docs/getting-started/?template=xanthan">Use this template</a>
-  <a class="template-btn" href="https://github.com/xanthan-web/xanthan" target="_blank">View on GitHub</a>
-</div>
-
----
 
 ## Not sure?
 
-Start with **Portfolio** if you're building something for yourself, or **Class Project** if you're working with students. You can always add ScrollStory features to either template later---the components are modular. The templates are starting points, not ceilings.
+**Don't worry!** The difference between the templates is usually a few files. All the component functionality comes with each template. You can easily add or delete files from whatever template you start with. That flexibility is the whole point of Xanthan!

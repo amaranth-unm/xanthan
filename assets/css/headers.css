@@ -1,0 +1,343 @@
+/*****************************************************
+HEADER STUDIO
+Typography-forward dark header with line grid + accent bar.
+Three tiers (hero, section, banner) × five filter modes.
+
+Usage: set header-image in page front matter to activate.
+See _includes/layout/header-studio.html for full parameter docs.
+
+Accent color inherits --accent-primary from base.css.
+Font families inherit from base.css variables.
+*****************************************************/
+
+/* --- Base structure --- */
+.header-studio {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #161618;
+  box-sizing: content-box;
+  padding-bottom: 120px;
+}
+
+.header-studio::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 350px;
+  background: linear-gradient(to bottom, transparent, #2a2d31);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.header-studio-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center right;
+  opacity: 0.28;
+}
+
+.header-studio-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+  background-image:
+    linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.header-studio-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--accent-primary);
+}
+
+.header-studio-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 3rem 5rem;
+  margin-left: 3rem;
+  border-left: 2px solid color-mix(in srgb, var(--accent-primary) 40%, transparent);
+}
+
+/* --- Hero tier: eyebrow, large serif title, divider, subtitle --- */
+.header-studio--hero {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 22vh;
+  padding-bottom: 0;
+}
+
+.header-studio--hero .header-studio-content {
+  height: auto;
+}
+
+.header-studio-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.header-studio h1 {
+  font-family: var(--font-serif) !important;
+  font-size: clamp(4.8rem, 10.8vw, 7.8rem) !important;
+  font-weight: 400 !important;
+  color: white !important;
+  line-height: 1.0;
+  margin-bottom: 0.4rem !important;
+  text-shadow:
+    0 0 20px rgba(0, 0, 0, 0.55),
+    0 0 50px rgba(0, 0, 0, 0.30) !important;
+  text-indent: -0.06em;
+  letter-spacing: 0 !important;
+}
+
+.header-studio-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.header-studio-divider-line {
+  height: 1px;
+  width: 60px;
+  background: rgba(255,255,255,0.12);
+}
+
+.header-studio-divider span {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: rgba(255,255,255,0.28);
+  text-transform: uppercase;
+}
+
+.header-studio p {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.75;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  margin-bottom: 0;
+  max-width: 540px;
+}
+
+/* Reduce gap between header and first content heading */
+.header-studio ~ .container h1:first-child {
+  margin-top: 1rem;
+}
+
+.header-studio--section ~ .container h2:first-child,
+.header-studio--banner ~ .container h2:first-child {
+  margin-top: 1.5rem;
+}
+
+
+/* --- Tier: Section (mid-level pages, ~60vh) --- */
+.header-studio--section {
+  height: 60vh;
+  padding-bottom: 60px;
+}
+
+.header-studio--section::after {
+  height: 180px;
+}
+
+.header-studio--section .header-studio-content {
+  margin-left: 2rem;
+  padding: 2rem 3rem;
+  max-width: 40%;
+  border-left-width: 2px;
+}
+
+.header-studio--section h1 {
+  font-size: clamp(2.4rem, 3.2vw, 3.5rem) !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  text-shadow:
+    0 0 25px rgba(0, 0, 0, 0.95),
+    0 0 55px rgba(0, 0, 0, 0.75),
+    0 0 90px rgba(0, 0, 0, 0.45) !important;
+}
+
+.header-studio--section .header-studio-grid {
+  opacity: 0.015;
+}
+
+.header-studio--section .header-studio-bg {
+  opacity: 0.18;
+}
+
+
+/* --- Tier: Banner (internal pages, ~22vh) --- */
+.header-studio--banner {
+  height: 22vh;
+  padding-bottom: 0;
+}
+
+.header-studio--banner::after {
+  height: 100px;
+}
+
+.header-studio--banner .header-studio-content {
+  margin-left: 2rem;
+  padding: 1rem 2rem;
+  max-width: none;
+  border-left-width: 2px;
+}
+
+.header-studio--banner h1 {
+  font-family: var(--font-heading) !important;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
+  text-indent: 0;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+
+.header-studio--banner .header-studio-grid {
+  opacity: 0.01;
+}
+
+.header-studio--banner .header-studio-bg {
+  opacity: 0.10;
+}
+
+.header-studio--banner .header-studio-bar {
+  width: 3px;
+}
+
+
+/*
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ Header filter system                                                    │
+  │                                                                         │
+  │ botanical  Line-art engravings on white background. Core effect:        │
+  │            invert → dark lines become glowing accent lines; white bg    │
+  │            becomes transparent via mix-blend-mode: screen.              │
+  │            Requires: dark lines on a white or near-white background.    │
+  │                                                                         │
+  │ sketch     Like botanical but contrast() pre-boost darkens faint lines  │
+  │            before inverting. Use when botanical produces dim lines.     │
+  │                                                                         │
+  │ woodcut    Historical images with natural color preserved. Slight        │
+  │            darken only, no color transformation. Use for color          │
+  │            manuscripts, illuminations, woodcuts.                        │
+  │                                                                         │
+  │ etching    Color photos → high-contrast silhouette + tint. Produces     │
+  │            bold shapes, not fine lines. For photos needing line-art     │
+  │            look, pre-process and use botanical instead.                 │
+  │                                                                         │
+  │ photo      Color photos kept photographic — darkened and desaturated    │
+  │            slightly. No inversion. Default filter.                      │
+  └─────────────────────────────────────────────────────────────────────────┘
+*/
+
+/* --- Filter: Botanical (line-art engravings on white background) --- */
+.header-studio-bg--botanical {
+  filter: invert(1) sepia(0.6) hue-rotate(320deg) saturate(2.5);
+  mix-blend-mode: screen;
+}
+
+/* --- Filter: Sketch (thin line drawings on white background)
+     Like botanical but pre-contrast boost darkens faint lines before inverting.
+     Tune: contrast (2–4, higher = thicker lines), brightness at end (1.5–2.5). --- */
+.header-studio-bg--sketch {
+  filter: grayscale(1) contrast(2.5) invert(1) sepia(0.6) hue-rotate(320deg) saturate(3) brightness(2);
+  mix-blend-mode: screen;
+}
+
+.header-studio--section .header-studio-bg--sketch {
+  opacity: 0.55;
+}
+
+.header-studio--banner .header-studio-bg--sketch {
+  opacity: 0.35;
+}
+
+/* --- Filter: Woodcut (historical images with natural color preserved)
+     No color transformation: image shows as-is, slightly darkened for text legibility.
+     Tune brightness and opacity to balance image presence vs. text readability. --- */
+.header-studio-bg--woodcut {
+  filter: saturate(1.05) brightness(0.85);
+  mix-blend-mode: normal;
+  opacity: 0.75;
+}
+
+.header-studio--section .header-studio-bg--woodcut {
+  opacity: 0.65;
+}
+
+.header-studio--banner .header-studio-bg--woodcut {
+  opacity: 0.45;
+}
+
+/* --- Filter: Etching (color photos → high-contrast silhouette)
+     Pipeline: grayscale → pre-brighten → threshold contrast → post-darken → invert → tint
+     contrast(5+) collapses continuous tone to black/white.
+     Pre-brightness(1.3) shifts which tones fall above threshold.
+     Post-brightness(0.55) controls darkness of the inverted result. --- */
+.header-studio-bg--etching {
+  filter: grayscale(1) brightness(1.3) contrast(5) brightness(0.55) invert(1) sepia(0.5) hue-rotate(320deg) saturate(3);
+  mix-blend-mode: screen;
+}
+
+.header-studio--section .header-studio-bg--etching {
+  opacity: 0.40;
+}
+
+.header-studio--banner .header-studio-bg--etching {
+  opacity: 0.25;
+}
+
+/* --- Filter: Photo (color photos, photographic aesthetic, default)
+     saturate(1.05) gives a slight color lift; brightness(0.85) darkens for text legibility.
+     Tune opacity up if image is too faint, down if text becomes hard to read. --- */
+.header-studio-bg--photo {
+  filter: saturate(1.05) brightness(0.85);
+  mix-blend-mode: normal;
+  opacity: 0.80;
+}
+
+.header-studio--section .header-studio-bg--photo {
+  opacity: 0.72;
+}
+
+.header-studio--banner .header-studio-bg--photo {
+  opacity: 0.50;
+}
+
+
+@media (max-width: 768px) {
+  .header-studio-content {
+    padding: 2rem 1.5rem;
+  }
+  .header-studio--section {
+    height: 30vh !important;
+  }
+  .header-studio--section .header-studio-content {
+    padding: 1.5rem 1.5rem;
+    margin-left: 1rem;
+  }
+  .header-studio--banner .header-studio-content {
+    padding: 0.75rem 1rem;
+    margin-left: 1rem;
+  }
+}

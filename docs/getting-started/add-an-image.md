@@ -4,6 +4,8 @@ title: Add an Image
 date: 2026-02-14
 ---
 
+{% include nav/scrollspy-toc.html %}
+
 # Add an Image
 
 You've edited text. Now let's add an image to your site---the full process from uploading the file to seeing it on a page.

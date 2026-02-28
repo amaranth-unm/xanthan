@@ -21,25 +21,38 @@ BACKGROUNDs
 
 
 /* Styling the scrolling text box */
+/* 👉 To change font, size, or width for all boxes, edit this block.
+      To reposition a single box, use box-align: left | right in the include. */
 .bg-text-box {
   /* Positioning */
   position: relative;
   z-index: 1;
-  
+
   /* Box Model */
   max-width: 30rem;
   margin: var(--spacing-lg) auto;
   padding: var(--spacing-md) var(--spacing-lg);
-  
+
   /* Typography */
   font-family: var(--font-serif);
   line-height: 1.6;
-  color: var(--text-primary);
-  
+  color: var(--text-body);
+
   /* Visual */
   background: white;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
+}
+
+/* Horizontal alignment variants — use box-align: left | right in the include */
+.bg-text-box--left {
+  margin-left: 5%;
+  margin-right: auto;
+}
+
+.bg-text-box--right {
+  margin-left: auto;
+  margin-right: 5%;
 }
   
 
@@ -105,25 +118,37 @@ STICKY BACKGROUND
   background-size: cover;
 }
   
+/* 👉 To change font, size, or width for all sticky boxes, edit this block. */
 .sticky-bg-content {
   /* Positioning */
   top: var(--spacing-lg);
   z-index: 10;
-  
+
   /* Box Model */
   max-width: 50rem;
   margin: var(--spacing-lg) auto;
   padding: var(--spacing-md) var(--spacing-lg);
-  
+
   /* Typography */
   font-family: var(--font-serif);
   line-height: 1.6;
-  color: var(--text-primary);
-  
+  color: var(--text-body);
+
   /* Visual */
   background: white;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
+}
+
+/* Horizontal alignment variants — use box-align: left | right in the include */
+.sticky-bg-content--left {
+  margin-left: 5%;
+  margin-right: auto;
+}
+
+.sticky-bg-content--right {
+  margin-left: auto;
+  margin-right: 5%;
 }
 
 

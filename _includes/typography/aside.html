@@ -1,3 +1,11 @@
-<aside class="pullquote {{include.class | default: 'right'}}" style="width: {{ include.width | default: '40%' }}">
+{% comment %}
+  Pullquote Component
+  Parameters:
+    - text:      quote content (required, markdown supported)
+    - box-align: left | right | center (default: right — text wraps on the left)
+    - width:     CSS width override (default: 40%)
+{% endcomment %}
+{% assign box_align = include.box-align | default: include.class | default: 'right' %}
+<aside class="pullquote pullquote--{{ box_align }}" style="width: {{ include.width | default: '40%' }}">
   {{ include.text | markdownify }}
 </aside>

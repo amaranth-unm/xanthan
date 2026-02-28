@@ -5,6 +5,8 @@ date: 2025-10-07
 summary: Create your Xanthan site in 10 minutes with this step-by-step guide.
 ---
 
+{% include nav/scrollspy-toc.html %}
+
 # Create Your Site
 
 **A live website in 10 minutes.** No software to install—everything happens in your browser. By the end, you'll have a site on the open web and understand how it works well enough to start making it your own.

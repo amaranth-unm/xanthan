@@ -4,6 +4,8 @@ title: Editing Workflows
 date: 2026-02-14
 ---
 
+{% include nav/scrollspy-toc.html %}
+
 # Editing Workflows
 
 There are two ways to edit your Xanthan site: in the browser through GitHub, or locally on your computer. Both produce the same result---files committed to your repository and published to your live site. The difference is in the editing experience.
@@ -14,7 +16,7 @@ There are two ways to edit your Xanthan site: in the browser through GitHub, or 
 
 ## Editing in GitHub
 
-GitHub's built-in code editor gives you a full VS Code environment in your browser. Press **`.`** on any repository page to open it.
+GitHub's built-in code editor gives you an intuitive editing environment in your browser. A list of files shows up on the left, and you can edit files on the right. Press **`.`** on any repository page to open it.
 
 ### Edit an existing page
 

@@ -18,7 +18,8 @@
 
     <div style="height: {{ include.above-box-space }}">&nbsp;</div>
 
-    <div class="sticky-bg-content">{{ include.box-content | markdownify }}</div>
+    {% assign box_align = include.box-align | default: 'center' %}
+    <div class="sticky-bg-content{% if box_align != 'center' %} sticky-bg-content--{{ box_align }}{% endif %}">{{ include.box-content | markdownify }}</div>
 
     <div style="height: {{ include.below-box-space }}">&nbsp;</div>
 

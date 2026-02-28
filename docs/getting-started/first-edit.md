@@ -4,6 +4,8 @@ title: Make Your First Edit
 date: 2026-02-14
 ---
 
+{% include nav/scrollspy-toc.html %}
+
 # Make Your First Edit
 
 Your site is live. Now let's change something so you can see the full cycle: edit a file, save it, and watch the change appear on your live site.

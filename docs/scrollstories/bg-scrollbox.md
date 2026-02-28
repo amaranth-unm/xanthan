@@ -1,10 +1,10 @@
 ---
-title: Getting Started
+title: Background Scroll Boxes
 layout: xanthan
 date: 2024-10-24
-header-image: /assets/images/backgrounds/flowers-3.jpg
 ---
 
+{% include nav/scrollspy-toc.html %}
 
 # Background Scroll Boxes
 
@@ -45,13 +45,14 @@ We use basically the same code snippet as before, but this time we include text 
 
 ```
 {%raw%}
-{% 
+{%
 include scrollybox/bg.html
 above-box-space="50vh"
 below-box-space="50vh"
 height="100vh"
-image-path="/assets/images/backgrounds/hike-3.jpg"  
-box-content=" 
+image-path="/assets/images/backgrounds/hike-3.jpg"
+box-align="right"
+box-content="
 See, there is a text box scrolling by, visible after the whole background came into view. Once this text box scrolls off the top of the page, you'll start to see the next section emerge at the bottom of the screen.
 
 ### Here is a header
@@ -60,11 +61,19 @@ Here is a new paragraph."
 {%endraw%}
 ```
 
-Notice in the code snippet a few additional parameters to create the scrolly box effect. `above-box-space` and `below-box-space` indicate how much space above and below the scrolly text box should appear between it and the "main" part of your story. As we saw in the last example, using `100vh` means a background image will be completely revealed before the scrolly box starts scrolling up. 
+Notice in the code snippet a few additional parameters to create the scrolly box effect. `above-box-space` and `below-box-space` indicate how much space above and below the scrolly text box should appear between it and the "main" part of your story. As we saw in the last example, using `100vh` means a background image will be completely revealed before the scrolly box starts scrolling up.
 
 In this case, as you can see above, we demonstrate `50vh` to have the scrolly box and main story appear sooner. Adjust this to whatever feels right for your story!
 
 The `box-content` parameter is the text you want to appear. You can use markdown to create headers, italics, bold, etc. The context has to be in double quotes. If you want to use quotes **in your text**, put a backslash (`\`) before each quote like \\"quote in a quote\\".
+
+Use `box-align` to position the text box relative to the background image. This is especially useful when the subject in the image is on one side — put the text on the other to keep both visible:
+
+| `box-align` | Effect |
+|-------------|--------|
+| `center` | Centered (default) |
+| `left` | Near the left edge |
+| `right` | Near the right edge |
 
 
 
@@ -92,7 +101,7 @@ As we demonstrate below, you can also have a large background image scroll into 
 
 The image freezes when it when it gets to the top of the viewport, and a textbox scrolls past, grabbing the background with it as it scrolls away. 
 
-Notice in the snippet we use a slightly different include file. For this effect, we use `scrollybox/bg-sticky.html`. Everything else is the same. Notice just for fun we use `below-box-space="80vh"` so that the story return just before the scrolly box finishes scrolling off.
+Notice in the snippet we use a slightly different include file. For this effect, we use `scrollybox/bg-sticky.html`. Everything else is the same — including `box-align` — so the same left/right/center positioning works here. Notice just for fun we use `below-box-space="80vh"` so that the story returns just before the scrolly box finishes scrolling off.
 
 ```
 {%raw%}

@@ -3,6 +3,8 @@ layout: xanthan
 title: Themes
 ---
 
+{% include nav/scrollspy-toc.html %}
+
 # Themes
 
 If you just want to change a few colors or swap a font, [Colors & Fonts](colors-and-fonts) covers that. A theme is the next step: a coherent visual identity that goes beyond individual tweaks.

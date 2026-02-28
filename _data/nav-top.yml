@@ -72,6 +72,8 @@
       url: "/docs/scrollstories/bg-switch"
     - title: "Side scrolling text"
       url: "/docs/scrollstories/side-scroll"
+    - title: "Peekaboo images"
+      url: "/docs/scrollstories/peekaboo"
     - divider: true
     - title: "Seedling Essay"
       url: "/scrollstories/seedling"

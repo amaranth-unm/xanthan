@@ -1,23 +1,70 @@
-<!-- 
- This include file is called from the base layout (_layouts/base.html)
- It is used to display the header of essays, which includes the title, subtitle, and an optional image.
- The YML header of the page should include:
-   - title: The title of the essay
-   - subtitle: The subtitle of the essay (optional)
-   - image-url: The URL of the header image (optional)
-   - abs-image-url: An absolute URL for the image (optional)
- -->
+{% comment %}
+  Header Studio — typography-forward dark header with three tiers and five filter modes.
+  Activated automatically when a page has header-image in front matter.
+
+  Parameters:
+    image-path:  background image path (required)
+    tier:        hero | section | banner (default: hero)
+                 Heights: hero 100vh, section 60vh, banner 22vh
+    filter:      botanical | sketch | woodcut | etching | photo (default: photo)
+                 botanical  = line-art engravings on white bg (invert + tint + screen blend)
+                              requires: dark lines on white or near-white background
+                 sketch     = like botanical but pre-contrast boost to darken faint lines;
+                              use when botanical produces lines that are barely visible
+                 woodcut    = historical images with natural color preserved; slight darken only
+                 etching    = color photos → high-contrast silhouette + tint
+                 photo      = color photos kept photographic (darkened, slight desaturate)
+    bg-position: CSS background-position (default: center right)
+                 e.g. "left center", "80% 50%", "center top"
+    bg-opacity:  override CSS opacity (0–1). Defaults: hero 0.28, section 0.18, banner 0.10
+    zoom:        zoom level as a percentage (default: cover). e.g. "150%" zooms in
+    title:       page title (shown in all tiers)
+    eyebrow:     small caps line above title (hero only)
+    divider:     text between decorative lines (hero only)
+    subtitle:    paragraph below title (hero only)
+    height:      override CSS default height (e.g. "60vh")
+{% endcomment %}
+
+{% assign tier = include.tier | default: 'hero' %}
+{% assign filter = include.filter | default: 'photo' %}
 
 {% capture img_url %}
-{% include images/image-path.html image-path=include.image-path %}
+{% if include.image-path %}{% include images/image-path.html image-path=include.image-path %}{% endif %}
 {% endcapture %}
-
 {% assign img_url = img_url | strip %}
 
-<div class="jumbotron" style="      
-      height: {{ include.height | default: '40vh' }}; 
-      background-image: url('{{ img_url }}');
-      background-position: {{ include.background-position }};">
-    <h1 id="page-title">{{ include.title}}</h1>
-    <h2 id="page-subtitle">{{ include.text }}</h2>
+<div class="header-studio header-studio--{{ tier }}"{% if include.height %} style="height: {{ include.height }};"{% endif %}>
+  {% if img_url != '' %}
+  <div class="header-studio-bg header-studio-bg--{{ filter }}" style="background-image: url('{{ img_url }}'); background-position: {{ include.bg-position | default: 'center right' }};{% if include.bg-opacity %} opacity: {{ include.bg-opacity }};{% endif %}{% if include.zoom %} background-size: {{ include.zoom }};{% endif %}"></div>
+  {% endif %}
+  <div class="header-studio-grid"></div>
+  <div class="header-studio-bar"></div>
+  <div class="header-studio-content">
+    {% if tier == 'hero' %}
+      {% if include.eyebrow %}
+      <div class="header-studio-eyebrow">{{ include.eyebrow }}</div>
+      {% endif %}
+      {% if include.title %}
+      <h1>{{ include.title }}</h1>
+      {% endif %}
+      {% if include.divider %}
+      <div class="header-studio-divider">
+        <div class="header-studio-divider-line"></div>
+        <span>{{ include.divider }}</span>
+        <div class="header-studio-divider-line"></div>
+      </div>
+      {% endif %}
+      {% if include.subtitle %}
+      <p>{{ include.subtitle }}</p>
+      {% endif %}
+    {% elsif tier == 'section' %}
+      {% if include.title %}
+      <h1>{{ include.title }}</h1>
+      {% endif %}
+    {% elsif tier == 'banner' %}
+      {% if include.title %}
+      <h1>{{ include.title }}</h1>
+      {% endif %}
+    {% endif %}
+  </div>
 </div>

@@ -4,6 +4,8 @@ layout: xanthan
 date: 2019-04-23
 ---
 
+{% include nav/scrollspy-toc.html %}
+
 # Typography
 
 Good typography isn't just about looking nice—it's about helping readers understand and engage with your content. Well-chosen typefaces, clear hierarchies, and thoughtful spacing guide readers through your ideas, highlight what matters, and make complex information easier to process.
@@ -51,12 +53,12 @@ Etc...
 
 
 ## Pull Quotes
-Even relatively short essays benefit from pull quotes. As the name suggests, the idea is to "pull" a quote outside the main flow of the text to highlight it. You can specify if you want it on the left or right side.
+Even relatively short essays benefit from pull quotes. As the name suggests, the idea is to "pull" a quote outside the main flow of the text to highlight it. Use `box-align` to place it left, right, or centered — body text wraps around left and right placements.
 
 ```
 {%raw%}{%
 include typography/aside.html
-class="left"
+box-align="left"
 width="50%"
 text="Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis diam. Pellentesque ut neque."
 %}{%endraw%}
@@ -65,7 +67,7 @@ text="Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere c
 
 {%
 include typography/aside.html
-class="left"
+box-align="left"
 width="50%"
 text="Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis diam. Pellentesque ut neque."
 %}
@@ -74,17 +76,27 @@ Here is text that's part of the main body of the essay (or whatever). It natural
 
 
 ### Block quotes
-Extended quotations from another source tend to get lost in the text, or be too large for the pull quote format. For those cases, you can use a blockquote to highlight a particularly juicy quotation. Just start your quote with a greater-than sign as shown below. 
+Extended quotations from another source. The simplest approach is Markdown's `>` syntax — just start the line with a greater-than sign:
 
 ```
 > Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis diam. Pellentesque ut neque.
 ```
 
-Here is some regular text in the flow of the page. 
+Here is some regular text in the flow of the page.
 
 > Here is my very interesting quote. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis diam. Pellentesque ut neque.
 
 And back to the regular text.
+
+If you want to align the blockquote left or right, use the include instead of the `>` syntax:
+
+```
+{%raw%}{%
+include typography/blockquote.html
+box-align="right"
+text="Here is a significant quotation worth setting apart from the body text."
+%}{%endraw%}
+```
 
 ---
 

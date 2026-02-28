@@ -3,6 +3,8 @@ layout: xanthan
 title: Colors & Fonts
 ---
 
+{% include nav/scrollspy-toc.html %}
+
 # Colors & Fonts
 The fastest way to personalize your site is to change colors and fonts in `assets/css/base.css`. These are small, targeted changes---no need to create a separate file. If you want to develop a complete visual identity, see [Themes](themes).
 

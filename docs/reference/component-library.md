@@ -8,7 +8,7 @@ date: 2026-02-14
 
 # Component Library
 
-Every include in Xanthan, with its parameters and copy-paste code. These are reusable components you drop into any page using Liquid's `include` tag. They live in the `_includes/` directory and are organized by function.
+Every component in Xanthan, with its parameters and copy-paste code. Drop any of these into a page using the code shown, and the component renders automatically.
 
 ---
 
@@ -44,25 +44,42 @@ Places an image in your content with caption and alt-text. Text wraps around `le
 
 **File:** `images/jumbotron.html`
 
-Full-browser-width image, useful as a section divider or dramatic visual break. Breaks out of the page content margins.
+Full-browser-width image that breaks out of the page content margins. Use it as a pure visual break, or add text — the gradient fade is applied automatically so text reads cleanly against the image.
 
 ```
 {% raw %}{% include images/jumbotron.html
-  height="50vh"
   image-path="/assets/images/backgrounds/pano-1.jpg"
-  title="Section Title"
-  text="Optional subtitle"
-  background-position="center"
+  height="50vh"
+  box-align="left"
+  text="A pull quote or caption that sits on the clear left side of the image."
+  background-position="center right"
+  caption="Source: Maxwell Museum of Anthropology."
 %}{% endraw %}
 ```
 
 | Parameter | Required | Default | Notes |
 |-----------|----------|---------|-------|
 | `image-path` | yes | --- | Path to image |
-| `height` | no | `40vh` | CSS height value |
-| `title` | no | --- | Heading text overlaid on image |
-| `text` | no | --- | Subtitle text overlaid on image |
-| `background-position` | no | browser default | `center`, `top`, `bottom`, `200px`, `50% 80%` |
+| `height` | no | --- | CSS height; e.g. `50vh` |
+| `box-align` | no | `left` | `left`, `right`, or `center` — positions text and sets gradient direction |
+| `title` | no | --- | Heading above the text |
+| `text` | no | --- | Body text; supports Markdown. Gradient applied automatically when present |
+| `fade-start` | no | `0%` | Where the opaque background begins |
+| `fade-end` | no | `60%` | Where the fade becomes transparent |
+| `bg-color` | no | `var(--bg-page)` | Color of the opaque side |
+| `background-position` | no | `center` | CSS `background-position`; aim the photo subject away from the text side |
+| `zoom` | no | `cover` | CSS `background-size`; e.g. `150%` to zoom in |
+| `caption` | no | --- | Caption below the image; supports Markdown |
+
+**`box-align` controls both text placement and gradient direction:**
+
+| `box-align` | Text position | Gradient direction |
+|-------------|---------------|--------------------|
+| `left` (default) | Left side | Left opaque → right transparent |
+| `right` | Right side | Right opaque → left transparent |
+| `center` | Centered over image | No gradient; text shadow used for legibility |
+
+No `text` or `title`? The gradient is omitted — the include renders as a clean full-width image break.
 
 ---
 
@@ -159,11 +176,11 @@ Colored callout box for tips, warnings, or important information.
 
 **File:** `typography/aside.html`
 
-Styled sidebar text that floats alongside content. Good for highlighting key quotes or tangential points.
+Styled sidebar text that floats alongside content, with body text wrapping around it. Good for highlighting key passages or tangential points.
 
 ```
 {% raw %}{% include typography/aside.html
-  class="right"
+  box-align="right"
   width="40%"
   text="The interesting thing about this approach is that it challenges conventional assumptions."
 %}{% endraw %}
@@ -172,8 +189,30 @@ Styled sidebar text that floats alongside content. Good for highlighting key quo
 | Parameter | Required | Default | Notes |
 |-----------|----------|---------|-------|
 | `text` | yes | --- | Quote or aside content; supports Markdown |
-| `class` | no | `right` | `left` or `right` |
+| `box-align` | no | `right` | `left`, `right`, or `center` — where the box sits; body text wraps around left/right |
 | `width` | no | `40%` | CSS width |
+
+---
+
+## Blockquote
+
+**File:** `typography/blockquote.html`
+
+Extended quotations set apart from the body text. For simple centered blockquotes, you can use Markdown's `>` syntax directly. Use this include when you want to control alignment.
+
+```
+{% raw %}{% include typography/blockquote.html
+  box-align="left"
+  text="Here is a significant quotation worth setting apart from the body text."
+%}{% endraw %}
+```
+
+| Parameter | Required | Default | Notes |
+|-----------|----------|---------|-------|
+| `text` | yes | --- | Quote content; supports Markdown |
+| `box-align` | no | `center` | `left`, `right`, or `center` |
+
+**Plain Markdown alternative:** `> Your quote here` produces a centered blockquote without an include.
 
 ---
 
@@ -225,7 +264,27 @@ Renders a list of compact, text-focused cards from a set of pages.
 |-----------|----------|-------|
 | `rows` | yes | A Liquid-assigned collection of pages |
 
-Pages should have `title`, `author`, and `summary` in their front matter for best results.
+Pages should have `title`, `author`, and `summary` in their front matter for best results. Add `position: 1`, `position: 2`, etc. to control sort order.
+
+---
+
+## Card: Compact List
+
+**File:** `nav/card-toc-compact.html`
+
+Smaller, text-only cards stacked vertically---more compact than `card-toc.html` and better suited for long lists or documentation indexes. Shows title, summary, and an optional `topics` list as sub-bullets.
+
+```
+{% raw %}{% assign card_pages = site.pages | where_exp: "page", "page.path contains 'docs/'" %}
+
+{% include nav/card-toc-compact.html rows = card_pages %}{% endraw %}
+```
+
+| Parameter | Required | Notes |
+|-----------|----------|-------|
+| `rows` | yes | A Liquid-assigned collection of pages |
+
+Pages should have `title` and `summary` in their front matter. Add `position: 1`, `position: 2`, etc. to control sort order. Optional `topics:` list in front matter renders as sub-bullets under the summary.
 
 ---
 
@@ -245,6 +304,8 @@ Wide horizontal cards with larger images, stacked vertically.
 |-----------|----------|-------|
 | `cards` | yes | A Liquid-assigned collection of pages |
 
+Cards sort by `position` front matter if present. Pages without `position` appear last.
+
 ---
 
 ## Card: Grid
@@ -262,6 +323,8 @@ Traditional card grid layout with balanced text and images.
 | Parameter | Required | Notes |
 |-----------|----------|-------|
 | `cards` | yes | A Liquid-assigned collection of pages |
+
+Cards sort by `position` front matter if present. Pages without `position` appear last.
 
 ---
 
@@ -332,25 +395,55 @@ A horizontal row with text and a button link. Useful for landing pages or featur
 
 ---
 
-## Header Image (via front matter)
+## Page Header (via front matter)
 
 **File:** `layout/header-image.html`
 
-This include is called automatically by the page layout when `header-image` is present in the front matter. You don't call it directly---just add these fields to your page:
+Called automatically by the page layout when `header-image` is in the front matter. You don't call it directly — just add fields to your page. Three tiers control the header's visual weight; five filter modes transform how the background image appears.
 
 ```yaml
 ---
 header-image: /assets/images/backgrounds/canyon.jpg
-header-height: 50vh
-header-position: center
+header-tier: section
+header-filter: photo
+header-title: River Crossings
+header-position: center right
 ---
 ```
 
-| Front matter field | Default | Notes |
-|--------------------|---------|-------|
+**Tier** controls height and text layout:
+
+| `header-tier` | Height | Text elements |
+|---------------|--------|---------------|
+| `hero` | 100vh | eyebrow, title, divider, subtitle |
+| `section` | 60vh | title only |
+| `banner` | 22vh | title only, sans-serif |
+
+**Filter** transforms the background image:
+
+| `header-filter` | Best for |
+|-----------------|----------|
+| `photo` | Color photos (default) |
+| `botanical` | Line-art engravings, dark lines on white background |
+| `sketch` | Faint line drawings (boosts contrast before inverting) |
+| `woodcut` | Historical color images; preserves natural color |
+| `etching` | Photos → high-contrast silhouette |
+
+**All front matter fields:**
+
+| Field | Default | Notes |
+|-------|---------|-------|
 | `header-image` | --- | Path to image (required to trigger header) |
-| `header-height` | `40vh` | CSS height |
-| `header-position` | browser default | `center`, `top`, `200px`, etc. |
+| `header-tier` | `hero` | `hero`, `section`, or `banner` |
+| `header-filter` | `photo` | See filter table above |
+| `header-title` | --- | Title text overlaid on image |
+| `header-eyebrow` | --- | Small caps line above title (hero only) |
+| `header-subtitle` | --- | Paragraph below title (hero only) |
+| `header-divider` | --- | Text between decorative lines (hero only) |
+| `header-position` | `center right` | CSS `background-position` value |
+| `header-opacity` | tier default | Override image opacity (0–1) |
+| `header-zoom` | `cover` | CSS background-size; e.g. `150%` to zoom in |
+| `header-height` | tier default | CSS height override; e.g. `60vh` |
 
 ---
 
@@ -358,31 +451,42 @@ header-position: center
 
 **File:** `scrollybox/bg.html`
 
-A fixed background image that is revealed as page content scrolls over it, creating a parallax-like effect.
+A fixed background image that is revealed as page content scrolls over it, creating a parallax-like effect. Optionally adds a text box that scrolls past the image.
 
 ```
 {% raw %}{% include scrollybox/bg.html
-  height="40vh"
+  height="100vh"
   image-path="/assets/images/backgrounds/pano-1.jpg"
+  box-content="Text that scrolls past the image."
+  above-box-space="50vh"
+  below-box-space="50vh"
+  box-align="right"
 %}{% endraw %}
 ```
 
 | Parameter | Required | Default | Notes |
 |-----------|----------|---------|-------|
 | `image-path` | yes | --- | Path to image |
-| `height` | no | `40vh` | CSS height |
+| `height` | no | `40vh` | CSS height of the background section |
+| `box-content` | no | --- | Text to scroll past the image; supports Markdown |
+| `above-box-space` | no | --- | Space above the text box (e.g. `50vh`) |
+| `below-box-space` | no | --- | Space below the text box |
+| `box-align` | no | `center` | `left`, `right`, or `center` — horizontal position of text box |
 
 ---
 
 ## ScrollStory components
 
-The `scrollybox/` directory contains several additional includes for building ScrollStory narratives. These are documented in the [ScrollStories](/docs/scrollstories) section:
+The `scrollybox/` directory contains additional includes for building ScrollStory narratives. These are documented in the [ScrollStories](/docs/scrollstories) section.
+
+All scrollybox includes that display a text box support the `box-align` parameter (`left`, `right`, `center`):
 
 | Include | Purpose |
 |---------|---------|
-| `scrollybox/bg-switch.html` | Switch background images as the reader scrolls |
+| `scrollybox/bg.html` | Revealed background + optional scrolling text box |
 | `scrollybox/bg-sticky.html` | Background stays fixed while text scrolls over it |
 | `scrollybox/bg-multi-long.html` | Multiple background sections in sequence |
+| `scrollybox/bg-switch.html` | Switch background images as the reader scrolls |
 | `scrollybox/auto-scroll.html` | Side-scrolling text panels |
 
 See the [ScrollStory examples](/docs/scrollstories) for these components in action.
