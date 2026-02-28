@@ -172,23 +172,21 @@ Colored callout box for tips, warnings, or important information.
 
 ---
 
-## Pull Quote / Aside
+## Pull Quote
 
-**File:** `typography/aside.html`
+**File:** `typography/pullquote.html`
 
-Styled sidebar text that floats alongside content, with body text wrapping around it. Good for highlighting key passages or tangential points.
+A centered callout that highlights a key passage from your text. Good for drawing attention to a memorable phrase or key argument.
 
 ```
-{% raw %}{% include typography/aside.html
-  box-align="right"
-  width="40%"
+{% raw %}{% include typography/pullquote.html
   text="The interesting thing about this approach is that it challenges conventional assumptions."
 %}{% endraw %}
 ```
 
 | Parameter | Required | Default | Notes |
 |-----------|----------|---------|-------|
-| `text` | yes | --- | Quote or aside content; supports Markdown |
+| `text` | yes | --- | Quote content; supports Markdown |
 | `box-align` | no | `right` | `left`, `right`, or `center` — where the box sits; body text wraps around left/right |
 | `width` | no | `40%` | CSS width |
 

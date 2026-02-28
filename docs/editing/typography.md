@@ -53,29 +53,22 @@ Etc...
 
 
 ## Pull Quotes
-Even relatively short essays benefit from pull quotes. As the name suggests, the idea is to "pull" a quote outside the main flow of the text to highlight it. Use `box-align` to place it left, right, or centered — body text wraps around left and right placements.
+Pull quotes highlight a key passage from your text — a memorable phrase, a central argument, a line worth making the reader pause on. Place them between paragraphs for visual emphasis.
 
 ```
-{%raw%}{%
-include typography/aside.html
-box-align="left"
-width="50%"
-text="Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis diam. Pellentesque ut neque."
+{%raw%}{% include typography/pullquote.html
+  text="Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus."
 %}{%endraw%}
 ```
 
-
-{%
-include typography/aside.html
-box-align="left"
-width="50%"
-text="Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis diam. Pellentesque ut neque."
+{% include typography/pullquote.html
+  text="Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus."
 %}
 
-Here is text that's part of the main body of the essay (or whatever). It naturally flows around the pull quote. Below is some dummy text just to take up space. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis diam. Pellentesque ut neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis diam. Pellentesque ut neque.
+The pull quote appears centered at 70% width between your paragraphs. Content before and after it flows normally at full width.
 
 
-### Block quotes
+## Block quotes
 Extended quotations from another source. The simplest approach is Markdown's `>` syntax — just start the line with a greater-than sign:
 
 ```

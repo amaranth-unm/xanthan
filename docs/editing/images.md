@@ -8,141 +8,135 @@ date: 2026-02-14
 
 # Images
 
-Images are often the most persuasive element on a page---they can establish credibility, evoke a sense of place, or make an argument that words alone can't. Xanthan gives you several ways to use them, from simple inline figures to full-width panoramic headers and before/after comparison sliders.
+An image is never just decoration. It establishes credibility, creates a sense of place, shows something that words can't, or gives a reader a moment to breathe between ideas. How you place an image shapes how it functions---whether it commands the full page, sits beside an argument, or anchors a section.
+
+Xanthan gives you a small set of placement tools, each suited to a different editorial intention. That's deliberate: rather than infinite options that require infinite decisions, you have a few choices that each do something well. Knowing what each one does is how you choose intentionally.
 
 ---
 
-## Inline images
+## Stand-alone images
 
-Use the `figure.html` include to place images in your content. Copy and paste this code anywhere you want an image to appear:
+Use the `figure.html` include to place an image in your content. The image appears as its own element---it gets its own visual moment, and the content that follows starts cleanly below it.
 
 ```
 {% raw %}{% include images/figure.html
-  class="right"
-  width="40%"
+  class="center"
+  width="60%"
   caption="What a nice view"
-  alt-text="Color photograph showing hiking trails in a Sandia foothills canyon."
+  alt-text="Hiking trails winding through a canyon in the Sandia foothills."
   image-path="/assets/images/backgrounds/hike-1.jpg"
 %}{% endraw %}
 ```
 
 {% include images/figure.html
-  class="right"
-  width="40%"
+  class="center"
+  width="60%"
   caption="What a nice view"
-  alt-text="Color photograph showing some hiking trails in a canyon of the Sandia foothills."
+  alt-text="Hiking trails winding through a canyon in the Sandia foothills."
   image-path="/assets/images/backgrounds/hike-1.jpg"
 %}
 
-The image appears to the right, with text flowing around it.
+### Alignment
 
-<br style="clear:both"/>
+The `class` parameter positions the image within the content column. Content that follows always starts below the image at full width.
+
+**Full-width** (`width="100%"`) --- the image commands the entire content column. The most common choice for photographs, maps, or anything that deserves full attention. Make sure your source image is at least 1200px wide to avoid looking grainy.
+
+{% include images/figure.html class="center" width="100%" caption="A full-width image commands the full content column." image-path="/assets/images/default.jpg" %}
+
+**Centered at a set width** --- good when the image doesn't need to fill the full column, or when a smaller image would look lost at full width.
+
+{% include images/figure.html
+  class="center"
+  width="60%"
+  caption="Centered at 60% width."
+  image-path="/assets/images/backgrounds/hike-1.jpg"
+%}
+
+**Right-aligned** --- sits at the right edge of the content column. Useful as a visual anchor when you want the image offset rather than centered.
+
+{% include images/figure.html
+  class="right"
+  width="80%"
+  caption="Right-aligned at 80% width."
+  image-path="/assets/images/backgrounds/hike-1.jpg"
+%}
+
+When you want an image beside text rather than above or below it, use `figure-wrap.html` instead --- see [Image alongside text](#image-alongside-text) below.
 
 ### Parameters
 
 | Parameter | Options | What it does |
 |-----------|---------|--------------|
-| `class` | `left`, `center`, `right` | Where the image sits on the page |
-| `width` | Any CSS value (e.g. `40%`, `300px`) | Width of the image (default: 40%) |
+| `class` | `left`, `center`, `right` | Where the image sits horizontally |
+| `width` | Any CSS value (`40%`, `300px`) | Width of the image (default: 40%) |
 | `caption` | Text | Caption displayed below the image |
-| `alt-text` | Text | Accessibility description for screen readers |
+| `alt-text` | Text | Accessibility description (falls back to caption) |
 | `image-path` | File path | Path to the image file |
 
-{% include typography/alert.html
-  class="warning"
-  title="Image paths: the most common source of problems"
-  text="Paths can be **relative** or **absolute**, and mixing them up is the number one reason images don't appear.
+---
 
-- **Absolute path** (starts with `/`): `/assets/images/photo.jpg` --- works from any page on your site, because it starts from the site root. **This is the safer choice.**
-- **Relative path** (no leading `/`): `images/photo.jpg` --- relative to the current page's location. A path that works on `essays/my-essay.md` won't work on `index.md` if the image isn't in the right place relative to that page.
+## Image alongside text
 
-**When in doubt, use absolute paths.** They always resolve the same way regardless of which page you're on. And remember: paths are case-sensitive. `Photo.jpg` is not the same as `photo.jpg`."
-%}
+Sometimes an image and a passage of text belong together as equals---neither subordinate to the other, both necessary to the point. Use `figure-wrap.html` to place them side by side as an explicit two-column pair.
 
-### Alignment examples
-
-**Right-aligned** (most common for essay-style pages):
 ```
-{% raw %}{% include images/figure.html
-  class="right"
-  width="60%"
-  caption="What a nice view"
+{% raw %}{% include images/figure-wrap.html
   image-path="/assets/images/backgrounds/hike-1.jpg"
+  caption="What a nice view"
+  alt-text="Hiking trail through a canyon in the Sandia foothills."
+  image-position="right"
+  image-width="45%"
+  text="The text you put here sits beside the image, not below it. Good for introductory paragraphs, a key argument tied to a specific image, or whenever the visual and the words need to be read together. Content that follows the include starts at full width below both columns."
 %}{% endraw %}
 ```
 
-{% include images/figure.html
-  class="right"
-  width="60%"
+{% include images/figure-wrap.html
+  image-path="/assets/images/backgrounds/hike-1.jpg"
   caption="What a nice view"
+  alt-text="Hiking trail through a canyon in the Sandia foothills."
+  image-position="right"
+  image-width="45%"
+  text="The text you put here sits beside the image, not below it. Good for introductory paragraphs, a key argument tied to a specific image, or whenever the visual and the words need to be read together. Content that follows the include starts at full width below both columns."
+%}
+
+The design forces a useful editorial question: *which* text belongs paired with this image? That's a decision worth making deliberately.
+
+### Image on the left
+
+With `image-position` omitted (or set to `left`), the image sits on the left:
+
+{% include images/figure-wrap.html
   image-path="/assets/images/backgrounds/hike-1.jpg"
+  image-width="35%"
+  text="Left-aligned image at 35% width. The text column takes the remaining space. Markdown is supported in the text parameter---**bold**, *italic*, [links](#), and even line breaks."
 %}
 
-Etiam finibus risus et sagittis suscipit. Praesent id nisi metus. Vivamus odio ligula, iaculis vestibulum convallis id, vehicula at justo. Sed vestibulum elit at ante pellentesque pretium. Vestibulum euismod tempus sem sit amet scelerisque. Curabitur hendrerit fermentum rutrum.
+### Long text stays in its column
 
-In hac habitasse platea dictumst. Sed ultrices venenatis nunc et eleifend. Praesent sapien enim, porta egestas tortor vitae, imperdiet mollis velit. Cras quis quam lacus.
+When the text is longer than the image is tall, it continues in the text column---it does not flow underneath the image. Whatever comes after the include starts at full width below both columns.
 
-
-{% include images/figure.html
-  class="left"
-  width="25%"
-  caption="What a nice view, again"
+{% include images/figure-wrap.html
   image-path="/assets/images/backgrounds/hike-1.jpg"
+  image-position="right"
+  image-width="35%"
+  text="This paragraph is long enough to extend past the bottom of the image. Notice that the text stays in its own column throughout---it doesn't wrap under the image the way a floated image would behave. The two columns are independent. When the text runs long, the image column simply ends at the image bottom and leaves empty space below it. This is predictable, intentional behavior: you know exactly what you're getting. The content that follows this include will start at full width, below the taller of the two columns."
 %}
 
-**Left-aligned** at 25% width---small but effective for portraits or icons. Text wraps around the right side.
+This is content after the figure-wrap. It starts at full width below both columns.
 
-Vestibulum euismod tempus sem sit amet scelerisque. Curabitur hendrerit fermentum rutrum. Nam suscipit dictum purus, non rhoncus dui sodales nec. Etiam convallis arcu metus, ut cursus risus porttitor sit amet. Duis ut sapien varius libero efficitur vehicula.
+### Parameters
 
-In hac habitasse platea dictumst. Sed ultrices venenatis nunc et eleifend. Praesent sapien enim, porta egestas tortor vitae, imperdiet mollis velit.
+| Parameter | Options / Default | What it does |
+|-----------|-------------------|--------------|
+| `image-path` | (required) | Path to the image file |
+| `text` | (required) | Text beside the image; supports Markdown |
+| `caption` | (none) | Caption below the image; supports Markdown |
+| `alt-text` | Falls back to caption | Accessibility description for screen readers |
+| `image-position` | `left` (default), `right` | Which side the image appears on |
+| `image-width` | `40%` (default) | CSS width of the image column |
 
-
-**Centered** at 50%---good for highlighting a single image between sections:
-
-{% include images/figure.html
-  class="center"
-  width="50%"
-  caption="What a nice view, again"
-  image-path="/assets/images/backgrounds/hike-1.jpg"
-%}
-
-
-### Side by side
-
-Set both images to `class="left"` with `width="48%"` (slightly less than 50% to leave room for margins):
-
-{% include images/figure.html class="left" width="48%" image-path="/assets/images/default.jpg" caption="Here's an image on the left."%}
-
-{% include images/figure.html class="left" width="48%" image-path="/assets/images/default.jpg" caption="Here's an image on the right."%}
-
-<p style="clear:both"></p>
-
-```
-{% raw %}{% include images/figure.html
-  class="left"
-  width="48%"
-  caption="Here's an image on the left."
-  image-path="/assets/images/default.jpg"
-%}
-
-{% include images/figure.html
-  class="left"
-  width="48%"
-  caption="Here's an image on the right."
-  image-path="/assets/images/default.jpg"
-%}
-
-<p style="clear:both"></p>{% endraw %}
-```
-
-The `<p style="clear:both"></p>` line ensures text starts below both images rather than creeping into the gap beside them.
-
-### Full-width
-
-Set `width="100%"` for images that span the content area. Make sure the source image is large enough to avoid looking grainy.
-
-{% include images/figure.html class="center" width="100%" caption="Make sure your image is large enough to be 100% width or it will look grainy."  image-path="/assets/images/default.jpg" %}
-
+On small screens, the layout collapses to a single column with the image on top.
 
 ---
 
@@ -167,7 +161,7 @@ If you don't include an `alt-text` parameter, the caption will be used as the al
 
 ## Jumbotron images
 
-A jumbotron expands to fill the full browser width, breaking out of the page's text margins. Use one as a pure visual break between sections, or add a text overlay---the gradient fade is applied automatically so text reads cleanly against the image.
+A jumbotron breaks out of the page's content column to fill the full browser width---the most cinematic option available. Use one as a visual break between sections, or add a text overlay. The gradient fade is applied automatically so text reads cleanly against the image.
 
 ```
 {% raw %}{% include images/jumbotron.html
@@ -188,6 +182,52 @@ A jumbotron expands to fill the full browser width, breaking out of the page's t
   text="A pull quote or caption on the clear side of the image."
   background-position="center right"
 %}
+
+### No text or fade
+
+If you omit `text` and `title`, the gradient is skipped and the jumbotron renders as a clean full-width visual break---useful as section dividers on long pages.
+
+{% include images/jumbotron.html
+  image-path="/assets/images/backgrounds/pano-1.jpg"
+  height="30vh"
+  background-position="center 60%"
+%}
+
+```
+{% raw %}{% include images/jumbotron.html
+  image-path="/assets/images/backgrounds/pano-1.jpg"
+  height="30vh"
+  background-position="center 60%"
+%}{% endraw %}
+```
+
+### Heading, zoom, and custom fade
+
+Use `zoom` to enlarge the image and `fade-start`/`fade-end` to control how quickly the gradient appears and disappears.
+
+{% include images/jumbotron.html
+  image-path="/assets/images/backgrounds/pano-1.jpg"
+  height="50vh"
+  box-align="right"
+  title="Landscape at dusk"
+  zoom="150%"
+  background-position="center left"
+  fade-start="10%"
+  fade-end="80%"
+%}
+
+```
+{% raw %}{% include images/jumbotron.html
+  image-path="/assets/images/backgrounds/pano-1.jpg"
+  height="50vh"
+  box-align="right"
+  title="Landscape at dusk"
+  zoom="150%"
+  background-position="center left"
+  fade-start="10%"
+  fade-end="80%"
+%}{% endraw %}
+```
 
 ### Parameters
 
@@ -213,59 +253,11 @@ A jumbotron expands to fill the full browser width, breaking out of the page's t
 | `right` | Right side | Opaque right → transparent left |
 | `center` | Centered over image | No gradient; text shadow used for legibility |
 
-If you omit `text` and `title`, the gradient is skipped and the jumbotron renders as a clean full-width image break---useful as section dividers on long pages.
-
-### No text or fade
-
-Omit `title` and `text` entirely for a plain visual break with no gradient.
-
-```
-{% raw %}{% include images/jumbotron.html
-  image-path="/assets/images/backgrounds/pano-1.jpg"
-  height="30vh"
-  background-position="center 60%"
-%}{% endraw %}
-```
-
-{% include images/jumbotron.html
-  image-path="/assets/images/backgrounds/pano-1.jpg"
-  height="30vh"
-  background-position="center 60%"
-%}
-
-### Heading, zoom, and custom fade
-
-Use `zoom` to enlarge the image and `fade-start`/`fade-end` to control how quickly the gradient appears and disappears.
-
-```
-{% raw %}{% include images/jumbotron.html
-  image-path="/assets/images/backgrounds/pano-1.jpg"
-  height="50vh"
-  box-align="right"
-  title="Landscape at dusk"
-  zoom="150%"
-  background-position="center left"
-  fade-start="10%"
-  fade-end="80%"
-%}{% endraw %}
-```
-
-{% include images/jumbotron.html
-  image-path="/assets/images/backgrounds/pano-1.jpg"
-  height="50vh"
-  box-align="right"
-  title="Landscape at dusk"
-  zoom="150%"
-  background-position="center left"
-  fade-start="10%"
-  fade-end="80%"
-%}
-
 ---
 
 ## Header images
 
-A header image is a large banner across the top of the page. You set it in the page's front matter rather than in the content:
+A header image is a large banner across the top of the page, set in the front matter rather than in the content body:
 
 ```yaml
 ---
@@ -276,8 +268,6 @@ header-image: /assets/images/backgrounds/pano-1.jpg
 ```
 
 ### Controlling height and position
-
-Two optional front matter fields fine-tune how the header appears:
 
 ```yaml
 ---
@@ -300,7 +290,7 @@ header-position: center
 
 ## Before/after slider (Juxtapose)
 
-Compare two images with a draggable slider---ideal for historic vs. contemporary photos, before/after transformations, or any visual comparison.
+Compare two images with a draggable slider---ideal for historic vs. contemporary photos, before/after transformations, or any visual comparison where the reader should be able to move between the two states themselves.
 
 ```
 {% raw %}{% include images/juxtapose.html
@@ -329,7 +319,7 @@ The effect is most striking when the two images are taken from the same vantage 
 
 ## Image carousel
 
-Display a series of images as a slideshow. This requires a bit more code---you define three lists (images, headers, captions) and then call the carousel include:
+Display a series of images as a slideshow. Define three lists (images, headers, captions) and pass them to the carousel include:
 
 ```
 {% raw %}{% assign images =
@@ -386,8 +376,6 @@ headers = headers
 captions = captions
 %}
 
-<p style="clear:both"></p>
-
 | Parameter | What it does |
 |-----------|--------------|
 | `width` | Width of the carousel (default: 100%) |
@@ -408,6 +396,17 @@ See the [ScrollStories overview](/docs/scrollstories) to learn what's available,
 ---
 
 ## Troubleshooting
+
+{% include typography/alert.html
+  class="warning"
+  title="Image paths: the most common source of problems"
+  text="Paths can be **relative** or **absolute**, and mixing them up is the number one reason images don't appear.
+
+- **Absolute path** (starts with `/`): `/assets/images/photo.jpg` --- works from any page on your site, because it starts from the site root. **This is the safer choice.**
+- **Relative path** (no leading `/`): `images/photo.jpg` --- relative to the current page's location. A path that works on `essays/my-essay.md` won't work on `index.md` if the image isn't in the right place relative to that page.
+
+**When in doubt, use absolute paths.** They always resolve the same way regardless of which page you're on. And remember: paths are case-sensitive. `Photo.jpg` is not the same as `photo.jpg`."
+%}
 
 **Image doesn't appear:**
 - Check that the file path and filename match exactly (paths are case-sensitive)

@@ -2,6 +2,19 @@
 title: Navigation
 layout: xanthan
 date: 2026-02-14
+example_cards:
+  - title: "River Systems and Settlement"
+    summary: "How waterways shaped the geography of early towns along the Rio Grande."
+    link: "#"
+    position: 1
+  - title: "Acequia Landscapes"
+    summary: "Community irrigation networks and their role in shaping land use patterns."
+    link: "#"
+    position: 2
+  - title: "Mining Towns and Their Aftermath"
+    summary: "The boom-and-bust cycles that defined the built environment of the mountain West."
+    link: "#"
+    position: 3
 ---
 
 {% include nav/scrollspy-toc.html %}
@@ -160,27 +173,17 @@ If your navigation disappears after an edit, paste your file into a [YAML valida
 
 ## Card-based navigation
 
-Cards are visual directory pages that automatically generate links to every page in a specified folder. Each card pulls its title, author, summary, and thumbnail from the page's front matter---so the cards stay current as you add and edit pages.
+Cards turn any page into a visual directory. Each card shows a title, summary, optional image, and a link. Use cards for essay indexes, project galleries, reading lists, or any collection where readers need to browse before they dive in.
 
-### How cards work
-
-Cards use two lines of Liquid code. The first line gathers all pages from a folder; the second renders them using a card template:
-
-```
-{% raw %}{% assign card_pages = site.pages | where_exp: "page", "page.path contains 'essays/'" %}
-
-{% include nav/card-toc.html rows = card_pages %}{% endraw %}
-```
-
-Change `essays/` to whatever folder your pages live in. The card include handles the rest.
+Cards have two distinct sources---pages gathered automatically from a folder, or data you define directly in the page's front matter---and the choice shapes how you manage the directory.
 
 ### Card styles
 
-Xanthan includes three card layouts. All use the same two-line pattern---just swap the include file.
+Xanthan includes four card layouts. Each is called the same way: assign a list, pass it to an include. What changes is the include name and the visual result.
 
-#### Table of Contents cards
+#### TOC cards
 
-Compact, text-focused cards in a vertical list. Shows title, author, and summary.
+Compact, text-only rows with title, summary, and a right-arrow. Clean and fast for long lists. Best when images aren't essential---a reading list, a document index, a section TOC.
 
 ```
 {% raw %}{% assign card_pages = site.pages | where_exp: "page", "page.path contains 'essays/'" %}
@@ -192,9 +195,9 @@ Compact, text-focused cards in a vertical list. Shows title, author, and summary
 
 {% include nav/card-toc.html rows = card_pages %}
 
-#### Stacked cards
+#### Stack cards
 
-Wide horizontal cards with larger images and more prominent titles, stacked vertically.
+Wide horizontal cards with an image on the left and text on the right, stacked vertically. Good for featured collections where images help readers recognize items before clicking.
 
 ```
 {% raw %}{% assign stacked_cards = site.pages | where_exp: "page", "page.path contains 'essays/'" %}
@@ -207,7 +210,7 @@ Wide horizontal cards with larger images and more prominent titles, stacked vert
 
 #### Grid cards
 
-Traditional card grid---square or rectangular cards with balanced text and images.
+A grid of vertical cards with the image on top. Works well when images are the primary way readers identify items, or when you want the directory to feel like a gallery.
 
 ```
 {% raw %}{% assign stories = site.pages | where_exp: "page", "page.path contains 'essays/'" %}
@@ -218,18 +221,118 @@ Traditional card grid---square or rectangular cards with balanced text and image
 {% assign essays = site.pages | where_exp: "page", "page.path contains 'scrollstories/examples'" %}
 {% include nav/card-grid.html cards = essays %}
 
-### Making your pages card-ready
+---
 
-Cards look best when pages have rich front matter. At minimum, include `title` and `summary`. For cards with images, add a `thumbnail` or `header-image`:
+### From a folder
+
+The most common approach: automatically collect all pages from a folder, and let each page's own front matter supply the card content. As you add or edit pages in the folder, the card directory updates on its own---no maintenance required.
+
+```
+{% raw %}{% assign card_pages = site.pages | where_exp: "page", "page.path contains 'essays/'" %}
+
+{% include nav/card-toc.html rows = card_pages %}{% endraw %}
+```
+
+Change `essays/` to whatever folder your pages live in. `where_exp` collects every page whose path contains that string---so `essays/` would match `essays/river-towns.md`, `essays/acequia.md`, and so on. It won't match pages outside that folder.
+
+Each collected page contributes its own front matter to its card. A well-equipped page might look like:
 
 ```yaml
 ---
-title: Acequia Landscapes
+title: River Towns
 author: Carlos Medina
-summary: How community irrigation systems shaped settlement patterns in the Rio Grande Valley.
-header-image: images/acequia-card.jpg
+summary: How waterways shaped the geography of early towns along the Rio Grande.
+thumbnail: images/river-card.jpg
+position: 1
+tags:
+  - settlement
+  - water
 ---
 ```
+
+Cards draw from `title`, `summary`, `thumbnail`, `position`, `tags`, and `link` (or `url`). You don't configure the cards---you configure the pages.
+
+---
+
+### From your page's front matter
+
+Sometimes you want cards for things that don't correspond to individual pages---external links, curated reading lists, items from a mixed collection. Or you want precise control over what appears and in what order without creating a page for each entry. In these cases, define the card data directly in the front matter of the directory page itself.
+
+```yaml
+---
+title: Readings
+layout: xanthan
+cards:
+  - title: "The River's Edge"
+    summary: "An introduction to riparian ecology and its role in human settlement."
+    link: https://example.com/article
+    position: 1
+  - title: "Water Law in the West"
+    summary: "How prior appropriation doctrine shaped the American Southwest."
+    link: /readings/water-law
+    position: 2
+  - title: "Acequia Communities"
+    summary: "Oral histories from acequia parciantes in northern New Mexico."
+    link: /readings/acequias
+    position: 3
+---
+```
+
+Then in the page body, assign that front matter list to a variable and pass it to a card include:
+
+```
+{% raw %}{% assign my_cards = page.cards %}
+{% include nav/card-toc.html rows = my_cards %}{% endraw %}
+```
+
+This works with any card style---swap `card-toc.html` for `card-stack.html` or `card-grid.html` as needed.
+
+Here is a live example using data defined in this page's own front matter:
+
+{% assign example_cards = page.example_cards %}
+{% include nav/card-toc.html rows = example_cards %}
+
+---
+
+### Front matter fields for cards
+
+These fields are read from each page or data item to populate the card:
+
+| Field | Used by | What it does |
+|-------|---------|--------------|
+| `title` | All | Required. The card heading. |
+| `summary` | All | Short description shown below the title. Stack and Grid also try `description`, then auto-excerpt. |
+| `thumbnail` | Stack, Grid | Path to the card image. |
+| `position` | All | Sort order. Lower numbers appear first. |
+| `tags` | Stack, Grid | Tag pills displayed at the bottom of the card. |
+| `link` | All | Override the link URL. Useful for external links or custom paths. If absent, uses `url`. |
+
+---
+
+### Include parameters
+
+**`card-toc.html`** --- TOC rows (text only, no images):
+
+| Parameter | What it does |
+|-----------|--------------|
+| `rows` | The list of page or data objects to display |
+
+**`card-stack.html`** --- Horizontal image-left cards:
+
+| Parameter | Default | What it does |
+|-----------|---------|--------------|
+| `cards` | (required) | The list of page or data objects to display |
+| `show-tags` | `true` | Whether to show tag pills on each card |
+| `tag-data` | `false` | Add `data-tags` attributes for JavaScript tag filtering |
+
+**`card-grid.html`** --- Vertical image-top grid:
+
+| Parameter | Default | What it does |
+|-----------|---------|--------------|
+| `cards` | (required) | The list of page or data objects to display |
+| `show-tags` | `true` | Whether to show tag pills on each card |
+| `tag-data` | `false` | Add `data-tags` attributes for JavaScript tag filtering |
+| `grid-class` | — | Additional CSS class on the grid wrapper |
 
 ---
 
