@@ -60,7 +60,7 @@ jobs:
           rsync -av --delete xanthan-source/_layouts/ portfolio-template/_layouts/
           rsync -av --delete xanthan-source/assets/css/ portfolio-template/assets/css/
           rsync -av --delete xanthan-source/assets/js/ portfolio-template/assets/js/
-          rsync -av --delete xanthan-source/scrollstories/ portfolio-template/scrollstories/
+          rsync -av --delete --exclude='milton-snow/' xanthan-source/scrollstories/ portfolio-template/scrollstories/
 
           # Sync docs (editing, reference, using-ai, scrollstories, navigation, getting-started)
           # Exclude only the root index.md — each template has its own docs landing page
@@ -157,7 +157,7 @@ jobs:
           rsync -av --delete xanthan-source/_layouts/ scrollstory-template/_layouts/
           rsync -av --delete xanthan-source/assets/css/ scrollstory-template/assets/css/
           rsync -av --delete xanthan-source/assets/js/ scrollstory-template/assets/js/
-          rsync -av --delete xanthan-source/scrollstories/ scrollstory-template/scrollstories/
+          rsync -av --delete --exclude='milton-snow/' xanthan-source/scrollstories/ scrollstory-template/scrollstories/
 
           # Sync docs (editing, reference, using-ai, scrollstories, navigation, getting-started)
           # Exclude only the root index.md — each template has its own docs landing page
@@ -250,7 +250,7 @@ jobs:
           rsync -av --delete xanthan-source/_layouts/ class-project-template/_layouts/
           rsync -av --delete xanthan-source/assets/css/ class-project-template/assets/css/
           rsync -av --delete xanthan-source/assets/js/ class-project-template/assets/js/
-          rsync -av --delete xanthan-source/scrollstories/ class-project-template/scrollstories/
+          rsync -av --delete --exclude='milton-snow/' xanthan-source/scrollstories/ class-project-template/scrollstories/
 
           # Sync docs (editing, reference, using-ai, scrollstories, navigation, getting-started)
           # Exclude only the root index.md — each template has its own docs landing page

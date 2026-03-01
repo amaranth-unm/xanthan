@@ -25,7 +25,7 @@ template_cards:
 Website templates for academics who want to publish, teach, and collaborate online---without renting space from platforms that come and go.
 
 {: .hero-cta}
-[Get Started →](docs/getting-started/){: .btn-primary}
+[Get Started →](docs/getting-started/){: .btn-primary .btn-lg}
 
 ---
 

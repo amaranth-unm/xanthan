@@ -20,21 +20,21 @@ tags:
 ---
 
 ## Early life
-{% include images/figure.html
-class="left"
-width="40%"
-alt-text="A portrait of Milton Snow"
-caption="Portrait of Milton Snow (Window Rock), by Avery Edwin Field. [Source: Maxwell Museum of Anthropology, courtesy of the Museum of Northern Arizona, MS315-106-3.](https://maxwellmuseum.unm.edu/)"
-image-path="images/milton-snow-himself.jpg"
+
+{% capture snow_portrait_text %}
+Milton 'Jack' Snow was born in Ensley, Alabama on April 9, 1905, to Maude May Acuff and Joseph Willis Snow. After his family moved to southern California when he was a child, Snow attended Riverside Polytechnic High School where he was introduced to photography. Snow had a speech impediment alongside difficulty with activities requiring fine motor control.
+
+Snow's dedication to honing his skills with a camera eventually led him to work for the Van Bergen-Los Angeles County Museum where he photographed archeological excavations. Over the course of twenty years, from 1937 to 1957, Snow produced thousands of images of Diné people, homes, and landscapes.
+{% endcapture %}
+
+{% include images/figure-wrap.html
+  image-path="images/milton-snow-himself.jpg"
+  image-position="left"
+  image-width="40%"
+  alt-text="A portrait of Milton Snow"
+  caption="Portrait of Milton Snow (Window Rock), by Avery Edwin Field. [Source: Maxwell Museum of Anthropology, courtesy of the Museum of Northern Arizona, MS315-106-3.](https://maxwellmuseum.unm.edu/)"
+  text=snow_portrait_text
 %}
-
-Milton 'Jack' Snow was born in Ensley, Alabama on April 9, 1905, to Maude May Acuff and Joseph Willis Snow. After his family moved to southern California when he was a child, Snow attended Riverside Polytechnic High School where he was introduced
-to photography. Snow had a speech impediment alongside difficulty with activities requiring fine motor control. 
-
-Snow's dedication to honing his skills with a camera eventually led him to work for the Van Bergen-Los Angeles County Museum where he photographed archeological excavations. Over the course of twenty years, from 1937 to 1957, Snow produced thousands of images of Diné people, homes, and landscapes. 
-
-<br style="clear: both">
-
 
 {%
 include typography/blockquote.html
@@ -42,8 +42,6 @@ class="center"
 width="80%"
 text="His older sister reported that Snow '...was a demon for self-discipline: shaved with a straight razor in the dark to develop control. Honestly ... (my brother) was a perfectionist.'"
 %}
-
-<br style="clear: both">
 
 
 {::nomarkdown}
@@ -53,15 +51,18 @@ text="His older sister reported that Snow '...was a demon for self-discipline: s
   <div class="container">
 {:/nomarkdown}
 
-{% include images/figure.html
-class="left"
-width="60%"
-alt-text="A portrait of Big Belly's nephew and Dannie Bia with old-style saddle."
-caption="A portrait of Big Belly's nephew and Dannie Bia with old-style saddle. Red Lake (Tolani Lakes, Leupp, AZ), 1935-1936. [Source: Maxwell Museum of Anthropology Archives 87.45.268](https://maxwellmuseum.unm.edu/)"
-image-path="images/big-belly-nephew-dannie-bia-2.jpg"
-%}
-
+{% capture big_belly_text %}
 ## All were intended to provide proof that federal technologies were in fact working to "rehabilitate" Navajo lands and lives. Instead, Snow's photographs demonstrate the aftermath of the immense harm inflicted on Diné communities during this period.
+{% endcapture %}
+
+{% include images/figure-wrap.html
+  image-path="images/big-belly-nephew-dannie-bia-2.jpg"
+  image-position="left"
+  image-width="60%"
+  alt-text="A portrait of Big Belly's nephew and Dannie Bia with old-style saddle."
+  caption="A portrait of Big Belly's nephew and Dannie Bia with old-style saddle. Red Lake (Tolani Lakes, Leupp, AZ), 1935-1936. [Source: Maxwell Museum of Anthropology Archives 87.45.268](https://maxwellmuseum.unm.edu/)"
+  text=big_belly_text
+%}
 
 
 
@@ -249,16 +250,18 @@ This image is one of many fond memories I have of my family's homestead in Tse N
 
 
 
-{% include images/figure.html
-class="right"
-width="60%"
-alt-text="A winter sheep corral in Marsh Pass, 1935."
-caption="A winter sheep corral in Marsh Pass. Steamboat Canyon, AZ, 1935. [Source: Maxwell Museum of Anthropology Archives, 87.45.294.](https://maxwellmuseum.unm.edu/)"
-image-path="images/winter-sheep-corral.jpg"
-%}
+{% capture sheep_corral_text %}
+Navajo sheep have seasonal migration patterns. In the summer, sheep live in grassy highlands, and in the winters, they move down into lowlands. Sheepherders move with their sheep across the landscape over the course of their lives.
+{% endcapture %}
 
-Navajo sheep have seasonal migration patterns. In the summer, sheep live in grassy
-highlands, and in the winters, they move down into lowlands. Sheepherders move with their sheep across the landscape over the course of their lives.
+{% include images/figure-wrap.html
+  image-path="images/winter-sheep-corral.jpg"
+  image-position="right"
+  image-width="60%"
+  alt-text="A winter sheep corral in Marsh Pass, 1935."
+  caption="A winter sheep corral in Marsh Pass. Steamboat Canyon, AZ, 1935. [Source: Maxwell Museum of Anthropology Archives, 87.45.294.](https://maxwellmuseum.unm.edu/)"
+  text=sheep_corral_text
+%}
 
 
 {% 
@@ -273,18 +276,20 @@ box-content="
 
 
 
-{% include images/figure.html
-class="left"
-width="60%"
-alt-text="Hogon near Plute Farms, Kayenta, AZ, 1936."
-caption="Hogan near Plute Farms, Kayenta, AZ, 1936. [Source: Maxwell Museum of Anthropology Archives, 87.45.135.](https://maxwellmuseum.unm.edu/)"
-image-path="images/plute-farms-hogan-az.jpg"
-%}
-
-The word "hogan" is English for, "hooghan," the Diné word for "home." Hooghan is a
-microcosm of the world; the world begins in the home. Across time and seasons, there are various types of hooghan that suit the climate. There also gender-specific hooghans; a female hooghan is made of earth and rounded, while a fork stick hooghan is male.
+{% capture hogan_text %}
+The word "hogan" is English for, "hooghan," the Diné word for "home." Hooghan is a microcosm of the world; the world begins in the home. Across time and seasons, there are various types of hooghan that suit the climate. There also gender-specific hooghans; a female hooghan is made of earth and rounded, while a fork stick hooghan is male.
 
 Livestock organized life. Extended kin networks followed sheep to grazing pastures across the seasons. Ceremonial cycles of songs and prayers included blessings for livestock and connected kin to Mother Earth. Sheep, goats, and horses taught children values of hard work, integrity, love, and compassion.
+{% endcapture %}
+
+{% include images/figure-wrap.html
+  image-path="images/plute-farms-hogan-az.jpg"
+  image-position="left"
+  image-width="60%"
+  alt-text="Hogon near Plute Farms, Kayenta, AZ, 1936."
+  caption="Hogan near Plute Farms, Kayenta, AZ, 1936. [Source: Maxwell Museum of Anthropology Archives, 87.45.135.](https://maxwellmuseum.unm.edu/)"
+  text=hogan_text
+%}
 
 
 {::nomarkdown}

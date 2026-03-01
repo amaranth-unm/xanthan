@@ -42,16 +42,14 @@
 
 - title: "Reference"
   items:
-    - title: "Site Structure"
-      url: "/docs/reference/"
     - title: "Pages & Front Matter"
       url: "/docs/reference/pages-and-front-matter"
+    - title: "Site Structure"
+      url: "/docs/reference/site-structure"
     - title: "Component Library"
       url: "/docs/reference/component-library"
     - title: "Troubleshooting"
       url: "/docs/reference/troubleshooting"
-    - title: "Color Palettes"
-      url: "/docs/reference/color-palettes"
 
 - title: "Using AI"
   items:

@@ -43,11 +43,11 @@ Xanthan includes `simple-theme.css` as a starting point. It shows how to define 
 
 **To create your theme:**
 
-1. Copy `assets/css/simple-theme.css` to `my-theme.css`
+1. Copy `assets/css/themes/simple-theme.css` to `assets/css/themes/my-theme.css`
 2. Edit the color values in the `:root` section
 3. Activate in `_includes/page-header.html`:
    ```html
-   <link href="{{site.baseurl}}/assets/css/my-theme.css" rel="stylesheet">
+   <link href="{{site.baseurl}}/assets/css/themes/my-theme.css" rel="stylesheet">
    ```
 
 **Example from simple-theme.css:**
@@ -84,13 +84,13 @@ Study `dark-energy.css` to see what's possible. It demonstrates:
 
 1. In `_includes/page-header.html`, uncomment:
    ```html
-   <link href="{{site.baseurl}}/assets/css/dark-energy.css" rel="stylesheet">
+   <link href="{{site.baseurl}}/assets/css/themes/dark-energy.css" rel="stylesheet">
    ```
 2. Save and refresh
 
 **To create your own advanced theme:**
 
-Copy `dark-energy.css` as a starting point and modify the element overrides to match your design vision.
+Copy `assets/css/themes/dark-energy.css` as a starting point and modify the element overrides to match your design vision.
 
 ---
 
@@ -125,7 +125,7 @@ To switch between themes, edit `_includes/page-header.html`:
 **Theme not showing:**
 - Check the CSS file path in `page-header.html`
 - Make sure the `<link>` tag is uncommented
-- Confirm the file exists in `assets/css/`
+- Confirm the file exists in `assets/css/themes/`
 
 **Some elements unchanged:**
 - Your selector might need to be more specific

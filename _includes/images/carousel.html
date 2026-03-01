@@ -39,8 +39,8 @@
 
 <script>
 (function() {
-  if (typeof Splide === 'undefined') return;
   document.addEventListener('DOMContentLoaded', function() {
+    if (typeof Splide === 'undefined') return;
     new Splide('#{{ carousel_id }}', {
       type: 'loop',
       autoplay: true,

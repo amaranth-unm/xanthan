@@ -1,173 +1,197 @@
-# Xanthan Demo Scripts
+# Image Optimization Guide
 
-Automated Puppeteer scripts for recording tutorial videos demonstrating GitHub workflows.
+This guide helps you optimize images for your Xanthan site to improve loading times.
 
-## What This Does
+## Why Optimize Images?
 
-The `github-workflow-demo.js` script automates all the steps from your Getting Started guide:
+Large image files (5–6MB) significantly slow down page loading. Optimized images:
+- Load 10–20x faster
+- Use less bandwidth
+- Improve user experience on mobile devices
+- Improve SEO rankings
 
-1. ✅ Logs into GitHub
-2. ✅ Uses the Xanthan template repository
-3. ✅ Creates a new repository
-4. ✅ Edits `_config.yml` to update baseurl
-5. ✅ Enables GitHub Pages
-6. ✅ Edits the homepage (index.md)
-7. ✅ Edits navigation (_data/top-nav.yml)
-8. ✅ Shows the build status in Actions
+## Installation
 
-All with realistic timing and pacing perfect for screen recording.
+### Install ImageMagick
 
-## Setup
+**macOS:**
+```bash
+brew install imagemagick
+```
 
-### 1. Install Dependencies
+**macOS 12 (Monterey) — If you encounter libraw checksum errors:**
+```bash
+# Install ImageMagick from pre-built binary instead
+curl -O https://imagemagick.org/archive/binaries/ImageMagick-arm64-apple-darwin20.1.0.tar.gz
+sudo tar xzf ImageMagick-arm64-apple-darwin20.1.0.tar.gz -C /opt/
+export PATH="/opt/ImageMagick-7.1.1/bin:$PATH"
+# Add to ~/.bash_profile or ~/.zshrc to make permanent
+```
+
+**Windows:**
+1. Download from [imagemagick.org/script/download.php](https://imagemagick.org/script/download.php)
+2. Run the installer
+3. Use Git Bash or WSL to run the script
+
+Verify installation:
+```bash
+convert --version
+```
+
+## Using the Optimization Script
+
+### Step 1: Preview First (Recommended)
+
+From the project root directory, always preview changes first:
 
 ```bash
-cd demo-scripts
-npm install
+bash scripts/optimize-images.sh --preview
 ```
 
-### 2. Set GitHub Credentials
+This shows what would be optimized **without modifying any files**. Review the output to ensure the estimated savings look reasonable.
 
-You need to provide your GitHub credentials as environment variables:
+### Step 2: Run the Optimization
+
+Once you're confident about the changes:
 
 ```bash
-export GITHUB_USERNAME="your-github-username"
-export GITHUB_PASSWORD="your-github-password"
+bash scripts/optimize-images.sh
 ```
 
-**For macOS/Linux**, add these to your `~/.zshrc` or `~/.bashrc`:
-```bash
-echo 'export GITHUB_USERNAME="your-username"' >> ~/.zshrc
-echo 'export GITHUB_PASSWORD="your-password"' >> ~/.zshrc
-source ~/.zshrc
-```
+The script will:
+- Create a timestamped backup of your original images
+- Process all image subfolders under `assets/images/` in-place (by default)
+- Automatically convert PNG → JPG when no transparency is present
+- Automatically skip already-optimized images
+- Show before/after file sizes
 
-**Security Note**: If you have 2FA enabled (recommended), you may need to:
-- Use a Personal Access Token instead of your password
-- Or manually enter the 2FA code when prompted (script pauses for 30 seconds)
+**Specifying image directories**
 
-### 3. Configure the Script (Optional)
-
-Edit `github-workflow-demo.js` to customize:
-
-```javascript
-const CONFIG = {
-  DEMO_SPEED: 2.0,        // How slow to run (2.0 = twice as slow)
-  NEW_REPO_NAME: 'my-demo-site',  // Base name for test repo
-  HEADLESS: false,        // false = you can see the browser
-  SLOW_MO: 100,          // Milliseconds between actions
-  // ... more options
-};
-```
-
-## Usage
-
-### Record the Full Workflow
-
-1. **Start your screen recorder** (OBS, Loom, QuickTime, etc.)
-2. **Run the script:**
-   ```bash
-   npm run demo
-   ```
-3. **Watch it go!** The browser will open and automatically go through all the steps
-4. **Stop recording** when done
-
-### Tips for Recording
-
-**Adjust Speed**:
-- `DEMO_SPEED: 1.0` = normal speed
-- `DEMO_SPEED: 2.0` = half speed (good for tutorials)
-- `DEMO_SPEED: 0.5` = double speed (for quick demos)
-
-**Window Size**:
-- Default is 1280x800 (good for most recordings)
-- Edit `VIEWPORT` in CONFIG to change
-
-**Zoom Level**:
-- After the script starts, you can press Cmd/Ctrl + to zoom the browser
-- Makes text more readable in recordings
-
-**Hide Distractions**:
-- Close other windows
-- Use Do Not Disturb mode
-- Hide desktop icons if needed
-
-## What Gets Created
-
-Each run creates a new repository with a timestamp:
-- Repository: `my-demo-site-2025-12-30`
-- Website: `https://YOUR_USERNAME.github.io/my-demo-site-2025-12-30/`
-
-This means you can:
-- Run it multiple times without conflicts
-- Keep successful demos as live examples
-- Delete failed attempts and try again
-
-## Cleanup
-
-After recording, you can delete test repositories:
+By default the script looks in `assets/images/`. Use `--base-dir` to target a different location — or multiple locations, which is useful for class project sites where each student has their own image folder:
 
 ```bash
-# Delete via GitHub web interface:
-# Settings → Danger Zone → Delete this repository
+# Process a different directory
+bash scripts/optimize-images.sh --base-dir assets/photos
 
-# Or use GitHub CLI:
-gh repo delete YOUR_USERNAME/my-demo-site-2025-12-30
+# Process multiple student directories explicitly
+bash scripts/optimize-images.sh \
+  --base-dir students/alice/images \
+  --base-dir students/bob/images \
+  --base-dir students/carol/images
 ```
+
+**Recursive search**
+
+For class project sites where images are scattered across many student folders, use `--recursive` to find every image-containing directory within a base path automatically:
+
+```bash
+# Finds essays/essay1/images/, essays/essay2/images/, etc.
+bash scripts/optimize-images.sh --base-dir essays/ --recursive
+
+# Or scan the whole project
+bash scripts/optimize-images.sh --base-dir . --recursive
+```
+
+`--recursive` discovers any directory containing image files at any depth within the base dir, regardless of what the folder is named.
+
+To process only one subfolder within a base directory:
+```bash
+bash scripts/optimize-images.sh --folder backgrounds
+bash scripts/optimize-images.sh --base-dir students/alice/images --folder portraits
+```
+
+### Step 3: Verify Results
+
+Review the output summary showing how much space was saved. The script displays:
+- Files that were optimized (with size reduction)
+- Files that were already optimized and skipped
+
+### Step 4: Test Your Site
+
+```bash
+bundle exec jekyll serve
+```
+
+Visit http://localhost:4000 and verify all images display correctly.
+
+### Step 5: Keep or Delete Backup
+
+Your originals are safely backed up in `assets/images/backup-TIMESTAMP/`. You can:
+- Keep the backup for a few days to ensure everything works on the live site
+- Delete once confirmed: `rm -rf assets/images/backup-*`
+
+## Quick Reference
+
+### Image Size Guidelines
+
+| Image Type | Max Width | Quality | Use Case |
+|------------|-----------|---------|----------|
+| Hero/Header images | 2000px | 85% | Full-width background images |
+| General content | 1600px | 85% | Page images, project images |
+| Portraits/thumbnails | 1200px | 85% | Team photos, small thumbnails |
+
+### Common Commands
+
+**Check image dimensions:**
+```bash
+identify -format "%wx%h %f\n" assets/images/*/*.png
+```
+
+**Check file sizes:**
+```bash
+du -sh assets/images/*
+```
+
+**Manually resize a single image:**
+```bash
+convert input.png -resize '1200x>' -quality 85 output.jpg
+```
+
+**Process with custom settings:**
+```bash
+bash scripts/optimize-images.sh --max-edge 1200 --quality 80
+bash scripts/optimize-images.sh --folder backgrounds --max-edge 2000
+bash scripts/optimize-images.sh --base-dir students/alice/images --folder photos --width 800
+```
+
+## Updating Markdown References After PNG → JPG Conversion
+
+If the script converts any PNG files to JPG, it logs the conversions to `png_to_jpg_conversions.txt`. Run the companion script to update references in your markdown files:
+
+```bash
+bash scripts/update-image-refs.sh
+```
+
+Review changes with `git diff` before committing.
 
 ## Troubleshooting
 
-### "Credentials not found"
-Make sure you exported the environment variables in the same terminal where you run the script.
+**"convert: command not found"**
+- ImageMagick is not installed. Follow installation instructions above.
 
-### Script hangs at 2FA
-The script pauses for 30 seconds for you to manually enter your 2FA code. If you need more time, increase the wait in the script.
+**I want to test the script without modifying files**
+- Use preview mode: `bash scripts/optimize-images.sh --preview`
 
-### Clicks missing elements
-GitHub's UI changes sometimes. Check the selectors in the script and update if needed.
+**Images look blurry after optimization**
+- Restore originals from backup: `cp -r assets/images/backup-TIMESTAMP/* assets/images/`
+- Re-run with higher quality: `bash scripts/optimize-images.sh --quality 90`
 
-### Recording is too fast
-Increase `DEMO_SPEED` to 3.0 or 4.0 for slower pacing.
+**Script skipped my images**
+- The script automatically skips images already under the size threshold
+- To re-optimize, restore from backup and re-run
 
-### Recording is too slow
-Decrease `DEMO_SPEED` to 1.0 or lower.
+**I need to restore original images**
+- Your originals are safely backed up: `cp -r assets/images/backup-TIMESTAMP/* assets/images/`
 
-## Adding AI Narration Later
+**Script fails on Windows**
+- Use Git Bash or Windows Subsystem for Linux (WSL)
 
-Once you have the screen recording:
+## Best Practices
 
-1. **Write a script** describing what's happening at each step
-2. **Generate AI voice** using:
-   - ElevenLabs (realistic voices)
-   - Google Cloud Text-to-Speech (free tier available)
-   - Amazon Polly
-3. **Combine in video editor**:
-   - iMovie (Mac, free)
-   - DaVinci Resolve (cross-platform, free)
-   - Kapwing (online, freemium)
-
-## Extending the Script
-
-Want to demo other workflows? Common additions:
-
-### Add Image Upload Demo
-```javascript
-// After editing homepage
-console.log('📸 Step: Uploading an image...');
-await clickAndWait(page, 'a[title="assets"]', 2000);
-// ... continue with upload workflow
-```
-
-### Demo Creating a New Page
-```javascript
-console.log('📄 Step: Creating a new page...');
-await clickAndWait(page, 'button:has-text("Add file")', 1000);
-await clickAndWait(page, 'a:has-text("Create new file")', 2000);
-// ... continue
-```
-
-See the main script for patterns to follow.
-
-## Credits
-
-Built for the Xanthan project - helping students and faculty create sustainable digital scholarship.
+1. **Always preview before optimizing** — run `--preview` first, then optimize
+2. **Crop before uploading** — don't upload 4000px images if they display at 800px
+3. **Use the right format:**
+   - JPG: Photos, complex images (smaller file size)
+   - PNG: Graphics, logos, images requiring transparency
+   - SVG: Icons, simple graphics (scalable, tiny file size)
+4. **Run quarterly** — newly-added images will be processed; already-optimized ones are skipped

@@ -1,0 +1,3 @@
+scrollstories/forest/images/forest.png -> scrollstories/forest/images/forest.jpg
+scrollstories/sapling/images/sapling-card.png -> scrollstories/sapling/images/sapling-card.jpg
+scrollstories/seedling/images/seedling-card.png -> scrollstories/seedling/images/seedling-card.jpg

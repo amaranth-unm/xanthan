@@ -623,6 +623,17 @@ BUTTONS
   transform: translateY(-2px);
 }
 
+/* Size modifiers — stack with any button variant */
+.btn-lg {
+  font-size: 1.75rem;
+  padding: 1rem 3rem;
+}
+
+.btn-sm {
+  font-size: 0.85rem;
+  padding: 0.4em 1em;
+}
+
 /* Secondary button - smaller, less prominent */
 .btn-secondary {
   /* Display */
@@ -675,13 +686,13 @@ HERO SECTION (Homepage)
   font-size: 1.25rem;
   line-height: 1.6;
   color: var(--text-muted);
-  margin: 1.5rem auto 2rem;
+  margin: 1rem auto 1.5rem;
   max-width: 700px;
 }
 
 .hero-cta {
   text-align: center;
-  margin: 2rem 0 4rem;
+  margin: 0 0 2.5rem;
 }
 
 
