@@ -60,7 +60,7 @@ Xanthan is a set of website templates and documentation built for people doing p
 
 {% include nav/card-stack.html cards=page.template_cards %}
 
-Ready to start? [Choose a template](docs/getting-started/templates) and you'll have a live site in minutes.
+Ready to start? [Choose a template](docs/getting-started/templates) and you'll have a live site in minutes. Or see [sites built with Xanthan →](docs/getting-started/gallery)
 
 
 {::nomarkdown}
