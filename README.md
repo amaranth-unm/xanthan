@@ -1,97 +1,89 @@
 # Xanthan
 
-A beginner-friendly Jekyll template for academics, educators, and students. Build professional websites, portfolios, and digital narratives using GitHub Pages—free hosting, no coding required to start.
+A Jekyll + GitHub Pages framework for building academic websites — portfolios, class projects, and scroll-driven narratives. Free hosting, no coding required to start, built to last.
 
 ## Quick Start
 
-1. **Click "Use this template"** above
-2. **Name your repository** `username.github.io` (replace with your GitHub username)
-3. **Make it public** and create the repository
-4. **Visit your site** at `https://username.github.io` (live in ~2 minutes!)
+Xanthan offers three starting templates. Pick the one closest to what you're building and click "Use this template" on GitHub to make it your own.
 
-That's it! You now have a working website.
+| Template | Best for | Links |
+|---|---|---|
+| **Portfolio** | Personal sites, CVs, research pages | [View](https://xanthan-web.github.io/portfolio-template) · [Use](https://github.com/xanthan-web/portfolio-template) |
+| **Class Project** | Collaborative student archives | [View](https://xanthan-web.github.io/class-project-template) · [Use](https://github.com/xanthan-web/class-project-template) · [Example](https://amaranth.unm.edu/campus-history/) |
+| **ScrollStory** | Single immersive scrolling narratives | [View](https://xanthan-web.github.io/scrollstory-template) · [Use](https://github.com/xanthan-web/scrollstory-template) |
 
-[→ Full Documentation & Guides](https://xanthan-web.github.io/)
+Not sure which to pick? [The template guide explains the differences](https://xanthan-web.github.io/xanthan/docs/getting-started/templates). All templates include the full component library — the difference is just the starting structure.
 
-## What You Get
+## Key Features
 
-### Rich Components
-- ScrollyTelling with background images
-- Card layouts for projects and portfolios
-- Interactive maps
-- Syntax-highlighted code samples
-- Academic footnotes
+### A learning environment, not just a tool
+Every component includes copy-paste examples with documented parameters. You learn HTML, CSS, Markdown, and Git by building real projects — not by sitting through tutorials. The framework is deliberately transparent: look under the hood and you'll understand what you're looking at.
 
-### Designed for Learning
-Every feature includes copy-paste code examples. Learn HTML, CSS, Markdown while building your site—no prior experience needed.
+### Built for AI collaboration
+Named CSS variables, modular components with clear parameters, readable file structure — Xanthan is legible to AI assistants. Describe what you want in plain language; the AI handles the implementation. You stay in the editorial role.
 
-### Easy Customization
-- CSS variables for site-wide color changes
-- Multiple layout templates
-- Flexible navigation options
+### Rich components
+- Scroll-driven narratives with fixed background images
+- Card layouts for project directories and portfolios
+- Image carousels, juxtapose comparisons, interactive maps
+- Academic footnotes, pullquotes, blockquotes
+- Multiple navigation styles (top, left, profile)
 
+### Easy customization
+- CSS custom properties for site-wide color changes in one place
+- Theme files for complete visual overhauls
+- Flexible navigation configured in a single YAML file
 
-### Free & Sustainable
-- Hosted on GitHub Pages (no cost, ever)
-- Open source (GPL-3.0 license)
-- Built with standard web technologies
-- Version controlled with Git
-
-
+### Free and durable
+- Hosted on GitHub Pages — no cost, ever
+- Built on HTML, CSS, and Markdown — standard technologies that will work for decades
+- No databases, no security patches, no subscriptions
+- Version controlled with Git; you own everything
 
 ## Documentation
-All guides and component examples are on the live site:
 
-- **[Getting Started Guide](https://xanthan-web.github.io/getting-started/)** - Step-by-step tutorial
-- **[Content & Design](https://xanthan-web.github.io/content-design/)** - Typography, images, colors, and more
-- **[Troubleshooting](https://xanthan-web.github.io/content-design/troubleshooting)** - Common issues
+Full documentation lives on the Xanthan site and is also bundled in each template repository (matched to your version of the code):
 
-
-## Requirements
-
-### GitHub Pages
-- A GitHub account (free)
-- A web browser
-- That's it!
-
-If you're editing more than a page or two or editing in the long term, see the [Editing Locally guide](https://xanthan-web.github.io/getting-started/editing-locally) for setup instructions.
-
+- **[Getting Started](https://xanthan-web.github.io/xanthan/docs/getting-started/)** — From zero to a live site in 15 minutes
+- **[Editing](https://xanthan-web.github.io/xanthan/docs/editing/)** — Colors, fonts, images, navigation, typography
+- **[Reference](https://xanthan-web.github.io/xanthan/docs/reference/)** — Component library, front matter, troubleshooting
+- **[Using AI](https://xanthan-web.github.io/xanthan/docs/using-ai/)** — Working with AI assistants to build your site
+- **[ScrollStories](https://xanthan-web.github.io/xanthan/docs/scrollstories/)** — Building scroll-driven narratives
 
 ## Who Is This For?
-- **Instructors** teaching digital humanities or web literacy
-- **Academics** creating professional portfolios or project sites
-- **Students** learning web development and digital publishing
-- **Anyone** wanting a sustainable, open-source personal website
 
+- **Instructors** teaching digital humanities, web literacy, or public history
+- **Academics** building portfolios, project sites, or research publications
+- **Students** creating work that outlasts the semester and lives on the open web
+- **Anyone** who wants a sustainable, open-source website without platform lock-in
 
 ## Philosophy
-Xanthan emphasizes **sustainable digital scholarship**:
 
-- **Own your content** - Everything in a Git repository you control
-- **Learn by doing** - Build technical literacy through creation
-- **Built to last** - Standard technologies that will work for decades
-- **Open by default** - No vendor lock-in, no subscriptions
+Xanthan is built on a simple conviction: scholars shouldn't have to rent their web presence from proprietary platforms, and they shouldn't need a computer science degree to publish online.
 
-Unlike platforms that hide complexity, Xanthan invites you to look under the hood and understand how your site works.
+- **Own your content** — Everything lives in a Git repository you control. Move it to any host. Take it between institutions.
+- **Learn by doing** — Markdown, GitHub, HTML, CSS aren't "website skills." They're foundational to digitally-engaged humanities work.
+- **Built to last** — Static sites have no databases to secure, no software to update. What you build today will still work in 2050.
+- **Open by default** — No vendor lock-in, no subscriptions, no terms-of-service surprises.
 
+## Technology
 
-## Technology Stack
-- **GitHub Pages** - Free hosting and deployment
-- **Markdown** - Content writing format
-- **HTML/CSS** - Standard web technologies
-
+- **Jekyll** — Static site generator
+- **GitHub Pages** — Free hosting and deployment
+- **Markdown** — Content writing format
+- **HTML / CSS** — Standard web technologies with no framework dependencies
 
 ## About
-Xanthan was created by [Fred Gibbs](https://fredgibbs.net) at the University of New Mexico as part of research into sustainable digital infrastructure for humanities scholarship. The project continues to evolve under UNM's [Amaranth Digital Humanities Studio](https://amaranth.unm.edu) and released as open source to encourage community contribution and adaptation.
 
+Xanthan was created by [Fred Gibbs](https://fredgibbs.net) at the University of New Mexico as part of research into sustainable digital infrastructure for humanities scholarship. The project continues to evolve under UNM's [Amaranth Digital Humanities Studio](https://amaranth.unm.edu) and is released as open source to encourage community contribution and adaptation.
 
-## Contributions welcome!
-Please make a pull request to:
-- Fix documentation typos
-- Add new components
-- Improve guides
-- Report bugs
+## Contributions Welcome
 
+- Fix documentation typos or outdated instructions
+- Add new components or layout options
+- Improve guides or examples
+- Report bugs via [GitHub Issues](https://github.com/xanthan-web/xanthan/issues)
 
 ## License
-[GPL-3.0 License](LICENSE) - Free to use, modify, and distribute. All derivatives must remain open source.
+
+[GPL-3.0 License](LICENSE) — Free to use, modify, and distribute. All derivatives must remain open source.
