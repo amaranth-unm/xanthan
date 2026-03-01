@@ -202,6 +202,6 @@ The AI can cross-reference your code against the component's expected parameters
 
 If you've tried the fixes above and checked with your AI assistant:
 
-- **Compare your code** to working examples in the [Component Library](/docs/reference/component-library)
+- **Compare your code** to working examples in the [Component Library](component-library)
 - **Try removing recent changes** --- if it worked before, the most recent edit is probably the culprit
 - **[Open an issue](https://github.com/xanthan-web/xanthan/issues)** on GitHub with a description of the problem, what you've tried, and any error messages

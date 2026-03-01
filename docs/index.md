@@ -29,7 +29,7 @@ From zero to a live site in 15 minutes. Choose a template, create your repositor
 
 {% assign gs = site.pages | where_exp: "pg", "pg.path contains 'docs/getting-started/'" | sort: "title" %}
 {% for pg in gs %}{% unless pg.path contains 'index' %}
-- [{{ pg.title }}]({{ pg.url }})
+- [{{ pg.title }}]({{ pg.url | prepend: site.baseurl }})
 {% endunless %}{% endfor %}
 
 ---
@@ -40,7 +40,7 @@ Make it yours. Pages, typography, images, colors, navigation — everything you 
 
 {% assign ed = site.pages | where_exp: "pg", "pg.path contains 'docs/editing/'" | sort: "title" %}
 {% for pg in ed %}{% unless pg.path contains 'index' %}
-- [{{ pg.title }}]({{ pg.url }})
+- [{{ pg.title }}]({{ pg.url | prepend: site.baseurl }})
 {% endunless %}{% endfor %}
 
 ---
@@ -51,7 +51,7 @@ Look things up. Site structure, component library, front matter, and troubleshoo
 
 {% assign ref = site.pages | where_exp: "pg", "pg.path contains 'docs/reference/'" | sort: "title" %}
 {% for pg in ref %}{% unless pg.path contains 'index' %}
-- [{{ pg.title }}]({{ pg.url }})
+- [{{ pg.title }}]({{ pg.url | prepend: site.baseurl }})
 {% endunless %}{% endfor %}
 
 ---
@@ -62,7 +62,7 @@ Work with Claude, ChatGPT, or other AI assistants to customize your site faster.
 
 {% assign ai = site.pages | where_exp: "pg", "pg.path contains 'docs/using-ai/'" | sort: "title" %}
 {% for pg in ai %}{% unless pg.path contains 'index' %}
-- [{{ pg.title }}]({{ pg.url }})
+- [{{ pg.title }}]({{ pg.url | prepend: site.baseurl }})
 {% endunless %}{% endfor %}
 
 ---
@@ -73,7 +73,7 @@ Build immersive, scroll-driven visual narratives.
 
 {% assign ss = site.pages | where_exp: "pg", "pg.path contains 'docs/scrollstories/'" | sort: "title" %}
 {% for pg in ss %}{% unless pg.path contains 'index' %}
-- [{{ pg.title }}]({{ pg.url }})
+- [{{ pg.title }}]({{ pg.url | prepend: site.baseurl }})
 {% endunless %}{% endfor %}
 
 ---

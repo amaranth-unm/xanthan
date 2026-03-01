@@ -475,7 +475,7 @@ A fixed background image that is revealed as page content scrolls over it, creat
 
 ## ScrollStory components
 
-The `scrollybox/` directory contains additional includes for building ScrollStory narratives. These are documented in the [ScrollStories](/docs/scrollstories) section.
+The `scrollybox/` directory contains additional includes for building ScrollStory narratives. These are documented in the [ScrollStories](../scrollstories/) section.
 
 All scrollybox includes that display a text box support the `box-align` parameter (`left`, `right`, `center`):
 
@@ -487,4 +487,4 @@ All scrollybox includes that display a text box support the `box-align` paramete
 | `scrollybox/bg-switch.html` | Switch background images as the reader scrolls |
 | `scrollybox/auto-scroll.html` | Side-scrolling text panels |
 
-See the [ScrollStory examples](/docs/scrollstories) for these components in action.
+See the [ScrollStory examples](../scrollstories/) for these components in action.

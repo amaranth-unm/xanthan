@@ -391,7 +391,7 @@ captions = captions
 
 For more cinematic image effects, ScrollStories offer techniques where images stay fixed while text scrolls over them, backgrounds switch as the reader advances, and panels slide horizontally alongside fixed visuals. These go beyond standard image placement into full narrative design.
 
-See the [ScrollStories overview](/docs/scrollstories) to learn what's available, or jump directly to [Peekaboo images](/docs/scrollstories/peekaboo) for a parallax-style reveal effect that works on any page.
+See the [ScrollStories overview](../scrollstories/) to learn what's available, or jump directly to [Peekaboo images](../scrollstories/peekaboo) for a parallax-style reveal effect that works on any page.
 
 ---
 
@@ -421,4 +421,4 @@ See the [ScrollStories overview](/docs/scrollstories) to learn what's available,
 - Ensure `header-image` is in the front matter block (between the `---` lines), not in the page content
 - Check the path carefully---it should start with `/`
 
-For more help, see [Troubleshooting](/docs/reference/troubleshooting).
+For more help, see [Troubleshooting](../reference/troubleshooting).

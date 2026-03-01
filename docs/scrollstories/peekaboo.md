@@ -80,4 +80,4 @@ You can add a text box that scrolls up over the image after it's revealed. Use `
 | Text overlay | Gradient fade | Scrolling box |
 | Include | `images/jumbotron.html` | `scrollybox/bg.html` |
 
-For more scrolling narrative techniques, see the [ScrollStories overview](/docs/scrollstories).
+For more scrolling narrative techniques, see the [ScrollStories overview](.).

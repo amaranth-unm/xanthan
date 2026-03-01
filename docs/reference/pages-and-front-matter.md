@@ -116,7 +116,7 @@ The `layout` field determines how the page renders. Xanthan includes several:
 | `nav-left` | Page with a left sidebar listing pages in the same folder |
 | `nav-profile` | Page with a profile sidebar (image, bio, links) |
 
-Most pages use `xanthan`. The other layouts are documented in [Navigation](../editing/navigation) and [ScrollStories](/docs/scrollstories).
+Most pages use `xanthan`. The other layouts are documented in [Navigation](../editing/navigation) and [ScrollStories](../scrollstories/).
 
 ---
 
@@ -169,7 +169,7 @@ Xanthan extends Markdown with "includes"---reusable components you can drop into
 %}{% endraw %}
 ```
 
-See the [Component Library](/docs/reference/component-library) for every available include with parameters and examples.
+See the [Component Library](component-library) for every available include with parameters and examples.
 
 ---
 

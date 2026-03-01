@@ -88,7 +88,7 @@ ScrollStories---narratives where images and text interact as you scroll---are am
 
 ### Why these work
 
-ScrollStory components have complex syntax---multiple nested includes, specific parameter combinations, careful ordering. This is exactly the kind of work where AI earns its keep. Describe the *experience* you want the reader to have, and the AI assembles the correct include tags and parameters. The [ScrollStories documentation](/docs/scrollstories) has examples at three complexity levels if you want to see what's possible before asking.
+ScrollStory components have complex syntax---multiple nested includes, specific parameter combinations, careful ordering. This is exactly the kind of work where AI earns its keep. Describe the *experience* you want the reader to have, and the AI assembles the correct include tags and parameters. The [ScrollStories documentation](../scrollstories/) has examples at three complexity levels if you want to see what's possible before asking.
 
 ---
 
