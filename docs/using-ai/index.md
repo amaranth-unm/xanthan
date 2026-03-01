@@ -26,26 +26,49 @@ Once you've seen how it feels, the range opens up considerably. You can reshape 
 
 See [Building with AI](prompts) for specific examples across all of these.
 
-## Setting up
+## Getting started: three ways in
 
-You'll need a code editor on your computer and an AI assistant to talk to:
+There's no single right way to work with AI. Start wherever you're comfortable.
 
-1. **Set up local editing** --- follow the [Editing Workflows](../editing/) guide to get a code editor and your project running locally
-2. **Install an AI assistant** in your editor:
-   - **GitHub Copilot** --- free for students and educators ([apply here](https://education.github.com/))
-   - **Continue** --- free and open source ([install from VS Code extensions](https://marketplace.visualstudio.com/items?itemName=Continue.continue))
-   - **Cursor** --- AI-first editor ([download](https://cursor.sh))
-3. **Preview locally** --- [previewing locally](../editing/previewing-locally) lets you see changes instantly rather than waiting for GitHub to rebuild
+### 1. Browser-based chat (no setup required)
+
+The simplest approach: open [ChatGPT](https://chatgpt.com), [Claude](https://claude.ai), or any AI chat interface in your browser. Describe what you want, then paste in the relevant piece of your code. No software to install, no accounts beyond what you likely already have.
+
+Start by giving the AI a quick orientation:
+
+> *"I'm working on a website built with the Xanthan framework, which uses Jekyll, Markdown, and named CSS custom properties. I want to [describe your goal]. Here's the relevant file:"*
+
+Then paste the file contents. The AI will suggest changes you can copy back into your file.
+
+This works well for focused questions: tweaking a color, fixing a page that won't display, adding an image, changing a heading.
+
+### 2. GitHub Copilot in your browser (repo-aware, free for students)
+
+GitHub has a built-in AI assistant that can read your entire repository---no copy-pasting required. If you have a GitHub account, you can open it by clicking the Copilot icon at the top of any repository page.
+
+Because it can see all your files, it can answer questions like *"why isn't my nav menu showing up?"* or *"what pages have this template set in their front matter?"* without you having to explain your file structure first.
+
+GitHub Copilot is free for students and educators through [GitHub Education](https://education.github.com/).
+
+### 3. Local setup with an AI-enabled editor (most capable)
+
+For more substantial work---building ScrollStory sections, restructuring your site, making changes across many files---a local editing environment with an integrated AI assistant is the most capable option. The AI can read and edit your files directly, and you can preview changes instantly.
+
+See [Editing Workflows](../editing/) for how to set up local editing, then add one of these AI tools:
+
+- **GitHub Copilot** in VS Code --- free for students and educators ([apply](https://education.github.com/))
+- **Continue** --- free and open source ([VS Code extension](https://marketplace.visualstudio.com/items?itemName=Continue.continue))
+- **Cursor** --- an AI-first editor that replaces VS Code ([download](https://cursor.sh))
 
 ## Giving AI context about your project
 
-AI assistants work better when they understand what they're working with. The first time you start a conversation, give the AI a brief orientation:
+However you're working, the AI does better when it knows what it's looking at. A quick orientation at the start of a conversation goes a long way:
 
 > *"I'm working on a website built with the Xanthan framework. Design variables are in assets/css/base.css. Reusable components are in _includes/. Navigation is configured in _data/nav-top.yml."*
 
 You only need to say this once per conversation. After that, the AI will make suggestions that fit Xanthan's patterns rather than generic web development advice.
 
-For even better results, you can paste a section of the [Component Library](../reference/component-library) or [Pages & Front Matter](../reference/pages-and-front-matter) reference into the conversation when asking about a specific topic.
+For even better results, paste a section of the [Component Library](../reference/component-library) or [Pages & Front Matter](../reference/pages-and-front-matter) reference when asking about a specific topic.
 
 ## You're the editor
 
