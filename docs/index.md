@@ -1,39 +1,46 @@
 ---
 title: Documentation
 layout: xanthan
-date: 2026-02-14
-summary: Complete documentation for the Xanthan framework
+date: 2026-01-01
+summary: Documentation for your Xanthan site, matched to the code in this repository.
 ---
 
-# Xanthan Documentation
+# Documentation
 
-{% assign getting_started = site.pages | where_exp: "page", "page.path contains 'docs/getting-started'" | sort: "order" %}
-{% assign editing = site.pages | where_exp: "page", "page.path contains 'docs/editing'" | sort: "order" %}
-{% assign reference = site.pages | where_exp: "page", "page.path contains 'docs/reference'" | sort: "order" %}
-{% assign using_ai = site.pages | where_exp: "page", "page.path contains 'docs/using-ai'" | sort: "order" %}
-{% assign scrollstories = site.pages | where_exp: "page", "page.path contains 'docs/scrollstories'" | sort: "order" %}
+This documentation is bundled with your site and matches the version of Xanthan code you're running. For the latest updates, visit [xanthan-web.github.io/xanthan](https://xanthan-web.github.io/xanthan/).
+
+---
 
 ## Getting Started
 
 From zero to a live site in 15 minutes. Choose a template, create your repository, make your first edit.
 
-{% include nav/card-toc.html rows=getting_started %}
+{% assign gs = site.pages | where_exp: "pg", "pg.path contains 'docs/getting-started/'" | sort: "title" %}
+{% for pg in gs %}{% unless pg.path contains 'index' %}
+- [{{ pg.title }}]({{ pg.url }})
+{% endunless %}{% endfor %}
 
 ---
 
 ## Editing
 
-Make it yours. Pages, typography, images, colors, navigation---everything you need to customize your site.
+Make it yours. Pages, typography, images, colors, navigation — everything you need to customize your site.
 
-{% include nav/card-toc.html rows=editing %}
+{% assign ed = site.pages | where_exp: "pg", "pg.path contains 'docs/editing/'" | sort: "title" %}
+{% for pg in ed %}{% unless pg.path contains 'index' %}
+- [{{ pg.title }}]({{ pg.url }})
+{% endunless %}{% endfor %}
 
 ---
 
 ## Reference
 
-Look things up. Site structure, component library, troubleshooting, and color palettes.
+Look things up. Site structure, component library, front matter, and troubleshooting.
 
-{% include nav/card-toc.html rows=reference %}
+{% assign ref = site.pages | where_exp: "pg", "pg.path contains 'docs/reference/'" | sort: "title" %}
+{% for pg in ref %}{% unless pg.path contains 'index' %}
+- [{{ pg.title }}]({{ pg.url }})
+{% endunless %}{% endfor %}
 
 ---
 
@@ -41,7 +48,10 @@ Look things up. Site structure, component library, troubleshooting, and color pa
 
 Work with Claude, ChatGPT, or other AI assistants to customize your site faster.
 
-{% include nav/card-toc.html rows=using_ai %}
+{% assign ai = site.pages | where_exp: "pg", "pg.path contains 'docs/using-ai/'" | sort: "title" %}
+{% for pg in ai %}{% unless pg.path contains 'index' %}
+- [{{ pg.title }}]({{ pg.url }})
+{% endunless %}{% endfor %}
 
 ---
 
@@ -49,11 +59,12 @@ Work with Claude, ChatGPT, or other AI assistants to customize your site faster.
 
 Build immersive, scroll-driven visual narratives.
 
-{% include nav/card-toc.html rows=scrollstories %}
+{% assign ss = site.pages | where_exp: "pg", "pg.path contains 'docs/scrollstories/'" | sort: "title" %}
+{% for pg in ss %}{% unless pg.path contains 'index' %}
+- [{{ pg.title }}]({{ pg.url }})
+{% endunless %}{% endfor %}
 
 ---
 
-## Additional Resources
-
-- [FAQs](/faqs) --- Common questions and answers
-- [About Xanthan](/about) --- Philosophy and approach
+{: .text-muted}
+You can remove the `/docs` link from your navigation whenever you like — the documentation will still be there if you need it.
