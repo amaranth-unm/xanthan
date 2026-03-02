@@ -99,8 +99,10 @@ bundle exec jekyll build --config _config.yml,_config.analytics.yml
 In this repo, GitHub Actions handles that automatically in `.github/workflows/deploy-pages.yml`.
 Set a repository secret named `GA_MEASUREMENT_ID` (for example `G-XXXXXXXXXX`) and the workflow will:
 
-- Create `_config.analytics.yml` at build time (not committed)
-- Merge it with `_config.yml`
+- Create `_config.ci.yml` at build time (not committed)
+- Set `repository: owner/repo` for reliable GitHub Metadata resolution in CI
+- Optionally add `analytics_id` when `GA_MEASUREMENT_ID` is present
+- Merge `_config.ci.yml` with `_config.yml`
 - Build with `JEKYLL_ENV=production`
 - Deploy to GitHub Pages
 

@@ -30,24 +30,32 @@ jobs:
           ruby-version: '3.3'
           bundler-cache: true
 
-      - name: Create analytics overlay config (optional)
-        id: analytics_config
+      - name: Create CI overlay config
+        id: ci_config
         env:
+          REPOSITORY_NWO: ${{ github.repository }}
           GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
         run: |
+          {
+            echo "repository: $REPOSITORY_NWO"
+            if [[ -n "$GA_MEASUREMENT_ID" ]]; then
+              echo "analytics_id: $GA_MEASUREMENT_ID"
+            fi
+          } > _config.ci.yml
+
+          echo "config_files=_config.yml,_config.ci.yml" >> "$GITHUB_OUTPUT"
+
           if [[ -n "$GA_MEASUREMENT_ID" ]]; then
-            echo "analytics_id: $GA_MEASUREMENT_ID" > _config.analytics.yml
-            echo "config_files=_config.yml,_config.analytics.yml" >> "$GITHUB_OUTPUT"
-            echo "Analytics overlay enabled"
+            echo "CI overlay created with repository + analytics"
           else
-            echo "config_files=_config.yml" >> "$GITHUB_OUTPUT"
-            echo "No GA_MEASUREMENT_ID secret found; building without analytics"
+            echo "CI overlay created with repository only (no analytics secret found)"
           fi
 
       - name: Build with Jekyll
         env:
           JEKYLL_ENV: production
-        run: bundle exec jekyll build --config ${{ steps.analytics_config.outputs.config_files }}
+          JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bundle exec jekyll build --config ${{ steps.ci_config.outputs.config_files }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
