@@ -73,6 +73,41 @@ Xanthan is built on a simple conviction: scholars shouldn't have to rent their w
 - **Markdown** — Content writing format
 - **HTML / CSS** — Standard web technologies with no framework dependencies
 
+## Google Analytics (clone-safe)
+
+Xanthan now supports Google Analytics without committing a tracking ID into the repo.
+
+1. Keep `_config.yml` in git with `analytics_id:` blank.
+2. Create a private config overlay (ignored by git), for example `_config.local.yml`:
+
+```yaml
+analytics_id: G-XXXXXXXXXX
+```
+
+3. Build/serve with merged config files:
+
+```bash
+JEKYLL_ENV=production bundle exec jekyll serve --config _config.yml,_config.local.yml
+```
+
+For CI deploys, generate `_config.analytics.yml` from a GitHub Secret and build with:
+
+```bash
+bundle exec jekyll build --config _config.yml,_config.analytics.yml
+```
+
+In this repo, GitHub Actions handles that automatically in `.github/workflows/deploy-pages.yml`.
+Set a repository secret named `GA_MEASUREMENT_ID` (for example `G-XXXXXXXXXX`) and the workflow will:
+
+- Create `_config.analytics.yml` at build time (not committed)
+- Merge it with `_config.yml`
+- Build with `JEKYLL_ENV=production`
+- Deploy to GitHub Pages
+
+If the secret is missing, deploy still works — it just builds without analytics.
+
+Because `_config.local.yml` and `_config.analytics.yml` are gitignored, IDs do not propagate into downstream clones.
+
 ## About
 
 Xanthan was created by [Fred Gibbs](https://fredgibbs.net) at the University of New Mexico as part of research into sustainable digital infrastructure for humanities scholarship. The project continues to evolve under UNM's [Amaranth Digital Humanities Studio](https://amaranth.unm.edu) and is released as open source to encourage community contribution and adaptation.
