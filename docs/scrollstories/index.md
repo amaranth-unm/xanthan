@@ -8,7 +8,17 @@ date: 2019-10-05
 
 # ScrollStories
 
+{% capture scrollstories_intro %}
 ScrollStories transform academic writing into immersive visual narratives. By combining scholarly depth with dynamic scrolling, they invite readers to experience research as a journey—guided by full-screen images, creative typography, and layered design.
+{% endcapture %}
+
+{% include images/figure-wrap.html
+	image-path="/assets/images/forest-scroll.gif"
+	image-position="right"
+	image-width="44%"
+	alt-text="Animated example of a ScrollStory with background transitions and overlaid text panels"
+	text=scrollstories_intro
+%}
 
 Perfect for public humanities projects, digital history, or visual essays, ScrollStories make complex ideas accessible and engaging. Whether showcasing research findings, historical narratives, or cultural analysis, this format offers a powerful way to share scholarly work that feels both elegant and alive.
 
@@ -37,6 +47,18 @@ Everything Seedling does, plus background images with text overlays and more var
 ### [Forest](scrollstories/forest)
 
 The full range of what's possible: background switching on scroll, side-scrolling text panels, and complex multi-section layouts. If you want to see every feature working together, start here and strip out what you don't need.
+
+---
+
+## Make it feel like a ScrollStory (without being annoying)
+
+You don't need constant motion to get a cinematic effect. A few restrained techniques usually work better:
+
+- **Use one dominant visual rhythm** per section (for example: one large background image + one text panel), instead of stacking multiple effects at once.
+- **Alternate intensity**: follow a high-motion section with a quieter text-only or static-image section so readers can recover.
+- **Keep transitions meaningful**: change backgrounds at argumentative pivots, not just for decoration.
+- **Use white space deliberately**: a little vertical breathing room before major headers often feels more "scrollstory" than extra animation.
+- **Limit novelty effects**: pick one or two signature interactions for the whole piece so the style feels intentional and coherent.
 
 ---
 

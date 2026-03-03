@@ -225,6 +225,29 @@ tr:last-child td {
 CODE BLOCKS
 *****************************************************/
 
+/* Inline code (in paragraphs, lists, tables, headings) */
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  font-weight: 400;
+  color: var(--sage-dark);
+  background-color: color-mix(in srgb, var(--bg-code) 34%, var(--bg-page));
+  border: 1px solid color-mix(in srgb, var(--sage) 20%, transparent);
+  border-radius: var(--radius-sm);
+  padding: 0.06em 0.3em;
+}
+
+/* Keep fenced/indented code blocks clean and unchanged */
+pre code,
+.highlight pre code {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
 .highlight {
   /* Display */
   overflow-x: auto;

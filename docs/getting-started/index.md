@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ---
 
-## Step 3: Start with a Template
+## Step 3: Get Your Template
 
 Rather than start from scratch, you'll copy a complete starter template with example content.
 

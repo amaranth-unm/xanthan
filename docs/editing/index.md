@@ -120,7 +120,7 @@ A quick checklist to prevent common errors:
 | **File management** | Limited | Full (drag, drop, rename, move) |
 | **Works offline** | No | Yes |
 | **AI assistance** | Limited | Full (Copilot, Cursor, etc.) |
-| **Preview before publishing** | No | Yes (with [Docker](previewing-locally)) |
+| **Preview locally** | No | Yes (with [Docker](previewing-locally)) |
 
 Most people start in GitHub and graduate to local editing as their site grows. There's no wrong answer---use whatever keeps you productive.
 
@@ -128,6 +128,9 @@ Most people start in GitHub and graduate to local editing as their site grows. T
 
 ## Next steps
 
-- **[Pages & Front Matter](../reference/pages-and-front-matter)** --- understand what controls how your pages behave
-- **[Previewing Locally](previewing-locally)** --- see changes instantly without waiting for GitHub Pages
+- **[Typography](typography)** --- adjust readable defaults, heading scale, and voice
+- **[Images](images)** --- add and style figures, galleries, and visual layout
+- **[Colors & Fonts](colors-and-fonts)** --- customize palette and type system
+- **[Pages & Front Matter](../reference/pages-and-front-matter)** --- understand what controls how pages behave
+- **[Previewing Locally](previewing-locally)** *(advanced/optional)* --- instant local feedback while editing
 - **[Troubleshooting](../reference/troubleshooting)** --- if something isn't working
