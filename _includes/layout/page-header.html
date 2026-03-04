@@ -33,25 +33,25 @@
 {% endcapture %}
 {% assign img_url = img_url | strip %}
 
-<div class="header-studio header-studio--{{ tier }}"{% if include.height %} style="height: {{ include.height }};"{% endif %}>
+<div class="page-header page-header--{{ tier }}"{% if include.height %} style="height: {{ include.height }};"{% endif %}>
   {% if img_url != '' %}
-  <div class="header-studio-bg header-studio-bg--{{ filter }}" style="background-image: url('{{ img_url }}'); background-position: {{ include.bg-position | default: 'center right' }};{% if include.bg-opacity %} opacity: {{ include.bg-opacity }};{% endif %}{% if include.zoom %} background-size: {{ include.zoom }};{% endif %}"></div>
+  <div class="page-header-bg page-header-bg--{{ filter }}" style="background-image: url('{{ img_url }}'); background-position: {{ include.bg-position | default: 'center right' }};{% if include.bg-opacity %} opacity: {{ include.bg-opacity }};{% endif %}{% if include.zoom %} background-size: {{ include.zoom }};{% endif %}"></div>
   {% endif %}
-  <div class="header-studio-grid"></div>
-  <div class="header-studio-bar"></div>
-  <div class="header-studio-content">
+  <div class="page-header-grid"></div>
+  <div class="page-header-bar"></div>
+  <div class="page-header-content">
     {% if tier == 'hero' %}
       {% if include.eyebrow %}
-      <div class="header-studio-eyebrow">{{ include.eyebrow }}</div>
+      <div class="page-header-eyebrow">{{ include.eyebrow }}</div>
       {% endif %}
       {% if include.title %}
       <h1>{{ include.title }}</h1>
       {% endif %}
       {% if include.divider %}
-      <div class="header-studio-divider">
-        <div class="header-studio-divider-line"></div>
+      <div class="page-header-divider">
+        <div class="page-header-divider-line"></div>
         <span>{{ include.divider }}</span>
-        <div class="header-studio-divider-line"></div>
+        <div class="page-header-divider-line"></div>
       </div>
       {% endif %}
       {% if include.subtitle %}

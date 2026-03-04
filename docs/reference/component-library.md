@@ -395,7 +395,7 @@ A horizontal row with text and a button link. Useful for landing pages or featur
 
 ## Page Header (via front matter)
 
-**File:** `layout/header-image.html`
+**File:** `layout/page-header.html`
 
 Called automatically by the page layout when `header-image` is in the front matter. You don't call it directly — just add fields to your page. Three tiers control the header's visual weight; five filter modes transform how the background image appears.
 
