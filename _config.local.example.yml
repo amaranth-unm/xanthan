@@ -1,3 +1,0 @@
-# Copy this file to _config.local.yml and add your real GA4 measurement ID.
-# _config.local.yml is gitignored.
-analytics_id: G-XXXXXXXXXX

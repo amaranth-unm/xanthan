@@ -5,6 +5,25 @@ All notable changes to Xanthan will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-03-04
+
+### Added
+- New gallery component and docs updates to support richer visual examples
+- Expanded AI-focused documentation and onboarding guidance
+- Optional Google Analytics support with safer config patterns for local/private setup
+- New docs styling support and layout refinements for `/docs/` pages
+
+### Changed
+- Migrated core layout patterns away from Bootstrap toward CSS Grid-based structure
+- Renamed `header-image` usage to `page-header` in layout styling patterns
+- Improved getting-started workflow, docs index readability, and navigation organization
+- Updated template sync/workflow behavior and supporting automation metadata
+
+### Fixed
+- Improved link handling with better `baseurl` behavior
+- Multiple navigation and docs-link consistency fixes
+- Additional styling/spacing cleanup across typography and page sections
+
 ## [1.1.0] - 2026-01-04
 
 ### Added
@@ -41,4 +60,6 @@ Starting with 1.1.0, this changelog will document:
 - **Fixed** for any bug fixes
 - **Security** for vulnerability patches
 
+[1.2.0]: https://github.com/xanthan-web/xanthan-web.github.io/compare/v1.1.0...v1.2.0
+[1.1.0]: https://github.com/xanthan-web/xanthan-web.github.io/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/xanthan-web/xanthan-web.github.io/releases/tag/v1.0.0
