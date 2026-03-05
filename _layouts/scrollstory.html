@@ -22,6 +22,7 @@
         bg-opacity  = page.header-opacity
         zoom        = page.header-zoom
         height      = page.header-height
+        caption     = page.header-caption
       %}
     {% endif %}
 
@@ -40,6 +41,10 @@
     {% include google_analytics.html %}
 
     {% include html/html-js.html %}
+
+    {% if page.autoscroll == true %}
+      {% include scrollybox/auto-scroll.html %}
+    {% endif %}
 
   </body>
 </html>

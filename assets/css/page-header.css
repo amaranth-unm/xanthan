@@ -25,7 +25,6 @@ if you want a different accent color just for headers.
 
 .page-header {
   --header-bg: #161618;                           /* Dark background behind the image */
-  --header-fade: #2a2d31;                         /* Bottom fade-out gradient color */
   --header-grid-line: rgba(255, 255, 255, 1);     /* Grid overlay lines (see opacity on .page-header-grid) */
   --header-divider-line: rgba(255, 255, 255, 0.12);  /* Thin lines flanking divider text */
   --header-divider-text: rgba(255, 255, 255, 0.28);  /* Divider text color */
@@ -43,22 +42,9 @@ if you want a different accent color just for headers.
   height: 100vh;
   overflow: hidden;
   background: var(--header-bg);
-  box-sizing: content-box;
-  padding-bottom: 120px;
 }
 
-/* Fade gradient at the bottom of the header */
-.page-header::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 350px;
-  background: linear-gradient(to bottom, transparent, var(--header-fade));
-  pointer-events: none;
-  z-index: 5;
-}
+
 
 /* The photo/image layer — set via inline style from page front matter */
 .page-header-bg {
@@ -100,7 +86,6 @@ if you want a different accent color just for headers.
   height: 100%;
   padding: 3rem 5rem;
   margin-left: 3rem;
-  border-left: 2px solid color-mix(in srgb, var(--accent-primary) 40%, transparent);
 }
 
 
@@ -116,28 +101,31 @@ if you want a different accent color just for headers.
 /* Large serif title — used by hero tier, inherited by section/banner */
 .page-header h1 {
   font-family: var(--font-serif);
-  font-size: clamp(4.8rem, 10.8vw, 7.8rem);
+  font-size: clamp(3.2rem, 7vw, 5.5rem);
   font-weight: 400;
   color: var(--white);
-  line-height: 1.0;
-  margin-bottom: 0.4rem;
+  line-height: 1.05;
+  margin-bottom: 0.6rem;
   margin-top: 0;
   text-shadow:
-    0 0 20px rgba(0, 0, 0, 0.55),
-    0 0 50px rgba(0, 0, 0, 0.30);
+    0 1px 4px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(0, 0, 0, 0.35);
   text-indent: -0.06em;
   letter-spacing: 0;
 }
 
 /* Subtitle paragraph below the title */
 .page-header p {
-  font-size: 1.15rem;
-  color: var(--header-subtitle);
-  line-height: 1.75;
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.70);
+  line-height: 1.6;
   font-weight: 300;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.03em;
   margin-bottom: 0;
-  max-width: 540px;
+  max-width: 580px;
+  text-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.75),
+    0 0 28px rgba(0, 0, 0, 0.45);
 }
 
 
@@ -147,13 +135,22 @@ if you want a different accent color just for headers.
 
 .page-header--hero {
   display: flex;
-  align-items: flex-start;
-  padding-top: 22vh;
-  padding-bottom: 0;
+  align-items: center;
+  padding-bottom: 15vh; /* shifts optical center upward from true middle */
 }
 
-.page-header--hero .page-header-content {
-  height: auto;
+/* Top scrim: protects nav links on bright or busy images.
+   Invisible on dark images; adds just enough shadow on light ones. */
+.page-header--hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.45), transparent);
+  z-index: 6;
+  pointer-events: none;
 }
 
 /* Small caps label above the title */
@@ -188,9 +185,35 @@ if you want a different accent color just for headers.
   text-transform: uppercase;
 }
 
-/* Reduce gap between hero header and the first h1 in page content */
-.page-header ~ .container h1:first-child {
-  margin-top: 1rem;
+/* Image caption: sits over the bottom of the hero with a gradient scrim behind it */
+.page-header-caption {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  padding: 1.4rem 1rem 0.45rem 3rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.72), transparent);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.75);
+  text-align: right;
+  pointer-events: none;
+}
+
+.page-header-caption a {
+  color: inherit;
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+.page-header-caption a:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Space between header bottom edge and page content */
+.page-header ~ .container {
+  margin-top: 3rem;
 }
 
 

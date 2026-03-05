@@ -73,6 +73,7 @@ Add a full-width header image to any page. The `header-tier` controls visual wei
 | `order` | `order: 3` | Controls sort order within a section |
 | `thumbnail` | `thumbnail: images/thumb.jpg` | Image used in navigation cards |
 | `tags` | `tags: [mapping, history]` | Categorizes pages; see [Tags](../editing/tags) |
+| `autoscroll` | `autoscroll: true` | Enables hands-free auto-scroll (press P to start/pause); ScrollStory pages only; off by default |
 
 ### Geographic fields
 

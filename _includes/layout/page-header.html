@@ -4,6 +4,7 @@
 
   Parameters:
     image-path:  background image path (required)
+    caption:     optional image credit shown at bottom-right of header
     tier:        hero | section | banner (default: hero)
                  Heights: hero 100vh, section 60vh, banner 22vh
     filter:      botanical | sketch | woodcut | etching | photo (default: photo)
@@ -67,4 +68,7 @@
       {% endif %}
     {% endif %}
   </div>
+  {% if include.caption %}
+  <div class="page-header-caption">{{ include.caption }}</div>
+  {% endif %}
 </div>

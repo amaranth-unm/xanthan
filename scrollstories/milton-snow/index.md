@@ -10,7 +10,6 @@ header-title: A Photographic Laboratory
 header-subtitle: Milton Snow (1905-1986)
 header-position: center
 header-zoom: cover
-header-height: 90vh
 geo: 
 placename: 
 toc-section: first
@@ -329,6 +328,3 @@ box-content="
 %}
 
 
-
-
-{% include scrollybox/auto-scroll.html speed=1.5 %}

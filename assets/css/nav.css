@@ -10,21 +10,58 @@ TOPNAV
 
 .top-nav {
   /* Box Model */
-  padding: 0.25rem var(--spacing-sm);
+  padding: 0.1rem var(--spacing-sm);
 
   /* Typography */
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--text-on-dark);
 
   /* Visual */
-  background-color: var(--bg-nav);
-  border-bottom: 1px solid var(--accent-border);
+  background-color: rgba(107, 142, 127, 0.92);
+  border-bottom: none;
 
   /* Position — sticky so nav locks to top when scrolled past */
   position: sticky;
   top: 0;
   z-index: 99;
+}
+
+/* On hero pages: nav overlays the header image instead of sitting above it.
+   Uses :has() to scope this only to pages with a full-screen hero header.
+   Nav becomes transparent and white; reverts to normal once user scrolls past. */
+.page-wrap:has(.page-header--hero) .top-nav {
+  position: absolute;
+  width: 100%;
+  background: transparent;
+  border-bottom: none;
+}
+
+.page-wrap:has(.page-header--hero) .top-nav-brand,
+.page-wrap:has(.page-header--hero) .top-nav-link,
+.page-wrap:has(.page-header--hero) .top-nav-toggler {
+  color: var(--white);
+}
+
+.page-wrap:has(.page-header--hero) .top-nav-link:hover {
+  color: var(--white);
+  box-shadow: inset 0 -3px 0 var(--white);
+  border-radius: 0;
+}
+
+/* Dropdowns on hero pages need their own solid background since the nav is transparent */
+.page-wrap:has(.page-header--hero) .top-nav-dropdown {
+  background-color: rgba(30, 30, 30, 0.92);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.page-wrap:has(.page-header--hero) .top-nav-dropdown-item {
+  color: var(--warm-white);
+}
+
+.page-wrap:has(.page-header--hero) .top-nav-dropdown-item:hover {
+  color: var(--amber);
+  border-left-color: var(--amber);
 }
 
 /* Inner wrapper centers brand + nav as a group */
@@ -49,7 +86,7 @@ TOPNAV
 
 .top-nav-brand {
   /* Typography */
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-on-dark);
   text-decoration: none;
@@ -71,7 +108,7 @@ TOPNAV
 
 .top-nav a:visited:hover,
 .top-nav a:visited:focus {
-  color: var(--interactive-hover);
+  color: var(--amber);
 }
 
 /* Hamburger button — hidden on desktop */
@@ -150,9 +187,10 @@ TOPNAV
 .top-nav-link {
   /* Box Model */
   display: inline-block;
-  padding: 0.3rem var(--spacing-sm);
+  padding: 0.2rem 0.6rem;
 
   /* Typography */
+  color: var(--text-on-dark);
   text-decoration: none;
 
   /* Visual */
@@ -164,7 +202,8 @@ TOPNAV
 
 .top-nav-link:hover,
 .top-nav-link:focus {
-  color: var(--interactive-hover);
+  color: var(--amber);
+  text-decoration: none;
 }
 
 ul .top-nav-dropdown {
@@ -228,7 +267,8 @@ ul .top-nav-dropdown.show {
 .top-nav-dropdown-item:hover,
 .top-nav-dropdown-item:focus {
   /* Typography */
-  color: var(--interactive-hover);
+  color: var(--amber);
+  text-decoration: none;
 
   /* Visual */
   background: transparent;
