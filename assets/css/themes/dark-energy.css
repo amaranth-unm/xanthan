@@ -85,19 +85,19 @@ body {
   color: var(--text-body);
 }
 
-.navbar {
-  background-color: var(--bg-nav) !important;
+.top-nav {
+  background-color: var(--bg-nav);
   border-bottom: 1px solid var(--accent-border-weak);
   box-shadow: var(--shadow-strong);
 }
 
-.dropdown-menu {
+.top-nav-dropdown {
   background-color: var(--bg-card);
   border: 1px solid var(--accent-border-strong);
   box-shadow: var(--shadow-deep);
 }
 
-.dropdown-item {
+.top-nav-dropdown-item {
   color: var(--text-body);
 }
 
@@ -173,27 +173,23 @@ code {
 NAVIGATION - Custom underline style
 *****************************************************/
 
-.nav-link {
-  font-family: var(--font-mono) !important;
-  border-bottom: 2px solid transparent !important;
-  border-radius: 0 !important;
+/* .top-nav .top-nav-link uses specificity 0,2,0 to override .top-nav a (0,1,1) */
+.top-nav .top-nav-link {
+  font-family: var(--font-mono);
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
   transition: border-color var(--transition-fast);
 }
 
-.navbar-nav .nav-link::after {
-  display: none !important;
+.top-nav .top-nav-link:hover,
+.top-nav .top-nav-link:focus {
+  border-bottom-color: var(--accent-primary);
 }
 
-.nav-link:hover,
-.nav-link:focus,
-.nav-link.show {
-  border-bottom-color: var(--accent-primary) !important;
-}
-
-.dropdown-item:hover,
-.dropdown-item:focus {
-  background: var(--accent-border-weak) !important;
-  border-left-color: var(--accent-border) !important;
+.top-nav-dropdown-item:hover,
+.top-nav-dropdown-item:focus {
+  background: var(--accent-border-weak);
+  border-left-color: var(--accent-border);
 }
 
 
@@ -258,25 +254,29 @@ button,
   color: var(--text-body);
 }
 
-.btn-primary {
-  color: var(--text-body) !important;
+.btn-primary,
+.btn-primary:visited {
+  color: var(--text-body);
   background: var(--accent-primary);
 }
 
-.btn-primary:hover {
-  color: var(--text-body) !important;
+.btn-primary:hover,
+.btn-primary:visited:hover {
+  color: var(--text-body);
   background: var(--interactive-hover);
 }
 
-.btn-secondary {
-  color: var(--text-body) !important;
+.btn-secondary,
+.btn-secondary:visited {
+  color: var(--text-body);
   background: transparent;
   border: 1px solid var(--accent-border-strong);
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover,
+.btn-secondary:visited:hover {
   border-color: var(--accent-border);
-  color: var(--interactive-hover) !important;
+  color: var(--interactive-hover);
 }
 
 

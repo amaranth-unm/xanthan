@@ -182,7 +182,7 @@ CARDS
   display: inline-block;
   padding: 0.3rem 0.65rem;
   background: var(--accent-primary);
-  color: var(--text-on-dark) !important;
+  color: var(--text-on-dark);
   border-radius: var(--radius-sm);
   font-size: 0.85rem;
   font-weight: 500;
@@ -191,19 +191,15 @@ CARDS
   border-bottom: none;
 }
 
-a.tag-pill {
-  color: var(--text-on-dark) !important;
+/* Override a:visited from typography.css (loads after cards.css) */
+.tag-pill:visited {
+  color: var(--text-on-dark);
   border-bottom: none;
 }
 
 .tag-pill:hover {
   background: var(--interactive-hover);
-  color: var(--text-on-dark) !important;
-}
-
-a.tag-pill:hover {
-  color: var(--text-on-dark) !important;
-  border-bottom: none;
+  color: var(--text-on-dark);
 }
 
 
@@ -362,7 +358,7 @@ a.tag-pill:hover {
 
   .h-card a.card-link {
     /* Display */
-    flex-direction: column !important;
+    flex-direction: column;
   }
 
   .h-card .card-img-left {
@@ -400,15 +396,15 @@ a.tag-pill:hover {
   .toc-row p,
   .toc-row h3 {
     /* Box Model */
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   /* Ensure text is visible in h-cards on mobile */
   .h-card .card-body h3,
   .h-card .card-body p {
     /* Typography */
-    color: var(--text-body) !important;
+    color: var(--text-body);
   }
 
   .toc-row {
@@ -447,8 +443,8 @@ a.tag-pill:hover {
 
   .toc-arrow {
     /* Box Model */
-    margin-left: 0 !important;
     flex-shrink: 0;
+    /* margin-left: 0 moved to end of file — must come after base .toc-arrow rule */
   }
 
   .toc-arrow svg {
@@ -503,7 +499,7 @@ ToC ROWS
 
 .toc-row a {
   /* Typography */
-  font-weight: normal !important;
+  font-weight: normal;
   text-decoration: none;
   color: inherit;
 }
@@ -607,7 +603,7 @@ COMPACT ToC ROWS (for documentation indexes)
 
 .toc-row-compact a {
   /* Typography */
-  font-weight: normal !important;
+  font-weight: normal;
   text-decoration: none;
   color: inherit;
 }
@@ -687,4 +683,14 @@ COMPACT ToC ROWS (for documentation indexes)
 
 .toc-row-compact:hover .toc-arrow polyline {
   stroke: var(--interactive-hover);
+}
+
+/*
+  Mobile override for .toc-arrow placed here (after base .toc-arrow rule above)
+  so it wins by source order without needing !important.
+*/
+@media (max-width: 768px) {
+  .toc-arrow {
+    margin-left: 0;
+  }
 }

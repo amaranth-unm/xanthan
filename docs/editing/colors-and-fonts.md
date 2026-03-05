@@ -291,7 +291,7 @@ Contrast is worth checking before you commit to a color scheme. A soft sage on w
 Clear your browser cache (Cmd+Shift+R on Mac, Ctrl+Shift+R on Windows). If you're on GitHub Pages, confirm your change was pushed and that the build completed successfully.
 
 **Only some elements changed:**
-Not every element uses the four main semantic variables. Navigation, headers, and some components have their own rules in `nav.css`, `headers.css`, and elsewhere. Use your browser's Inspect tool (right-click any element → Inspect) to see exactly which CSS rule is controlling a given color.
+Not every element uses the four main semantic variables. Navigation, page headers, and some components have their own rules in `nav.css`, `page-header.css`, and elsewhere. Use your browser's Inspect tool (right-click any element → Inspect) to see exactly which CSS rule is controlling a given color.
 
 **A font isn't loading:**
 Check that the `@import` line is the very first thing in `base.css` — before even the comment block. Confirm the font name in the URL matches the variable value exactly, including spaces and capitalization.

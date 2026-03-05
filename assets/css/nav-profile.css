@@ -61,7 +61,7 @@ Profile-based sidebar for portfolio sites
 }
 
 .sidebar-link:hover {
-  background: var(--accent-border-weak);
+  background: var(--bg-card);
   color: var(--accent-primary);
   text-decoration: none;
 }

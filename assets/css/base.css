@@ -349,10 +349,10 @@ figcaption p {
   /* Box Model */
   margin: 0;
   padding: 0;
-  
+
   /* Typography */
   font-size: 0.8rem;
-  line-height: 1rem !important;
+  line-height: 1rem;
 }
 
 figcaption a {
@@ -598,12 +598,12 @@ BUTTONS
   /* Typography */
   font-family: var(--font-body);
   font-size: 1.2em;
-  color: var(--white) !important;
-  text-decoration: none !important;
+  color: var(--white);
+  text-decoration: none;
 
   /* Visual */
   background: var(--accent-primary);
-  border: none !important;
+  border: none;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
 
@@ -611,9 +611,21 @@ BUTTONS
   transition: background-color var(--transition-normal), transform var(--transition-fast), box-shadow var(--transition-normal);
 }
 
-.btn-primary:hover {
+/*
+  Override a:visited and a:visited:hover from typography.css (loads after base.css).
+  :visited raises specificity to 0,2,0 — enough to beat a:visited (0,1,0).
+  :visited:hover raises to 0,3,0 — enough to beat a:visited:hover (0,2,1).
+*/
+.btn-primary:visited {
+  color: var(--white);
+  text-decoration: none;
+  border: none;
+}
+
+.btn-primary:hover,
+.btn-primary:visited:hover {
   /* Typography */
-  color: var(--white) !important;
+  color: var(--white);
 
   /* Visual */
   background: var(--interactive-hover);
@@ -645,12 +657,12 @@ BUTTONS
   /* Typography */
   font-family: var(--font-body);
   font-size: 0.95em;
-  color: var(--white) !important;
-  text-decoration: none !important;
+  color: var(--white);
+  text-decoration: none;
 
   /* Visual */
   background: var(--accent-primary);
-  border: none !important;
+  border: none;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
 
@@ -658,9 +670,16 @@ BUTTONS
   transition: background-color var(--transition-normal), transform var(--transition-fast), box-shadow var(--transition-normal);
 }
 
-.btn-secondary:hover {
+.btn-secondary:visited {
+  color: var(--white);
+  text-decoration: none;
+  border: none;
+}
+
+.btn-secondary:hover,
+.btn-secondary:visited:hover {
   /* Typography */
-  color: var(--white) !important;
+  color: var(--white);
 
   /* Visual */
   background: var(--interactive-hover);

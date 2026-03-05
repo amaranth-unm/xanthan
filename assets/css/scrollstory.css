@@ -7,7 +7,7 @@
   margin: auto;
 
   /* Typography */
-  font-family: 'Lora', serif;
+  font-family: var(--font-serif);
   font-size: 1rem;
   line-height: 1.4em;
 }
@@ -20,7 +20,7 @@
 /* Text boxes within background images */
 .bg-text-box {
   /* Typography */
-  font-family: 'Lora', serif;
+  font-family: var(--font-serif);
 }
 
 .container h1,
@@ -29,7 +29,7 @@
 .container h4,
 .container h5 {
   /* Typography */
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: var(--font-body);
   font-weight: normal;
   letter-spacing: normal;
 }

@@ -8,7 +8,7 @@ NAVIGATION
 TOPNAV
 *****************************************************/
 
-.navbar {
+.top-nav {
   /* Box Model */
   padding: 0.25rem var(--spacing-sm);
 
@@ -28,7 +28,7 @@ TOPNAV
 }
 
 /* Inner wrapper centers brand + nav as a group */
-.navbar-inner {
+.top-nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -40,14 +40,14 @@ TOPNAV
 }
 
 @media (min-width: 992px) {
-  .navbar-inner {
+  .top-nav-inner {
     justify-content: center;
     gap: var(--spacing-lg);
     flex-wrap: nowrap;
   }
 }
 
-.navbar-brand {
+.top-nav-brand {
   /* Typography */
   font-size: 1.1rem;
   font-weight: 600;
@@ -58,25 +58,24 @@ TOPNAV
   border-bottom: none;
 }
 
-.navbar-brand:hover {
-  /* Typography */
+.top-nav-brand:hover {
   color: var(--text-on-dark);
 }
 
 /* Remove global link styles from all nav elements */
-.navbar a,
-.navbar a:visited {
+.top-nav a,
+.top-nav a:visited {
   border-bottom: none;
   color: inherit;
 }
 
-.navbar a:visited:hover,
-.navbar a:visited:focus {
+.top-nav a:visited:hover,
+.top-nav a:visited:focus {
   color: var(--interactive-hover);
 }
 
 /* Hamburger button — hidden on desktop */
-.navbar-toggler {
+.top-nav-toggler {
   display: flex;
   align-items: center;
   padding: 0.35rem 0.5rem;
@@ -86,12 +85,12 @@ TOPNAV
   cursor: pointer;
 }
 
-.navbar-toggler:focus {
+.top-nav-toggler:focus {
   outline: none;
   box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
 }
 
-.navbar-toggler-icon {
+.top-nav-toggler-icon {
   display: inline-block;
   width: 1.5em;
   height: 1.5em;
@@ -101,31 +100,37 @@ TOPNAV
 }
 
 /* Collapsible nav — hidden by default on mobile */
-.navbar-collapse {
+.top-nav-collapse {
   display: none;
   width: 100%;
   padding-bottom: var(--spacing-sm);
 }
 
-.navbar-collapse.show {
-  display: block;
+/*
+  Scoped to mobile only so .show never conflicts with the desktop
+  display: flex rule below. This eliminates the need for !important.
+*/
+@media (max-width: 991px) {
+  .top-nav-collapse.show {
+    display: block;
+  }
 }
 
 /* Desktop: always show the nav, no hamburger */
 @media (min-width: 992px) {
-  .navbar-toggler {
+  .top-nav-toggler {
     display: none;
   }
 
-  .navbar-collapse {
-    display: flex !important;
+  .top-nav-collapse {
+    display: flex;
     align-items: center;
     width: auto;
     padding-bottom: 0;
   }
 }
 
-.navbar-nav {
+.top-nav-list {
   /* Display */
   display: flex;
   flex-direction: column;
@@ -136,21 +141,19 @@ TOPNAV
 }
 
 @media (min-width: 992px) {
-  .navbar-nav {
+  .top-nav-list {
     flex-direction: row;
     gap: var(--spacing-md);
   }
 }
 
-/* Use Bootstrap's .nav-link class for consistency */
-.nav-link {
+.top-nav-link {
   /* Box Model */
   display: inline-block;
   padding: 0.3rem var(--spacing-sm);
 
   /* Typography */
   text-decoration: none;
-  color: var(--text-on-dark) !important;
 
   /* Visual */
   border-radius: var(--radius-sm);
@@ -159,19 +162,12 @@ TOPNAV
   transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 
-.nav-link:visited {
-  /* Typography */
-  color: var(--text-on-dark) !important;
+.top-nav-link:hover,
+.top-nav-link:focus {
+  color: var(--interactive-hover);
 }
 
-.nav-link:hover,
-.nav-link:focus {
-  /* Typography */
-  color: var(--interactive-hover) !important;
-}
-
-
-ul .dropdown-menu {
+ul .top-nav-dropdown {
   /* Visibility — hidden by default, shown via JS .show class */
   display: none;
 
@@ -191,13 +187,13 @@ ul .dropdown-menu {
   box-shadow: var(--shadow-md);
 }
 
-ul .dropdown-menu.show {
+ul .top-nav-dropdown.show {
   display: block;
 }
 
 /* On mobile, dropdown flows inline (not absolutely positioned) */
 @media (max-width: 991px) {
-  ul .dropdown-menu {
+  ul .top-nav-dropdown {
     position: static;
     box-shadow: none;
     border: none;
@@ -208,7 +204,7 @@ ul .dropdown-menu.show {
   }
 }
 
-.dropdown-item {
+.top-nav-dropdown-item {
   /* Display */
   display: block;
 
@@ -229,8 +225,8 @@ ul .dropdown-menu.show {
   transition: border-color var(--transition-fast);
 }
 
-.dropdown-item:hover,
-.dropdown-item:focus {
+.top-nav-dropdown-item:hover,
+.top-nav-dropdown-item:focus {
   /* Typography */
   color: var(--interactive-hover);
 
@@ -239,7 +235,7 @@ ul .dropdown-menu.show {
   border-left-color: var(--interactive-hover);
 }
 
-.dropdown-divider {
+.top-nav-dropdown-divider {
   /* Box Model */
   margin: 0.1rem 0;
 
@@ -249,13 +245,13 @@ ul .dropdown-menu.show {
   opacity: 0.3;
 }
 
-.nav-link.dropdown-toggle[aria-expanded="true"] {
+.top-nav-link.top-nav-dropdown-toggle[aria-expanded="true"] {
   color: var(--text-on-dark);
   background-color: transparent;
 }
 
 /* Position parent li relative for dropdown absolute positioning */
-.nav-item.dropdown {
+.top-nav-item.has-dropdown {
   position: relative;
 }
 
@@ -263,7 +259,6 @@ ul .dropdown-menu.show {
 /*****************************************************
 SIDENAV - See nav-left.css and nav-profile.css for sidebar styling
 *****************************************************/
-
 
 
 
@@ -276,7 +271,7 @@ BREADCRUMB NAVIGATION
   display: flex;
   list-style: none;
   gap: 8px;
-  
+
   /* Box Model */
   margin: 0 0 16px 0;
   padding: 0;
@@ -299,18 +294,18 @@ BREADCRUMB NAVIGATION
 } /* end media screen */
 
 
-.navbar-workshop-toggle {
+.top-nav-workshop-toggle {
   display: flex;
   align-items: center;
   margin-left: auto;
   padding: 0 1rem;
 }
 
-.navbar-workshop-toggle input[type="checkbox"] {
+.top-nav-workshop-toggle input[type="checkbox"] {
   cursor: pointer;
 }
 
-.navbar-workshop-toggle label {
+.top-nav-workshop-toggle label {
   cursor: pointer;
   margin-left: 0.5rem;
   font-size: 0.9rem;
@@ -325,7 +320,7 @@ BREADCRUMB NAVIGATION
 /*****************************************************************************/
 
 @media (max-width: 768px) {
-  .navbar-workshop-toggle {
+  .top-nav-workshop-toggle {
     padding: 0.5rem 1rem;
     border-top: 1px solid var(--border-light);
   }

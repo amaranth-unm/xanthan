@@ -27,7 +27,7 @@ LEAFLET MAP POPUP STYLES
 }
 
 .leaflet-popup-content p {
-  margin: 0 !important
+  margin: 0;
 }
 
 /* Horizontal card-style layout for popups */

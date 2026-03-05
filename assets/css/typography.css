@@ -24,75 +24,45 @@ h1, h2, h3, h4, h5 {
 
 /* Heading color hierarchy - variety with restraint */
 h1 {
-  color: var(--golden-clay);  /* Warm accent for top-level emphasis */
-  font-weight: 700;           /* Bolder for more presence */
+  color: var(--golden-clay);       /* Warm accent for top-level emphasis */
+  font-weight: 700;                /* Bolder for more presence */
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-xs);
+  font-size: 2.25rem;              /* 36px */
 }
 
 h2 {
-  color: var(--sage);         /* Mid-tone sage - softer contrast */
+  color: var(--sage);              /* Mid-tone sage - softer contrast */
   font-weight: 600;
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+  font-size: 1.75rem;              /* 28px */
 }
 
 h3 {
-  color: var(--sage-deep);    /* Deep sage for subsections */
+  color: var(--sage-deep);         /* Deep sage for subsections */
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-xs);
+  font-size: 1.5rem;               /* 24px */
 }
 
 h4 {
-  color: var(--sage-dark);    /* Darker for minor headings */
+  color: var(--sage-dark);         /* Darker for minor headings */
+  margin-top: var(--spacing-md);
+  margin-bottom: 0.8rem;
+  font-size: 1.25rem;              /* 20px */
 }
 
 h5 {
   color: var(--golden-clay-dark);  /* Darker warm clay for emphasis */
+  margin-top: var(--spacing-xs);
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+  text-transform: uppercase;
 }
 
 h6 {
-  color: var(--text-body);    /* Default body color */
-}
-
-h1 {
-  /* Box Model */
-  margin-top: var(--spacing-lg);
-  margin-bottom: var(--spacing-xs);
-
-  /* Typography */
-  font-size: 2.25rem;  /* 36px - modern standard */
-}
-
-h2 {
-  /* Box Model */
-  margin-top: var(--spacing-sm);
-  margin-bottom: var(--spacing-xs);
-
-  /* Typography */
-  font-size: 1.75rem;  /* 28px - modern standard */
-}
-
-h3 {
-  /* Box Model */
-  margin-top: var(--spacing-lg);
-  margin-bottom: var(--spacing-xs);
-
-  /* Typography */
-  font-size: 1.5rem;  /* 24px - modern standard */
-}
-
-h4 {
-  /* Box Model */
-  margin-top: var(--spacing-md);
-  margin-bottom: 0.8rem;
-
-  /* Typography */
-  font-size: 1.25rem;  /* 20px - modern standard */
-}
-
-h5 {
-  /* Box Model */
-  margin-top: var(--spacing-xs);
-  margin-bottom: 0.25rem;
-
-  /* Typography */
-  font-size: 1rem;
-  text-transform: uppercase;
+  color: var(--text-body);
 }
 
 hr {
@@ -527,9 +497,9 @@ ALERTS
   }
 
   blockquote {
-    max-width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding: var(--spacing-xs) var(--spacing-sm) !important;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: var(--spacing-xs) var(--spacing-sm);
   }
 }

@@ -62,7 +62,12 @@
 
   <!-- Page header CSS: loaded when page has a header image -->
   {% if page.header-image %}
-  <link href="{{site.baseurl}}/assets/css/headers.css" rel="stylesheet">
+  <link href="{{site.baseurl}}/assets/css/page-header.css" rel="stylesheet">
+  {% endif %}
+
+  <!-- Search CSS (loaded when search is enabled in _config.yml) -->
+  {% if site.search %}
+  <link href="{{site.baseurl}}/assets/css/search.css" rel="stylesheet">
   {% endif %}
 
   <!-- page specific CSS -->

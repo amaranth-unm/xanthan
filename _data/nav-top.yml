@@ -35,6 +35,8 @@
 
     - title: "Navigation"
       url: "/docs/editing/navigation"
+    - title: "Search"
+      url: "/docs/editing/search"
     - title: "Tags"
       url: "/docs/editing/tags"
 
