@@ -147,6 +147,9 @@ jobs:
           echo "Syncing to scrollstory-template"
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
+          # Sync Forest scrollstory demo to scrollstory-template/your-story
+          rsync -av --delete xanthan-source/scrollstories/forest/ scrollstory-template/your-story/
+
           # Sync complete code libraries (excludes template-specific images)
           rsync -av --delete xanthan-source/_includes/ scrollstory-template/_includes/
           rsync -av --delete xanthan-source/_layouts/ scrollstory-template/_layouts/
