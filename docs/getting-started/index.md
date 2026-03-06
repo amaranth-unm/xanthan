@@ -43,9 +43,9 @@ Pick the starting point closest to what you're building. Not sure? See the [temp
 }
 
 .setup-option.selected {
-  border-color: var(--accent-primary);
-  background: color-mix(in srgb, var(--accent-border) 18%, var(--bg-card));
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-border) 25%, transparent);
+  border-color: var(--interactive-hover);
+  background: rgba(245, 158, 11, 0.15);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
 }
 
 .setup-option input[type="radio"] {
@@ -75,9 +75,9 @@ Pick the starting point closest to what you're building. Not sure? See the [temp
   padding: var(--spacing-xs) var(--spacing-sm);
   font-size: 0.85rem;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--accent-border-strong);
-  background: var(--bg-card);
-  color: var(--text-body);
+  border: 1px solid var(--sage-pale);
+  background: rgba(178, 205, 188, 0.3);
+  color: var(--sage-deep);
   cursor: pointer;
   transition: all var(--transition-normal);
   text-decoration: none;
@@ -86,8 +86,9 @@ Pick the starting point closest to what you're building. Not sure? See the [temp
 }
 
 .template-btn:hover {
-  background: var(--accent-border-weak);
-  border-color: var(--accent-border);
+  background: rgba(245, 158, 11, 0.25);
+  border-color: var(--interactive-hover);
+  color: var(--sage-deep);
 }
 
 .template-btn.primary {
@@ -99,6 +100,16 @@ Pick the starting point closest to what you're building. Not sure? See the [temp
 .template-btn.primary:hover {
   background: var(--interactive-hover);
   border-color: var(--interactive-hover);
+  color: var(--white);
+}
+
+.template-btn.primary.selected-btn {
+  background: var(--text-muted);
+  border-color: var(--text-muted);
+  color: var(--white);
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.7;
 }
 
 .template-name {
@@ -193,8 +204,8 @@ document.addEventListener('DOMContentLoaded', function() {
       viewBtn.href = template.webUrl || template.repoUrl;
       viewBtn.target = '_blank';
 
-      buttonContainer.appendChild(useBtn);
       buttonContainer.appendChild(viewBtn);
+      buttonContainer.appendChild(useBtn);
 
       card.appendChild(input);
       card.appendChild(h3);
@@ -215,6 +226,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     const selectedCard = document.querySelector(`[data-template-id="${templateId}"]`);
     if (selectedCard) selectedCard.classList.add('selected');
+
+    // Reset all primary buttons, then mark the selected one
+    document.querySelectorAll('.template-btn.primary').forEach(btn => {
+      btn.textContent = 'Use Template';
+      btn.classList.remove('selected-btn');
+    });
+    if (selectedCard) {
+      const btn = selectedCard.querySelector('.template-btn.primary');
+      if (btn) {
+        btn.textContent = 'Selected!';
+        btn.classList.add('selected-btn');
+      }
+    }
 
     // Update content
     updateContent(templateId);
@@ -379,7 +403,11 @@ If you named your repository something other than the template name, you need to
 5. Click **"Commit changes"** (green button, top right)
 6. Click **"Commit changes"** again in the popup
 
-**Important:** Capitalization matters! `My-Site` is different from `my-site`.
+{% include typography/alert.html
+class="warning"
+title="Your baseurl and repository name must match exactly"
+text="If your repository is named `medieval-maps`, your baseurl must be `/medieval-maps/` — same capitalization, same hyphens, same everything. A mismatch (even `Medieval-Maps` vs `medieval-maps`) will break your site's links, images, and styles. This is the most common setup mistake."
+%}
 
 {::nomarkdown}
 </div>

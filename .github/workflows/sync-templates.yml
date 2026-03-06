@@ -73,10 +73,7 @@ jobs:
           cp xanthan-source/.gitignore portfolio-template/.gitignore
           cp xanthan-source/CHANGELOG.md portfolio-template/XANTHAN_CHANGELOG.md
 
-          # Sync data files needed by doc pages (nav demos)
-          cp xanthan-source/_data/nav-profile.yml portfolio-template/_data/nav-profile.yml 2>/dev/null || true
-
-          # DO NOT sync _config.yml, nav-sections.yml, or nav-top.yml - they are template-specific
+          # DO NOT sync _config.yml, nav-profile.yml, nav-sections.yml, or nav-top.yml - they are template-specific
 
           echo "✓ Synced core files to portfolio-template"
 
