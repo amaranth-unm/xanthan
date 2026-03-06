@@ -19,13 +19,12 @@ tags:
     - campus
 ---
 
-This essay demonstrates **intermediate ScrollStory features**—building on what you learned in Seedling by adding scrollyboxes, carousels, jumbotrons, and more sophisticated visual storytelling. As you scroll, we'll point out what makes this more advanced than a Seedling essay.
+This essay demonstrates **intermediate ScrollStory features**—building on what you learned in the [Seedling Essay](../seedling/).
 
-**What makes this a "Sapling" essay?** It includes everything from Seedling (headings, images, footnotes, pull quotes, alerts) plus immersive components: text overlaying background images, full-width image breaks, image carousels, and more dynamic pacing. This is where ScrollStories start feeling cinematic.
+**What makes this a "Sapling" essay?** It includes everything from Seedling (headings, images, footnotes, pull quotes, alerts) plus a few other Xanthan components: text overlaying background images, full-width image breaks, image carousels, and more dynamic pacing. This is where ScrollStories start feeling a bit more cinematic.
 
 
-## The Section Header
-
+## The Page Header
 Notice that this page has a **shorter header** than Seedling — it doesn't fill the entire viewport. That's controlled by one front matter field:
 
 ```yaml
@@ -34,9 +33,9 @@ header-tier: section
 
 The three tiers are:
 
-- **hero** (default, no `header-tier` needed) — fills 100vh, nav overlays the image transparently
-- **section** — roughly 60vh, nav sits above the header normally
-- **banner** — a shallow 22vh strip, more of an accent than a feature
+- **hero** (default, no `header-tier` needed) — fills the entire viewport for dramatic effect
+- **section** — roughly 60vh, nav sits above the header normally as you see above
+- **banner** — a shallow 22vh strip, more of an accent than a feature for informational pages
 
 For essays where you want the nav always visible, or where the image isn't strong enough to carry a full-screen treatment, `section` is the right choice. For maximum visual impact at the start of a narrative, use hero.
 
@@ -50,8 +49,8 @@ This layered approach is intentional. Master the basics, then add complexity inc
 {% include images/figure-wrap.html
   image-position="right"
   image-width="48%"
-  caption="A bridge along the trail. Photo by [Andrew Coelho](https://unsplash.com/@andrewcoelho) on Unsplash."
-  image-path="images/forest-bridge.jpg"
+  caption="Photo by Oskari Manninen on Unsplash."
+  image-path="images/oskari-manninen-RnDXZXcfgGI-unsplash.jpg"
   text=firstimage
 %}
 
@@ -85,34 +84,33 @@ That was a **scrollybox**—text that appears in a semi-transparent box over a f
 **Technical note:** The `above-box-space` and `below-box-space` parameters control how much blank scroll space appears before and after the text box. Adjust these to control pacing—more space = slower, more contemplative; less space = faster pacing.
 
 
-## Pull Quotes Can Go Left Too
-
-{% include typography/pullquote.html
-  box-align="left"
-  width="45%"
-  text="This pull quote sits on the left side of the page instead of the default right. Mixing left and right placement keeps the visual rhythm interesting."
-%}
-
-In Seedling, pull quotes used the defaults (right-aligned, 40% width). Here we've customized both: `box-align="left"` and `width="45%"`. These parameters give you finer control over how pull quotes interact with surrounding content.
-
-You might place a left-aligned pull quote after a right-aligned image to create a zigzag pattern that keeps readers' eyes moving. Subtle choices like these separate decent layouts from great ones.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat, lacus id blandit ornare, mi nisi rutrum ante, vitae dignissim mauris nisl mattis nisl.
-
 
 ## Jumbotron: A Full-Width Visual Break
 
-The **jumbotron** is a full-browser-width image that breaks out of the content margins. It creates a dramatic visual pause. When you add text, a gradient fades in automatically so words read cleanly against the image.
+The **jumbotron** is a full-browser-width image that breaks out of the content margins. It creates a dramatic visual pause. The same image can read very differently depending on parameters — here's the same photo used two ways.
+
+### Version 1: Pure visual break
+No text, no gradient — just the image at full width. Use `background-position` to control which part of the image is visible, and `height` to set how tall it runs.
 
 {% include images/jumbotron.html
-  image-path="images/lake-mountains.jpg"
-  height="50vh"
-  box-align="left"
-  text="A full-width image break with text overlaid on a gradient. The gradient direction follows the text position — left text means left-to-right fade."
-  caption="Mountains reflected in a lake. Jumbotrons don't need text — leave it out for a pure visual break."
+  image-path="images/francesco-gallarotti-ruQHpukrN7c-unsplash.jpg"
+  height="40vh"
+  background-position="center 30%"
 %}
 
-**When to use a jumbotron vs. a scrollybox:** Jumbotrons are quick visual pauses — the reader sees the image and moves on. Scrollyboxes are immersive — the image fills the screen while the reader scrolls through content. Jumbotrons break up text; scrollyboxes replace it temporarily.
+### Version 2: With text and gradient
+Add `text` and `box-align` and a gradient fades in automatically so words read cleanly against the image. The gradient direction follows the text position — `left` means left-to-right fade, `right` means right-to-left.
+
+{% include images/jumbotron.html
+  image-path="images/francesco-gallarotti-ruQHpukrN7c-unsplash.jpg"
+  height="55vh"
+  background-position="70% 70%"
+  box-align="left"
+  text="A full-width image break with text overlaid on a gradient. The gradient covers the left side, fading to transparent on the right — keeping the image visible while making text legible."
+  caption="Photo by Francesco Gallarotti on Unsplash."
+%}
+
+**When to use a jumbotron vs. a scrollybox:** Jumbotrons are quick visual pauses — the reader sees the image and moves on. Scrollyboxes give you the chance to say something about or relevant to the image as it stays on screen. Jumbotrons break up text; scrollyboxes provide a new visual background for the text.
 
 
 ## Image Carousels for Comparisons
@@ -163,36 +161,18 @@ Scrollyboxes aren't just for text boxes. You can also use them as simple image r
 ## What You've Learned in Sapling
 If you can create a Sapling essay, you can:
 
+- **Choose header tiers** for different visual weight at the top of your essay
 - **Use scrollyboxes** to overlay text on full-screen background images
 - **Control pacing** with scroll space parameters
 - **Add jumbotrons** for full-width visual breaks with optional text
-- **Customize pull quotes** with left/right alignment and width
 - **Add image carousels** with titles and captions for comparing multiple images
 - **Use title overlays** on background images without text boxes
-- **Choose header tiers** for different visual weight at the top of your essay
 - **Mix components** - scrollyboxes, pull quotes, carousels, jumbotrons, and standard images in one essay
 
-**This is enough for most sophisticated digital humanities projects.** The Forest essay adds background switching, side-scrolling, and more for even more cinematic effects.
-
-
-## Bibliography
-
-- Hooker, Van Dorn, Melissa Howard, and V. B Price. _Only in New Mexico: An Architectural History of the University of New Mexico: The First Century, 1889-1989_. Albuquerque, NM: University of New Mexico Press, 2000.
-
-- University of New Mexico. Bainbridge Bunting Photograph Collection, 1870-1980, collection PICT 000-385, box 6	folder 102. Center for Southwest Research, University Libraries, University of New Mexico.
-
----
 
 ## Ready to Create Your Own?
 
 **New to Xanthan?** Start with the [Getting Started guide](../../../docs/getting-started/) to create your own site first. Once you have a working site, come back here to build your ScrollStory.
 
-**Already have a Xanthan site?** To make your own Sapling essay:
-
-1. **Duplicate this folder** (`scrollstories/sapling/`) and rename it for your topic
-2. **Replace the text** with your own content, keeping the structure
-3. **Add your own images** to the `images/` folder
-4. **Update the front matter** at the top (title, author, date, header image, etc.)
-5. **Customize components** - Add or remove scrollyboxes, carousels, and jumbotrons as needed
 
 Ready for even more? Check out the [Forest template](../forest/) for advanced features like background switching and side-scrolling.

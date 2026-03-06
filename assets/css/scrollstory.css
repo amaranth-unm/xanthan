@@ -1,12 +1,6 @@
 /* Scrollstory specific styles - fonts imported in base.css */
-/* Override container styling for scrollstory pages */
+/* Typography overrides for scrollstory pages — box model handled by base.css grid */
 .container {
-  /* Box Model */
-  max-width: 45rem;
-  padding: 0 var(--spacing-md);
-  margin: auto;
-
-  /* Typography */
   font-family: var(--font-serif);
   font-size: 1rem;
   line-height: 1.4em;

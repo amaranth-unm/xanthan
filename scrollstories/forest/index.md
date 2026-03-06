@@ -21,10 +21,7 @@ tags:
   - music
 ---
 
-# A Forest Essay
-This essay demonstrates **advanced ScrollStory features**—everything from Seedling and Sapling, plus background image switching, sticky backgrounds, side-scroll sections, juxtapose comparisons, and the full header system. This is the complete cinematic experience.
-
-**What makes this a "Forest" essay?** It includes every component Xanthan offers. Use this when you want maximum storytelling power — or as a reference to copy specific component code into your own essays.
+This essay demonstrates everything from Seedling and Sapling, plus background image switching, sticky backgrounds, side-scroll sections, juxtapose comparisons, and the full header system. This is the complete cinematic experience.
 
 Notice the header above: it includes an **eyebrow** ("ScrollStory Demo"), a **divider** (the decorative line of symbols), and a **subtitle** below the title. These hero-only fields are set in the front matter:
 
@@ -37,9 +34,9 @@ header-subtitle: every component, one essay
 
 ## Auto-scroll: demo mode
 
-This essay has `autoscroll: true` in its front matter, which enables a hands-free scrolling mode useful for demos, recordings, and GIFs. Press **P** to start auto-scrolling; press **P** again to pause. Scrolling manually, pressing **Escape**, or using arrow keys also pauses it.
+This essay also has `autoscroll: true` in the page header--you may have noticed a little popup in the lower right of your screen--which enables a hands-free scrolling mode useful for demos and recordings. Anywhere on the page, press **P** to start auto-scrolling; press **P** again to pause. Scrolling manually, pressing **Escape**, or using arrow keys also pauses it.
 
-Auto-scroll is off by default on all pages. To enable it, add `autoscroll: true` to a page's front matter. Remove the line (or set it to `false`) to disable it.
+Auto-scroll is off by default on all pages. To enable it, add `autoscroll: true` to a page's metadat. Remove the line (or set it to `false`) to disable it.
 
 
 ## All the Basics Still Work
@@ -57,29 +54,6 @@ The key to Forest essays is knowing when to use which tool. Not every moment nee
 %}
 
 
-## Standalone Figures: Three Styles
-
-The standalone `figure.html` can float left, right, or center:
-
-{% include images/figure.html
-  class="left"
-  width="40%"
-  caption="Left-floated figure at 40% width."
-  image-path="images/moss-log.jpg"
-%}
-
-This text wraps to the right of the left-floated moss image. Notice how the flow changes when an image is on the left vs. the right — readers encounter the image first, then the text, which can draw attention to the image more immediately.
-
-Nunc congue ultrices lacus, a efficitur massa pulvinar at. Sed luctus orci sed sem commodo, in rhoncus orci sagittis. Duis in sagittis arcu. Donec dictum aliquam congue.
-
-<p style="clear:both"></p>
-
-{% include images/figure.html
-  class="center"
-  width="70%"
-  caption="A centered standalone figure at 70% width — good for images that need room to breathe."
-  image-path="images/green-leaves.jpg"
-%}
 
 
 ## Juxtapose: Before/After Comparisons
@@ -98,29 +72,6 @@ Below you'll see a **juxtapose component**—an interactive slider that lets rea
 
 The `starting-position="35%"` shifts the slider so readers don't start at the default 50/50 split.
 
-
-## A Left-Aligned Figure-Wrap
-{% capture leftimage %}
-Figure-wraps work on both sides. This **left-aligned** image creates a different visual rhythm from the right-aligned wraps you've seen. Alternating sides throughout a long essay keeps readers' eyes moving and prevents layout monotony.
-
-Use left-aligned images when the visual subject faces right (leading the eye into the text) or when you want to break a pattern of right-aligned images.
-{% endcapture %}
-{% include images/figure-wrap.html
-  image-position="left"
-  image-width="45%"
-  caption="Mountain stream — a left-aligned figure-wrap at 45% width."
-  image-path="images/mountain-stream.jpg"
-  text=leftimage
-%}
-
-
-## Alert Box: Warning Style
-
-{% include typography/alert.html
-  class="warning"
-  title="Advanced territory ahead"
-  text="The components below this point — sticky backgrounds, background switching, and side-scroll — are the most complex in Xanthan. They're powerful but require careful attention to opening/closing tags and parameter values. Copy the code snippets exactly and adjust from there."
-%}
 
 
 ## Sticky Background
@@ -212,7 +163,7 @@ This is what makes Forest essays truly cinematic. You're about to scroll through
   above-box-space="0"
 %}
 
-The first image — dappled light on the forest floor. This multi-section scrollybox opens with `bg-multi-long.html`, which sets the initial background. Content between here and the `bg-multi-long-close.html` tag appears in a text box that scrolls over the changing backgrounds.
+The first image — a foggy forest scene. This multi-section scrollybox opens with `bg-multi-long.html`, which sets the initial background. Content between here and the `bg-multi-long-close.html` tag appears in a text box that scrolls over the changing backgrounds.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec ante ligula. Nulla fringilla ligula sit amet nisl consectetur ultricies. Mauris ac tellus eu ante lobortis rhoncus non eu nisl.
 
@@ -220,7 +171,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec ante ligu
 ### SWITCH: Moss and Bark
 
 {% include scrollybox/bg-switch.html
-  image-path="images/moss-log.jpg"
+  image-path="images/r-g-3GLKJiuOKrI-unsplash.jpg"
   switch-id="forest-switch1"
   bg-id="forest-bg"
 %}
@@ -332,29 +283,17 @@ If you can create a Forest essay, you have mastered:
   - Header eyebrow, divider, and subtitle fields
   - Auto-scroll for demos
 
-**This is the full Xanthan toolkit.** Not every essay needs every feature, but you now have complete control over how to tell visual stories on the web.
-
-
-## Bibliography
-
-- Hooker, Van Dorn, Melissa Howard, and V. B Price. _Only in New Mexico: An Architectural History of the University of New Mexico: The First Century, 1889-1989_. Albuquerque, NM: University of New Mexico Press, 2000.
-
-- University of New Mexico. Bainbridge Bunting Photograph Collection, 1870-1980, collection PICT 000-385, box 6	folder 102. Center for Southwest Research, University Libraries, University of New Mexico.
+**Between all the essays, you've seen the full Xanthan toolkit.** Not every essay needs every feature, but you now have complete control over how to tell visual stories on the web.
 
 ---
+
+**Feeling overwhelmed?** Start with [Seedling](../seedling/) or [Sapling](../sapling/) so there is just less stuff to deal with. You can always copy and paste Xanthan components into your page. There's nothing special about this page--it just uses more components!
+
+
 
 ## Ready to Create Your Own?
 
 **New to Xanthan?** Start with the [Getting Started guide](../../../docs/getting-started/) to create your own site first. Once you have a working site, come back here to build your ScrollStory.
 
-**Already have a Xanthan site?** To make your own Forest essay:
-
-1. **Duplicate this folder** (`scrollstories/forest/`) and rename it for your topic
-2. **Replace the text** with your own content, keeping the structure
-3. **Add your own images** to the `images/` folder
-4. **Update the front matter** at the top (title, author, date, header image, etc.)
-5. **Customize advanced components** - Adjust background switching, juxtapose comparisons, and scrollybox sequences
-
-**Feeling overwhelmed?** Start with [Seedling](../seedling/) or [Sapling](../sapling/) and work your way up. Most excellent digital essays use Seedling or Sapling level features — Forest is for when you truly need cinematic power.
 
 
