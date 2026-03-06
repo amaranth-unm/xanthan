@@ -114,23 +114,18 @@ Add `text` and `box-align` and a gradient fades in automatically so words read c
 
 
 ## Image Carousels for Comparisons
-Below you'll see an **image carousel**—multiple images you can click through. This version includes slide titles and captions.
+Below you'll see an **image carousel**—multiple images you can click through with captions underneath.
 
 {% assign sapling_images =
-"images/mountain-stream.jpg,
+"images/autumn-forest.jpg,
 images/forest-tall-trees.jpg,
-images/autumn-forest.jpg" | split: ','
+images/forest-trail-fog.jpg" | split: ','
 %}
 
 {% assign sapling_headers =
 "Mountain Stream,Tall Trees,Autumn Colors" | split: ','
 %}
 
-{% assign sapling_captions =
-"A stream winds through the landscape.|
-Tall trees reach for the sky — notice how the vertical composition draws your eye upward.|
-Autumn transforms the forest into a palette of warm colors." | split: '|'
-%}
 
 {% include images/carousel.html
   id="sapling-carousel"

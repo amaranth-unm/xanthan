@@ -242,10 +242,10 @@ A fallen tree becomes a nurse log — decomposing over decades, feeding the soil
 All Sapling components work in Forest too. Here's a carousel with titles and captions:
 
 {% assign forest_images =
-"images/ferns-closeup.jpg,
-images/moss-log.jpg,
-images/autumn-forest.jpg,
-images/misty-forest.jpg" | split: ','
+"images/autumn-forest.jpg,
+images/forest-floor-light.jpg,
+images/misty-forest.jpg,
+images/mountain-stream.jpg" | split: ','
 %}
 
 {% assign forest_headers =
