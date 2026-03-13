@@ -6,15 +6,15 @@ summary: Open, durable website templates for scholars, instructors, and students
 template_cards:
   - title: "Personal Portfolio"
     summary: "A professional site for your research, teaching, and creative work. About page, CV, project pages, top navigation — the structure for owning your academic identity online."
-    thumbnail: "/assets/images/portfolio-screenshot.png"
+    thumbnail: "/assets/images/gallery/portfolio-screenshot.png"
     link: "https://xanthan-web.github.io/portfolio-template/"
   - title: "Class Project"
     summary: "A collaborative archive for student work around a shared theme. Card directories, maps, and sample essays — the instructor builds the structure, students fill it in."
-    thumbnail: "/assets/images/class-project-screenshot.png"
+    thumbnail: "/assets/images/gallery/class-project-screenshot.png"
     link: "https://amaranth.unm.edu/campus-history/"
   - title: "ScrollStory"
     summary: "An immersive scrolling narrative with background images and layered text. Like StoryMaps, but non-proprietary and yours to keep."
-    thumbnail: "/assets/images/forest-scroll.gif"
+    thumbnail: "/assets/images/gallery/forest-scroll.gif"
     link: "scrollstories/forest"
 ---
 
@@ -106,7 +106,7 @@ GitHub Pages hosting costs nothing. No ads, no freemium upsells, no surprise bil
 
 
 {% include images/jumbotron.html
-  image-path="/assets/images/scaffolding-hand.png"
+  image-path="/assets/images/site/scaffolding-hand.png"
   fade-start="50%"
   fade-end="100%"
   text="

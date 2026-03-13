@@ -6,7 +6,7 @@ summary: Real examples of websites built using Xanthan templates — portfolios,
 gallery_sites:
   - title: "Campus Histories"
     summary: "Card collections for histories of campus buildings and spaces, showing how to build ongoing, multi-contributor collaborative student projects over time."
-    thumbnail: "/assets/images/class-project-screenshot.png"
+    thumbnail: "/assets/images/gallery/class-project-screenshot.png"
     link: "https://amaranth.unm.edu/campus-history/"
     tags: ["class project"]
 
@@ -46,19 +46,19 @@ gallery_sites:
 template_sites:
   - title: "Portfolio Template"
     summary: "A clean starting point for personal or professional academic sites. About page, CV, and sample project pages — fork it, add your content."
-    thumbnail: "/assets/images/portfolio-screenshot.png"
+    thumbnail: "/assets/images/gallery/portfolio-screenshot.png"
     link: "https://xanthan-web.github.io/portfolio-template"
     tags: ["template"]
 
   - title: "Class Project Template"
     summary: "A collaborative archive template with card directories and sample student essays. The instructor sets up the structure; students fill it in."
-    thumbnail: "/assets/images/class-project-screenshot.png"
+    thumbnail: "/assets/images/gallery/class-project-screenshot.png"
     link: "https://xanthan-web.github.io/class-project-template"
     tags: ["template"]
 
   - title: "ScrollStory Template"
     summary: "An immersive scroll-driven narrative template showing the full range of scrollstory components: fixed backgrounds, text panels, image carousels."
-    thumbnail: "/assets/images/forest-scroll.gif"
+    thumbnail: "/assets/images/gallery/forest-scroll.gif"
     link: "https://xanthan-web.github.io/scrollstory-template"
     tags: ["template"]
 ---
