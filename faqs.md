@@ -42,11 +42,11 @@ You don't need to know how to code to use Xanthan. If you can edit a text docume
 
 Xanthan grew out of classroom experiments, not any particular intention.
 
-It started with a pragamtic question: how could students share pre-class reflections easily with each other outside a LMS that was about to be retired? A GitHub repository was the experiment.
+It started with a pragamtic question from an early [Fred Gibbs](https://fredgibbs.net) historiography course: how could students share pre-class reflections easily with each other outside a LMS that was about to be retired? A GitHub repository was the experiment.
 
-The student response was the surprise. Studens loved the openness, the way we could engage with their reflections in class. They wanted to use it for their final projects. And then they wanted a website to collect their essays, just like for daily assignments. 
+The student response was the surprise. Students loved the openness, the way we could engage with their reflections in class. They wanted to use it for their final projects. And then they wanted a website to collect and showcaase their essays, just like for daily assignments. 
 
-Each semester, and new courses, led to new challenges, solutions, failures, improvements. After a while, everything came togehter. You can read [a bit more about the journey](https://fredgibbs.net/about).
+Each semester, and new courses, led to new challenges, solutions, failures, improvements. After a little while, there was a bonafide---albeit rough---framework. It just needed a name that helped bring everything together. Like the gum.
 
 ---
 
