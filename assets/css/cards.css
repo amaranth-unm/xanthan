@@ -120,8 +120,7 @@ CARDS
   /* Box Model */
   flex: 0 0 320px;
   width: 320px;
-  align-self: stretch;  /* flexbox controls height, not height: 100% */
-  max-height: 22rem;    /* cap very tall cards from stretching the image indefinitely */
+  height: 16rem;  /* explicit height required for object-fit: cover to work reliably in flex */
 
   /* Visual */
   object-fit: cover;
