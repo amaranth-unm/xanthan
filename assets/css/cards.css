@@ -118,8 +118,8 @@ CARDS
 
 .h-card .card-img-left {
   /* Box Model */
-  flex: 0 0 320px;
-  width: 320px;
+  flex: 0 0 220px;
+  width: 220px;
   height: 16rem;  /* explicit height required for object-fit: cover to work reliably in flex */
 
   /* Visual */
