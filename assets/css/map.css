@@ -122,6 +122,20 @@ LEAFLET MAP POPUP STYLES
   line-height: 1.3;
 }
 
+/* Map popup card text — shared typography for popup content */
+.map-card {
+  /* Box Model */
+  margin-top: var(--spacing-xs);
+
+  /* Typography */
+  font-family: var(--font-body);
+  font-weight: normal;
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  text-align: justify;
+  color: var(--text-body);
+}
+
 /* Responsive: vertical on small screens */
 @media (max-width: 768px) {
   .popup-wrapper {

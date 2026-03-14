@@ -1,5 +1,5 @@
 ---
-layout: xanthan
+layout: default
 title: Editing Workflows
 date: 2026-02-14
 ---
@@ -35,7 +35,7 @@ GitHub's built-in code editor gives you an intuitive editing environment in your
    ```yaml
    ---
    title: My New Page
-   layout: xanthan
+   layout: default
    ---
    ```
 4. Write your content below the front matter

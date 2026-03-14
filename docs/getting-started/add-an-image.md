@@ -1,5 +1,5 @@
 ---
-layout: xanthan
+layout: default
 title: Add an Image
 date: 2026-02-14
 ---

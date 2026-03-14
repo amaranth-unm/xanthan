@@ -1,5 +1,5 @@
 ---
-layout: xanthan
+layout: default
 title: Using Tags
 summary: How to use the tagging system in Xanthan
 date: 2026-01-29

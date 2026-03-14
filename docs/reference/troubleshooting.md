@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-layout: xanthan
+layout: default
 date: 2026-02-16
 ---
 
@@ -133,7 +133,7 @@ Every page needs front matter at the very top of the file---three dashes, a few 
 ```yaml
 ---
 title: My Page
-layout: xanthan
+layout: default
 date: 2024-12-02
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Xanthan — Web Templates for Digital Humanities
-layout: xanthan
+layout: default
 date: 2026-01-01
 summary: Open, durable website templates for scholars, instructors, and students. No coding, no platforms, no compromises.
 template_cards:

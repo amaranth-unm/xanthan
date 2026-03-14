@@ -1,5 +1,5 @@
 ---
-layout: xanthan
+layout: default
 title: FAQs about Xanthan
 date: 2025-12-31
 summary: Common questions about Xanthan, including why use it, how much coding is needed, and how to get started building your own site.

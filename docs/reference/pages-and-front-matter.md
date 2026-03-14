@@ -1,5 +1,5 @@
 ---
-layout: xanthan
+layout: default
 title: Pages & Front Matter
 date: 2026-02-14
 ---
@@ -19,7 +19,7 @@ Front matter is the section between two lines of triple dashes at the very top o
 ```yaml
 ---
 title: My Page Title
-layout: xanthan
+layout: default
 date: 2026-01-15
 ---
 ```
@@ -37,7 +37,7 @@ Every page should have these:
 | Field | Example | What it does |
 |-------|---------|--------------|
 | `title` | `title: River Towns` | Page title, used in the browser tab and navigation cards |
-| `layout` | `layout: xanthan` | Controls the page template (see [Layouts](#layouts) below) |
+| `layout` | `layout: default` | Controls the page template (see [Layouts](#layouts) below) |
 
 ### Common fields
 
@@ -89,7 +89,7 @@ For pages that should appear on an [interactive map](../editing/navigation#inter
 ```yaml
 ---
 title: Acequia Landscapes
-layout: xanthan
+layout: default
 date: 2026-01-20
 author: Carlos Medina
 summary: How community irrigation systems shaped settlement patterns in the Rio Grande Valley.

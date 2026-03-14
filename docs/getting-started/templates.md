@@ -1,5 +1,5 @@
 ---
-layout: xanthan
+layout: default
 title: Choose a Template
 date: 2026-02-14
 ---

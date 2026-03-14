@@ -14,4 +14,4 @@
       {{ site.baseurl }}{{ page.dir }}{{ include.image-path }}
     {% endif %}
   {% endif %}
-{% endif %}
+{% else %}<!-- xanthan warning: image-path include called without image-path parameter -->{% endif %}

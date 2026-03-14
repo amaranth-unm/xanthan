@@ -1,6 +1,6 @@
 ---
 title: Embedding Media
-layout: xanthan
+layout: default
 date: 2024-10-24
 ---
 

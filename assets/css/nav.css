@@ -18,7 +18,7 @@ TOPNAV
   color: var(--text-on-dark);
 
   /* Visual */
-  background-color: rgba(107, 142, 127, 0.92);
+  background-color: color-mix(in srgb, var(--bg-nav) 92%, transparent);
   border-bottom: none;
 
   /* Position — sticky so nav locks to top when scrolled past */
@@ -51,17 +51,17 @@ TOPNAV
 
 /* Dropdowns on hero pages need their own solid background since the nav is transparent */
 .page-wrap:has(.page-header--hero) .top-nav-dropdown {
-  background-color: rgba(30, 30, 30, 0.92);
-  border-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--overlay-dark);
+  border-color: var(--border-on-dark);
 }
 
 .page-wrap:has(.page-header--hero) .top-nav-dropdown-item {
-  color: var(--warm-white);
+  color: var(--text-on-dark);
 }
 
 .page-wrap:has(.page-header--hero) .top-nav-dropdown-item:hover {
-  color: var(--amber);
-  border-left-color: var(--amber);
+  color: var(--interactive-hover);
+  border-left-color: var(--interactive-hover);
 }
 
 /* Inner wrapper centers brand + nav as a group */
@@ -108,7 +108,7 @@ TOPNAV
 
 .top-nav a:visited:hover,
 .top-nav a:visited:focus {
-  color: var(--amber);
+  color: var(--interactive-hover);
 }
 
 /* Hamburger button — hidden on desktop */
@@ -202,7 +202,7 @@ TOPNAV
 
 .top-nav-link:hover,
 .top-nav-link:focus {
-  color: var(--amber);
+  color: var(--interactive-hover);
   text-decoration: none;
 }
 
@@ -267,7 +267,7 @@ ul .top-nav-dropdown.show {
 .top-nav-dropdown-item:hover,
 .top-nav-dropdown-item:focus {
   /* Typography */
-  color: var(--amber);
+  color: var(--interactive-hover);
   text-decoration: none;
 
   /* Visual */
@@ -331,9 +331,6 @@ BREADCRUMB NAVIGATION
 }
 
 
-} /* end media screen */
-
-
 .top-nav-workshop-toggle {
   display: flex;
   align-items: center;
@@ -352,16 +349,11 @@ BREADCRUMB NAVIGATION
   color: var(--text-on-dark);
 }
 
-
-/*****************************************************************************/
-/*
-/* SMALL SCREEN
-/*
-/*****************************************************************************/
-
 @media (max-width: 768px) {
   .top-nav-workshop-toggle {
     padding: 0.5rem 1rem;
     border-top: 1px solid var(--border-light);
   }
 }
+
+} /* end media screen */

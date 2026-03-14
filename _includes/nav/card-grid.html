@@ -1,14 +1,22 @@
 {% comment %}
   Card Grid Component
-  
+
   Usage:
     {% include nav/card-grid.html cards=pages show-tags=true %}
-  
+
   Parameters:
     - cards: array of page/card objects to display
     - show-tags: (optional, default true) whether to display tags on cards
     - grid-class: (optional) additional CSS classes for the grid
     - tag-data: (optional, default false) add data-tags attribute for filtering
+
+  Per-card image control (set in each page's front matter):
+    - thumbnail: path to card image
+    - thumbnail-position: CSS object-position value, e.g. "top", "center 30%"
+                          Controls which part of the image shows (default: center)
+    - thumbnail-zoom: Scale multiplier, e.g. "1.5", "2"
+                      Zooms into the image while keeping the card window the same size.
+                      Combine with thumbnail-position to aim the zoom. Default: 1 (no zoom)
 {% endcomment %}
 
 {% assign show_tags = include.show-tags | default: true %}
@@ -30,7 +38,9 @@
       <a class="card-link" href="{{ card_href_resolved | strip }}">
         {% if card_image %}
           {% capture card_image_url %}{% include images/image-path.html image-path=card_image page-dir=card.dir %}{% endcapture %}
-          <img class="card-img-top" src="{{ card_image_url | strip }}" alt="{{ card.title | escape }}">
+          {% assign thumb_pos = card.thumbnail-position | default: 'center' %}
+          {% assign thumb_zoom = card.thumbnail-zoom %}
+          <img class="card-img-top" src="{{ card_image_url | strip }}" alt="{{ card.title | escape }}" style="object-position: {{ thumb_pos }};{% if thumb_zoom %} transform: scale({{ thumb_zoom }}); transform-origin: {{ thumb_pos }};{% endif %}">
         {% endif %}
         <div class="card-body">
           <div>

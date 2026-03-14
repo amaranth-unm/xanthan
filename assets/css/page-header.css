@@ -28,7 +28,7 @@ if you want a different accent color just for headers.
   --header-grid-line: rgba(255, 255, 255, 1);     /* Grid overlay lines (see opacity on .page-header-grid) */
   --header-divider-line: rgba(255, 255, 255, 0.12);  /* Thin lines flanking divider text */
   --header-divider-text: rgba(255, 255, 255, 0.28);  /* Divider text color */
-  --header-subtitle: rgba(255, 255, 255, 0.45);      /* Subtitle paragraph color */
+  --header-subtitle: rgba(255, 255, 255, 0.70);      /* Subtitle paragraph color */
 }
 
 
@@ -117,7 +117,7 @@ if you want a different accent color just for headers.
 /* Subtitle paragraph below the title */
 .page-header p {
   font-size: 1.4rem;
-  color: rgba(255, 255, 255, 0.70);
+  color: var(--header-subtitle);
   line-height: 1.6;
   font-weight: 300;
   letter-spacing: 0.03em;
@@ -226,15 +226,10 @@ if you want a different accent color just for headers.
   padding-bottom: 60px;
 }
 
-.page-header--section::after {
-  height: 180px;
-}
-
 .page-header--section .page-header-content {
   margin-left: 2rem;
   padding: 2rem 3rem;
   max-width: 40%;
-  border-left-width: 2px;
 }
 
 /* Smaller title for section tier — overrides .page-header h1 above */
@@ -271,15 +266,10 @@ if you want a different accent color just for headers.
   padding-bottom: 0;
 }
 
-.page-header--banner::after {
-  height: 100px;
-}
-
 .page-header--banner .page-header-content {
   margin-left: 2rem;
   padding: 1rem 2rem;
   max-width: none;
-  border-left-width: 2px;
 }
 
 /* Compact heading for banner tier — uses heading font instead of serif */

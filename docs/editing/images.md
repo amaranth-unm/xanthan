@@ -1,6 +1,6 @@
 ---
 title: Images
-layout: xanthan
+layout: default
 date: 2026-02-14
 ---
 
@@ -262,7 +262,7 @@ A header image is a large banner across the top of the page, set in the front ma
 ```yaml
 ---
 title: My Page Title
-layout: xanthan
+layout: default
 header-image: /assets/images/backgrounds/pano-1.jpg
 ---
 ```
@@ -272,7 +272,7 @@ header-image: /assets/images/backgrounds/pano-1.jpg
 ```yaml
 ---
 title: My Page Title
-layout: xanthan
+layout: default
 header-image: /assets/images/backgrounds/pano-1.jpg
 header-height: 50vh
 header-position: center

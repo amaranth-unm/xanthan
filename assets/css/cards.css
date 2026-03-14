@@ -258,15 +258,15 @@ CARDS
 }
 
 .tag-badge.active {
-  background: var(--sage-deep);
+  background: var(--accent-primary-dark);
   color: var(--text-on-dark);
-  border-color: var(--sage-deep);
+  border-color: var(--accent-primary-dark);
 }
 
 .tag-clear {
-  background: var(--sage-deep);
+  background: var(--accent-primary-dark);
   color: var(--text-on-dark);
-  border-color: var(--sage-deep);
+  border-color: var(--accent-primary-dark);
 }
 
 .tag-clear:hover {
@@ -482,7 +482,7 @@ ToC ROWS
 
   /* Visual */
   background: var(--bg-card);
-  border-left: 3px solid var(--golden-clay);
+  border-left: 3px solid var(--accent-border);
   border-radius: 6px;
 
   /* Interactivity */
@@ -586,7 +586,7 @@ COMPACT ToC ROWS (for documentation indexes)
 
   /* Visual */
   background: var(--bg-card);
-  border-left: 2px solid var(--golden-clay);
+  border-left: 2px solid var(--accent-border);
   border-radius: 4px;
 
   /* Interactivity */

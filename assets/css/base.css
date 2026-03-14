@@ -63,16 +63,25 @@ PAGE SETUP & CUSTOMIZATION
   --error: #dc3545;
   --info: #5b9aa0;
 
+  /* Heading colors — override these in themes to change heading hierarchy */
+  --text-h1: var(--golden-clay);
+  --text-h2: var(--sage);
+  --text-h3: var(--sage-deep);
+  --text-h4: var(--sage-dark);
+  --text-h5: var(--golden-clay-dark);
+
   /* Utility */
   --overlay-dark: rgba(0, 0, 0, 0.8);
   --white: #ffffff;
   --border-light: rgba(0, 0, 0, 0.1);
+  --border-on-dark: rgba(255, 255, 255, 0.2); /* Borders/dividers on dark backgrounds */
+  --accent-primary-dark: var(--sage-deep);     /* Darker accent for active/selected states */
 
   /* Shadows */
   --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --shadow-hover: 0 4px 12px rgba(255, 193, 7, 0.4);
+  --shadow-hover: 0 4px 12px color-mix(in srgb, var(--interactive-hover) 40%, transparent);
 
   /* Fonts */
   --font-heading: 'Inter', sans-serif;
@@ -96,6 +105,12 @@ PAGE SETUP & CUSTOMIZATION
   --transition-fast: 0.15s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 1s ease-in-out;
+
+  /* Footer */
+  --bg-footer: var(--sage);
+  --bg-footer-bottom: var(--sage-deep);
+  --text-footer-link: var(--warm-white);
+  --text-footer-bottom: var(--sage-pale);
 }
 
 
@@ -259,7 +274,7 @@ JUMBOTRON
 
   /* Typography */
   font-size: clamp(1.4rem, 2.5vw, 2rem);
-  color: var(--sage);
+  color: var(--accent-primary);
 }
 
 .jumbotron--center .jumbotron-content h2 {
@@ -345,16 +360,6 @@ figcaption {
   line-height: 1.1rem;
   text-align: justify;
   color: var(--text-body);
-}
-
-figcaption p {
-  /* Box Model */
-  margin: 0;
-  padding: 0;
-
-  /* Typography */
-  font-size: 0.8rem;
-  line-height: 1rem;
 }
 
 figcaption a {
@@ -479,7 +484,7 @@ footer {
   color: var(--text-on-dark);
 
   /* Visual */
-  background-color: var(--sage);
+  background-color: var(--bg-footer);
   border-top: 2px solid var(--accent-border);
   padding: 0;
 }
@@ -507,7 +512,7 @@ footer {
   padding: 0;
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--amber);
+  color: var(--interactive-hover);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -524,22 +529,22 @@ footer {
 }
 
 .footer-column ul li a {
-  color: var(--warm-white);
+  color: var(--text-footer-link);
   text-decoration: none;
   font-size: 0.875rem;
   transition: color var(--transition-fast);
 }
 
 .footer-column ul li a:hover {
-  color: var(--golden-clay);
+  color: var(--interactive-hover);
   text-decoration: underline;
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid var(--border-on-dark);
   padding: var(--spacing-sm) var(--spacing-md);
   text-align: center;
-  background-color: var(--sage-deep);
+  background-color: var(--bg-footer-bottom);
 }
 
 .footer-bottom .container {
@@ -548,36 +553,31 @@ footer {
 
 .footer-bottom p {
   font-size: 0.8rem;
-  color: var(--sage-pale);
+  color: var(--text-footer-bottom);
   margin: 0.25rem 0;
   text-align: center;
 }
 
 .footer-bottom a {
-  color: var(--warm-white);
+  color: var(--text-footer-link);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 .footer-bottom a:hover {
-  color: var(--golden-clay);
+  color: var(--interactive-hover);
   text-decoration: underline;
 }
 
 .footer-tagline {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.6); /* subdued — intentionally lighter than --text-footer-bottom */
 }
 
 /* Responsive footer */
 @media (max-width: 768px) {
   footer {
     padding: var(--spacing-md) var(--spacing-sm);
-  }
-
-  .footer-columns {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-md);
   }
 }
 
@@ -587,17 +587,14 @@ footer {
 BUTTONS
 *****************************************************/
 
-/* Primary CTA button */
-.btn-primary {
+/* Shared styles — applied to both primary and secondary variants */
+.btn-primary,
+.btn-secondary {
   /* Display */
   display: inline-block;
 
-  /* Box Model */
-  padding: 1em 2em;
-
   /* Typography */
   font-family: var(--font-body);
-  font-size: 1.2em;
   color: var(--white);
   text-decoration: none;
 
@@ -605,34 +602,54 @@ BUTTONS
   background: var(--accent-primary);
   border: none;
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
 
   /* Interactivity */
   transition: background-color var(--transition-normal), transform var(--transition-fast), box-shadow var(--transition-normal);
 }
 
 /*
-  Override a:visited and a:visited:hover from typography.css (loads after base.css).
-  :visited raises specificity to 0,2,0 — enough to beat a:visited (0,1,0).
-  :visited:hover raises to 0,3,0 — enough to beat a:visited:hover (0,2,1).
+  Override a:visited from typography.css.
+  :visited raises specificity enough to beat a:visited.
 */
-.btn-primary:visited {
+.btn-primary:visited,
+.btn-secondary:visited {
   color: var(--white);
   text-decoration: none;
   border: none;
 }
 
 .btn-primary:hover,
-.btn-primary:visited:hover {
-  /* Typography */
+.btn-primary:visited:hover,
+.btn-secondary:hover,
+.btn-secondary:visited:hover {
   color: var(--white);
-
-  /* Visual */
   background: var(--interactive-hover);
-  box-shadow: var(--shadow-lg);
+}
 
-  /* Transform */
+/* Primary — larger, full emphasis */
+.btn-primary {
+  padding: 1em 2em;
+  font-size: 1.2em;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover,
+.btn-primary:visited:hover {
+  box-shadow: var(--shadow-lg);
   transform: translateY(-2px);
+}
+
+/* Secondary — smaller, lower emphasis */
+.btn-secondary {
+  padding: 0.6em 1.2em;
+  font-size: 0.95em;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover,
+.btn-secondary:visited:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
 }
 
 /* Size modifiers — stack with any button variant */
@@ -644,49 +661,6 @@ BUTTONS
 .btn-sm {
   font-size: 0.85rem;
   padding: 0.4em 1em;
-}
-
-/* Secondary button - smaller, less prominent */
-.btn-secondary {
-  /* Display */
-  display: inline-block;
-
-  /* Box Model */
-  padding: 0.6em 1.2em;
-
-  /* Typography */
-  font-family: var(--font-body);
-  font-size: 0.95em;
-  color: var(--white);
-  text-decoration: none;
-
-  /* Visual */
-  background: var(--accent-primary);
-  border: none;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-
-  /* Interactivity */
-  transition: background-color var(--transition-normal), transform var(--transition-fast), box-shadow var(--transition-normal);
-}
-
-.btn-secondary:visited {
-  color: var(--white);
-  text-decoration: none;
-  border: none;
-}
-
-.btn-secondary:hover,
-.btn-secondary:visited:hover {
-  /* Typography */
-  color: var(--white);
-
-  /* Visual */
-  background: var(--interactive-hover);
-  box-shadow: var(--shadow-md);
-
-  /* Transform */
-  transform: translateY(-1px);
 }
 
 
@@ -714,77 +688,6 @@ HERO SECTION (Homepage)
   margin: 0 0 2.5rem;
 }
 
-
-/*****************************************************
-WORKSHOP BULLET HIGHLIGHTING
-*****************************************************/
-
-ul li {
-  /* Box Model */
-  margin: 0.2rem 0;
-  padding: var(--spacing-xs);
-  
-  /* Visual */
-  border-radius: var(--radius-sm);
-  
-  /* Interactivity */
-  transition: all var(--transition-normal);
-}
-
-ul li.highlighted {
-  /* Box Model */
-  margin: var(--spacing-xs) 0;
-  padding: var(--spacing-sm) var(--spacing-md);
-  
-  /* Typography */
-  font-size: 1.15em;
-  font-weight: 600;
-  
-  /* Visual */
-  background-color: var(--warning-bg);
-  border: 3px solid var(--warning);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-hover);
-  transform: translateX(12px);
-}
-
-ul li.highlighted::marker {
-  /* Typography */
-  font-weight: bold;
-  color: var(--warning);
-}
-
-.workshop-controls {
-  /* Positioning */
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-  
-  /* Box Model */
-  padding: 10px 15px;
-  
-  /* Typography */
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--white);
-
-  /* Visual */
-  background: var(--overlay-dark);
-  border-radius: var(--radius-md);
-  opacity: 0;
-  
-  /* Interactivity */
-  transition: opacity var(--transition-normal);
-}
-
-.workshop-controls.visible {
-  opacity: 1;
-}
-
-.workshop-controls.fade-out {
-  opacity: 0;
-}
 
 } /* end media screen */
 

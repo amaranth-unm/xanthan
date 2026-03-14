@@ -1,6 +1,6 @@
 ---
 title: Documentation
-layout: xanthan
+layout: default
 date: 2026-01-01
 summary: Documentation for your Xanthan site, matched to the code in this repository.
 ---

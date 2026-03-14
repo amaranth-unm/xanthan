@@ -52,10 +52,16 @@ CSS VARIABLE OVERRIDES
   --font-body: 'Inter', sans-serif;
   --font-mono: 'Space Mono', 'Consolas', 'Menlo', monospace;
 
-  /* Custom variables for this theme */
-  --heading-h1-color: var(--red);
-  --heading-h2-color: var(--ochre);
-  --heading-h3-color: var(--teal);
+  /* Override semantic heading colors */
+  --text-h1: var(--red);
+  --text-h2: var(--ochre);
+  --text-h3: var(--teal);
+
+  /* Alert text colors — lightened theme colors for legibility on dark backgrounds */
+  --alert-info-text: #9dd4de;
+  --alert-warning-text: #fdd876;
+  --alert-success-text: #7dce98;
+  --alert-danger-text: #f28a8a;
 
   /* Minimal helper variants to keep declarations readable */
   --code-bg-alpha: rgba(26, 35, 50, 0.5);
@@ -118,24 +124,10 @@ h4 {
   font-weight: 700;
 }
 
-h1 {
-  font-size: 2.4rem;
-  color: var(--heading-h1-color);
-}
-
-h2 {
-  font-size: 1.7rem;
-  color: var(--heading-h2-color);
-}
-
-h3 {
-  font-size: 1.3rem;
-  color: var(--heading-h3-color);
-}
-
-h4 {
-  font-size: 1.2rem;
-}
+h1 { font-size: 2.4rem; }
+h2 { font-size: 1.7rem; }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.2rem; }
 
 p {
   font-size: 1.125rem;
@@ -240,7 +232,7 @@ TOC ROWS
 .toc-row h3 {
   text-transform: uppercase;
   letter-spacing: 0.05rem;
-  color: var(--heading-h2-color);
+  color: var(--text-h2);
 }
 
 
@@ -309,7 +301,7 @@ PULLQUOTES & ASIDES
 .pullquote,
 aside {
   color: var(--interactive-hover);
-  background: rgba(252, 191, 0, 0.05);
+  background: color-mix(in srgb, var(--interactive-hover) 5%, transparent);
   border-left: 4px solid var(--interactive-hover);
   border-top: none;
   border-bottom: none;
@@ -324,6 +316,7 @@ aside {
 aside p {
   font-size: 1.2rem;
   line-height: 1.5;
+  color: var(--interactive-hover);
 }
 
 @media (max-width: 991.98px) {
@@ -332,11 +325,6 @@ aside p {
     margin-left: 0;
     margin-right: 0;
   }
-}
-
-.pullquote p,
-aside p {
-  color: var(--interactive-hover);
 }
 
 .pullquote::before,
@@ -360,9 +348,9 @@ ALERTS
 *****************************************************/
 
 .alert-info {
-  background-color: rgba(0, 159, 183, 0.15);
+  background-color: color-mix(in srgb, var(--accent-border) 15%, transparent);
   border-color: var(--accent-border);
-  color: #9dd4de;
+  color: var(--alert-info-text);
 }
 
 .alert-info .alert-link {
@@ -370,21 +358,21 @@ ALERTS
 }
 
 .alert-warning {
-  background-color: rgba(252, 191, 0, 0.15);
+  background-color: color-mix(in srgb, var(--interactive-hover) 15%, transparent);
   border-color: var(--interactive-hover);
-  color: #fdd876;
+  color: var(--alert-warning-text);
 }
 
 .alert-success {
-  background-color: rgba(40, 167, 69, 0.15);
+  background-color: color-mix(in srgb, var(--success) 15%, transparent);
   border-color: var(--success);
-  color: #7dce98;
+  color: var(--alert-success-text);
 }
 
 .alert-danger {
-  background-color: rgba(214, 40, 40, 0.15);
+  background-color: color-mix(in srgb, var(--error) 15%, transparent);
   border-color: var(--accent-primary);
-  color: #f28a8a;
+  color: var(--alert-danger-text);
 }
 
 
@@ -395,7 +383,7 @@ SCROLLSTORY BOXES
 .bg-text-box,
 .sticky-bg-content,
 .story-text {
-  background: rgba(14, 26, 43, 0.92);
+  background: color-mix(in srgb, var(--bg-page) 92%, transparent);
   color: var(--text-body);
   border: 1px solid var(--accent-border-strong);
   box-shadow: var(--shadow-deep);

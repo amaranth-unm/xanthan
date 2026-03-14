@@ -24,37 +24,37 @@ h1, h2, h3, h4, h5 {
 
 /* Heading color hierarchy - variety with restraint */
 h1 {
-  color: var(--golden-clay);       /* Warm accent for top-level emphasis */
+  color: var(--text-h1);
   font-weight: 700;                /* Bolder for more presence */
   margin-top: var(--spacing-lg);
   margin-bottom: var(--spacing-xs);
-  font-size: 2.25rem;              /* 36px */
+  font-size: clamp(1.9rem, 4vw, 2.25rem);
 }
 
 h2 {
-  color: var(--sage);              /* Mid-tone sage - softer contrast */
+  color: var(--text-h2);
   font-weight: 600;
   margin-top: var(--spacing-sm);
   margin-bottom: var(--spacing-xs);
-  font-size: 1.75rem;              /* 28px */
+  font-size: clamp(1.5rem, 3vw, 1.75rem);
 }
 
 h3 {
-  color: var(--sage-deep);         /* Deep sage for subsections */
+  color: var(--text-h3);
   margin-top: var(--spacing-lg);
   margin-bottom: var(--spacing-xs);
-  font-size: 1.5rem;               /* 24px */
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
 }
 
 h4 {
-  color: var(--sage-dark);         /* Darker for minor headings */
+  color: var(--text-h4);
   margin-top: var(--spacing-md);
   margin-bottom: 0.8rem;
-  font-size: 1.25rem;              /* 20px */
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
 }
 
 h5 {
-  color: var(--golden-clay-dark);  /* Darker warm clay for emphasis */
+  color: var(--text-h5);
   margin-top: var(--spacing-xs);
   margin-bottom: 0.25rem;
   font-size: 1rem;
@@ -85,7 +85,7 @@ p {
 
   /* Typography */
   line-height: 1.6em;
-  text-align: justify;
+  text-align: justify; /* intentional — matches academic/print conventions; override in themes if unwanted */
 }
 
 /* Reduce spacing between paragraphs and lists */
@@ -123,20 +123,8 @@ a:visited {
 
 a:hover {
   /* Typography */
+  color: var(--interactive-hover);
   text-decoration: none;
-}
-
-.map-card {
-  /* Box Model */
-  margin-top: var(--spacing-xs);
-  
-  /* Typography */
-  font-family: var(--font-body);
-  font-weight: normal;
-  font-size: 0.9rem;
-  line-height: 1.2rem;
-  text-align: justify;
-  color: var(--text-body);
 }
 
 .container li {
@@ -175,15 +163,15 @@ td {
 th {
   /* Typography */
   font-weight: 600;
-  color: var(--sage-deep);
+  color: var(--text-h3);
 
   /* Visual */
-  border-bottom: 2px solid var(--sage-pale);
+  border-bottom: 2px solid color-mix(in srgb, var(--accent-primary) 25%, var(--bg-page));
 }
 
 td {
   /* Visual */
-  border-bottom: 1px solid var(--warm-light);
+  border-bottom: 1px solid var(--bg-card);
 }
 
 tr:last-child td {
@@ -200,9 +188,9 @@ code {
   font-family: var(--font-mono);
   font-size: 0.9em;
   font-weight: 400;
-  color: var(--sage-dark);
+  color: var(--text-body);
   background-color: color-mix(in srgb, var(--bg-code) 34%, var(--bg-page));
-  border: 1px solid color-mix(in srgb, var(--sage) 20%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-primary) 20%, transparent);
   border-radius: var(--radius-sm);
   padding: 0.06em 0.3em;
 }
@@ -467,23 +455,6 @@ ALERTS
   /* Reduce base font size for mobile */
   html, body {
     font-size: 1rem;
-  }
-
-  /* Scale down headings for mobile */
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.6rem;
-  }
-
-  h3 {
-    font-size: 1.3rem;
-  }
-
-  h4 {
-    font-size: 1.1rem;
   }
 
   /* Pullquotes fill full width on mobile */

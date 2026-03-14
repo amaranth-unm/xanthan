@@ -1,5 +1,5 @@
 ---
-layout: xanthan
+layout: default
 title: Make Your First Edit
 date: 2026-02-14
 ---

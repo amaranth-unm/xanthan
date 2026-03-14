@@ -1,6 +1,6 @@
 ---
 title: Component Library
-layout: xanthan
+layout: default
 date: 2026-02-14
 ---
 

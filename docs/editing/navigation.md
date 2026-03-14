@@ -1,6 +1,6 @@
 ---
 title: Navigation
-layout: xanthan
+layout: default
 date: 2026-02-14
 example_cards:
   - title: "River Systems and Settlement"
@@ -182,7 +182,7 @@ The most direct way to understand cards: write the data in your page's front mat
 ```yaml
 ---
 title: Readings
-layout: xanthan
+layout: default
 cards:
   - title: "River Systems and Settlement"
     summary: "How waterways shaped the geography of early towns along the Rio Grande."
@@ -528,3 +528,13 @@ These systems are modular---use them together. A typical class project might com
 - **Map** to show geographic distribution of topics
 
 The top nav is site-wide (controlled by `top-nav.yml`). Everything else is page-level---add or remove it from individual pages as needed.
+
+---
+
+## Workshop mode
+
+Workshop mode is a presentation feature built for instructors and students who want to walk through a page's content one bullet point at a time. When active, list items are revealed incrementally using keyboard shortcuts---useful for class discussions where revealing everything at once kills the conversation.
+
+Toggle it by pressing **W** or clicking the workshop checkbox in the top navigation bar. Once active, pressing the **right arrow** or **space bar** advances to the next bullet; **left arrow** steps back. The feature works on any page, no configuration required.
+
+Workshop mode is not intended for end users of your site. It's a live-presentation convenience for the person running the session. The toggle does not appear in print or in exported PDFs.

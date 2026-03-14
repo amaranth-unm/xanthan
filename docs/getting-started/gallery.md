@@ -1,5 +1,5 @@
 ---
-layout: xanthan
+layout: default
 title: Sites Built with Xanthan
 date: 2026-03-01
 summary: Real examples of websites built using Xanthan templates — portfolios, class projects, and scroll-driven narratives.

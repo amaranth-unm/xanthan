@@ -1,6 +1,6 @@
 ---
 title: About
-layout: xanthan
+layout: default
 summary: Learn why Xanthan is built on stable, open-source technologies designed for long-term digital scholarship and academic independence.
 ---
 

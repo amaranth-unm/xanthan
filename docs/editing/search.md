@@ -1,6 +1,6 @@
 ---
 title: Search
-layout: xanthan
+layout: default
 date: 2026-03-04
 ---
 
@@ -44,7 +44,7 @@ Pages without a `title` are excluded. You can also exclude a specific page by ad
 ```yaml
 ---
 title: Draft Notes
-layout: xanthan
+layout: default
 searchable: false
 ---
 ```
@@ -56,7 +56,7 @@ The most effective thing you can do for search quality is write good front matte
 ```yaml
 ---
 title: Adding Images to Your Site
-layout: xanthan
+layout: default
 summary: How to place, size, and caption images using Xanthan's figure includes.
 tags: [images, figures, media]
 ---

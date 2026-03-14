@@ -1,6 +1,6 @@
 ---
 title: ScrollStories
-layout: xanthan
+layout: default
 date: 2019-10-05
 ---
 

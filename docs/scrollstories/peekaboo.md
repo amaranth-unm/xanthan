@@ -1,6 +1,6 @@
 ---
 title: Peekaboo Images
-layout: xanthan
+layout: default
 date: 2026-02-27
 ---
 

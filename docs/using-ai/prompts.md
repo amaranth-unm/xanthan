@@ -1,6 +1,6 @@
 ---
 title: Building with AI
-layout: xanthan
+layout: default
 date: 2026-02-16
 ---
 

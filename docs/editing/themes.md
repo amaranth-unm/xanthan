@@ -1,5 +1,5 @@
 ---
-layout: xanthan
+layout: default
 title: Themes
 ---
 
