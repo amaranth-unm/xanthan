@@ -4,3 +4,10 @@ version: 1.0.0
 baseurl:
 analytics_id:
 search: true
+
+exclude:
+  - CLAUDE.md
+  - CHANGELOG.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock

@@ -82,7 +82,7 @@ A personal or professional site for presenting your work, interests, and credent
 {% endcapture %}
 
 {% include images/figure-wrap.html
-  image-path="/assets/images/portfolio-screenshot.png"
+  image-path="/assets/images/gallery/portfolio-screenshot.png"
   image-position="right"
   image-width="45%"
   alt-text="Portfolio template screenshot"
@@ -106,7 +106,7 @@ This template shows how you might organize many individual scrollstories or page
 {% endcapture %}
 
 {% include images/figure-wrap.html
-  image-path="/assets/images/class-project-screenshot.png"
+  image-path="/assets/images/gallery/class-project-screenshot.png"
   image-position="right"
   image-width="45%"
   alt-text="Class Project template screenshot"
@@ -130,7 +130,7 @@ Sometimes a whole website is overkill, and what you really want to make is a sin
 {% endcapture %}
 
 {% include images/figure-wrap.html
-  image-path="/assets/images/forest-scroll.gif"
+  image-path="/assets/images/gallery/forest-scroll.gif"
   image-position="right"
   image-width="45%"
   alt-text="ScrollStory template example"

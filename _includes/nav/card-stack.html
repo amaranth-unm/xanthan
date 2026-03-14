@@ -1,13 +1,15 @@
 {% comment %}
   Card Stack Component - Horizontal cards for stacked layouts
-  
+
   Usage:
     {% include nav/card-stack.html cards=pages show-tags=true %}
-  
+
   Parameters:
     - cards: array of page/card objects to display
     - show-tags: (optional, default true) whether to display tags on cards
     - tag-data: (optional, default false) add data-tags attribute for filtering
+
+  Per-card image control: see nav/card-image.html for thumbnail, thumbnail-position, thumbnail-zoom
 {% endcomment %}
 
 {% assign show_tags = include.show-tags | default: true %}
@@ -28,8 +30,7 @@
       
       <!-- Image -->
       {% if card_image %}
-        {% capture card_image_url %}{% include images/image-path.html image-path=card_image page-dir=card.dir %}{% endcapture %}
-        <img src="{{ card_image_url | strip }}" class="card-img-left" alt="{{ card.title | escape }}">
+        {% include nav/card-image.html card=card class="card-img-left" %}
       {% endif %}
       
       <!-- Content -->
