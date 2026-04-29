@@ -295,7 +295,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 **What is GitHub?** Think of it like Google Drive for websites. GitHub stores your site files and hosts your website for free. No ads, no subscription fees. It hosts millions of open-source projects and websites and facilitates collaboration.
 
-1. Go to [GitHub](http://github.com/register) and create a free account
+1. Go to [GitHub](http://github.com/signup) and create a free account
 2. Choose a username (this will be part of your website address for now)
 3. Verify your email address
 4. You'll land on your GitHub homepage at `http://github.com/YOUR-USERNAME`
