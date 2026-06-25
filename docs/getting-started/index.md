@@ -22,7 +22,9 @@ No coding or web experience necessary. You'll be editing text files and clicking
 
 ## Step 1: Choose your template
 
-Pick the starting point closest to what you're building. Not sure? See the [template overview](templates) for details on each option, or just start with Portfolio—you can always change direction later.
+Pick the starting point closest to what you're building. Selecting a template updates the links in the instructions below. 
+
+Not sure? See the [template overview](templates) for details on each option, or just start with Portfolio—you can always change direction later. 
 
 <style>
 .setup-selector {
@@ -67,12 +69,13 @@ Pick the starting point closest to what you're building. Not sure? See the [temp
 
 .template-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--spacing-xs);
   margin-top: auto;
 }
 
 .template-btn {
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: var(--spacing-xs);
   font-size: 0.85rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--sage-pale);
@@ -83,6 +86,8 @@ Pick the starting point closest to what you're building. Not sure? See the [temp
   text-decoration: none;
   display: inline-block;
   text-align: center;
+  /* Never wrap labels, so every button stays one line tall (consistent height) */
+  white-space: nowrap;
 }
 
 .template-btn:hover {
@@ -140,6 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
       repoName: 'xanthan-web/portfolio-template',
       repoUrl: 'http://github.com/xanthan-web/portfolio-template',
       webUrl: 'https://xanthan-web.github.io/portfolio-template',
+      liveUrl: 'https://xanthan-web.github.io/alexandra-ruiz/',
       default: true
     },
     {
@@ -148,7 +154,8 @@ document.addEventListener('DOMContentLoaded', function() {
       description: 'Gather and display student work for a collaborative project. Comes with some sample pages of student essays and some directory pages for navigation.',
       repoName: 'xanthan-web/class-project-template',
       repoUrl: 'http://github.com/xanthan-web/class-project-template',
-      webUrl: 'https://xanthan-web.github.io/class-project-template'
+      webUrl: 'https://xanthan-web.github.io/class-project-template',
+      liveUrl: 'https://amaranth.unm.edu/campus-history/'
     },
     {
       id: 'scrollstory',
@@ -156,7 +163,8 @@ document.addEventListener('DOMContentLoaded', function() {
       description: 'A simple site for displaying a research story.',
       repoName: 'xanthan-web/scrollstory-template',
       repoUrl: 'http://github.com/xanthan-web/scrollstory-template',
-      webUrl: 'https://xanthan-web.github.io/scrollstory-template'
+      webUrl: 'https://xanthan-web.github.io/scrollstory-template',
+      liveUrl: 'https://amaranth.unm.edu'
     },
     {
       id: 'xanthan',
@@ -164,7 +172,8 @@ document.addEventListener('DOMContentLoaded', function() {
       description: "The whole shebang. You'll get a copy of everything you see on this site.",
       repoName: 'xanthan-web/xanthan',
       repoUrl: 'http://github.com/xanthan-web/xanthan',
-      webUrl: null
+      webUrl: null,
+      liveUrl: null
     }
   ];
 
@@ -203,6 +212,16 @@ document.addEventListener('DOMContentLoaded', function() {
       viewBtn.textContent = 'View Demo';
       viewBtn.href = template.webUrl || template.repoUrl;
       viewBtn.target = '_blank';
+
+      // Live Example button (only for templates with a real-world example site)
+      if (template.liveUrl) {
+        const liveBtn = document.createElement('a');
+        liveBtn.className = 'template-btn';
+        liveBtn.textContent = 'Live Example';
+        liveBtn.href = template.liveUrl;
+        liveBtn.target = '_blank';
+        buttonContainer.appendChild(liveBtn);
+      }
 
       buttonContainer.appendChild(viewBtn);
       buttonContainer.appendChild(useBtn);

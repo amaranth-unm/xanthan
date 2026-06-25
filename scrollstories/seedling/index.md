@@ -85,7 +85,7 @@ Mixing left and right placement keeps readers' eyes moving, which prevents the p
 
 Not every image needs text beside it. The **standalone figure** sits within the text flow with its own caption. Here's one centered in the page:
 
-{% include images/figure.html class="center" width="80%" caption="Close up of a seeding in beautiful soil, centered, at 80% width." image-path="images/daniel-dan--FMxvHTCRmw-unsplash.jpg" %}
+{% include images/figure.html image-width="80%" caption="Close up of a seeding in beautiful soil, centered, at 80% width." image-path="images/daniel-dan--FMxvHTCRmw-unsplash.jpg" %}
 
 
 

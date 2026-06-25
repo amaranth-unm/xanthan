@@ -21,7 +21,7 @@ Keep scrolling! Once the whole image is visible, the regular story will continue
 {%
 include scrollybox/bg.html
 height="100vh"
-image-path="/assets/images/backgrounds/image_3.jpg"
+image-path="/assets/images/backgrounds/lake-1.jpg"
 %}
 {%endraw%}
 ```
@@ -29,7 +29,7 @@ image-path="/assets/images/backgrounds/image_3.jpg"
 {% 
 include scrollybox/bg.html
 height="100vh"
-image-path="/assets/images/backgrounds/image_3.jpg"
+image-path="/assets/images/backgrounds/lake-1.jpg"
 %}
 
 #### Now we're back to the story

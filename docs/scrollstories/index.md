@@ -13,7 +13,7 @@ ScrollStories transform academic writing into immersive visual narratives. By co
 {% endcapture %}
 
 {% include images/figure-wrap.html
-	image-path="/assets/images/forest-scroll.gif"
+	image-path="/assets/images/gallery/forest-scroll.gif"
 	image-position="right"
 	image-width="44%"
 	alt-text="Animated example of a ScrollStory with background transitions and overlaid text panels"
@@ -50,9 +50,9 @@ The full range of what's possible: background switching on scroll, side-scrollin
 
 ---
 
-## Make it feel like a ScrollStory (without being annoying)
+## Technique suggestions
 
-You don't need constant motion to get a cinematic effect. A few restrained techniques usually work better:
+You don't need constant motion or every effect to get an engaging reading experience. Too much is simply distracting. A few restrained techniques usually work better:
 
 - **Use one dominant visual rhythm** per section (for example: one large background image + one text panel), instead of stacking multiple effects at once.
 - **Alternate intensity**: follow a high-motion section with a quieter text-only or static-image section so readers can recover.

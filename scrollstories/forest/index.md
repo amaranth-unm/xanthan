@@ -133,7 +133,7 @@ In Seedling, you saw Markdown's `>` syntax for block quotes. Xanthan also has a 
 The `box-align` parameter accepts `left`, `right`, or `center` (default). This left-aligned version creates a different visual texture from standard centered block quotes.
 
 
-## Standard Scrollybox (From Sapling)
+## Standard Scrollybox
 The next section uses a basic scrollybox like you saw in Sapling. Keep scrolling to see text overlay a full-screen background image.
 
 {% include scrollybox/bg.html
@@ -171,7 +171,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec ante ligu
 ### SWITCH: Moss and Bark
 
 {% include scrollybox/bg-switch.html
-  image-path="images/r-g-3GLKJiuOKrI-unsplash.jpg"
+  image-path="images/1280px-Mossy_tree_bark_(Unsplash).jpg"
   switch-id="forest-switch1"
   bg-id="forest-bg"
 %}
@@ -179,6 +179,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec ante ligu
 The background just switched to moss on a log. Each `bg-switch` tag triggers a new background image when the reader scrolls past it. You can chain as many switches as your narrative needs.
 
 Duis ut dui dolor. Integer eu lectus at tellus accumsan euismod eget a ligula. Morbi venenatis, elit eu varius fermentum, ligula est dictum massa, sit amet ullamcorper augue nisl ut nunc.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec ante ligula. Nulla fringilla ligula sit amet nisl consectetur ultricies. Mauris ac tellus eu ante lobortis rhoncus non eu nisl.
+
 
 
 ### SWITCH: Looking Up
@@ -213,25 +216,32 @@ The **side-scroll** component creates a different reading pattern: images appear
   pre-box-space="10"
 %}
 
+{% include scrollybox/bg-ss-image.html
+  ss-id="forest-walk"
+  image-path="images/960px-Fern_Carpet_(9002108266).jpg"
+  alt-text="Close-up of ferns on the forest floor"
+%}
+
 We begin in the understory. The light here is filtered through layers of leaves above, creating patterns on the forest floor. Every surface harbors life — fungi breaking down fallen wood, mosses covering rocks, insects navigating root systems.
+
+Ferns unfurl from tight spirals called fiddleheads — one of the oldest plant forms on Earth, predating flowering plants by hundreds of millions of years. They thrive in the shade that would starve most other plants.
+
 
 Side-scroll sections alternate between text blocks and full-width images, letting you pace your visual narrative differently from scrollyboxes.
 
 {% include scrollybox/bg-ss-image.html
   ss-id="forest-walk"
-  image-path="images/ferns-closeup.jpg"
-  alt-text="Close-up of ferns on the forest floor"
+  image-path="images/960px-Totholz-am-Teufelssee-bei-Thelkow-19-09-2008-036.jpg"
+  alt-text="Moss growing on a fallen log"
 %}
 
-Ferns unfurl from tight spirals called fiddleheads — one of the oldest plant forms on Earth, predating flowering plants by hundreds of millions of years. They thrive in the shade that would starve most other plants.
-
-This is the second text block in the side-scroll section. Each `bg-ss-image` inserts an image and starts a new text block. You can chain as many image-text pairs as you need.
 
 {% include scrollybox/bg-ss-image.html
   ss-id="forest-walk"
-  image-path="images/moss-log.jpg"
+  image-path="images/960px-Nurse_Log_(8014005473).jpg"
   alt-text="Moss growing on a fallen log"
 %}
+
 
 A fallen tree becomes a nurse log — decomposing over decades, feeding the soil, hosting new seedlings on its surface. Nothing in a forest is wasted. The side-scroll pattern works well for this kind of sequential observation: walk, look closely, reflect, walk again.
 
@@ -239,7 +249,7 @@ A fallen tree becomes a nurse log — decomposing over decades, feeding the soil
 
 
 ## Image Carousel With Full Options
-All Sapling components work in Forest too. Here's a carousel with titles and captions:
+Here's a carousel with titles and captions:
 
 {% assign forest_images =
 "images/autumn-forest.jpg,
@@ -269,12 +279,10 @@ Mist softens the boundaries between trees." | split: '|'
 %}
 
 
-## What You've Learned in Forest
-If you can create a Forest essay, you have mastered:
-
-- **All Seedling components** — Images (figure + figure-wrap), headings, footnotes, pull quotes, block quotes, alert boxes
-- **All Sapling components** — Scrollyboxes (bg.html), carousels, jumbotrons, pacing control
-- **Advanced Forest features:**
+## What You've Learned
+- **Basic images and typography** — Images (figure + figure-wrap), headings, footnotes, pull quotes, block quotes, alert boxes
+- **Fancier scrolling images full-width images** — Scrollyboxes (bg.html), carousels, jumbotrons, pacing control
+- **Additional features:**
   - Juxtapose interactive comparisons with custom starting position
   - Sticky backgrounds (bg-sticky)
   - Background switching with multiple images (bg-multi-long + bg-switch)
@@ -283,17 +291,15 @@ If you can create a Forest essay, you have mastered:
   - Header eyebrow, divider, and subtitle fields
   - Auto-scroll for demos
 
-**Between all the essays, you've seen the full Xanthan toolkit.** Not every essay needs every feature, but you now have complete control over how to tell visual stories on the web.
+**You've seen most of the Xanthan toolkit.** Not every essay needs every feature, but you now have complete control over how to tell visual stories on the web.
 
 ---
 
-**Feeling overwhelmed?** Start with [Seedling](../seedling/) or [Sapling](../sapling/) so there is just less stuff to deal with. You can always copy and paste Xanthan components into your page. There's nothing special about this page--it just uses more components!
-
+**Feeling overwhelmed?** Start with [Seedling](../seedling/) or [Sapling](../sapling/) so there is just less stuff to deal with. You can always copy and paste Xanthan components into your page. There's nothing special about this page compared to the others--it just uses more components!
 
 
 ## Ready to Create Your Own?
-
-**New to Xanthan?** Start with the [Getting Started guide](../../../docs/getting-started/) to create your own site first. Once you have a working site, come back here to build your ScrollStory.
+Start with the [Getting Started guide](../../../docs/getting-started/) to create your own site first. Once you have a working site, come back here to build your ScrollStory.
 
 
 

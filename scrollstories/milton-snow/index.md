@@ -37,8 +37,7 @@ Snow's dedication to honing his skills with a camera eventually led him to work 
 
 {%
 include typography/blockquote.html
-class="center"
-width="80%"
+box-align="center"
 text="His older sister reported that Snow '...was a demon for self-discipline: shaved with a straight razor in the dark to develop control. Honestly ... (my brother) was a perfectionist.'"
 %}
 

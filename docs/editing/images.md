@@ -16,12 +16,11 @@ Xanthan gives you a small set of placement tools, each suited to a different edi
 
 ## Stand-alone images
 
-Use the `figure.html` include to place an image in your content. The image appears as its own element---it gets its own visual moment, and the content that follows starts cleanly below it.
+Use the `figure.html` include to place a single image in your content. It's always centered and sits on its own---it gets its own visual moment, and whatever follows starts cleanly below it. You decide how big it is with `image-width`.
 
 ```
 {% raw %}{% include images/figure.html
-  class="center"
-  width="60%"
+  image-width="60%"
   caption="What a nice view"
   alt-text="Hiking trails winding through a canyon in the Sandia foothills."
   image-path="/assets/images/backgrounds/hike-1.jpg"
@@ -29,50 +28,38 @@ Use the `figure.html` include to place an image in your content. The image appea
 ```
 
 {% include images/figure.html
-  class="center"
-  width="60%"
+  image-width="60%"
   caption="What a nice view"
   alt-text="Hiking trails winding through a canyon in the Sandia foothills."
   image-path="/assets/images/backgrounds/hike-1.jpg"
 %}
 
-### Alignment
+### Choosing a width
 
-The `class` parameter positions the image within the content column. Content that follows always starts below the image at full width.
+`image-width` accepts any CSS width. Two common choices:
 
-**Full-width** (`width="100%"`) --- the image commands the entire content column. The most common choice for photographs, maps, or anything that deserves full attention. Make sure your source image is at least 1200px wide to avoid looking grainy.
+**Full-width** (`image-width="100%"`) --- the image commands the entire content column. The most common choice for photographs, maps, or anything that deserves full attention. Make sure your source image is at least 1200px wide to avoid looking grainy.
 
-{% include images/figure.html class="center" width="100%" caption="A full-width image commands the full content column." image-path="/assets/images/default.jpg" %}
+{% include images/figure.html image-width="100%" caption="A full-width image commands the full content column." image-path="/assets/images/site/default.jpg" %}
 
-**Centered at a set width** --- good when the image doesn't need to fill the full column, or when a smaller image would look lost at full width.
+**A smaller centered width** --- good when the image doesn't need to fill the full column, or when a smaller image would look lost at full width.
 
 {% include images/figure.html
-  class="center"
-  width="60%"
+  image-width="60%"
   caption="Centered at 60% width."
   image-path="/assets/images/backgrounds/hike-1.jpg"
 %}
 
-**Right-aligned** --- sits at the right edge of the content column. Useful as a visual anchor when you want the image offset rather than centered.
-
-{% include images/figure.html
-  class="right"
-  width="80%"
-  caption="Right-aligned at 80% width."
-  image-path="/assets/images/backgrounds/hike-1.jpg"
-%}
-
-When you want an image beside text rather than above or below it, use `figure-wrap.html` instead --- see [Image alongside text](#image-alongside-text) below.
+When you want an image *beside* text rather than above or below it, use `figure-wrap.html`---the recommended tool for pairing an image with text. See [Image alongside text](#image-alongside-text) below; that's also how you offset an image to one side of the page.
 
 ### Parameters
 
 | Parameter | Options | What it does |
 |-----------|---------|--------------|
-| `class` | `left`, `center`, `right` | Where the image sits horizontally |
-| `width` | Any CSS value (`40%`, `300px`) | Width of the image (default: 40%) |
+| `image-path` | File path | Path to the image file |
+| `image-width` | Any CSS value (`40%`, `300px`) | Width of the image (default: 40%) |
 | `caption` | Text | Caption displayed below the image |
 | `alt-text` | Text | Accessibility description (falls back to caption) |
-| `image-path` | File path | Path to the image file |
 
 ---
 
@@ -137,6 +124,8 @@ This is content after the figure-wrap. It starts at full width below both column
 | `image-width` | `40%` (default) | CSS width of the image column |
 
 On small screens, the layout collapses to a single column with the image on top.
+
+Both image includes share `image-width`, so sizing works the same way whether an image stands alone or sits beside text. `image-position` is unique to `figure-wrap`---a standalone `figure.html` image is always centered, so there's no side to choose.
 
 ---
 

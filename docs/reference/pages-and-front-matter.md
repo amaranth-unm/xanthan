@@ -163,8 +163,7 @@ Xanthan extends Markdown with "includes"---reusable components you can drop into
 
 ```
 {% raw %}{% include images/figure.html
-  class="right"
-  width="40%"
+  image-width="40%"
   image-path="/assets/images/photo.jpg"
   caption="A descriptive caption"
 %}{% endraw %}

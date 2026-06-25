@@ -12,16 +12,15 @@ Every component in Xanthan, with its parameters and copy-paste code. Drop any of
 
 ---
 
-## Inline Image
+## Standalone Image
 
 **File:** `images/figure.html`
 
-Places an image in your content with caption and alt-text. Text wraps around `left` and `right` images.
+Places a single centered image in your content, with caption and alt-text. The image sits on its own; whatever follows starts below it. To set an image beside a passage of text, use **Image + Text** (`figure-wrap.html`) below.
 
 ```
 {% raw %}{% include images/figure.html
-  class="right"
-  width="40%"
+  image-width="60%"
   caption="A descriptive caption"
   alt-text="Description for screen readers"
   image-path="/assets/images/photo.jpg"
@@ -31,12 +30,37 @@ Places an image in your content with caption and alt-text. Text wraps around `le
 | Parameter | Required | Default | Options / Notes |
 |-----------|----------|---------|-----------------|
 | `image-path` | yes | --- | Relative or absolute path to image |
-| `class` | no | --- | `left`, `center`, `right` |
-| `width` | no | `40%` | Any CSS width value |
+| `image-width` | no | `40%` | Any CSS width value |
 | `caption` | no | --- | Supports Markdown |
 | `alt-text` | no | uses caption | Accessibility text for screen readers |
 
-**Side-by-side:** Use two `figure.html` includes with `class="left"` and `width="48%"`, then add `<p style="clear:both"></p>` after both.
+---
+
+## Image + Text (figure-wrap)
+
+**File:** `images/figure-wrap.html`
+
+Places an image beside a passage of text as a two-column pair. Nothing floats, so the text stays in its own column and never wraps under the image. This is the recommended way to put an image alongside text. On narrow screens the columns stack, image on top.
+
+```
+{% raw %}{% include images/figure-wrap.html
+  image-path="/assets/images/photo.jpg"
+  image-position="right"
+  image-width="45%"
+  caption="A descriptive caption"
+  alt-text="Description for screen readers"
+  text="The text that sits beside the image. Supports **Markdown**."
+%}{% endraw %}
+```
+
+| Parameter | Required | Default | Options / Notes |
+|-----------|----------|---------|-----------------|
+| `image-path` | yes | --- | Relative or absolute path to image |
+| `text` | yes | --- | Text beside the image; supports Markdown |
+| `image-position` | no | `left` | `left` or `right` — which side the image is on |
+| `image-width` | no | `40%` | CSS width of the image column |
+| `caption` | no | --- | Caption below the image; supports Markdown |
+| `alt-text` | no | uses caption | Accessibility text for screen readers |
 
 ---
 

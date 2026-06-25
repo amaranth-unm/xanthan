@@ -31,7 +31,7 @@ Find a `figure.html` example in the guide, copy it, and paste it into your page.
 - `image-path="assets/images/..."`
 - `caption="..."`
 - `alt-text="..."`
-- optional `width="..."`
+- optional `image-width="..."`
 
 This copy/adapt pattern is how most Xanthan edits should work, especially when you're new.
 
@@ -58,8 +58,7 @@ Your image is now in your repository at `assets/images/your-image.jpg`.
 ```
 {%raw%}{% include images/figure.html
   image-path="assets/images/your-image.jpg"
-  class="center"
-  width="60%"
+  image-width="60%"
   caption="A brief description of what's shown."
   alt-text="Describe the image for screen readers"
 %}{%endraw%}
@@ -81,9 +80,8 @@ Wait 1--2 minutes for GitHub Pages to rebuild, then refresh your site. Your imag
 
 The `figure.html` include has a few options you can adjust:
 
-- **`class`** --- `left`, `right`, or `center` (controls positioning)
-- **`width`** --- any percentage like `40%`, `80%`, `100%`
+- **`image-width`** --- any percentage like `40%`, `80%`, `100%`
 - **`caption`** --- text that appears below the image
 - **`alt-text`** --- description for accessibility (always include this)
 
-For the full range of image options---side-by-side layouts, carousels, full-width jumbotrons, and more---see the [Images guide](../editing/images).
+`figure.html` always centers the image. To place an image *beside* text instead, use `figure-wrap.html`. For the full range of image options---side-by-side layouts, carousels, full-width jumbotrons, and more---see the [Images guide](../editing/images).
