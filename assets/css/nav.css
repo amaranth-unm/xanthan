@@ -10,7 +10,7 @@ TOPNAV
 
 .top-nav {
   /* Box Model */
-  padding: 0.1rem var(--spacing-sm);
+  padding: 0.6rem var(--spacing-sm);
 
   /* Typography */
   font-family: var(--font-body);
@@ -187,7 +187,7 @@ TOPNAV
 .top-nav-link {
   /* Box Model */
   display: inline-block;
-  padding: 0.2rem 0.6rem;
+  padding: 0.35rem 0.6rem;
 
   /* Typography */
   color: var(--text-on-dark);
@@ -210,8 +210,10 @@ ul .top-nav-dropdown {
   /* Visibility — hidden by default, shown via JS .show class */
   display: none;
 
-  /* Positioning */
+  /* Positioning — explicit top avoids relying on flex static-position,
+     which was causing the dropdown to overlap the nav bar */
   position: absolute;
+  top: calc(100% + 0.35rem);
   z-index: 100;
   min-width: 12rem;
 
@@ -219,8 +221,9 @@ ul .top-nav-dropdown {
   padding: 0.25rem 0;
   list-style: none;
 
-  /* Visual */
-  background-color: var(--bg-nav);
+  /* Visual — more opaque than .top-nav since this floats over varied
+     page content rather than the consistent strip behind the sticky bar */
+  background-color: color-mix(in srgb, var(--bg-nav) 97%, transparent);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-md);
@@ -288,6 +291,24 @@ ul .top-nav-dropdown.show {
 .top-nav-link.top-nav-dropdown-toggle[aria-expanded="true"] {
   color: var(--text-on-dark);
   background-color: transparent;
+}
+
+/* Chevron — signals the link opens a menu; flips to point up when expanded */
+.top-nav-dropdown-toggle::after {
+  content: "";
+  display: inline-block;
+  width: 0.35em;
+  height: 0.35em;
+  margin-left: 0.4em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform var(--transition-fast);
+  vertical-align: middle;
+}
+
+.top-nav-dropdown-toggle[aria-expanded="true"]::after {
+  transform: rotate(-135deg) translateY(2px);
 }
 
 /* Position parent li relative for dropdown absolute positioning */

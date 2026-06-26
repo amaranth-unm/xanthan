@@ -12,6 +12,9 @@
     - title:               heading text (optional)
     - text:                body text; markdown supported (optional)
     - caption:             caption below image; markdown supported (optional)
+    - text-shadow:         set to false to disable the text shadow (default: true).
+                           Turn off when the text sits on a solid/opaque area
+                           rather than directly over busy image detail.
 {% endcomment %}
 
 {% capture img_url %}{% include images/image-path.html image-path=include.image-path %}{% endcapture %}
@@ -28,7 +31,7 @@
   {% assign gradient_dir = 'to right' %}
 {% endif %}
 
-<div class="jumbotron jumbotron--{{ box_align }}" style="
+<div class="jumbotron jumbotron--{{ box_align }}{% unless include.text-shadow == false %} jumbotron--text-shadow{% endunless %}" style="
       {% if include.height %}height: {{ include.height }};{% endif %}
       background-size: {{ include.zoom | default: 'cover' }};
       background-position: {{ include.background-position | default: 'center' }};

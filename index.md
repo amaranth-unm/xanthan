@@ -7,7 +7,7 @@ template_cards:
   - title: "Personal Portfolio"
     summary: "A professional site for your research, teaching, and creative work. About page, CV, project pages, top navigation — the structure for owning your academic identity online."
     thumbnail: "/assets/images/gallery/portfolio-screenshot.png"
-    link: "https://xanthan-web.github.io/portfolio-template/"
+    link: "https://xanthan-web.github.io/alexandra-ruiz/"
   - title: "Class Project"
     summary: "A collaborative archive for student work around a shared theme. Card directories, maps, and sample essays — the instructor builds the structure, students fill it in."
     thumbnail: "/assets/images/gallery/class-project-screenshot.png"
@@ -95,7 +95,7 @@ GitHub Pages hosting costs nothing. No ads, no freemium upsells, no surprise bil
 {:/nomarkdown}
 
 {: .link-callout}
-[See more in our FAQs →](faqs#why-not-use-wix-or-squarespace)
+[See more in our FAQs →](faqs#why-not-use-wix-or-squarespace){: .btn-secondary .btn-sm}
 
 {::nomarkdown}
   </div> <!-- close container -->
@@ -109,6 +109,7 @@ GitHub Pages hosting costs nothing. No ads, no freemium upsells, no surprise bil
   image-path="/assets/images/site/scaffolding-hand.png"
   fade-start="50%"
   fade-end="100%"
+  text-shadow=false
   text="
 
 ## Built for AI Collaboration
@@ -130,9 +131,7 @@ Here's what that looks like in practice:
 - *"Build a scrolling section where a background image stays fixed while text panels scroll over it."* The AI assembles the right components with the correct syntax---work that would take hours to learn from scratch.
 
 {: .link-callout}
-[See our AI guide →](docs/using-ai/)
-
----
+[See our AI guide →](docs/using-ai/){: .btn-secondary .btn-sm}
 
 {::nomarkdown}
 <div class="section-warm">
@@ -149,8 +148,6 @@ Good infrastructure, like good binding agents, should be reliable, unobtrusive, 
   </div>
 </div>
 {:/nomarkdown}
-
----
 
 ## The best way to learn is to start
 

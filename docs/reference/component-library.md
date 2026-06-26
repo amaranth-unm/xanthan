@@ -94,6 +94,7 @@ Full-browser-width image that breaks out of the page content margins. Use it as 
 | `background-position` | no | `center` | CSS `background-position`; aim the photo subject away from the text side |
 | `zoom` | no | `cover` | CSS `background-size`; e.g. `150%` to zoom in |
 | `caption` | no | --- | Caption below the image; supports Markdown |
+| `text-shadow` | no | `true` | Set to `false` when text sits on a solid/opaque area rather than busy image detail |
 
 **`box-align` controls both text placement and gradient direction:**
 
