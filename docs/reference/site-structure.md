@@ -55,9 +55,9 @@ The assets folder is one you'll interact with frequently—adding images and occ
 All the documentation for Xanthan, organized into sections: `getting-started/` (setup tutorials), `editing/` (content and customization guides), `reference/` (this page and other lookup resources), `using-ai/` (AI assistance guides), and `scrollstories/` (scrolling narrative documentation). You can safely delete this entire folder when you no longer need the guides—it won't affect your site.
 
 ### `scrollstories/`
-**ScrollStory essay templates**
+**StoryMaps-style example pages**
 
-If you're creating cinematic scrolling narratives, this folder contains three template essays at different complexity levels (Seedling, Sapling, Forest). Each shows progressively more features and can be duplicated as a starting point for your own ScrollStories. If you're not using this feature, you can delete this folder.
+This folder contains working ScrollStory examples: Xanthan pages where text, images, maps, and media can unfold as the reader scrolls. You can open an example to study the pattern, duplicate one as a starting point, or delete the folder if your site does not need StoryMaps-style pages.
 
 ---
 

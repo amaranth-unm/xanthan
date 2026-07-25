@@ -1,12 +1,12 @@
 ---
-title: Getting Started
+title: Side-Scrolling Text
 layout: default
 date: 2024-10-24
 ---
 
 {% include nav/scrollspy-toc.html %}
 
-## Side Scroll
+# Side-Scrolling Text
 Sometimes it's useful to keep an image on the screen while text scrolls up past it.
 
 It can even be useful to switch one image to another at some point in the text. 

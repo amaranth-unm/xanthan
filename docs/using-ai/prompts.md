@@ -46,6 +46,8 @@ AI can create entire new pages for your site, complete with front matter, conten
 
 > *"Set up a new essay page at essays/water-rights.md with a header image, a right-aligned figure after the introduction, and a before/after image slider halfway through. Use placeholder images for now---I'll swap them later."*
 
+> *"Create a StoryMaps-style ScrollStory page at essays/river-crossings.md. Give it four sections with background images, short scrolling text panels, and quieter Markdown paragraphs between the visual sections. Use placeholder image paths and tell me where to replace them."*
+
 > *"Build a resources page with three sections: Books, Articles, and Websites. Each section should have items as a simple list with titles linked to external URLs and one-line descriptions."*
 
 ### Why these work
@@ -76,7 +78,7 @@ Every Xanthan component has a documented include path and parameter list. When y
 
 ## Building ScrollStory sections
 
-ScrollStories---narratives where images and text interact as you scroll---are among the most impressive things you can build with Xanthan. They're also the most technically involved, which makes AI assistance especially valuable.
+ScrollStories are Xanthan's StoryMaps-style pages: narratives where images, maps, media, and text interact as you scroll. They can live inside any Xanthan template. They're also among the most technically involved pages you can build, which makes AI assistance especially valuable.
 
 > *"Add a scrolling section to my essay where a background image of the desert stays fixed while three text blocks scroll over it. Each text block should have a semi-transparent background. Use the bg-sticky scrollybox include."*
 
@@ -88,7 +90,7 @@ ScrollStories---narratives where images and text interact as you scroll---are am
 
 ### Why these work
 
-ScrollStory components have complex syntax---multiple nested includes, specific parameter combinations, careful ordering. This is exactly the kind of work where AI earns its keep. Describe the *experience* you want the reader to have, and the AI assembles the correct include tags and parameters. The [ScrollStories documentation](../scrollstories/) has examples at three complexity levels if you want to see what's possible before asking.
+ScrollStory components have complex syntax---multiple nested includes, specific parameter combinations, careful ordering. This is exactly the kind of work where AI earns its keep. Describe the *experience* you want the reader to have, and the AI assembles the correct include tags and parameters. The [ScrollStories documentation](../scrollstories/) shows the main patterns and examples you can copy before asking for something more custom.
 
 ---
 

@@ -9,6 +9,8 @@
       url: "/docs/getting-started/first-edit"
     - title: "Add an Image"
       url: "/docs/getting-started/add-an-image"
+    - title: "StoryMaps-style Pages"
+      url: "/docs/scrollstories"
     - divider: true
     - title: "Built with Xanthan"
       url: "/docs/getting-started/gallery"
@@ -26,6 +28,8 @@
       url: "/docs/editing/images"
     - title: "Media"
       url: "/docs/editing/media"
+    - title: "ScrollStories"
+      url: "/docs/scrollstories"
     - title: "Colors & Fonts"
       url: "/docs/editing/colors-and-fonts"
     - title: "Themes"
@@ -53,6 +57,8 @@
       url: "/docs/reference/site-structure"
     - title: "Component Library"
       url: "/docs/reference/component-library"
+    - title: "ScrollStory Techniques"
+      url: "/docs/scrollstories/bg-scrollbox"
     - title: "Troubleshooting"
       url: "/docs/reference/troubleshooting"
 
@@ -64,26 +70,6 @@
       url: "/docs/using-ai/first-edit"
     - title: "Building with AI"
       url: "/docs/using-ai/prompts"
-
-- title: "ScrollStories"
-  items:
-    - title: "Overview"
-      url: "/docs/scrollstories"
-    - title: "Backgrounds with scrolly boxes"
-      url: "/docs/scrollstories/bg-scrollbox"
-    - title: "Background switching with scrolly boxes"
-      url: "/docs/scrollstories/bg-switch"
-    - title: "Side scrolling text"
-      url: "/docs/scrollstories/side-scroll"
-    - title: "Peekaboo images"
-      url: "/docs/scrollstories/peekaboo"
-    - divider: true
-    - title: "Seedling Essay"
-      url: "/scrollstories/seedling"
-    - title: "Sapling Essay"
-      url: "/scrollstories/sapling"
-    - title: "Forest Essay"
-      url: "/scrollstories/forest"
 
 - title: "FAQs"
   url: "/faqs"
