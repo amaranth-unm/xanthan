@@ -121,16 +121,13 @@ The pull quote above uses `box-align=\"center\"` and `width=\"70%\"` — wider a
 %}
 
 
-## Blockquote Include
+## Markdown Blockquote
 
-In Seedling, you saw Markdown's `>` syntax for block quotes. Xanthan also has a **blockquote include** that gives you alignment control:
+In Seedling, you saw Markdown's `>` syntax for block quotes. That is the recommended pattern in Xanthan because it keeps source quotations readable in plain text and easy to style with CSS:
 
-{% include typography/blockquote.html
-  box-align="left"
-  text="The forest floor receives only 2% of the sunlight that hits the canopy. What grows there has adapted to work with almost nothing — and yet the understory is where most of the forest's biodiversity lives."
-%}
+> The forest floor receives only 2% of the sunlight that hits the canopy. What grows there has adapted to work with almost nothing — and yet the understory is where most of the forest's biodiversity lives.
 
-The `box-align` parameter accepts `left`, `right`, or `center` (default). This left-aligned version creates a different visual texture from standard centered block quotes.
+To change the visual texture, edit the `blockquote` rule in `assets/css/typography.css`. The Markdown stays simple; the design lives in CSS.
 
 
 ## Standard Scrollybox
@@ -287,7 +284,7 @@ Mist softens the boundaries between trees." | split: '|'
   - Sticky backgrounds (bg-sticky)
   - Background switching with multiple images (bg-multi-long + bg-switch)
   - Side-scroll sections (bg-ss + bg-ss-image + bg-ss-close)
-  - Center-aligned pull quotes and left-aligned blockquotes
+  - Center-aligned pull quotes and Markdown blockquotes styled with CSS
   - Header eyebrow, divider, and subtitle fields
   - Auto-scroll for demos
 
