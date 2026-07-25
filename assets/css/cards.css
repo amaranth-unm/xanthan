@@ -10,8 +10,8 @@ CARDS
   font-family: var(--font-body);
 
   /* Visual */
-  background: var(--bg-card);
-  border: 1px solid var(--border-light);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-md);
   opacity: 0.9;
 
@@ -23,7 +23,7 @@ CARDS
   /* Visual */
   opacity: 1;
   box-shadow: var(--shadow-lg);
-  border-color: var(--interactive-hover);
+  border-color: var(--card-hover-border);
   transform: translateY(-4px);
 }
 
@@ -36,10 +36,14 @@ CARDS
   border-bottom: 0;
 }
 
-.card a h3,
+.card a h3 {
+  /* Typography */
+  color: var(--card-heading-color);
+}
+
 .card a p {
   /* Typography */
-  color: var(--text-body);
+  color: var(--card-text-color);
 }
 
 .card-body {
@@ -65,7 +69,7 @@ CARDS
   /* Typography */
   font-size: 1rem;
   font-weight: normal;
-  color: var(--text-muted);
+  color: var(--card-text-color);
   text-align: left;
 }
 
@@ -199,8 +203,8 @@ CARDS
 .tag-pill {
   display: inline-block;
   padding: 0.3rem 0.65rem;
-  background: var(--accent-primary);
-  color: var(--text-on-dark);
+  background: var(--tag-bg);
+  color: var(--tag-text);
   border-radius: var(--radius-sm);
   font-size: 0.85rem;
   font-weight: 500;
@@ -211,13 +215,13 @@ CARDS
 
 /* Override a:visited from typography.css (loads after cards.css) */
 .tag-pill:visited {
-  color: var(--text-on-dark);
+  color: var(--tag-text);
   border-bottom: none;
 }
 
 .tag-pill:hover {
-  background: var(--interactive-hover);
-  color: var(--text-on-dark);
+  background: var(--tag-hover-bg);
+  color: var(--tag-text);
 }
 
 
@@ -347,8 +351,8 @@ CARDS
 }
 
 .tag-badge:hover {
-  background: var(--accent-primary);
-  color: var(--text-on-dark);
+  background: var(--tag-bg);
+  color: var(--tag-text);
   border-color: var(--accent-primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
@@ -356,18 +360,18 @@ CARDS
 
 .tag-badge.active {
   background: var(--accent-primary-dark);
-  color: var(--text-on-dark);
+  color: var(--tag-text);
   border-color: var(--accent-primary-dark);
 }
 
 .tag-clear {
   background: var(--accent-primary-dark);
-  color: var(--text-on-dark);
+  color: var(--tag-text);
   border-color: var(--accent-primary-dark);
 }
 
 .tag-clear:hover {
-  background: var(--interactive-hover);
+  background: var(--tag-hover-bg);
   border-color: var(--interactive-hover);
 }
 

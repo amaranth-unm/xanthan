@@ -317,6 +317,7 @@ Wide horizontal cards with larger images, stacked vertically.
 | Parameter | Required | Notes |
 |-----------|----------|-------|
 | `cards` | yes | A Liquid-assigned collection of pages |
+| `card-class` | no | Additional CSS class added to each card |
 
 Cards sort by `position` front matter if present. Pages without `position` appear last.
 

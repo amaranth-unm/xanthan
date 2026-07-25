@@ -330,6 +330,7 @@ These fields are read from each page or data item to populate the card:
 | `cards` | (required) | The list of page or data objects to display |
 | `show-tags` | `true` | Whether to show tag pills |
 | `tag-data` | `false` | Add `data-tags` attributes for JavaScript tag filtering |
+| `card-class` | — | Additional CSS class added to each card |
 
 **`card-grid.html`** --- vertical image-top grid:
 
