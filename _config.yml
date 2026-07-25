@@ -4,7 +4,7 @@ version: 1.0.0
 baseurl:
 analytics_id:
 search: true
-theme_css:
+theme_css: canyon-wall
 
 exclude:
   - CLAUDE.md
