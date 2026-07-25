@@ -18,6 +18,7 @@
 {% assign tag_data = include.tag-data | default: false %}
 {% assign sorted_cards = include.cards | sort: "position" %}
 
+{::nomarkdown}
 {% if include.cards and sorted_cards.size > 0 %}
   <div class="card-grid {{ grid_class }}">
     {% for card in sorted_cards %}
@@ -57,3 +58,4 @@
     card-grid include needs a cards collection.
   </div>
 {% endif %}
+{:/nomarkdown}

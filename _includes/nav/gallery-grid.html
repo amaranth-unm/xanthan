@@ -40,6 +40,7 @@
 {% endif %}
 {% assign gallery_class = include.class | default: "" %}
 
+{::nomarkdown}
 {% if include.items and items.size > 0 %}
   <div
     class="gallery-grid gallery-grid--{{ variant }} {{ gallery_class }}"
@@ -80,3 +81,4 @@
     gallery-grid include needs an items collection.
   </div>
 {% endif %}
+{:/nomarkdown}
