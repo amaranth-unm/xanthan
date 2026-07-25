@@ -19,6 +19,7 @@ CSS VARIABLE OVERRIDES
   /* ===== Canyon Wall Color Palette ===== */
   --canyon-red: #9f4a35;          /* Weathered red wall */
   --canyon-red-dark: #733326;     /* Deep stratum red */
+  --canyon-red-light: #aa543d;    /* Sunlit red rock for hover states */
   --ponderosa-green: #2f4938;     /* Dark rim vegetation */
   --rim-green-light: #8fa08a;     /* Pale green lichen and rim light */
   --shadow-gray: #293038;         /* Canyon shadow and ink */
@@ -29,7 +30,7 @@ CSS VARIABLE OVERRIDES
   /* ===== Override Base Theme Variables ===== */
   /* Backgrounds */
   --bg-page: var(--granite-white);
-  --bg-card: color-mix(in srgb, var(--granite-white) 94%, var(--limestone));
+  --bg-card: color-mix(in srgb, var(--granite-white) 96%, var(--limestone));
   --bg-accent: color-mix(in srgb, var(--ponderosa-green) 7%, var(--bg-page));
   --bg-code: color-mix(in srgb, var(--limestone) 70%, var(--bg-page));
   --bg-nav: var(--shadow-gray);
@@ -37,7 +38,7 @@ CSS VARIABLE OVERRIDES
   --bg-footer-bottom: var(--shadow-gray);
 
   /* Homepage sections */
-  --bg-section-alt: color-mix(in srgb, var(--ponderosa-green) 7%, var(--granite-white));
+  --bg-section-alt: color-mix(in srgb, var(--rim-green-light) 28%, var(--granite-white));
   --bg-section-warm: var(--shadow-gray);
   --text-section-warm: var(--granite-white);
   --text-section-warm-heading: var(--granite-white);
@@ -47,6 +48,12 @@ CSS VARIABLE OVERRIDES
   --border-section-accent: var(--canyon-red);
   --hero-tagline-color: color-mix(in srgb, var(--shadow-gray) 76%, var(--bg-page));
 
+  --bg-feature-card: var(--shadow-gray);
+  --text-feature-card: var(--granite-white);
+  --text-feature-card-muted: color-mix(in srgb, var(--granite-white) 76%, transparent);
+  --border-feature-card: color-mix(in srgb, var(--canyon-red) 70%, var(--shadow-gray));
+  --border-feature-card-hover: var(--rim-green-light);
+
   /* Text */
   --text-body: var(--shadow-gray);
   --text-on-dark: var(--granite-white);
@@ -55,13 +62,13 @@ CSS VARIABLE OVERRIDES
   --text-footer-bottom: color-mix(in srgb, var(--granite-white) 72%, transparent);
 
   /* Accents & Interactive */
-  --accent-primary: var(--ponderosa-green);
+  --accent-primary: var(--canyon-red);
   --accent-border: var(--canyon-red);
   --interactive-hover: var(--rim-green-light);
-  --interactive-hover-bg: #5f735f;
+  --interactive-hover-bg: var(--canyon-red-light);
   --interactive-subtle: color-mix(in srgb, var(--ponderosa-green) 14%, transparent);
   --interactive-subtle-hover: color-mix(in srgb, var(--rim-green-light) 22%, transparent);
-  --accent-primary-dark: var(--shadow-gray);
+  --accent-primary-dark: var(--canyon-red-dark);
 
   /* Heading hierarchy */
   --text-h1: var(--shadow-gray);

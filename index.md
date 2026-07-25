@@ -58,7 +58,7 @@ Xanthan is a set of website templates and documentation built for people doing p
 
 ## What Can You Build?
 
-{% include cards/card-stack.html cards=page.template_cards %}
+{% include cards/card-stack.html cards=page.template_cards card-class="homepage-template-card" %}
 
 Ready to start? [Choose a template](docs/getting-started/templates) and you'll have a live site in minutes. Or see [sites built with Xanthan →](docs/getting-started/gallery)
 

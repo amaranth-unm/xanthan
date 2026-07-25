@@ -10,8 +10,8 @@ CARDS
   font-family: var(--font-body);
 
   /* Visual */
-  background: var(--bg-card);
-  border: 1px solid var(--border-light);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-md);
   opacity: 0.9;
 
@@ -23,7 +23,7 @@ CARDS
   /* Visual */
   opacity: 1;
   box-shadow: var(--shadow-lg);
-  border-color: var(--interactive-hover);
+  border-color: var(--card-hover-border);
   transform: translateY(-4px);
 }
 
@@ -36,10 +36,14 @@ CARDS
   border-bottom: 0;
 }
 
-.card a h3,
+.card a h3 {
+  /* Typography */
+  color: var(--card-heading-color);
+}
+
 .card a p {
   /* Typography */
-  color: var(--text-body);
+  color: var(--card-text-color);
 }
 
 .card-body {
@@ -65,7 +69,7 @@ CARDS
   /* Typography */
   font-size: 1rem;
   font-weight: normal;
-  color: var(--text-muted);
+  color: var(--card-text-color);
   text-align: left;
 }
 

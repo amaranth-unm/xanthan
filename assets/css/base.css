@@ -61,6 +61,16 @@ PAGE SETUP & CUSTOMIZATION
   --tag-bg: var(--accent-primary);
   --tag-hover-bg: var(--interactive-hover-bg);
   --tag-text: var(--text-on-dark);
+  --card-bg: var(--bg-card);
+  --card-border: var(--border-light);
+  --card-hover-border: var(--interactive-hover);
+  --card-heading-color: var(--text-body);
+  --card-text-color: var(--text-muted);
+  --bg-feature-card: var(--bg-card);
+  --text-feature-card: var(--text-body);
+  --text-feature-card-muted: var(--text-muted);
+  --border-feature-card: var(--border-light);
+  --border-feature-card-hover: var(--interactive-hover);
 
   /* Text */
   --text-body: var(--sage-dark);
@@ -749,6 +759,19 @@ HERO SECTION (Homepage)
 .hero-cta {
   text-align: center;
   margin: 0 0 2.5rem;
+}
+
+.homepage-template-card {
+  --card-bg: var(--bg-feature-card);
+  --card-border: var(--border-feature-card);
+  --card-hover-border: var(--border-feature-card-hover);
+  --card-heading-color: var(--text-feature-card);
+  --card-text-color: var(--text-feature-card-muted);
+  opacity: 1;
+}
+
+.homepage-template-card:hover {
+  border-color: var(--border-feature-card-hover);
 }
 
 

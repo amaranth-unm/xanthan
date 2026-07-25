@@ -8,12 +8,14 @@
     - cards: array of page/card objects to display
     - show-tags: (optional, default true) whether to display tags on cards
     - tag-data: (optional, default false) add data-tags attribute for filtering
+    - card-class: (optional) additional CSS class added to each card
 
   Per-card image control: see helpers/card-image.html for thumbnail, thumbnail-position, thumbnail-zoom
 {% endcomment %}
 
 {% assign show_tags = include.show-tags | default: true %}
 {% assign tag_data = include.tag-data | default: false %}
+{% assign card_class = include.card-class | default: "" %}
 {% assign sorted_cards = include.cards | sort: "position" %}
 
 {::nomarkdown}
@@ -27,7 +29,7 @@
     {% if tag_data and card.tags %}
       {% assign page_tags = card.tags | join: "|" | downcase %}
     {% endif %}
-    <div class="card h-card{% if tag_data %} tag-card{% endif %}"{% if tag_data and page_tags %} data-tags="{{ page_tags }}"{% endif %}>
+    <div class="card h-card {{ card_class }}{% if tag_data %} tag-card{% endif %}"{% if tag_data and page_tags %} data-tags="{{ page_tags }}"{% endif %}>
       <a href="{{ card_href_resolved | strip }}" class="card-link">
         
         <!-- Image -->
