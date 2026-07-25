@@ -43,6 +43,12 @@ gallery_sites:
     link: "http://histscifi.com"
     tags: ["workshop archive"]
 
+  - title: "Amaranth Year in Review"
+    summary: "A studio annual report showing how Xanthan can support reflective public documentation, project reporting, and evidence-rich institutional storytelling."
+    thumbnail: "/assets/images/gallery/amaranth-year-review.png"
+    link: "https://amaranth.unm.edu/studio/annual-report-25-26/"
+    tags: ["annual report", "studio"]
+
 template_sites:
   - title: "Portfolio Template"
     summary: "A clean starting point for personal or professional academic sites. About page, CV, and sample project pages — fork it, add your content."
@@ -71,9 +77,9 @@ Use this page for browsing. If you are ready to make your own site, start with t
 
 {% include nav/gallery-grid.html
   items=page.gallery_sites
-  variant="mosaic"
-  min-width="220px"
-  gap="var(--spacing-sm)"
+  variant="uniform"
+  min-width="300px"
+  gap="var(--spacing-md)"
   show-summary=true
 %}
 
@@ -86,8 +92,8 @@ These are clean starting points rather than finished examples. Use one when you 
 {% include nav/gallery-grid.html
   items=page.template_sites
   variant="uniform"
-  min-width="240px"
-  gap="var(--spacing-sm)"
+  min-width="280px"
+  gap="var(--spacing-md)"
   show-summary=true
 %}
 

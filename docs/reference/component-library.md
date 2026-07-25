@@ -348,7 +348,7 @@ Cards sort by `position` front matter if present. Pages without `position` appea
 
 **File:** `nav/gallery-grid.html`
 
-Image-first navigation for collections. Use it when readers are choosing among pages by looking first: project galleries, visual archives, place collections, or exhibit-style indexes.
+Image-first navigation for collections. Use it when readers are choosing among pages by looking first: project galleries, visual archives, place collections, or exhibit-style indexes. Titles stay visible over the image; summaries reveal on hover or keyboard focus when `show-summary=true`.
 
 ```
 {% raw %}{% assign gallery_pages = site.pages | where_exp: "page", "page.path contains 'projects/'" %}
