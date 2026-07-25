@@ -130,6 +130,7 @@ Most people start in GitHub and graduate to local editing as their site grows. T
 
 - **[Typography](typography)** --- adjust readable defaults, heading scale, and voice
 - **[Images](images)** --- add and style figures, galleries, and visual layout
+- **[StoryMaps-style Pages](../scrollstories/)** --- build ScrollStories inside any Xanthan site
 - **[Colors & Fonts](colors-and-fonts)** --- customize palette and type system
 - **[Pages & Front Matter](../reference/pages-and-front-matter)** --- understand what controls how pages behave
 - **[Previewing Locally](previewing-locally)** *(advanced/optional)* --- instant local feedback while editing

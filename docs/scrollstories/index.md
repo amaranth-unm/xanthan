@@ -1,15 +1,15 @@
 ---
-title: ScrollStories
+title: StoryMaps-Style Pages with ScrollStories
 layout: default
 date: 2019-10-05
 ---
 
 {% include nav/scrollspy-toc.html %}
 
-# ScrollStories
+# StoryMaps-Style Pages with ScrollStories
 
 {% capture scrollstories_intro %}
-ScrollStories transform academic writing into immersive visual narratives. By combining scholarly depth with dynamic scrolling, they invite readers to experience research as a journey—guided by full-screen images, creative typography, and layered design.
+If you know StoryMaps, this is the Xanthan version of that idea: a visual narrative where text, images, maps, and media unfold as the reader scrolls. The difference is that a ScrollStory is just a page in your site, written in text files and styled with the same Xanthan system as everything else.
 {% endcapture %}
 
 {% include images/figure-wrap.html
@@ -20,50 +20,66 @@ ScrollStories transform academic writing into immersive visual narratives. By co
 	text=scrollstories_intro
 %}
 
-Perfect for public humanities projects, digital history, or visual essays, ScrollStories make complex ideas accessible and engaging. Whether showcasing research findings, historical narratives, or cultural analysis, this format offers a powerful way to share scholarly work that feels both elegant and alive.
+That matters because you are not choosing between a regular website and an immersive narrative platform. In Xanthan, a ScrollStory is one kind of page you can add to a portfolio, a class project, a public humanities site, or a site devoted entirely to one scrolling essay.
+
+The familiar StoryMaps shape is useful: readers understand that they are moving through an argument by moving through space. Xanthan keeps that familiarity, but makes the materials editable, portable, and open to AI assistance.
+
+---
+
+## How this fits into Xanthan
+
+Every Xanthan template can publish ScrollStories. The ScrollStory template simply starts with that form at the center of the site.
+
+- Choose the **Portfolio** template if the story is one part of a broader professional or project site.
+- Choose the **Class Project** template if many people are contributing pages or ScrollStories to a shared collection.
+- Choose the **ScrollStory** template if the scrolling narrative is the main event.
+
+You can always add a ScrollStory later. Ask an AI assistant to create a new ScrollStory page in your existing site, describe the sections you want, and then edit the text, images, and pacing by hand.
 
 ---
 
 ## How ScrollStories work
 
-ScrollStories use components that respond to scrolling, creating a cinematic reading experience. The core techniques are [background images with scrolling text overlays](bg-scrollbox), [backgrounds that switch as you scroll](bg-switch), and [side-scrolling text panels](side-scroll) that move horizontally while an image stays fixed. You can mix these freely with standard page elements—images, pull quotes, footnotes—to build a narrative rhythm that suits your content.
+ScrollStories use components that respond to scrolling, creating a more cinematic reading experience than a standard page. The core techniques are [background images with scrolling text overlays](bg-scrollbox), [backgrounds that switch as you scroll](bg-switch), and [side-scrolling text panels](side-scroll) that move horizontally while an image stays fixed.
 
-Each technique is documented with examples you can copy and modify. But the fastest way to learn is to look at the sample essays below, find effects you like, and adapt them.
+You do not need to use every effect. Most strong ScrollStories combine ordinary Markdown writing with a few visual moments where the reader needs to slow down, compare evidence, or feel a change in scale.
 
 ---
 
-## Sample essays
+## Examples to copy or study
 
-We've created three template essays at increasing levels of complexity. Each uses the same content but demonstrates progressively more features. Open one, read through it, then duplicate the file and start replacing our content with yours.
+Start with an example that is close to the amount of visual complexity you actually need. Open it, read the source file, then duplicate it and replace the sample material with your own.
 
-### [Seedling](scrollstories/seedling)
+### [Seedling]({{ site.baseurl }}/scrollstories/seedling)
 
-The simplest ScrollStory. Section headings, body text, images with captions, pull quotes, and footnotes—a clean, straightforward layout that works well for a first attempt or for narratives that don't need heavy visual effects.
+The simplest ScrollStory. It uses section headings, body text, images with captions, pull quotes, and footnotes. This is the best first model if you want a clean scrolling essay without many moving parts.
 
-### [Sapling](scrollstories/sapling)
+### [Forest]({{ site.baseurl }}/scrollstories/forest)
 
-Everything Seedling does, plus background images with text overlays and more varied layout patterns. This is where a ScrollStory starts to feel cinematic without requiring much extra effort.
-
-### [Forest](scrollstories/forest)
-
-The full range of what's possible: background switching on scroll, side-scrolling text panels, and complex multi-section layouts. If you want to see every feature working together, start here and strip out what you don't need.
+A fuller demonstration of the ScrollStory system: background switching, side-scrolling text panels, and complex multi-section layouts. Use this when you want to see what the framework can do, then remove anything that distracts from your argument.
 
 ---
 
 ## Technique suggestions
 
-You don't need constant motion or every effect to get an engaging reading experience. Too much is simply distracting. A few restrained techniques usually work better:
+Motion should help the argument, not compete with it. A few restrained techniques usually work better than constant visual change.
 
-- **Use one dominant visual rhythm** per section (for example: one large background image + one text panel), instead of stacking multiple effects at once.
-- **Alternate intensity**: follow a high-motion section with a quieter text-only or static-image section so readers can recover.
-- **Keep transitions meaningful**: change backgrounds at argumentative pivots, not just for decoration.
-- **Use white space deliberately**: a little vertical breathing room before major headers often feels more "scrollstory" than extra animation.
-- **Limit novelty effects**: pick one or two signature interactions for the whole piece so the style feels intentional and coherent.
+- **Use one dominant visual rhythm** per section, such as one large background image with one text panel.
+- **Alternate intensity** by following a high-motion section with quieter text or a static image.
+- **Keep transitions meaningful** by changing backgrounds at argumentative pivots, not just for decoration.
+- **Use white space deliberately** before major headings or changes in evidence.
+- **Limit novelty effects** so the style feels intentional rather than restless.
 
 ---
 
 ## Getting started
 
-Every Xanthan template includes a folder with all three sample essays, so you already have working examples to build from. If you don't have a site yet, [follow the getting started guide](../getting-started/). Otherwise, duplicate a sample essay file, start editing, and consult the [editing guides](../editing/) as questions come up.
+If you already have a Xanthan site, start where you are. Create a new Markdown page, give it the `scrollstory` layout if the page needs the full scrolling treatment, and copy one pattern from the examples or technique pages.
 
-If something isn't working, see [Troubleshooting](../reference/troubleshooting).
+A plain-language AI prompt is often enough:
+
+> *"Create a StoryMaps-style ScrollStory page in this site about [topic]. Use four sections, each with a background image, a short text panel, and a quieter Markdown section between the visual moments. Use placeholder image paths for now and explain where I should replace them."*
+
+If you do not have a site yet, [choose a template](../getting-started/templates). Pick the ScrollStory template when the whole site is organized around one immersive narrative. Pick another template when the ScrollStory is one piece of a larger site.
+
+If something is not working, see [Troubleshooting](../reference/troubleshooting).

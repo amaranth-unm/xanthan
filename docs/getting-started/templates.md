@@ -65,7 +65,9 @@ This template shows how you might organize many individual scrollstories or page
 ## ScrollStory
 
 {% capture scrollstory_text %}
-Sometimes a whole website is overkill, and what you really want to make is a single immersive narrative. The scrollstory template gives you a main scrollstory page (of course you can always add more), where background images shift as you scroll, text panels slide in from the side, and the reading experience becomes part of the argument. If you've used ESRI StoryMaps this will seem very familiar, but it's driven with simple text files that are super quick to edit.
+If you've used StoryMaps, the shape will feel familiar: text, images, maps, and media unfolding as the reader scrolls. The ScrollStory template puts that form at the center of the site, with a main scrolling narrative ready to edit and extend.
+
+Every Xanthan template can publish ScrollStories. Choose this one when the immersive narrative is the main event rather than one page inside a broader portfolio or class project. The work still happens in plain text files, so you can revise by hand or ask AI to help build sections without giving up editorial control.
 
 <div class="template-buttons">
   <div class="template-btn-row">
@@ -89,4 +91,4 @@ Sometimes a whole website is overkill, and what you really want to make is a sin
 
 ## Not sure?
 
-**Don't worry!** The difference between the templates is usually a few files. All the component functionality comes with each template. You can easily add or delete files from whatever template you start with. That flexibility is the whole point of Xanthan!
+The difference between the templates is usually a few files and some starting examples. All the core component functionality comes with each template, including ScrollStories. Pick the closest starting shape, then add or remove pages as your project clarifies.
