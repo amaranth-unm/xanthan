@@ -285,14 +285,14 @@ No parameters. Place near the top of your page content (after front matter). On 
 
 ## Card: Table of Contents
 
-**File:** `nav/card-toc.html`
+**File:** `cards/card-toc.html`
 
 Renders a list of compact, text-focused cards from a set of pages.
 
 ```
 {% raw %}{% assign card_pages = site.pages | where_exp: "page", "page.path contains 'essays/'" %}
 
-{% include nav/card-toc.html rows = card_pages %}{% endraw %}
+{% include cards/card-toc.html rows = card_pages %}{% endraw %}
 ```
 
 | Parameter | Required | Notes |
@@ -305,14 +305,14 @@ Pages should have `title`, `author`, and `summary` in their front matter for bes
 
 ## Card: Compact List
 
-**File:** `nav/card-toc-compact.html`
+**File:** `cards/card-toc-compact.html`
 
 Smaller, text-only cards stacked vertically---more compact than `card-toc.html` and better suited for long lists or documentation indexes. Shows title, summary, and an optional `topics` list as sub-bullets.
 
 ```
 {% raw %}{% assign card_pages = site.pages | where_exp: "page", "page.path contains 'docs/'" %}
 
-{% include nav/card-toc-compact.html rows = card_pages %}{% endraw %}
+{% include cards/card-toc-compact.html rows = card_pages %}{% endraw %}
 ```
 
 | Parameter | Required | Notes |
@@ -325,14 +325,14 @@ Pages should have `title` and `summary` in their front matter. Add `position: 1`
 
 ## Card: Stacked
 
-**File:** `nav/card-stack.html`
+**File:** `cards/card-stack.html`
 
 Wide horizontal cards with larger images, stacked vertically.
 
 ```
 {% raw %}{% assign stacked_cards = site.pages | where_exp: "page", "page.path contains 'essays/'" %}
 
-{% include nav/card-stack.html cards = stacked_cards %}{% endraw %}
+{% include cards/card-stack.html cards = stacked_cards %}{% endraw %}
 ```
 
 | Parameter | Required | Notes |
@@ -345,14 +345,14 @@ Cards sort by `position` front matter if present. Pages without `position` appea
 
 ## Card: Grid
 
-**File:** `nav/card-grid.html`
+**File:** `cards/card-grid.html`
 
 Traditional card grid layout with balanced text and images.
 
 ```
 {% raw %}{% assign stories = site.pages | where_exp: "page", "page.path contains 'essays/'" %}
 
-{% include nav/card-grid.html cards = stories %}{% endraw %}
+{% include cards/card-grid.html cards = stories %}{% endraw %}
 ```
 
 | Parameter | Required | Notes |
@@ -360,6 +360,38 @@ Traditional card grid layout with balanced text and images.
 | `cards` | yes | A Liquid-assigned collection of pages |
 
 Cards sort by `position` front matter if present. Pages without `position` appear last.
+
+---
+
+
+## Gallery Grid
+
+**File:** `nav/gallery-grid.html`
+
+Image-first navigation for collections. Use it when readers are choosing among pages by looking first: project galleries, visual archives, place collections, or exhibit-style indexes.
+
+```
+{% raw %}{% assign gallery_pages = site.pages | where_exp: "page", "page.path contains 'projects/'" %}
+
+{% include nav/gallery-grid.html
+  items = gallery_pages
+  variant = "mosaic"
+  show-summary = false
+%}{% endraw %}
+```
+
+| Parameter | Required | Default | Notes |
+|-----------|----------|---------|-------|
+| `items` | yes | --- | A Liquid-assigned collection of pages or data objects |
+| `variant` | no | `mosaic` | `mosaic` gives varied tile sizes; `uniform` keeps all tiles equal |
+| `min-width` | no | `180px` | Minimum tile width before the grid wraps |
+| `gap` | no | `var(--spacing-xs)` | Space between tiles |
+| `image-field` | no | `thumbnail` | Front matter field to use for images |
+| `show-title` | no | `true` | Show titles over images |
+| `show-summary` | no | `false` | Show summaries over images |
+| `class` | no | --- | Additional CSS class on the gallery wrapper |
+
+Items should have `title`, `thumbnail`, and either `url` or `link`. If an item does not have an image, Xanthan renders a visible warning so the missing field is easy to find.
 
 ---
 

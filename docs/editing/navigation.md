@@ -203,11 +203,11 @@ In the page body, assign that list to a variable and pass it to a card include:
 
 ```
 {% raw %}{% assign my_cards = page.cards %}
-{% include nav/card-toc.html rows = my_cards %}{% endraw %}
+{% include cards/card-toc.html rows = my_cards %}{% endraw %}
 ```
 
 {% assign example_cards = page.example_cards %}
-{% include nav/card-toc.html rows = example_cards %}
+{% include cards/card-toc.html rows = example_cards %}
 
 This approach is well-suited for curated reading lists, external links, or any collection where you don't need a full page for each item. You control exactly what appears and in what order.
 
@@ -220,12 +220,12 @@ If your items are actual pages on your site, you can gather them automatically f
 ```
 {% raw %}{% assign card_pages = site.pages | where_exp: "page", "page.path contains 'essays/'" %}
 
-{% include nav/card-toc.html rows = card_pages %}{% endraw %}
+{% include cards/card-toc.html rows = card_pages %}{% endraw %}
 ```
 
 {% assign card_pages = site.pages | where: "layout", "scrollstory" %}
 
-{% include nav/card-toc.html rows = card_pages %}
+{% include cards/card-toc.html rows = card_pages %}
 
 Change `essays/` to whatever folder your pages live in. `where_exp` collects every page whose path contains that string. As you add or edit pages in the folder, the cards update automatically---no maintenance required.
 
@@ -250,17 +250,17 @@ You don't configure the cards---you configure the pages.
 
 ### Card styles
 
-The same data can render as three different layouts. Swap the include file to change the style.
+The same data can render in several different collection layouts. Swap the include file to change the style.
 
 #### TOC cards
 
 Compact text rows with a right-arrow. No images required. Best for long lists, reading indexes, or any collection where images aren't necessary.
 
 {% assign toc_demo = site.pages | where: "layout", "scrollstory" %}
-{% include nav/card-toc.html rows = toc_demo %}
+{% include cards/card-toc.html rows = toc_demo %}
 
 ```
-{% raw %}{% include nav/card-toc.html rows = card_pages %}{% endraw %}
+{% raw %}{% include cards/card-toc.html rows = card_pages %}{% endraw %}
 ```
 
 #### Stack cards
@@ -268,10 +268,10 @@ Compact text rows with a right-arrow. No images required. Best for long lists, r
 Wide horizontal cards with the image on the left. Good when images help readers recognize items before clicking.
 
 {% assign stacked_cards = site.pages | where: "layout", "scrollstory" %}
-{% include nav/card-stack.html cards = stacked_cards %}
+{% include cards/card-stack.html cards = stacked_cards %}
 
 ```
-{% raw %}{% include nav/card-stack.html cards = card_pages %}{% endraw %}
+{% raw %}{% include cards/card-stack.html cards = card_pages %}{% endraw %}
 ```
 
 #### Grid cards
@@ -279,10 +279,22 @@ Wide horizontal cards with the image on the left. Good when images help readers 
 Vertical cards in a grid, image on top. Works well for galleries or when the image is the primary identifier.
 
 {% assign grid_cards = site.pages | where: "layout", "scrollstory" %}
-{% include nav/card-grid.html cards = grid_cards %}
+{% include cards/card-grid.html cards = grid_cards %}
 
 ```
-{% raw %}{% include nav/card-grid.html cards = card_pages %}{% endraw %}
+{% raw %}{% include cards/card-grid.html cards = card_pages %}{% endraw %}
+```
+
+
+#### Gallery grid
+
+Use the gallery grid when the image is the main way readers choose where to go. It is still navigation: each tile links to a page or external item. The default `mosaic` variant gives the page a less mechanical rhythm; use `variant="uniform"` when you want every tile to have the same visual weight.
+
+{% assign gallery_cards = site.pages | where: "layout", "scrollstory" %}
+{% include nav/gallery-grid.html items = gallery_cards %}
+
+```
+{% raw %}{% include nav/gallery-grid.html items = card_pages %}{% endraw %}
 ```
 
 ---
@@ -295,9 +307,10 @@ These fields are read from each page or data item to populate the card:
 |-------|---------|--------------|
 | `title` | All | Required. The card heading. |
 | `summary` | All | Short description. Stack and Grid also try `description`, then auto-excerpt. |
-| `thumbnail` | Stack, Grid | Path to the card image. |
+| `thumbnail` | Stack, Grid, Gallery Grid | Path to the card or gallery image. |
 | `position` | All | Sort order. Lower numbers appear first. |
 | `tags` | Stack, Grid | Tag pills at the bottom of the card. |
+| `alt-text` | Gallery Grid | Optional image alt text. If absent, the title is used. |
 | `link` | All | Override URL. Useful for external links. If absent, uses `url`. |
 
 ---
@@ -326,6 +339,20 @@ These fields are read from each page or data item to populate the card:
 | `show-tags` | `true` | Whether to show tag pills |
 | `tag-data` | `false` | Add `data-tags` attributes for JavaScript tag filtering |
 | `grid-class` | — | Additional CSS class on the grid wrapper |
+
+
+**`nav/gallery-grid.html`** --- image-first linked mosaic:
+
+| Parameter | Default | What it does |
+|-----------|---------|--------------|
+| `items` | (required) | The list of page or data objects to display |
+| `variant` | `mosaic` | Use `mosaic` for varied tile sizes or `uniform` for equal tiles |
+| `min-width` | `180px` | Minimum tile width before the grid wraps |
+| `gap` | `var(--spacing-xs)` | Space between image tiles |
+| `image-field` | `thumbnail` | Front matter field to use for the image |
+| `show-title` | `true` | Whether to show titles over images |
+| `show-summary` | `false` | Whether to show summaries over images |
+| `class` | — | Additional CSS class on the gallery wrapper |
 
 ---
 

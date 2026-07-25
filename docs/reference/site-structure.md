@@ -27,7 +27,7 @@ This folder contains YAML files that control site-wide settings. The most import
 ### `_includes/`
 **Reusable page components**
 
-This folder holds small, reusable pieces of code that can appear on multiple pages. For example, the navigation bar, footer, image galleries, and pull quotes are all stored here as separate files. When you want to add an image gallery to a page, you reference the file from this folder. **Why bother?** If you want to change how your footer looks across your entire site, you only need to edit one file here. You won't need to edit these files often unless you want to customize how a specific component behaves.
+This folder holds small, reusable pieces of code that can appear on multiple pages. The subfolders name what each include is for: `cards/` contains public card components, `nav/` contains navigation systems like maps and sidebars, `images/` contains image display components, and `helpers/` contains internal plumbing used by other includes. When you add a component to a page, the folder path should tell you what kind of thing you are using. **Why bother?** If you want to change how a component works across your entire site, you only need to edit one include file. Most learners will use includes before they edit them.
 
 ### `_layouts/`
 **Page templates**
