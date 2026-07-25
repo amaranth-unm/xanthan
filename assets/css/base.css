@@ -54,6 +54,13 @@ PAGE SETUP & CUSTOMIZATION
   --border-section-warm: var(--accent-border);
   --border-section-accent: var(--accent-primary);
   --hero-tagline-color: var(--text-muted);
+  --button-bg: var(--accent-primary);
+  --button-hover-bg: var(--interactive-hover-bg);
+  --button-text: var(--text-on-dark);
+  --button-hover-text: var(--text-on-dark);
+  --tag-bg: var(--accent-primary);
+  --tag-hover-bg: var(--interactive-hover-bg);
+  --tag-text: var(--text-on-dark);
 
   /* Text */
   --text-body: var(--sage-dark);
@@ -64,6 +71,7 @@ PAGE SETUP & CUSTOMIZATION
   --accent-primary: var(--sage);
   --accent-border: var(--golden-clay);
   --interactive-hover: var(--amber);
+  --interactive-hover-bg: var(--interactive-hover);
   --interactive-subtle: color-mix(in srgb, var(--accent-primary) 18%, transparent);
   --interactive-subtle-hover: color-mix(in srgb, var(--interactive-hover) 18%, transparent);
 
@@ -650,11 +658,11 @@ BUTTONS
 
   /* Typography */
   font-family: var(--font-body);
-  color: var(--white);
+  color: var(--button-text);
   text-decoration: none;
 
   /* Visual */
-  background: var(--accent-primary);
+  background: var(--button-bg);
   border: none;
   border-radius: var(--radius-md);
 
@@ -668,7 +676,7 @@ BUTTONS
 */
 .btn-primary:visited,
 .btn-secondary:visited {
-  color: var(--white);
+  color: var(--button-text);
   text-decoration: none;
   border: none;
 }
@@ -677,8 +685,8 @@ BUTTONS
 .btn-primary:visited:hover,
 .btn-secondary:hover,
 .btn-secondary:visited:hover {
-  color: var(--white);
-  background: var(--interactive-hover);
+  color: var(--button-hover-text);
+  background: var(--button-hover-bg);
 }
 
 /* Primary — larger, full emphasis */
