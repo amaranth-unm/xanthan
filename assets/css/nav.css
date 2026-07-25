@@ -218,7 +218,7 @@ ul .top-nav-dropdown {
   min-width: 12rem;
 
   /* Box Model */
-  padding: 0.25rem 0;
+  padding: 0.4rem 0;
   list-style: none;
 
   /* Visual — more opaque than .top-nav since this floats over varied
@@ -251,11 +251,11 @@ ul .top-nav-dropdown.show {
   display: block;
 
   /* Box Model */
-  padding: 0.25rem 0.75rem;
+  padding: 0.42rem 0.9rem;
 
   /* Typography */
   font-size: 0.85rem;
-  line-height: 1.3;
+  line-height: 1.35;
   color: var(--text-on-dark);
   text-decoration: none;
 
@@ -280,12 +280,12 @@ ul .top-nav-dropdown.show {
 
 .top-nav-dropdown-divider {
   /* Box Model */
-  margin: 0.1rem 0;
+  margin: 0.35rem 0.75rem;
 
   /* Visual */
   border: none;
-  border-top: 1px solid var(--text-on-dark);
-  opacity: 0.3;
+  border-top: 1px solid var(--border-on-dark);
+  opacity: 0.55;
 }
 
 .top-nav-link.top-nav-dropdown-toggle[aria-expanded="true"] {
