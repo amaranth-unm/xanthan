@@ -53,7 +53,7 @@ Etc...
 
 
 ## Pull Quotes
-Pull quotes highlight a key passage from your text — a memorable phrase, a central argument, a line worth making the reader pause on. Place them between paragraphs for visual emphasis.
+Pull quotes highlight a key passage from your text: a memorable phrase, a central argument, a line worth making the reader pause on. They are editorial callouts, not source quotations. Place them between paragraphs for visual emphasis.
 
 ```
 {%raw%}{% include typography/pullquote.html
@@ -68,8 +68,8 @@ Pull quotes highlight a key passage from your text — a memorable phrase, a cen
 The pull quote appears centered at 70% width between your paragraphs. Content before and after it flows normally at full width.
 
 
-## Block quotes
-Extended quotations from another source. The simplest approach is Markdown's `>` syntax — just start the line with a greater-than sign:
+## Block Quotes
+Use blockquotes for quoted material from another source. Xanthan does not need an include for this. Markdown already gives you the right HTML element: start the line with a greater-than sign.
 
 ```
 > Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis diam. Pellentesque ut neque.
@@ -81,14 +81,15 @@ Here is some regular text in the flow of the page.
 
 And back to the regular text.
 
-If you want to align the blockquote left or right, use the include instead of the `>` syntax:
+To change how blockquotes look across the site, edit the `blockquote` rule in `assets/css/typography.css`. That CSS applies to every Markdown blockquote:
 
-```
-{%raw%}{%
-include typography/blockquote.html
-box-align="right"
-text="Here is a significant quotation worth setting apart from the body text."
-%}{%endraw%}
+```css
+blockquote {
+  max-width: 80%;
+  margin: var(--spacing-sm) auto;
+  padding: var(--spacing-xs);
+  border-left: 4px solid var(--text-muted);
+}
 ```
 
 ---

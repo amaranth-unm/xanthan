@@ -224,30 +224,9 @@ A centered callout that highlights a key passage from your text. Good for drawin
 | Parameter | Required | Default | Notes |
 |-----------|----------|---------|-------|
 | `text` | yes | --- | Quote content; supports Markdown |
-| `box-align` | no | `right` | `left`, `right`, or `center` — where the box sits; body text wraps around left/right |
-| `width` | no | `40%` | CSS width |
+| `width` | no | `70%` | CSS width override |
 
----
-
-## Blockquote
-
-**File:** `typography/blockquote.html`
-
-Extended quotations set apart from the body text. For simple centered blockquotes, you can use Markdown's `>` syntax directly. Use this include when you want to control alignment.
-
-```
-{% raw %}{% include typography/blockquote.html
-  box-align="left"
-  text="Here is a significant quotation worth setting apart from the body text."
-%}{% endraw %}
-```
-
-| Parameter | Required | Default | Notes |
-|-----------|----------|---------|-------|
-| `text` | yes | --- | Quote content; supports Markdown |
-| `box-align` | no | `center` | `left`, `right`, or `center` |
-
-**Plain Markdown alternative:** `> Your quote here` produces a centered blockquote without an include.
+For quoted source material, use Markdown blockquotes with `>` and style the resulting `blockquote` element in `assets/css/typography.css`.
 
 ---
 
