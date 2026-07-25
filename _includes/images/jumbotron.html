@@ -17,7 +17,7 @@
                            rather than directly over busy image detail.
 {% endcomment %}
 
-{% capture img_url %}{% include images/image-path.html image-path=include.image-path %}{% endcapture %}
+{% capture img_url %}{% include helpers/image-path.html image-path=include.image-path %}{% endcapture %}
 {% assign img_url = img_url | strip %}
 
 {% assign box_align = include.box-align | default: 'left' %}

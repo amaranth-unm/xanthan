@@ -1,3 +1,13 @@
+{% comment %}
+  Link Path — internal helper for resolving link URLs
+
+  Parameters:
+    - link: internal path, external URL, anchor, mailto, or tel link (required)
+
+  Public navigation and card includes use this helper so links behave consistently
+  across local development, GitHub Pages, and sites with a baseurl.
+{% endcomment %}
+
 {% assign raw_link = include.link | strip %}
 {% if raw_link != '' %}
   {% assign first_char = raw_link | slice: 0, 1 %}

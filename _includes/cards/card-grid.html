@@ -2,7 +2,7 @@
   Card Grid Component
 
   Usage:
-    {% include nav/card-grid.html cards=pages show-tags=true %}
+    {% include cards/card-grid.html cards=pages show-tags=true %}
 
   Parameters:
     - cards: array of page/card objects to display
@@ -10,7 +10,7 @@
     - grid-class: (optional) additional CSS classes for the grid
     - tag-data: (optional, default false) add data-tags attribute for filtering
 
-  Per-card image control: see nav/card-image.html for thumbnail, thumbnail-position, thumbnail-zoom
+  Per-card image control: see helpers/card-image.html for thumbnail, thumbnail-position, thumbnail-zoom
 {% endcomment %}
 
 {% assign show_tags = include.show-tags | default: true %}
@@ -24,7 +24,7 @@
     {% if card.title %}
       {% assign card_image = card.thumbnail %}
       {% assign card_href = card.link | default: card.url %}
-      {% capture card_href_resolved %}{% include links/link-path.html link=card_href %}{% endcapture %}
+      {% capture card_href_resolved %}{% include helpers/link-path.html link=card_href %}{% endcapture %}
       {% assign card_summary = card.summary | default: card.description | default: card.excerpt | strip_html | truncate: 160 %}
       {% if tag_data and card.tags %}
         {% assign page_tags = card.tags | join: "|" | downcase %}
@@ -32,7 +32,7 @@
       <article class="card v-card{% if tag_data %} tag-card{% endif %}"{% if tag_data and page_tags %} data-tags="{{ page_tags }}"{% endif %}>
         <a class="card-link" href="{{ card_href_resolved | strip }}">
           {% if card_image %}
-            {% include nav/card-image.html card=card class="card-img-top" %}
+            {% include helpers/card-image.html card=card class="card-img-top" %}
           {% endif %}
           <div class="card-body">
             <div>

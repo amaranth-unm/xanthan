@@ -67,7 +67,7 @@ template_sites:
 
 Examples of websites built on Xanthan templates — class projects, scrollstories, portfolios, and research collections.
 
-{% include nav/card-stack.html cards=page.gallery_sites show-tags=true %}
+{% include cards/card-stack.html cards=page.gallery_sites show-tags=true %}
 
 ---
 
@@ -75,7 +75,7 @@ Examples of websites built on Xanthan templates — class projects, scrollstorie
 
 Clean starting points for each template type. Fork one on GitHub to make it your own.
 
-{% include nav/card-stack.html cards=page.template_sites show-tags=true %}
+{% include cards/card-stack.html cards=page.template_sites show-tags=true %}
 
 ---
 

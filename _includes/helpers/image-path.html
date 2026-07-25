@@ -1,3 +1,14 @@
+{% comment %}
+  Image Path — internal helper for resolving image URLs
+
+  Parameters:
+    - image-path: image path or external URL (required)
+    - page-dir: directory to resolve relative image paths against (optional, defaults to page.dir)
+
+  Public image includes use this helper so learners can write either site-root
+  paths like /assets/images/example.jpg or relative paths like images/example.jpg.
+{% endcomment %}
+
 {% if include.image-path %}
   {% assign first_char = include.image-path | strip | slice: 0, 1 %}
   {% if first_char == '/' %}

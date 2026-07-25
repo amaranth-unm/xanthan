@@ -12,10 +12,10 @@
 {% endcomment %}
 
 {% capture img1_url %}
-{% include images/image-path.html image-path=include.image1 %}
+{% include helpers/image-path.html image-path=include.image1 %}
 {% endcapture %}
 {% capture img2_url %}
-{% include images/image-path.html image-path=include.image2 %}
+{% include helpers/image-path.html image-path=include.image2 %}
 {% endcapture %}
 {% assign img1_url = img1_url | strip %}
 {% assign img2_url = img2_url | strip %}

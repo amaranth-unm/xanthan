@@ -9,7 +9,7 @@
 {% endcomment %}
 
 {% capture img_url %}
-{% include images/image-path.html image-path=include.image-path %}
+{% include helpers/image-path.html image-path=include.image-path %}
 {% endcapture %}
 
 {% assign img_url = img_url | strip %}

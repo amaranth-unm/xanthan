@@ -1,0 +1,82 @@
+{% comment %}
+  Gallery Grid — image-first navigation for collections
+
+  Usage:
+    {% include nav/gallery-grid.html items=site.pages %}
+
+  Parameters:
+    - items: collection of page/card objects to display (required)
+    - variant: layout style, "mosaic" or "uniform" (optional, default "mosaic")
+    - min-width: minimum tile width for responsive grid columns (optional, default "180px")
+    - gap: spacing between tiles (optional, default "var(--spacing-xs)")
+    - image-field: front matter field used for images (optional, default "thumbnail")
+    - show-title: whether to show item titles over images (optional, default true)
+    - show-summary: whether to show summaries over images (optional, default false)
+    - class: additional CSS classes for the gallery wrapper (optional)
+
+  Recommended item fields:
+    - title: card title
+    - thumbnail: path to image, unless image-field names a different field
+    - summary: short description, used when show-summary=true
+    - link: optional URL; falls back to page url
+    - position: sort order
+
+  Gallery Grid is a navigation component. Use images/figure.html for displaying
+  a single image as content.
+{% endcomment %}
+
+{% assign items = include.items | sort: "position" %}
+{% assign variant = include.variant | default: "mosaic" %}
+{% assign min_width = include.min-width | default: "180px" %}
+{% assign gap = include.gap | default: "var(--spacing-xs)" %}
+{% assign image_field = include.image-field | default: "thumbnail" %}
+{% assign show_title = true %}
+{% if include.show-title == false or include.show-title == "false" %}
+  {% assign show_title = false %}
+{% endif %}
+{% assign show_summary = false %}
+{% if include.show-summary == true or include.show-summary == "true" %}
+  {% assign show_summary = true %}
+{% endif %}
+{% assign gallery_class = include.class | default: "" %}
+
+{% if include.items and items.size > 0 %}
+  <div
+    class="gallery-grid gallery-grid--{{ variant }} {{ gallery_class }}"
+    style="--gallery-grid-min-width: {{ min_width }}; --gallery-grid-gap: {{ gap }};"
+  >
+    {% for item in items %}
+      {% assign item_image = item[image_field] | default: item.thumbnail | default: item.header-image %}
+      {% assign item_href = item.link | default: item.url %}
+      {% capture item_href_resolved %}{% include helpers/link-path.html link=item_href %}{% endcapture %}
+      {% assign item_summary = item.summary | default: item.description | default: item.excerpt | strip_html | truncate: 120 %}
+
+      {% if item.title and item_image %}
+        {% capture item_image_url %}{% include helpers/image-path.html image-path=item_image page-dir=item.dir %}{% endcapture %}
+        <article class="gallery-grid-item">
+          <a href="{{ item_href_resolved | strip }}" class="gallery-grid-link">
+            <img src="{{ item_image_url | strip }}" alt="{{ item.alt-text | default: item.title | escape }}">
+            {% if show_title or show_summary %}
+              <div class="gallery-grid-caption">
+                {% if show_title %}
+                  <h3>{{ item.title }}</h3>
+                {% endif %}
+                {% if show_summary and item_summary %}
+                  <p>{{ item_summary }}</p>
+                {% endif %}
+              </div>
+            {% endif %}
+          </a>
+        </article>
+      {% elsif item.title %}
+        <div class="xanthan-warning">
+          gallery-grid item "{{ item.title }}" needs an image field.
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="xanthan-warning">
+    gallery-grid include needs an items collection.
+  </div>
+{% endif %}

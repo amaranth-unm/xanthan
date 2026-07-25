@@ -137,7 +137,7 @@ Customize colors, sizes, and hover effects by editing these classes.
 The card grid automatically displays tags when present:
 ```liquid
 {%raw%}
-{% include nav/card-grid.html cards=site.pages show-tags=true %}
+{% include cards/card-grid.html cards=site.pages show-tags=true %}
 {%endraw%}
 ```
 
@@ -145,7 +145,7 @@ To hide tags on specific card grids:
 
 ```liquid
 {%raw%}
-{% include nav/card-grid.html cards=site.pages show-tags=false %}
+{% include cards/card-grid.html cards=site.pages show-tags=false %}
 {%endraw%}
 
 ```

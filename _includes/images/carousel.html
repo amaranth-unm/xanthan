@@ -19,7 +19,7 @@
     <div class="splide__track">
       <ul class="splide__list">
         {% for image in include.images %}
-          {% capture img_url %}{% include images/image-path.html image-path=image %}{% endcapture %}
+          {% capture img_url %}{% include helpers/image-path.html image-path=image %}{% endcapture %}
           {% assign img_url = img_url | strip %}
           {% assign idx = forloop.index | minus: 1 %}
           {% assign has_header = include.headers[idx] | strip %}
