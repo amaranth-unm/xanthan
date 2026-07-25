@@ -5,17 +5,17 @@ date: 2026-01-01
 summary: Open, transparent, AI-ready website templates for scholars, instructors, and students. Built for public work people can understand, teach, and maintain.
 template_cards:
   - title: "Personal Portfolio"
-    summary: "A professional site for your research, teaching, and creative work. About page, CV, project pages, top navigation — the structure for owning your academic identity online."
+    summary: "A professional site for your research, teaching, and creative work. About page, CV, project pages, top navigation — a guided starting point for owning your academic identity online."
     thumbnail: "/assets/images/gallery/portfolio-screenshot.png"
-    link: "https://xanthan-web.github.io/alexandra-ruiz/"
+    link: "docs/getting-started/templates#portfolio"
   - title: "Class Project"
-    summary: "A collaborative archive for student work around a shared theme. Card directories, maps, and sample essays — the instructor builds the structure, students fill it in."
+    summary: "A collaborative archive for student work around a shared theme. Card directories, maps, and sample essays — a guided starting point for class projects that outlast the semester."
     thumbnail: "/assets/images/gallery/class-project-screenshot.png"
-    link: "https://amaranth.unm.edu/campus-history/"
+    link: "docs/getting-started/templates#class-project"
   - title: "ScrollStory"
-    summary: "An immersive scrolling narrative with background images and layered text. Like StoryMaps, but non-proprietary and yours to keep."
+    summary: "An immersive scrolling narrative with background images and layered text. Like StoryMaps, but non-proprietary, editable, and yours to keep."
     thumbnail: "/assets/images/gallery/forest-scroll.gif"
-    link: "scrollstories/forest"
+    link: "docs/getting-started/templates#scrollstory"
 ---
 
 {: .hero-section}
@@ -90,7 +90,7 @@ Class projects can grow through many contributors without requiring everyone to 
 
 {% include cards/card-stack.html cards=page.template_cards card-class="homepage-template-card" %}
 
-Ready to start? [Choose a template](docs/getting-started/templates) and you'll have a live site in minutes. Or see [sites built with Xanthan →](docs/getting-started/gallery)
+Ready to start? Choose a card above for a guided template path. Or, if you want to browse first, see [sites built with Xanthan →](docs/getting-started/gallery)
 
 
 {::nomarkdown}
