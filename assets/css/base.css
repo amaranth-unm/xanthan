@@ -45,6 +45,15 @@ PAGE SETUP & CUSTOMIZATION
   --bg-accent: var(--golden-wash);
   --bg-code: var(--sage-pale);
   --bg-nav: var(--sage-deep);
+  --bg-section-alt: var(--bg-card);
+  --bg-section-warm: var(--bg-accent);
+  --text-section-warm: var(--text-body);
+  --text-section-warm-heading: var(--text-h2);
+  --text-section-warm-link: var(--accent-primary);
+  --text-section-warm-link-hover: var(--interactive-hover);
+  --border-section-warm: var(--accent-border);
+  --border-section-accent: var(--accent-primary);
+  --hero-tagline-color: var(--text-muted);
 
   /* Text */
   --text-body: var(--sage-dark);
@@ -185,7 +194,7 @@ SECTION BACKGROUNDS - Subtle visual rhythm
 /* Alternating section backgrounds for visual hierarchy - full width */
 .section-alt {
   grid-column: full;
-  background-color: var(--bg-card);
+  background-color: var(--bg-section-alt);
   padding: var(--spacing-lg) max(var(--spacing-sm), calc(50% - 24rem));
 }
 
@@ -193,12 +202,12 @@ SECTION BACKGROUNDS - Subtle visual rhythm
   margin-top: 0;
 }
 
-/* Warm golden section background - for special/whimsical moments */
+/* Themed section background - for special emphasis moments */
 .section-warm {
   grid-column: full;
-  background-color: var(--bg-accent);
-  border-top: 2px solid var(--accent-border);
-  border-bottom: 2px solid var(--accent-border);
+  background-color: var(--bg-section-warm);
+  border-top: 2px solid var(--border-section-warm);
+  border-bottom: 2px solid var(--border-section-warm);
   padding: var(--spacing-lg) max(var(--spacing-sm), calc(50% - 24rem));
 }
 
@@ -206,9 +215,28 @@ SECTION BACKGROUNDS - Subtle visual rhythm
   margin-top: 0;
 }
 
+.section-warm {
+  color: var(--text-section-warm);
+}
+
+.section-warm h2 {
+  color: var(--text-section-warm-heading);
+}
+
+.section-warm a,
+.section-warm a:visited {
+  color: var(--text-section-warm-link);
+  border-bottom-color: var(--text-section-warm-link);
+}
+
+.section-warm a:hover {
+  color: var(--text-section-warm-link-hover);
+  border-bottom-color: var(--text-section-warm-link-hover);
+}
+
 /* Accent border on left side - modern touch */
 .section-accent {
-  border-left: 4px solid var(--accent-primary);
+  border-left: 4px solid var(--border-section-accent);
   padding-left: var(--spacing-lg);
   margin-left: var(--spacing-md);
 }
@@ -705,7 +733,7 @@ HERO SECTION (Homepage)
   text-align: center;
   font-size: 1.25rem;
   line-height: 1.6;
-  color: var(--text-muted);
+  color: var(--hero-tagline-color);
   margin: 1rem auto 1.5rem;
   max-width: 700px;
 }
