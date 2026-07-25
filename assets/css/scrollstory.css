@@ -62,9 +62,9 @@
   padding: 2rem;
   
   /* Visual */
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: color-mix(in srgb, var(--bg-page) 95%, transparent);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Full-width background sections */

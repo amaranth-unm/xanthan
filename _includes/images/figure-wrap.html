@@ -13,18 +13,24 @@
 {% assign img_url = img_url | strip %}
 {% assign img_pos = include.image-position | default: 'left' %}
 
-<div class="figure-wrap figure-wrap--{{ img_pos }}"
-  style="--figure-wrap-image-width: {{ include.image-width | default: '40%' }};">
+{% if img_url and include.text %}
+  <div class="figure-wrap figure-wrap--{{ img_pos }}"
+    style="--figure-wrap-image-width: {{ include.image-width | default: '40%' }};">
 
-  <figure class="figure-wrap__image">
-    <img src="{{ img_url }}" alt="{{ include.alt-text | default: include.caption | default: '' }}">
-    {% if include.caption %}
-    <figcaption>{{ include.caption | markdownify }}</figcaption>
-    {% endif %}
-  </figure>
+    <figure class="figure-wrap__image">
+      <img src="{{ img_url }}" alt="{{ include.alt-text | default: include.caption | default: '' }}">
+      {% if include.caption %}
+        <figcaption>{{ include.caption | markdownify }}</figcaption>
+      {% endif %}
+    </figure>
 
-  <div class="figure-wrap__text">
-    {{ include.text | markdownify }}
+    <div class="figure-wrap__text">
+      {{ include.text | markdownify }}
+    </div>
+
   </div>
-
-</div>
+{% else %}
+  <div class="xanthan-warning">
+    figure-wrap include needs image-path and text parameters.
+  </div>
+{% endif %}

@@ -55,6 +55,8 @@ PAGE SETUP & CUSTOMIZATION
   --accent-primary: var(--sage);
   --accent-border: var(--golden-clay);
   --interactive-hover: var(--amber);
+  --interactive-subtle: color-mix(in srgb, var(--accent-primary) 18%, transparent);
+  --interactive-subtle-hover: color-mix(in srgb, var(--interactive-hover) 18%, transparent);
 
   /* Status colors */
   --success: #28a745;
@@ -74,6 +76,7 @@ PAGE SETUP & CUSTOMIZATION
   --overlay-dark: rgba(0, 0, 0, 0.8);
   --white: #ffffff;
   --border-light: rgba(0, 0, 0, 0.1);
+  --border-medium: color-mix(in srgb, var(--text-body) 20%, transparent);
   --border-on-dark: rgba(255, 255, 255, 0.2); /* Borders/dividers on dark backgrounds */
   --accent-primary-dark: var(--sage-deep);     /* Darker accent for active/selected states */
 
@@ -111,6 +114,20 @@ PAGE SETUP & CUSTOMIZATION
   --bg-footer-bottom: var(--sage-deep);
   --text-footer-link: var(--warm-white);
   --text-footer-bottom: var(--sage-pale);
+
+  /* Page headers */
+  --bg-page-header: #161618;
+  --page-header-grid-line: rgba(255, 255, 255, 1);
+  --page-header-divider-line: rgba(255, 255, 255, 0.12);
+  --page-header-divider-text: rgba(255, 255, 255, 0.28);
+  --page-header-subtitle: rgba(255, 255, 255, 0.70);
+  --page-header-caption: rgba(255, 255, 255, 0.75);
+  --page-header-caption-hover: rgba(255, 255, 255, 0.85);
+  --page-header-title-shadow: 0 1px 4px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 0, 0, 0.35);
+  --page-header-subtitle-shadow: 0 1px 4px rgba(0, 0, 0, 0.75), 0 0 28px rgba(0, 0, 0, 0.45);
+  --page-header-section-title-shadow: 0 0 25px rgba(0, 0, 0, 0.95), 0 0 55px rgba(0, 0, 0, 0.75), 0 0 90px rgba(0, 0, 0, 0.45);
+  --page-header-top-scrim: rgba(0, 0, 0, 0.45);
+  --page-header-caption-scrim: rgba(0, 0, 0, 0.72);
 }
 
 
@@ -146,6 +163,18 @@ html, body {
 
 .container > * {
   grid-column: content;
+}
+
+.xanthan-warning {
+  grid-column: content;
+  margin: var(--spacing-md) 0;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 2px dashed var(--warning);
+  border-radius: var(--radius-sm);
+  background: var(--warning-bg);
+  color: var(--text-body);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
 }
 
 

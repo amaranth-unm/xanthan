@@ -45,9 +45,9 @@ Xanthan includes `simple-theme.css` as a starting point. It shows how to define 
 
 1. Copy `assets/css/themes/simple-theme.css` to `assets/css/themes/my-theme.css`
 2. Edit the color values in the `:root` section
-3. Activate in `_includes/page-header.html`:
-   ```html
-   <link href="{{site.baseurl}}/assets/css/themes/my-theme.css" rel="stylesheet">
+3. Activate it in `_config.yml` by adding or setting `theme_css` to the file name without `.css`:
+   ```yaml
+   theme_css: my-theme
    ```
 
 **Example from simple-theme.css:**
@@ -70,7 +70,43 @@ The file includes detailed comments explaining each variable.
 
 ---
 
-## Option B: Advanced Theme (Full Customization)
+## Option B: Reference-Based Theme (Image to Palette)
+
+**Best for:** Turning a place, object, archive, artwork, or photograph into a coherent visual system.
+
+`canyon-wall.css` shows this approach. It was built from a Grand Canyon wall palette: red stone, dark vegetation, pale granite, trail dust, and shadow gray. The file keeps those colors named, then maps them to Xanthan's semantic variables.
+
+The important design choice is that the visual reference does not take over the site. Canyon red becomes a stratum line---headings, borders, and emphasis. Dark green and shadow gray do the structural work of links, navigation, and body text.
+
+**To use canyon-wall.css:**
+
+1. In `_config.yml`, add or set:
+   ```yaml
+   theme_css: canyon-wall
+   ```
+2. Save and refresh
+
+**Example from canyon-wall.css:**
+
+```css
+:root {
+  /* Named palette */
+  --canyon-red: #9f4a35;
+  --ponderosa-green: #2f4938;
+  --granite-white: #f3efe5;
+
+  /* Semantic roles */
+  --bg-page: var(--granite-white);
+  --accent-primary: var(--ponderosa-green);
+  --accent-border: var(--canyon-red);
+}
+```
+
+This is the recommended pattern for most custom themes: name your colors first, then decide what job each one performs.
+
+---
+
+## Option C: Advanced Theme (Full Customization)
 
 **Best for:** Changing visual styles beyond colors---typography, navigation, component styling.
 
@@ -82,9 +118,9 @@ Study `dark-energy.css` to see what's possible. It demonstrates:
 
 **To use dark-energy.css:**
 
-1. In `_includes/page-header.html`, uncomment:
-   ```html
-   <link href="{{site.baseurl}}/assets/css/themes/dark-energy.css" rel="stylesheet">
+1. In `_config.yml`, add or set:
+   ```yaml
+   theme_css: dark-energy
    ```
 2. Save and refresh
 
@@ -96,9 +132,15 @@ Copy `assets/css/themes/dark-energy.css` as a starting point and modify the elem
 
 ## Included Themes
 
-**Terra Cotta** (`terra-cotta.css`) - The original Xanthan aesthetic with warm, earthy colors. A simple theme (variables only) showing the original design.
+**Canyon Wall** (`canyon-wall.css`) - A stronger variable-only theme drawn from Grand Canyon colors. Good for showing how visual references become semantic color systems.
 
-Activate any theme by uncommenting its link in `_includes/page-header.html`.
+**Terra Cotta** (`terra-cotta.css`) - A warm, earthy simple theme. Good for showing how small variable changes can preserve Xanthan's default structure while shifting mood.
+
+**Simple Theme** (`simple-theme.css`) - A teaching scaffold for creating your own variable-only theme from scratch.
+
+**Dark Energy** (`dark-energy.css`) - An advanced theme that changes variables and adds custom element styling.
+
+Activate any theme by setting `theme_css` in `_config.yml` to the theme file name without `.css`.
 
 ## Best Practices
 
@@ -112,20 +154,23 @@ Activate any theme by uncommenting its link in `_includes/page-header.html`.
 
 ## Switching Themes
 
-To switch between themes, edit `_includes/page-header.html`:
+To switch between themes, edit `_config.yml` and add or change `theme_css`:
 
-- Comment out your current theme's `<link>` tag with `<!--` and `-->`
-- Uncomment a different theme's `<link>` tag
+- Use `theme_css: canyon-wall` for `assets/css/themes/canyon-wall.css`
+- Use `theme_css: dark-energy` for `assets/css/themes/dark-energy.css`
+- Leave `theme_css:` blank to use the default Xanthan palette
 - Save and refresh
+
+The loading code lives in `_includes/html/html-head.html`, but most users do not need to edit that file.
 
 ---
 
 ## Troubleshooting
 
 **Theme not showing:**
-- Check the CSS file path in `page-header.html`
-- Make sure the `<link>` tag is uncommented
+- Check that `theme_css` exists in `_config.yml` and matches the file name without `.css`
 - Confirm the file exists in `assets/css/themes/`
+- If you're using a custom `<link>` in `html-head.html`, make sure the path is correct and the link is uncommented
 
 **Some elements unchanged:**
 - Your selector might need to be more specific
@@ -136,6 +181,5 @@ To switch between themes, edit `_includes/page-header.html`:
 
 ## Next Steps
 
-- Compare palettes with the [Color Palettes](../reference/color-palettes) tool
 - See [Colors & Fonts](colors-and-fonts) for quick tweaks without a theme file
 - Explore [Using AI](../using-ai/) to help build your theme

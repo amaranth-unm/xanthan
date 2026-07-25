@@ -177,7 +177,7 @@ date: 2024-12-02
 
 If that doesn't help:
 
-- **Check the file location** --- CSS files should be in `assets/css/` and linked in `_includes/page-header.html`
+- **Check the file location** --- CSS files should be in `assets/css/` and linked in `_includes/html/html-head.html`
 - **Check for CSS syntax errors** --- a missing semicolon or unclosed bracket can cause everything after it to be ignored. Your AI assistant can spot these instantly if you paste the file contents
 
 ---

@@ -118,6 +118,8 @@ Draggable slider for comparing two images. Uses the [Juxtapose](https://juxtapos
 {% raw %}{% include images/juxtapose.html
   image1="/assets/images/before.jpg"
   image2="/assets/images/after.jpg"
+  alt-text-left="Description of the before image"
+  alt-text-right="Description of the after image"
   caption="Before and after renovation."
   starting-position="50%"
 %}{% endraw %}
@@ -129,6 +131,8 @@ Draggable slider for comparing two images. Uses the [Juxtapose](https://juxtapos
 | `image2` | yes | --- | Right image path |
 | `caption` | no | --- | Caption below slider |
 | `starting-position` | no | `50%` | Initial slider position |
+| `alt-text-left` | no | uses caption | Accessibility description for left image |
+| `alt-text-right` | no | uses caption | Accessibility description for right image |
 
 ---
 
@@ -155,12 +159,19 @@ Caption for second image|
 " | split: '|'
 %}
 
+{% assign alt_texts =
+"Description of first image|
+Description of second image|
+Description of third image" | split: '|'
+%}
+
 {% include images/carousel.html
   width="80%"
   class="center"
   images=images
   headers=headers
   captions=captions
+  alt-texts=alt_texts
 %}{% endraw %}
 ```
 
@@ -169,8 +180,9 @@ Caption for second image|
 | `images` | yes | --- | Pre-assigned list of image paths (comma-separated) |
 | `headers` | no | --- | Slide titles (comma-separated; use empty values to skip) |
 | `captions` | no | --- | Slide captions (pipe-separated to allow commas in text) |
+| `alt-texts` | no | uses caption or header | Image descriptions (pipe-separated) |
 | `width` | no | `100%` | CSS width |
-| `class` | no | --- | `left`, `center`, `right` |
+| `class` | no | `center` | `left`, `center`, `right` |
 | `id` | no | `carouselExample` | Unique ID (required for multiple carousels on one page) |
 
 ---
@@ -191,7 +203,7 @@ Colored callout box for tips, warnings, or important information.
 
 | Parameter | Required | Default | Notes |
 |-----------|----------|---------|-------|
-| `class` | yes | --- | `info` (blue), `warning` (yellow), `danger` (red), `success` (green) |
+| `class` | no | `info` | `info` (blue), `warning` (yellow), `danger` (red), `success` (green) |
 | `text` | yes | --- | Alert content; supports Markdown |
 | `title` | no | --- | Bold heading at top of alert |
 

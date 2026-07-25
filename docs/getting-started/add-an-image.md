@@ -28,7 +28,7 @@ Open [Images guide](../editing/images) in one tab and your page file in another.
 
 Find a `figure.html` example in the guide, copy it, and paste it into your page. Then edit just these values:
 
-- `image-path="assets/images/..."`
+- `image-path="/assets/images/..."`
 - `caption="..."`
 - `alt-text="..."`
 - optional `image-width="..."`
@@ -57,7 +57,7 @@ Your image is now in your repository at `assets/images/your-image.jpg`.
 
 ```
 {%raw%}{% include images/figure.html
-  image-path="assets/images/your-image.jpg"
+  image-path="/assets/images/your-image.jpg"
   image-width="60%"
   caption="A brief description of what's shown."
   alt-text="Describe the image for screen readers"

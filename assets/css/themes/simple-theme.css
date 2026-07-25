@@ -3,14 +3,14 @@
   LEARNING GUIDE: Creating Your First Theme
 
   This file shows you how to create a basic theme that changes colors and fonts
-  without modifying any CSS files. It's perfect for beginners who want to
+  without modifying the framework CSS files. It's perfect for beginners who want to
   customize their site's appearance while keeping the default layout and styling.
 
   HOW TO USE THIS FILE:
   1. Copy this file and rename it (e.g., my-theme.css)
   2. Change the colors below to your preferences
   3. Optionally change the fonts
-  4. In _includes/page-header.html, uncomment the link to your theme file
+  4. In _config.yml, set theme_css to your theme file name without .css
   5. Save and refresh
 
   WHAT THIS DOES:

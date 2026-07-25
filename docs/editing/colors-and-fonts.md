@@ -3,94 +3,6 @@ layout: default
 title: Colors & Fonts
 ---
 
-<style>
-.color-lab {
-  border: 1px solid var(--border-medium);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  margin: var(--spacing-lg) 0;
-}
-
-.color-lab-controls {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: var(--spacing-sm);
-  padding: var(--spacing-md);
-  background: var(--bg-card);
-  border-bottom: 1px solid var(--border-medium);
-}
-
-.color-control label {
-  display: block;
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  margin-bottom: 4px;
-  font-weight: 500;
-}
-
-.color-control input[type="color"] {
-  display: block;
-  width: 100%;
-  height: 32px;
-  border: 1px solid var(--border-medium);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  padding: 2px 4px;
-  background: none;
-}
-
-.color-lab-preview {
-  padding: var(--spacing-lg) var(--spacing-xl);
-}
-
-.color-lab-preview h3 {
-  font-size: 1.3rem;
-  margin: 0 0 0.5rem;
-}
-
-.color-lab-preview p {
-  margin: 0 0 0.75rem;
-  line-height: 1.6;
-}
-
-.color-lab-preview a {
-  display: inline-block;
-  margin-bottom: 1rem;
-  text-decoration: none;
-  border-bottom: 1px solid;
-}
-
-.lab-card {
-  padding: 1rem;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.color-lab-output {
-  background: var(--bg-code);
-  padding: var(--spacing-md);
-  border-top: 1px solid var(--border-medium);
-}
-
-.color-lab-output .lab-output-label {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  margin-bottom: 0.4rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.color-lab-output pre {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  white-space: pre;
-  line-height: 1.6;
-}
-</style>
-
 {% include nav/scrollspy-toc.html %}
 
 # Colors & Fonts
@@ -98,6 +10,8 @@ title: Colors & Fonts
 Your site's visual identity shapes how readers experience the work itself. A cool palette with spare layout carries different weight than something warm and textured. A scholarly serif heading reads differently than a clean sans-serif. These are rhetorical choices, not just aesthetic ones, and they're entirely yours to make.
 
 Xanthan keeps all visual decisions — colors, fonts, spacing — in a single file: `assets/css/base.css`. Understanding a little about how that file works will let you make changes with confidence.
+
+If you're only changing your own site, editing `base.css` is fine. If you want a reusable visual identity you can turn on, turn off, or share with someone else, make a separate file in `assets/css/themes/` instead. The [Themes](themes) guide walks through that pattern.
 
 ---
 

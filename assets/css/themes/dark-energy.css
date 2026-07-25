@@ -1,6 +1,6 @@
 /* === Dark Energy Theme === */
 /*
-  Load this AFTER base.css, typography.css, nav.css, and cards.css in page-header.html
+  Load this AFTER base.css, typography.css, nav.css, and cards.css in html-head.html
 
   This theme demonstrates how to create a dark theme by:
   1. Overriding CSS variables from base.css with dark colors

@@ -4,59 +4,6 @@ title: Choose a Template
 date: 2026-02-14
 ---
 
-<style>
-.template-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-  margin-top: var(--spacing-md);
-}
-
-.template-btn-row {
-  display: flex;
-  gap: var(--spacing-xs);
-}
-
-.template-btn {
-  padding: var(--spacing-xs) var(--spacing-md);
-  font-size: 0.9rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--sage-pale);
-  background: rgba(178, 205, 188, 0.3);
-  color: var(--sage-deep);
-  text-decoration: none;
-  cursor: pointer;
-  text-align: center;
-  flex: 1;
-}
-
-.template-btn:hover {
-  background: rgba(245, 158, 11, 0.25);
-  border-color: var(--interactive-hover);
-  color: var(--sage-deep);
-}
-
-.template-btn.primary {
-  background: var(--accent-primary);
-  color: var(--white);
-  border-color: var(--accent-primary);
-  width: 100%;
-  flex: none;
-  font-weight: 600;
-}
-
-.template-btn.primary:hover {
-  background: var(--interactive-hover);
-  border-color: var(--interactive-hover);
-}
-
-.template-btn.placeholder {
-  opacity: 0.4;
-  cursor: default;
-  pointer-events: none;
-}
-</style>
-
 {% include nav/scrollspy-toc.html %}
 
 # Choose a Template

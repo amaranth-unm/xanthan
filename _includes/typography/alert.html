@@ -1,6 +1,23 @@
-<div class="alert alert-{{ include.class }}" role="alert">
-{% if include.title  %}
-<h4 class="alert-heading">{{ include.title }}</h4>
-{% endif %}
-{{ include.text | markdownify }}
+{% comment %}
+  Alert Box — colored callout for tips, warnings, and notes
+
+  Parameters:
+    - text:  alert content (required; markdown supported)
+    - class: info | warning | danger | success (default: info)
+    - title: heading above the alert text (optional)
+{% endcomment %}
+
+{% assign alert_class = include.class | default: 'info' %}
+
+{% if include.text %}
+<div class="alert alert-{{ alert_class }}" role="alert">
+  {% if include.title  %}
+    <h4 class="alert-heading">{{ include.title }}</h4>
+  {% endif %}
+  {{ include.text | markdownify }}
 </div>
+{% else %}
+  <div class="xanthan-warning">
+    alert include needs a text parameter.
+  </div>
+{% endif %}

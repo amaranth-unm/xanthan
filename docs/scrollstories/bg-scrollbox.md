@@ -142,4 +142,4 @@ That's all for scrollybox basics.
 
 We can also do [background switching](bg-switch) and [side scrolling](side-scroll).
 
-Other feature are listed in the `Page components` nav menu.
+Other ScrollStory components are listed in the [ScrollStories documentation](./).

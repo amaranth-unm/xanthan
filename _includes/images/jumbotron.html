@@ -31,30 +31,36 @@
   {% assign gradient_dir = 'to right' %}
 {% endif %}
 
-<div class="jumbotron jumbotron--{{ box_align }}{% unless include.text-shadow == false %} jumbotron--text-shadow{% endunless %}" style="
-      {% if include.height %}height: {{ include.height }};{% endif %}
-      background-size: {{ include.zoom | default: 'cover' }};
-      background-position: {{ include.background-position | default: 'center' }};
-      background-repeat: no-repeat;
-      {% if has_content and box_align != 'center' %}
-      background-image:
-        linear-gradient({{ gradient_dir }},
-          {{ bg_color }} {{ fade_start }},
-          transparent {{ fade_end }}),
-        url('{{ img_url }}');
-      {% else %}
-      background-image: url('{{ img_url }}');
-      {% endif %}">
+{% if img_url %}
+  <div class="jumbotron jumbotron--{{ box_align }}{% unless include.text-shadow == false %} jumbotron--text-shadow{% endunless %}" style="
+        {% if include.height %}height: {{ include.height }};{% endif %}
+        background-size: {{ include.zoom | default: 'cover' }};
+        background-position: {{ include.background-position | default: 'center' }};
+        background-repeat: no-repeat;
+        {% if has_content and box_align != 'center' %}
+        background-image:
+          linear-gradient({{ gradient_dir }},
+            {{ bg_color }} {{ fade_start }},
+            transparent {{ fade_end }}),
+          url('{{ img_url }}');
+        {% else %}
+        background-image: url('{{ img_url }}');
+        {% endif %}">
 
-  {% if has_content %}
-  <div class="jumbotron-content">
-    {% if include.title %}<h2>{{ include.title }}</h2>{% endif %}
-    {% if include.text %}
-    <div class="jumbotron-text">{{ include.text | markdownify }}</div>
+    {% if has_content %}
+      <div class="jumbotron-content">
+        {% if include.title %}<h2>{{ include.title }}</h2>{% endif %}
+        {% if include.text %}
+          <div class="jumbotron-text">{{ include.text | markdownify }}</div>
+        {% endif %}
+      </div>
     {% endif %}
+
   </div>
-  {% endif %}
 
-</div>
-
-{% if include.caption %}<figcaption>{{ include.caption | markdownify }}</figcaption>{% endif %}
+  {% if include.caption %}<figcaption>{{ include.caption | markdownify }}</figcaption>{% endif %}
+{% else %}
+  <div class="xanthan-warning">
+    jumbotron include needs an image-path parameter.
+  </div>
+{% endif %}

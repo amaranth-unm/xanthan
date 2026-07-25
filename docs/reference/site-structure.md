@@ -13,8 +13,6 @@ Your Xanthan site is organized into folders, each serving a specific purpose. Wh
 
 **Note:** Depending on which template you started with (full Xanthan, Portfolio, Class Project, or ScrollStory), you may see some different files. But all templates share the same core structure explained below.
 
-<!-- PLACEHOLDER FOR SCREENSHOT: GitHub repository folder view showing the main folders -->
-
 ---
 
 ## Core Folders (In GitHub Display Order)
@@ -24,7 +22,7 @@ These folders appear in all Xanthan templates and provide the foundation for you
 ### `_data/`
 **Site configuration files**
 
-This folder contains YAML files that control site-wide settings. The most important file here is `top-nav.yml`, which defines your navigation menu—the links that appear at the top of every page. When you want to add a new page to your navigation menu, you'll edit the file in this folder. Think of `_data` as your site's control panel, where you configure how things work without touching the actual page content.
+This folder contains YAML files that control site-wide settings. The most important file here is `nav-top.yml`, which defines your navigation menu—the links that appear at the top of every page. When you want to add a new page to your navigation menu, you'll edit the file in this folder. Think of `_data` as your site's control panel, where you configure how things work without touching the actual page content.
 
 ### `_includes/`
 **Reusable page components**
@@ -34,7 +32,7 @@ This folder holds small, reusable pieces of code that can appear on multiple pag
 ### `_layouts/`
 **Page templates**
 
-Every page on your site uses a layout---a structural template that determines how the page is organized. This folder contains different layout options like `base` (standard page), `scrollstory` (cinematic scrolling), and `left-nav` (sidebar navigation). When you create a new page, you'll specify which layout to use in the page's header. Most of the time you'll just choose an existing layout rather than editing the layout files themselves, which contain the underlying HTML structure.
+Every page on your site uses a layout---a structural template that determines how the page is organized. This folder contains different layout options like `default` (standard page), `scrollstory` (cinematic scrolling), and `nav-left` (sidebar navigation). When you create a new page, you'll specify which layout to use in the page's header. Most of the time you'll just choose an existing layout rather than editing the layout files themselves, which contain the underlying HTML structure.
 
 ### `_site/`
 **Generated website (don't edit)**
@@ -83,7 +81,7 @@ In addition to folders, you'll see several `.md` files in your main repository f
 - `index.md` - Your homepage (this is what visitors see first)
 - `about.md` - An example about page
 - `faqs.md` - Frequently asked questions page
-- `documentation.md` - Links to all documentation
+- `docs/index.md` - Links to all documentation
 
 Any `.md` file you create in the root directory becomes a page accessible at `yoursite.com/filename`. 
 
@@ -91,7 +89,7 @@ Any `.md` file you create in the root directory becomes a page accessible at `yo
 
 ## Understanding the Underscore Convention
 
-Notice that some folders start with an underscore (`_data`, `_includes`, `_layouts`, `_site`) while others don't (`assets`, `guides`, `components`)?
+Notice that some folders start with an underscore (`_data`, `_includes`, `_layouts`, `_site`) while others don't (`assets`, `docs`, `scrollstories`)?
 
 **Folders WITH underscores (`_`)** are special Jekyll system folders that control how your site works. You'll occasionally edit files in `_data` and rarely touch `_includes` or `_layouts`.
 
@@ -104,10 +102,10 @@ Don't feel overwhelmed by all these folders! Here's what matters for getting sta
 
 1. **Main pages** are `.md` files in the root directory
 2. **Images** go in `assets/images/`
-3. **Navigation menu** is controlled by `_data/top-nav.yml`
+3. **Navigation menu** is controlled by `_data/nav-top.yml`
 4. **Style customization** happens in `assets/css/`
 
-Everything else? You'll learn it as you need it. The components, guides, and navigation folders are there to help you when you're ready to explore.
+Everything else? You'll learn it as you need it. The component files, documentation, and ScrollStory examples are there to help you when you're ready to explore.
 
 ---
 

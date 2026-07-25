@@ -6,7 +6,7 @@ Three tiers:  hero (full screen), section (~60vh), banner (~22vh)
 Five filters: botanical, sketch, woodcut, etching, photo
 
 Editing guide:
-  - Colors:   Edit the variables in the .page-header block below
+  - Colors:   Edit the page-header variables in assets/css/base.css
   - Tiers:    Scroll to "Tier" sections to adjust heights and spacing
   - Filters:  Scroll to "Filter system" to adjust image treatments
   - Template: _includes/layout/page-header.html
@@ -15,22 +15,6 @@ The accent color (vertical bar + eyebrow text) comes from
 --accent-primary in base.css. Override it here inside .page-header
 if you want a different accent color just for headers.
 *****************************************************/
-
-
-/* =====================================================
-   COLOR VARIABLES
-   All header-specific colors are defined here so you
-   can restyle the header in one place.
-   ===================================================== */
-
-.page-header {
-  --header-bg: #161618;                           /* Dark background behind the image */
-  --header-grid-line: rgba(255, 255, 255, 1);     /* Grid overlay lines (see opacity on .page-header-grid) */
-  --header-divider-line: rgba(255, 255, 255, 0.12);  /* Thin lines flanking divider text */
-  --header-divider-text: rgba(255, 255, 255, 0.28);  /* Divider text color */
-  --header-subtitle: rgba(255, 255, 255, 0.70);      /* Subtitle paragraph color */
-}
-
 
 /* =====================================================
    BASE STRUCTURE
@@ -41,7 +25,7 @@ if you want a different accent color just for headers.
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background: var(--header-bg);
+  background: var(--bg-page-header);
 }
 
 
@@ -61,8 +45,8 @@ if you want a different accent color just for headers.
   inset: 0;
   opacity: 0.025;
   background-image:
-    linear-gradient(var(--header-grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--header-grid-line) 1px, transparent 1px);
+    linear-gradient(var(--page-header-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--page-header-grid-line) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -103,13 +87,11 @@ if you want a different accent color just for headers.
   font-family: var(--font-serif);
   font-size: clamp(3.2rem, 7vw, 5.5rem);
   font-weight: 400;
-  color: var(--white);
+  color: var(--text-on-dark);
   line-height: 1.05;
   margin-bottom: 0.6rem;
   margin-top: 0;
-  text-shadow:
-    0 1px 4px rgba(0, 0, 0, 0.6),
-    0 0 30px rgba(0, 0, 0, 0.35);
+  text-shadow: var(--page-header-title-shadow);
   text-indent: -0.06em;
   letter-spacing: 0;
 }
@@ -117,15 +99,13 @@ if you want a different accent color just for headers.
 /* Subtitle paragraph below the title */
 .page-header p {
   font-size: 1.4rem;
-  color: var(--header-subtitle);
+  color: var(--page-header-subtitle);
   line-height: 1.6;
   font-weight: 300;
   letter-spacing: 0.03em;
   margin-bottom: 0;
   max-width: 580px;
-  text-shadow:
-    0 1px 4px rgba(0, 0, 0, 0.75),
-    0 0 28px rgba(0, 0, 0, 0.45);
+  text-shadow: var(--page-header-subtitle-shadow);
 }
 
 
@@ -148,7 +128,7 @@ if you want a different accent color just for headers.
   left: 0;
   right: 0;
   height: 120px;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.45), transparent);
+  background: linear-gradient(to bottom, var(--page-header-top-scrim), transparent);
   z-index: 6;
   pointer-events: none;
 }
@@ -174,14 +154,14 @@ if you want a different accent color just for headers.
 .page-header-divider-line {
   height: 1px;
   width: 60px;
-  background: var(--header-divider-line);
+  background: var(--page-header-divider-line);
 }
 
 .page-header-divider span {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.3em;
-  color: var(--header-divider-text);
+  color: var(--page-header-divider-text);
   text-transform: uppercase;
 }
 
@@ -192,11 +172,11 @@ if you want a different accent color just for headers.
   right: 0;
   z-index: 10;
   padding: 1.4rem 1rem 0.45rem 3rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.72), transparent);
+  background: linear-gradient(to top, var(--page-header-caption-scrim), transparent);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--page-header-caption);
   text-align: right;
   pointer-events: none;
 }
@@ -208,7 +188,7 @@ if you want a different accent color just for headers.
 }
 
 .page-header-caption a:hover {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--page-header-caption-hover);
 }
 
 /* Space between header bottom edge and page content */
@@ -237,10 +217,7 @@ if you want a different accent color just for headers.
   font-size: clamp(2.4rem, 3.2vw, 3.5rem);
   margin-bottom: 0;
   margin-top: 0;
-  text-shadow:
-    0 0 25px rgba(0, 0, 0, 0.95),
-    0 0 55px rgba(0, 0, 0, 0.75),
-    0 0 90px rgba(0, 0, 0, 0.45);
+  text-shadow: var(--page-header-section-title-shadow);
 }
 
 .page-header--section .page-header-grid {

@@ -5,6 +5,12 @@
     - box-align: left | right | center (default: center)
 {% endcomment %}
 {% assign box_align = include.box-align | default: 'center' %}
-<blockquote class="{% if box_align != 'center' %}blockquote--{{ box_align }}{% endif %}">
-  {{ include.text | markdownify }}
-</blockquote>
+{% if include.text %}
+  <blockquote class="{% if box_align != 'center' %}blockquote--{{ box_align }}{% endif %}">
+    {{ include.text | markdownify }}
+  </blockquote>
+{% else %}
+  <div class="xanthan-warning">
+    blockquote include needs a text parameter.
+  </div>
+{% endif %}

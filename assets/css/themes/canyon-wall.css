@@ -1,0 +1,73 @@
+/* === Canyon Wall Theme === */
+/*
+  A variable-only theme drawn from Grand Canyon strata:
+  rust-red stone, ponderosa green, pale granite, trail dust, and shadow gray.
+
+  Load this AFTER the base Xanthan CSS files in _includes/html/html-head.html.
+
+  Teaching purpose:
+  - Shows how to build a coherent palette from a visual reference
+  - Keeps the framework CSS intact
+  - Maps named colors to semantic roles from base.css
+  - Uses red as an accent, not as the whole identity
+*/
+
+/*****************************************************
+CSS VARIABLE OVERRIDES
+*****************************************************/
+:root {
+  /* ===== Canyon Wall Color Palette ===== */
+  --canyon-red: #9f4a35;          /* Weathered red wall */
+  --canyon-red-dark: #733326;     /* Deep stratum red */
+  --ponderosa-green: #2f4938;     /* Dark rim vegetation */
+  --shadow-gray: #293038;         /* Canyon shadow and ink */
+  --granite-white: #f3efe5;       /* Pale stone / page surface */
+  --limestone: #ded0b5;           /* Light cliff face */
+  --trail-tan: #c7a77a;           /* Dust and dry grass */
+  --copper-hover: #b8643e;        /* Warm interaction color */
+
+  /* ===== Override Base Theme Variables ===== */
+  /* Backgrounds */
+  --bg-page: var(--granite-white);
+  --bg-card: var(--limestone);
+  --bg-accent: color-mix(in srgb, var(--trail-tan) 24%, var(--bg-page));
+  --bg-code: color-mix(in srgb, var(--limestone) 70%, var(--bg-page));
+  --bg-nav: var(--shadow-gray);
+  --bg-footer: var(--ponderosa-green);
+  --bg-footer-bottom: var(--shadow-gray);
+
+  /* Text */
+  --text-body: var(--shadow-gray);
+  --text-on-dark: var(--granite-white);
+  --text-muted: color-mix(in srgb, var(--shadow-gray) 68%, var(--bg-page));
+  --text-footer-link: var(--granite-white);
+  --text-footer-bottom: var(--limestone);
+
+  /* Accents & Interactive */
+  --accent-primary: var(--ponderosa-green);
+  --accent-border: var(--canyon-red);
+  --interactive-hover: var(--copper-hover);
+  --interactive-subtle: color-mix(in srgb, var(--ponderosa-green) 14%, transparent);
+  --interactive-subtle-hover: color-mix(in srgb, var(--copper-hover) 18%, transparent);
+  --accent-primary-dark: var(--shadow-gray);
+
+  /* Heading hierarchy */
+  --text-h1: var(--canyon-red-dark);
+  --text-h2: var(--ponderosa-green);
+  --text-h3: var(--canyon-red);
+  --text-h4: var(--shadow-gray);
+  --text-h5: var(--trail-tan);
+
+  /* Status colors tuned to the palette */
+  --success: var(--ponderosa-green);
+  --warning: var(--trail-tan);
+  --warning-bg: color-mix(in srgb, var(--trail-tan) 24%, var(--bg-page));
+  --error: var(--canyon-red-dark);
+  --info: color-mix(in srgb, var(--ponderosa-green) 70%, var(--granite-white));
+
+  /* Page headers */
+  --bg-page-header: var(--shadow-gray);
+  --page-header-subtitle: color-mix(in srgb, var(--granite-white) 74%, transparent);
+  --page-header-caption: color-mix(in srgb, var(--granite-white) 78%, transparent);
+  --page-header-caption-hover: var(--granite-white);
+}

@@ -184,7 +184,7 @@ sudo docker run --rm -it -p 4000:4000 -v "$(pwd):/srv/jekyll" jekyll/jekyll:4.2.
 
 ### "Error: no such file or directory"
 
-**Fix:** Make sure you're in the correct folder. Type `ls` (Mac/Linux) or `dir` (Windows) and you should see folders like `_layouts`, `assets`, `guides`, etc. If not, navigate to the correct folder using `cd`.
+**Fix:** Make sure you're in the correct folder. Type `ls` (Mac/Linux) or `dir` (Windows) and you should see folders like `_layouts`, `assets`, `docs`, etc. If not, navigate to the correct folder using `cd`.
 
 ---
 

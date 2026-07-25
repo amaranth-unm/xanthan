@@ -5,14 +5,14 @@ Thank you for your interest in improving Xanthan! We welcome contributions from 
 ## Ways to Contribute
 
 ### 🐛 Report Bugs
-Found something broken? [Open an issue](https://github.com/xanthan-web/xanthan-web.github.io/issues) with:
+Found something broken? [Open an issue](https://github.com/xanthan-web/xanthan/issues) with:
 - What you expected to happen
 - What actually happened
 - Steps to reproduce the issue
 - Your browser and operating system
 
 ### 💡 Suggest Features
-Have an idea for a new component or improvement? [Start a discussion](https://github.com/xanthan-web/xanthan-web.github.io/discussions) first to get feedback before building it. This helps ensure your contribution aligns with the project's goals and avoids duplicate work.
+Have an idea for a new component or improvement? [Start a discussion](https://github.com/xanthan-web/xanthan/discussions) first to get feedback before building it. This helps ensure your contribution aligns with the project's goals and avoids duplicate work.
 
 ### 📝 Improve Documentation
 Documentation improvements are some of the most valuable contributions! You can:
@@ -98,9 +98,9 @@ Before submitting a PR:
 ## Questions?
 
 Not sure about something? Have questions before starting?
-- [Ask in Discussions](https://github.com/xanthan-web/xanthan-web.github.io/discussions) - We're happy to help!
-- Check existing [Issues](https://github.com/xanthan-web/xanthan-web.github.io/issues) and [Pull Requests](https://github.com/xanthan-web/xanthan-web.github.io/pulls)
-- Review the [documentation](https://xanthan-web.github.io/) for context
+- [Ask in Discussions](https://github.com/xanthan-web/xanthan/discussions) - We're happy to help!
+- Check existing [Issues](https://github.com/xanthan-web/xanthan/issues) and [Pull Requests](https://github.com/xanthan-web/xanthan/pulls)
+- Review the [documentation](https://xanthan-web.github.io/xanthan/) for context
 
 ## Code of Conduct
 

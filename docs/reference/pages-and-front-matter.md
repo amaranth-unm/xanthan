@@ -69,7 +69,7 @@ Add a full-width header image to any page. The `header-tier` controls visual wei
 
 | Field | Example | What it does |
 |-------|---------|--------------|
-| `toc-section` | `toc-section: essays` | Groups the page under a section in left-nav layouts |
+| `toc-section` | `toc-section: essays` | Groups the page under a section in nav-left layouts |
 | `order` | `order: 3` | Controls sort order within a section |
 | `thumbnail` | `thumbnail: images/thumb.jpg` | Image used in navigation cards |
 | `tags` | `tags: [mapping, history]` | Categorizes pages; see [Tags](../editing/tags) |

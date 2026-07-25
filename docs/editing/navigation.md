@@ -27,7 +27,7 @@ As a site grows beyond a handful of pages, navigation becomes an argument about 
 
 ## Top navigation bar
 
-The horizontal menu at the top of every page is controlled by a single YAML file: `_data/top-nav.yml`. No HTML, no coding---just a structured list of titles and URLs.
+The horizontal menu at the top of every page is controlled by a single YAML file: `_data/nav-top.yml`. No HTML, no coding---just a structured list of titles and URLs.
 
 ### Basic structure
 
@@ -122,7 +122,7 @@ For pages on your site, always start with `/`:
 
 ```yaml
 url: "/about"              # Correct
-url: "/guides/tutorial"    # Correct
+url: "/essays/tutorial"    # Correct
 url: "about"               # Wrong - missing /
 url: "about.md"            # Wrong - don't include .md
 ```
@@ -133,7 +133,7 @@ For external sites, use the full URL:
 url: "https://github.com/your-project"
 ```
 
-URLs map directly to your file structure: `guides/tutorial.md` becomes `/guides/tutorial`. Folders with an `index.md` use a trailing slash: `projects/index.md` becomes `/projects/`.
+URLs map directly to your file structure: `essays/tutorial.md` becomes `/essays/tutorial`. Folders with an `index.md` use a trailing slash: `projects/index.md` becomes `/projects/`.
 
 ### YAML syntax reminders
 
@@ -223,7 +223,7 @@ If your items are actual pages on your site, you can gather them automatically f
 {% include nav/card-toc.html rows = card_pages %}{% endraw %}
 ```
 
-{% assign card_pages = site.pages | where_exp: "page", "page.path contains 'scrollstories/examples'" %}
+{% assign card_pages = site.pages | where: "layout", "scrollstory" %}
 
 {% include nav/card-toc.html rows = card_pages %}
 
@@ -256,7 +256,7 @@ The same data can render as three different layouts. Swap the include file to ch
 
 Compact text rows with a right-arrow. No images required. Best for long lists, reading indexes, or any collection where images aren't necessary.
 
-{% assign toc_demo = site.pages | where_exp: "page", "page.path contains 'scrollstories/examples'" %}
+{% assign toc_demo = site.pages | where: "layout", "scrollstory" %}
 {% include nav/card-toc.html rows = toc_demo %}
 
 ```
@@ -267,7 +267,7 @@ Compact text rows with a right-arrow. No images required. Best for long lists, r
 
 Wide horizontal cards with the image on the left. Good when images help readers recognize items before clicking.
 
-{% assign stacked_cards = site.pages | where_exp: "page", "page.path contains 'scrollstories/examples'" %}
+{% assign stacked_cards = site.pages | where: "layout", "scrollstory" %}
 {% include nav/card-stack.html cards = stacked_cards %}
 
 ```
@@ -278,7 +278,7 @@ Wide horizontal cards with the image on the left. Good when images help readers 
 
 Vertical cards in a grid, image on top. Works well for galleries or when the image is the primary identifier.
 
-{% assign grid_cards = site.pages | where_exp: "page", "page.path contains 'scrollstories/examples'" %}
+{% assign grid_cards = site.pages | where: "layout", "scrollstory" %}
 {% include nav/card-grid.html cards = grid_cards %}
 
 ```
@@ -527,7 +527,7 @@ These systems are modular---use them together. A typical class project might com
 - **Cards** on a landing page for a visual directory
 - **Map** to show geographic distribution of topics
 
-The top nav is site-wide (controlled by `top-nav.yml`). Everything else is page-level---add or remove it from individual pages as needed.
+The top nav is site-wide (controlled by `nav-top.yml`). Everything else is page-level---add or remove it from individual pages as needed.
 
 ---
 

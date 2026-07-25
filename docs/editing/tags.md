@@ -197,7 +197,7 @@ Use clickable tags to help readers discover related content. Replace `music` wit
 
 ## Integration with Navigation
 
-Add tag filters to your main navigation by editing `_data/top-nav.yml`:
+Add tag filters to your main navigation by editing `_data/nav-top.yml`:
 
 ```yaml
 - title: "Browse"

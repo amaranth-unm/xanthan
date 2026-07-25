@@ -1,55 +1,71 @@
 {% comment %}
   Carousel Component — image slideshow using Splide
   Parameters:
-    - images:   list of image paths (required)
-    - headers:  list of slide titles (optional; use empty value for no title)
-    - captions: list of slide captions (optional; split on | to allow commas in text)
-    - width:    CSS width (default: 100%)
-    - class:    left | center | right — alignment (default: center)
-    - id:       unique ID if you have multiple carousels on one page
+    - images:    list of image paths (required)
+    - headers:   list of slide titles (optional; use empty value for no title)
+    - captions:  list of slide captions (optional; split on | to allow commas in text)
+    - alt-texts: list of image descriptions (optional; falls back to caption or header)
+    - width:     CSS width (default: 100%)
+    - class:     left | center | right — alignment (default: center)
+    - id:        unique ID if you have multiple carousels on one page
 {% endcomment %}
 
 {% assign carousel_id = include.id | default: 'splide-carousel' %}
 {% assign carousel_class = include.class | default: 'center' %}
 
-<div id="{{ carousel_id }}" class="splide xanthan-carousel xanthan-carousel--{{ carousel_class }}"
-  style="width: {{ include.width | default: '100%' }}; margin: 0 auto var(--spacing-lg);">
-  <div class="splide__track">
-    <ul class="splide__list">
-      {% for image in include.images %}
-      {% capture img_url %}{% include images/image-path.html image-path=image %}{% endcapture %}
-      {% assign idx = forloop.index | minus: 1 %}
-      <li class="splide__slide">
-        <figure class="xanthan-carousel__slide">
-          <img src="{{ img_url | strip }}" alt="{{ include.headers[idx] | default: '' }}">
+{% if include.images and include.images.size > 0 %}
+  <div id="{{ carousel_id }}" class="splide xanthan-carousel xanthan-carousel--{{ carousel_class }}"
+    style="width: {{ include.width | default: '100%' }}; margin: 0 auto var(--spacing-lg);" aria-label="Image carousel">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {% for image in include.images %}
+          {% capture img_url %}{% include images/image-path.html image-path=image %}{% endcapture %}
+          {% assign img_url = img_url | strip %}
+          {% assign idx = forloop.index | minus: 1 %}
           {% assign has_header = include.headers[idx] | strip %}
           {% assign has_caption = include.captions[idx] | strip %}
-          {% if has_header != '' or has_caption != '' %}
-          <figcaption>
-            {% if has_header != '' %}<strong>{{ include.headers[idx] | strip }}</strong> {% endif %}
-            {% if has_caption != '' %}{{ include.captions[idx] | strip }}{% endif %}
-          </figcaption>
-          {% endif %}
-        </figure>
-      </li>
-      {% endfor %}
-    </ul>
+          {% assign alt_text = include.alt-texts[idx] | default: has_caption | default: has_header | default: '' %}
+          <li class="splide__slide">
+            <figure class="xanthan-carousel__slide">
+              {% if img_url %}
+                <img src="{{ img_url }}" alt="{{ alt_text | strip }}">
+              {% else %}
+                <div class="xanthan-warning">
+                  carousel image path missing for slide {{ forloop.index }}.
+                </div>
+              {% endif %}
+              {% if has_header != '' or has_caption != '' %}
+                <figcaption>
+                  {% if has_header != '' %}<strong>{{ has_header }}</strong> {% endif %}
+                  {% if has_caption != '' %}{{ has_caption }}{% endif %}
+                </figcaption>
+              {% endif %}
+            </figure>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
-</div>
 
-<script>
-(function() {
-  document.addEventListener('DOMContentLoaded', function() {
-    if (typeof Splide === 'undefined') return;
-    new Splide('#{{ carousel_id }}', {
-      type: 'loop',
-      autoplay: true,
-      interval: 20000,
-      pauseOnHover: true,
-      arrows: true,
-      pagination: true,
-      fixedHeight: '420px',
-    }).mount();
+  <script>
+  (function() {
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof Splide === 'undefined') return;
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      new Splide('#{{ carousel_id }}', {
+        type: 'loop',
+        autoplay: !reduceMotion,
+        interval: 20000,
+        pauseOnHover: true,
+        arrows: true,
+        pagination: true,
+        fixedHeight: '420px',
+      }).mount();
+    });
   });
-})();
-</script>
+  </script>
+{% else %}
+  <div class="xanthan-warning">
+    carousel include needs an images list.
+  </div>
+{% endif %}

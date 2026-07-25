@@ -45,7 +45,7 @@ GitHub's built-in code editor gives you an intuitive editing environment in your
 
 The navigation menu is controlled by a single data file:
 
-1. Open `_data/top-nav.yml` in the code editor
+1. Open `_data/nav-top.yml` in the code editor
 2. Follow the pattern of existing entries:
    ```yaml
    - title: "My New Page"
