@@ -41,7 +41,7 @@ A personal or professional site for presenting your work, interests, and credent
 ## Class Project
 
 {% capture class_project_text %}
-This template shows how you might organize many individual scrollstories or pages of any kind that belong together as a collection. Card-based directory pages organize contributions automatically, so the site grows as people add to it. The instructor sets up the structure; students follow clear directions to fill it in.
+This template shows how many individual ScrollStories or pages can belong together as a shared collection. Card-based directory pages organize contributions automatically, so the site grows as people add to it. The instructor sets up the structure; students follow clear directions to fill it in. Because the pages are plain text files, students can learn from each other's work and the project remains editable after the semester ends.
 
 <div class="template-buttons">
   <div class="template-btn-row">

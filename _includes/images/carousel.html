@@ -19,7 +19,8 @@
     <div class="splide__track">
       <ul class="splide__list">
         {% for image in include.images %}
-          {% capture img_url %}{% include helpers/image-path.html image-path=image %}{% endcapture %}
+          {% assign image_clean = image | strip %}
+          {% capture img_url %}{% include helpers/image-path.html image-path=image_clean %}{% endcapture %}
           {% assign img_url = img_url | strip %}
           {% assign idx = forloop.index | minus: 1 %}
           {% assign has_header = include.headers[idx] | strip %}
@@ -49,10 +50,26 @@
 
   <script>
   (function() {
-    document.addEventListener('DOMContentLoaded', function() {
-      if (typeof Splide === 'undefined') return;
+    var carouselSelector = '#{{ carousel_id }}';
+    var attempts = 0;
+    var maxAttempts = 20;
+
+    function mountCarousel() {
+      var carousel = document.querySelector(carouselSelector);
+      if (!carousel || carousel.classList.contains('is-initialized')) return;
+
+      if (typeof Splide === 'undefined') {
+        attempts += 1;
+        if (attempts < maxAttempts) {
+          window.setTimeout(mountCarousel, 100);
+        } else {
+          console.warn('Xanthan carousel could not start because Splide is not loaded:', carouselSelector);
+        }
+        return;
+      }
+
       var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      new Splide('#{{ carousel_id }}', {
+      new Splide(carouselSelector, {
         type: 'loop',
         autoplay: !reduceMotion,
         interval: 20000,
@@ -61,8 +78,15 @@
         pagination: true,
         fixedHeight: '420px',
       }).mount();
-    });
-  });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', mountCarousel);
+    } else {
+      mountCarousel();
+    }
+    window.addEventListener('load', mountCarousel);
+  }());
   </script>
 {% else %}
   <div class="xanthan-warning">

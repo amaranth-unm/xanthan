@@ -288,7 +288,7 @@ Vertical cards in a grid, image on top. Works well for galleries or when the ima
 
 #### Gallery grid
 
-Use the gallery grid when the image is the main way readers choose where to go. It is still navigation: each tile links to a page or external item. The default `mosaic` variant gives the page a less mechanical rhythm; use `variant="uniform"` when you want every tile to have the same visual weight.
+Use the gallery grid when the image is the main way readers choose where to go. It is still navigation: each tile links to a page or external item. Use `variant="uniform"` when every item should have the same visual weight; use `variant="mosaic"` only when varied tile sizes are part of the editorial design. Titles stay visible over the image, while summaries reveal on hover or keyboard focus.
 
 {% assign gallery_cards = site.pages | where: "layout", "scrollstory" %}
 {% include nav/gallery-grid.html items = gallery_cards %}

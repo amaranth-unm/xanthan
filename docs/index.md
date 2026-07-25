@@ -57,7 +57,7 @@ Look things up. Site structure, component library, front matter, ScrollStory tec
 
 ## Using AI
 
-Work with Claude, ChatGPT, or other AI assistants to customize your site faster.
+Use AI inside a structure that keeps your site understandable, editable, and teachable.
 
 {% assign ai = site.pages | where_exp: "pg", "pg.path contains 'docs/using-ai/'" | sort: "title" %}
 {% for pg in ai %}{% unless pg.path contains 'index' %}
