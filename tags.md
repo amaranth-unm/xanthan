@@ -46,7 +46,7 @@ tag-folders: scrollstories
 
 
 <div id="tag-cards">
-  {% include nav/card-grid.html cards=tag_pages show-tags=true tag-data=true %}
+  {% include cards/card-grid.html cards=tag_pages show-tags=true tag-data=true %}
 </div>
 
 <p id="tag-empty" class="tag-empty" hidden>No pages match this tag.</p>

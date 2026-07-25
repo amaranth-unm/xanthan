@@ -30,7 +30,7 @@
 {% assign filter = include.filter | default: 'photo' %}
 
 {% capture img_url %}
-{% if include.image-path %}{% include images/image-path.html image-path=include.image-path %}{% endif %}
+{% if include.image-path %}{% include helpers/image-path.html image-path=include.image-path %}{% endif %}
 {% endcapture %}
 {% assign img_url = img_url | strip %}
 
