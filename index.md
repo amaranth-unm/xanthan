@@ -2,7 +2,7 @@
 title: Xanthan — Web Templates for Digital Humanities
 layout: default
 date: 2026-01-01
-summary: Open, durable website templates for scholars, instructors, and students. No coding, no platforms, no compromises.
+summary: Open, transparent, AI-ready website templates for scholars, instructors, and students. Built for public work people can understand, teach, and maintain.
 template_cards:
   - title: "Personal Portfolio"
     summary: "A professional site for your research, teaching, and creative work. About page, CV, project pages, top navigation — the structure for owning your academic identity online."
@@ -33,12 +33,42 @@ Website templates for academics who want to publish, teach, and collaborate onli
 
 Xanthan is a set of website templates and documentation built for people doing public-facing academic work. Choose a template, add your content in plain text, and publish---no coding, no installation, no monthly fees. Built on simple, durable web standards designed to last decades, not grant cycles.
 
+It is also built for learning in public. The files are visible. The structure is explainable. The design choices can be inspected, discussed, and revised by humans, even when AI helps with the implementation.
+
 {::nomarkdown}
 </div> <!-- close main container -->
 
 <div class="section-alt">
   <div class="container">
 {:/nomarkdown}
+
+## Websites with a pedagogical trail
+
+A solo AI-generated website can be impressive, but it often leaves little behind except the finished artifact. Xanthan preserves the trail: the Markdown pages, YAML navigation, CSS theme files, and documented components that show how the site works.
+
+That matters for academic work. Students can learn from the structure. Instructors can review how a class project is assembled. Collaborators can see and improve each other's pages. Future editors can change the site without starting over or asking AI to regenerate everything.
+
+{::nomarkdown}
+<div class="section-accent">
+{:/nomarkdown}
+
+##### Open
+No proprietary authoring platform is required. Your site is made of files you control and can move elsewhere.
+
+##### Transparent
+The structure is visible: content, navigation, design, and reusable components each have a place.
+
+##### Accessible
+Beginners can start with Markdown and plain-language AI prompts, then learn the vocabulary of the web through small edits.
+
+##### Collaborative
+Class projects can grow through many contributors without requiring everyone to arrive with the same technical confidence.
+
+{::nomarkdown}
+</div>
+{:/nomarkdown}
+
+## Who Xanthan is for
 
 **Scholars seeking public engagement.** Move your work beyond paywalls and PDFs. Build research portfolios, multimedia essays, and interactive arguments that reach broader audiences---on a site you control, not a platform that controls you.
 
@@ -114,21 +144,21 @@ GitHub Pages hosting costs nothing. No ads, no freemium upsells, no surprise bil
 
 ## Built for AI Collaboration
 
-Most website frameworks are a tangle of files where AI assistants guess and often guess wrong. Xanthan is structured differently: named design variables, modular components with documented parameters, clear file organization. AI can read the architecture and make changes that fit.
+AI can generate a website from a blank prompt. The harder question is whether anyone can understand and maintain what it made. Xanthan gives AI a curated context: named design variables, modular components with documented parameters, clear file organization, and plain-text content.
 
-You describe what you want in plain language. The AI handles the implementation. You stay in the editorial role---judging results, giving feedback, deciding what's right for your project.
+Those guardrails make AI more useful, not less. You describe what you want in plain language. The AI works inside a structure designed for durable academic websites. You stay in the editorial role---judging results, giving feedback, and deciding what's right for your project.
 "
 %}
 
 Here's what that looks like in practice:
 
-- *"Give my site a warmer feel---cream background, dark brown text, muted terracotta accents."* The AI finds your color variables and adjusts the whole palette as a coordinated set.
+- *"Give my site a warmer feel---cream background, dark brown text, muted terracotta accents."* The AI finds your theme variables and adjusts the palette as a coordinated set you can still edit by hand.
 
-- *"Create a page for my CV with proper headings and a clean layout. Here's the content."* The AI generates a new page with the right structure, formatting, and navigation entry.
+- *"Create a page for my CV with proper headings and a clean layout. Here's the content."* The AI generates a readable Markdown page with the right structure, formatting, and navigation entry.
 
 - *"My site won't build. Here's the error message."* The AI reads the error, identifies the problem, and walks you through the fix.
 
-- *"Build a scrolling section where a background image stays fixed while text panels scroll over it."* The AI assembles the right components with the correct syntax---work that would take hours to learn from scratch.
+- *"Build a StoryMaps-style section where a background image stays fixed while text panels scroll over it."* The AI assembles the right ScrollStory components with syntax you can inspect, copy, and adjust.
 
 {: .link-callout}
 [See our AI guide →](docs/using-ai/){: .btn-secondary .btn-sm}

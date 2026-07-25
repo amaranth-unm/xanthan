@@ -50,6 +50,16 @@ This matters for AI because the assistant can make targeted changes instead of g
 
 ---
 
+## Open files make better collaboration
+
+A generated website can hide the work that produced it. Xanthan keeps the work visible. That is especially important in class projects, collaborative archives, and public scholarship where the site is not only an output, but part of the learning process.
+
+When the files are open and readable, students can see how their pages relate to the larger project. Instructors can comment on structure as well as prose. Contributors can learn from each other's examples. A future editor can return months later and understand enough to make a small change without regenerating the whole site.
+
+This is one reason Xanthan pairs well with AI: the assistant can help people across different levels of technical confidence, while the framework keeps the result accountable to shared, inspectable materials.
+
+---
+
 ## You stay in the editorial role
 
 Using AI with Xanthan should feel less like ordering a finished product and more like working with a technically skilled collaborator. You describe the intellectual and visual goal. The AI translates that into code. You look at the result and decide whether it serves the project.

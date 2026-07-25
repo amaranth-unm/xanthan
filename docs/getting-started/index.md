@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
     {
       id: 'class-project',
       name: 'Class Project',
-      description: 'Gather and display student work for a collaborative project. Comes with some sample pages of student essays and some directory pages for navigation.',
+      description: 'Gather student work into a shared public site. Students contribute readable pages; the class builds a collaborative collection that can outlast the semester.',
       repoName: 'xanthan-web/class-project-template',
       repoUrl: 'http://github.com/xanthan-web/class-project-template',
       webUrl: 'https://xanthan-web.github.io/class-project-template',
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     {
       id: 'scrollstory',
       name: 'Scrollstory',
-      description: 'A simple site for displaying a research story.',
+      description: 'A StoryMaps-style site for an immersive scrolling narrative, built from editable text files instead of a proprietary platform.',
       repoName: 'xanthan-web/scrollstory-template',
       repoUrl: 'http://github.com/xanthan-web/scrollstory-template',
       webUrl: 'https://xanthan-web.github.io/scrollstory-template',
