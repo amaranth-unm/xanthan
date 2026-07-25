@@ -1,86 +1,143 @@
 ---
-title: Using AI Assistance
+title: AI-Ready Website Building
 layout: default
 date: 2026-02-16
 ---
 
 {% include nav/scrollspy-toc.html %}
 
-# Using AI Assistance
+# AI-Ready Website Building
 
-Most website frameworks assume you'll learn their technical stack before you can shape your site. Xanthan takes a different approach: its architecture is designed to be legible---not just to you, but to AI assistants. This means you can describe what you want in plain language and get results that actually work, because the AI can read the same structure you're working with.
+We have all heard that AI can make a website for you. Sometimes it can. The harder question is what happens the next day: can you understand what it made, change a sentence, swap an image, fix a broken link, teach someone else how the site works, and keep improving it without spending tokens on every tiny edit?
 
-This isn't a gimmick. It changes what's practical. Tasks that would normally require hours of learning CSS, HTML, or template syntax---redesigning your color palette, adding a new page with image carousels, building a ScrollStory section---become conversations. You describe what you want. The AI proposes changes. You look at the result and decide: yes, no, or try again. You stay in the editorial role; the AI handles the implementation.
+Xanthan is built for that second day.
 
-## Why Xanthan works well with AI
+The point is not that AI replaces the work of making a site. The point is that AI works better when it has a clear structure to work inside. Xanthan gives it that structure: Markdown pages, YAML navigation files, named CSS variables, documented components, and a small set of predictable layouts. Those constraints help the AI make better changes. They also help you read, revise, and undo those changes yourself.
 
-Most websites are a tangle of files where changing one thing can break something else in unpredictable ways. Xanthan is structured differently. Colors, fonts, and spacing are controlled by named variables, so the AI can change your entire palette in one place and have it cascade consistently. Components like image figures, alert boxes, and carousels have documented parameters, so the AI knows exactly what's available and how to use it. Files are organized by purpose, so the AI knows where to make changes without guessing. And your navigation menu is just a simple structured list, so reorganizing your site is a conversation, not a puzzle.
+That is the bargain: AI assistance without giving up human control.
 
-In practice, this means prompts like *"give my site a warmer, more earthy feel"* or *"add a before/after image slider comparing these two photos"* produce working results---because the AI can read the design system and work within it.
+---
 
-## The range of what's possible
+## AI works better with guardrails
 
-If you've never used AI for anything technical, start with something small: [Your First AI Edit](first-edit) walks through changing a color, swapping a font, and asking the AI to explain what it's doing. These are genuinely useful tasks, and they'll show you how the conversation works.
+A blank prompt can produce an impressive website mockup. It can also produce a pile of code that only the AI understands. That may be fine for a throwaway demo. It is a problem for a course site, a public humanities project, a portfolio, or anything you expect to maintain.
 
-Once you've seen how it feels, the range opens up considerably. You can reshape the entire look of your site---colors, fonts, spacing---with a single conversation. You can ask the AI to create new pages, build a project gallery, or set up a card-based directory. You can add components like image carousels, before/after sliders, and audio players. You can build ScrollStory sections with background images and side-scrolling text panels. And when something isn't working, you can ask the AI to explain what's happening and walk you through the fix.
+Xanthan gives the AI a curated context instead of an empty canvas. It does not need to invent a new design system every time you ask for a change. It can see where colors live, how navigation is configured, how images are added, and which components already exist.
 
-See [Building with AI](prompts) for specific examples across all of these.
+In practice, this means prompts like these are more likely to produce useful results:
+
+> *"Give my site a warmer, more earthy palette, but keep the existing theme structure so I can edit the colors later."*
+
+> *"Create a StoryMaps-style ScrollStory page with four sections. Use existing Xanthan components and explain where I should replace the placeholder images."*
+
+> *"Add a gallery-style navigation page for these projects using the existing card grid include. Do not invent a new layout unless the current components cannot do it."*
+
+The guardrails are not there to limit imagination. They are there so that creative requests turn into maintainable files.
+
+---
+
+## What Xanthan makes legible
+
+Xanthan is organized so both humans and AI assistants can find the right place to make a change.
+
+- **Content lives in Markdown files.** Pages are readable text files with a small front matter section at the top.
+- **Navigation lives in YAML.** The top menu is a structured list, not hidden in a template.
+- **Design choices use named variables.** Colors, fonts, spacing, borders, and shadows can be changed without hunting through every page.
+- **Components have documented parameters.** Figures, cards, galleries, alerts, media players, and ScrollStory sections are reusable pieces with names and options.
+- **Themes are separate files.** A palette can be swapped, copied, or customized without rewriting the whole design.
+
+This matters for AI because the assistant can make targeted changes instead of guessing. It matters for you because the result is still something you can inspect with ordinary reading skills.
+
+---
+
+## You stay in the editorial role
+
+Using AI with Xanthan should feel less like ordering a finished product and more like working with a technically skilled collaborator. You describe the intellectual and visual goal. The AI translates that into code. You look at the result and decide whether it serves the project.
+
+That distinction matters. The AI can write CSS, assemble includes, and create page files. It cannot decide whether your archive should feel spare or dense, whether a ScrollStory moment clarifies the evidence or distracts from it, or whether the tone of your homepage sounds like you. Those are editorial decisions.
+
+A useful habit is to ask the AI to explain what it changed after it makes an edit:
+
+> *"Explain the files you changed, why you changed them, and what I should edit by hand if I want to adjust this later."*
+
+That kind of explanation builds vocabulary. Vocabulary gives you more control the next time you ask.
+
+---
 
 ## Getting started: three ways in
 
-There's no single right way to work with AI. Start wherever you're comfortable.
+There is no single right way to work with AI. Start wherever you are comfortable.
 
-### 1. Browser-based chat (no setup required)
+### 1. Browser-based chat
 
-The simplest approach: open [ChatGPT](https://chatgpt.com), [Claude](https://claude.ai), or any AI chat interface in your browser. Describe what you want, then paste in the relevant piece of your code. No software to install, no accounts beyond what you likely already have.
+The simplest approach is to open [ChatGPT](https://chatgpt.com), [Claude](https://claude.ai), or another AI chat interface in your browser. Describe what you want, then paste the relevant piece of your code.
 
 Start by giving the AI a quick orientation:
 
-> *"I'm working on a website built with the Xanthan framework, which uses Jekyll, Markdown, and named CSS custom properties. I want to [describe your goal]. Here's the relevant file:"*
+> *"I'm working on a website built with the Xanthan framework. It uses Jekyll, Markdown pages, YAML navigation, CSS custom properties, and Liquid includes. I want to [describe your goal]. Here's the relevant file:"*
 
-Then paste the file contents. The AI will suggest changes you can copy back into your file.
+Then paste the file contents. This works well for focused questions: changing a color, adding an image, fixing a page that will not display, or asking what a piece of syntax means.
 
-This works well for focused questions: tweaking a color, fixing a page that won't display, adding an image, changing a heading.
+### 2. GitHub Copilot in your browser
 
-### 2. GitHub Copilot in your browser (repo-aware, free for students)
+GitHub has a built-in AI assistant that can read your repository. If you have a GitHub account, you can open it by clicking the Copilot icon at the top of a repository page.
 
-GitHub has a built-in AI assistant that can read your entire repository---no copy-pasting required. If you have a GitHub account, you can open it by clicking the Copilot icon at the top of any repository page.
-
-Because it can see all your files, it can answer questions like *"why isn't my nav menu showing up?"* or *"what pages have this template set in their front matter?"* without you having to explain your file structure first.
+Because it can see your files, it can answer questions like *"why is my nav menu not showing up?"* or *"which pages use the scrollstory layout?"* without you copying each file into the chat.
 
 GitHub Copilot is free for students and educators through [GitHub Education](https://education.github.com/).
 
-### 3. Local setup with an AI-enabled editor (most capable)
+### 3. Local editing with an AI-enabled editor
 
-For more substantial work---building ScrollStory sections, restructuring your site, making changes across many files---a local editing environment with an integrated AI assistant is the most capable option. The AI can read and edit your files directly, and you can preview changes instantly.
+For more substantial work, a local editing environment with an integrated AI assistant is the most capable option. The AI can read and edit your files directly, and you can preview changes on your computer before publishing them.
 
 See [Editing Workflows](../editing/) for how to set up local editing, then add one of these AI tools:
 
-- **GitHub Copilot** in VS Code --- free for students and educators ([apply](https://education.github.com/))
-- **Continue** --- free and open source ([VS Code extension](https://marketplace.visualstudio.com/items?itemName=Continue.continue))
-- **Cursor** --- an AI-first editor that replaces VS Code ([download](https://cursor.sh))
+- **GitHub Copilot** in VS Code, free for students and educators through GitHub Education
+- **Continue**, a free and open source VS Code extension
+- **Cursor**, an AI-first editor based on VS Code
 
-## Giving AI context about your project
+---
 
-However you're working, the AI does better when it knows what it's looking at. A quick orientation at the start of a conversation goes a long way:
+## A strong first prompt
 
-> *"I'm working on a website built with the Xanthan framework. Design variables are in assets/css/base.css. Reusable components are in _includes/. Navigation is configured in _data/nav-top.yml."*
+When you start a conversation, give the AI context and boundaries:
 
-You only need to say this once per conversation. After that, the AI will make suggestions that fit Xanthan's patterns rather than generic web development advice.
+> *"I'm working on a Xanthan site. Please preserve the existing framework patterns. Use Markdown for content, YAML for navigation, CSS variables for visual changes, and existing includes when possible. If you need to add new code, explain where it belongs and how I can edit it later."*
 
-For even better results, paste a section of the [Component Library](../reference/component-library) or [Pages & Front Matter](../reference/pages-and-front-matter) reference when asking about a specific topic.
+Then state the task in ordinary language:
 
-## You're the editor
+> *"I want my homepage to feel more like a serious academic project with a bold visual edge. Suggest a plan first, then make the smallest set of changes that would get me there."*
 
-This is worth saying plainly: using AI to build your site doesn't mean the AI is making decisions for you. You describe what you want. The AI translates that into code. You look at the result and judge whether it's right. If it's not, you say what's wrong and the AI tries again.
+This kind of prompt tells the AI not just what you want, but what kind of result you need: one that fits the site and remains editable.
 
-This is the same relationship an author has with a typesetter, or a director has with a camera operator. The technical skill is real, but the vision is yours. The AI can write CSS; it can't tell you whether your site should feel warm or clinical, whether your images should be large and dramatic or small and documentary. Those are your calls.
+---
+
+## What to ask AI to do
+
+Start small if you are new to this. Ask the AI to change one visible thing, then ask it to explain the change.
+
+Good early requests include:
+
+- Change the color palette while preserving the theme file structure.
+- Add an image to a page and explain how image paths work.
+- Create a new page with the right front matter.
+- Add a card grid, figure, audio player, or alert using an existing include.
+- Build a StoryMaps-style ScrollStory section from a short outline.
+- Explain why something on the page looks different than expected.
+
+See [Your First AI Edit](first-edit) for a gentle first pass, and [Building with AI](prompts) for more ambitious examples.
+
+---
 
 ## Privacy note
 
-When using AI assistants, your code is sent to the AI service for processing. Don't include sensitive information (passwords, API keys) in files where you're using AI assistance. Most educational licenses and free tiers are appropriate for academic and personal sites.
+When you use an AI assistant, the text you provide may be sent to that AI service for processing. Do not paste passwords, API keys, private student information, unpublished sensitive research, or anything you are not allowed to share with that service.
+
+For most academic portfolios, course project sites, and public humanities pages, the files are already intended to be public. Still, it is worth noticing what you are sharing before you ask for help.
+
+---
 
 ## Next steps
 
 - **New to AI-assisted editing?** Start with [Your First AI Edit](first-edit)
-- **Ready for more?** Browse [Building with AI](prompts) for ideas organized by what you're trying to accomplish
+- **Ready for more?** Browse [Building with AI](prompts) for examples organized by what you are trying to accomplish
