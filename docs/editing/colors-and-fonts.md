@@ -158,7 +158,7 @@ Both work the same way. Save the file. If you're previewing locally with `bundle
 Fonts work the same way — three variables control almost everything you see:
 
 ```css
---font-heading: 'Lora', serif;
+--font-heading: 'Space Grotesk', 'Inter', sans-serif;
 --font-body: 'Source Sans 3', sans-serif;
 --font-mono: 'Fira Mono', monospace;
 ```
@@ -181,10 +181,11 @@ A few that work well for academic and humanities sites:
 
 | Font | Character | Works well for |
 |---|---|---|
+| **Space Grotesk** | Editorial, direct, distinctive | Headings with more presence |
+| **Source Sans 3** | Warm, readable, practical | Body text, instructions, documentation |
 | **Lora** | Literary, slightly formal | Body text in longer essays |
 | **EB Garamond** | Classic, scholarly | Traditional academic feel |
 | **Source Serif 4** | Clean, readable | General use, mixed content |
-| **Playfair Display** | Elegant, high-contrast | Display headings |
 | **Inter** | Modern, neutral | Navigation, UI, captions |
 
 ---

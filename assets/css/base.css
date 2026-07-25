@@ -1,5 +1,6 @@
 /* Font imports - all fonts used throughout the site */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap');
@@ -71,6 +72,16 @@ PAGE SETUP & CUSTOMIZATION
   --text-feature-card-muted: var(--text-muted);
   --border-feature-card: var(--border-light);
   --border-feature-card-hover: var(--interactive-hover);
+  --bg-feature-band: var(--sage-deep);
+  --text-feature-band: var(--text-on-dark);
+  --text-feature-band-muted: color-mix(in srgb, var(--text-on-dark) 74%, transparent);
+  --text-feature-band-link: var(--sage-pale);
+  --text-feature-band-link-hover: var(--white);
+  --bg-editorial-note: color-mix(in srgb, var(--accent-primary) 9%, var(--bg-page));
+  --border-editorial-note: var(--accent-border);
+  --text-lede: color-mix(in srgb, var(--text-body) 82%, var(--accent-primary));
+  --text-kicker: var(--accent-primary-dark);
+  --metadata-border: color-mix(in srgb, var(--accent-primary) 28%, transparent);
 
   /* Text */
   --text-body: var(--sage-dark);
@@ -116,7 +127,7 @@ PAGE SETUP & CUSTOMIZATION
   --shadow-hover: 0 4px 12px color-mix(in srgb, var(--interactive-hover) 40%, transparent);
 
   /* Fonts */
-  --font-heading: 'Inter', sans-serif;
+  --font-heading: 'Space Grotesk', 'Inter', sans-serif;
   --font-body: 'Source Sans 3', sans-serif;
   --font-serif: 'Lora', serif;
   --font-mono: 'Fira Mono', 'Consolas', 'Menlo', monospace;
@@ -807,7 +818,13 @@ HERO SECTION (Homepage)
   .container ol,
   .container blockquote,
   .container .pullquote,
-  .container .alert {
+  .container .alert,
+  .container .lede,
+  .container .lead,
+  .container .section-intro,
+  .container .metadata-strip,
+  .container .field-note,
+  .container .evidence-note {
     padding-left: var(--spacing-md);
     padding-right: var(--spacing-md);
   }
