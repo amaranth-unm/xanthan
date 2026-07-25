@@ -1,6 +1,6 @@
 # Xanthan Development Notes
 
-Internal development reference for AI assistants and contributors working on the Xanthan framework. This file is gitignored---it's for maintaining consistency across sessions, not for end users.
+Internal development reference for AI assistants and contributors working on the Xanthan framework. This is the canonical source of project guidance; tool-specific files should point here rather than duplicating these instructions.
 
 ---
 
@@ -24,6 +24,70 @@ Users never interact with the xanthan base repo directly. They use one of three 
 The xanthan base repo is the source of truth. GitHub Actions sync `_includes/`, `_layouts/`, `assets/css/`, `assets/js/`, `scrollstories/`, and `docs/` to all three templates on every push to main. Template-specific files (`_config.yml`, `_data/nav-top.yml`, `_data/nav-sections.yml`) are NOT synced.
 
 **Implication for development:** When you make a change to xanthan, ask whether it should affect all templates or just the xanthan demo site. Changes to synced directories affect everyone.
+
+---
+
+## Git and pull request workflow
+
+Keep `main` as the clean, current source of truth. Each focused change should happen on a fresh branch created from updated `main`, then be merged through its own pull request.
+
+### Before starting implementation work
+
+1. Check the worktree:
+   ```bash
+   git status --short --branch
+   ```
+2. Return to `main`:
+   ```bash
+   git switch main
+   ```
+3. Fetch and fast-forward local `main`:
+   ```bash
+   git fetch origin
+   git merge --ff-only origin/main
+   ```
+4. Create a new branch with the `codex/` prefix and a descriptive name:
+   ```bash
+   git switch -c codex/descriptive-change-name
+   ```
+
+Do not start new work from an old feature branch, even if it is clean. A merged pull request is finished; later commits to that branch will not reopen the PR.
+
+### While a PR is open
+
+- Keep related commits on the PR branch.
+- If the user asks for follow-up work that belongs with the same review, commit it to the same branch and push.
+- If the PR has already merged, stop using that branch. Sync `main`, create a new branch, and open a new PR.
+
+### After the user merges a PR
+
+1. Fetch and update local `main`:
+   ```bash
+   git switch main
+   git fetch origin
+   git merge --ff-only origin/main
+   ```
+2. Confirm the old branch is merged:
+   ```bash
+   git branch --merged main
+   ```
+3. Delete the merged local branch:
+   ```bash
+   git branch -d codex/descriptive-change-name
+   ```
+4. Delete the merged remote branch:
+   ```bash
+   git push origin --delete codex/descriptive-change-name
+   ```
+5. Confirm there are no unexpected open PRs or dirty files:
+   ```bash
+   gh pr list --state open
+   git status --short --branch
+   ```
+
+### Why this matters
+
+A pull request compares one branch to `main`. Once the PR is merged, GitHub considers that PR complete. If we keep committing to the old branch afterward, those commits can sit outside `main` with no open PR, which makes it look like the work disappeared. The reliable rhythm is: merge, return to `main`, update `main`, delete the temporary branch, then start the next change from a fresh branch.
 
 ---
 
