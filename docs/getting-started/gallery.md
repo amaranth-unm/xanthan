@@ -65,17 +65,31 @@ template_sites:
 
 # Sites Built with Xanthan
 
-Examples of websites built on Xanthan templates — class projects, scrollstories, portfolios, and research collections.
+These are working Xanthan sites, not polished marketing demos. They show the range of things people can make from the same underlying system: class archives, visual essays, research collections, map-based directories, and small public projects that can keep growing after the first version goes live.
 
-{% include cards/card-stack.html cards=page.gallery_sites show-tags=true %}
+Use this page for browsing. If you are ready to make your own site, start with the [template guide](templates).
+
+{% include nav/gallery-grid.html
+  items=page.gallery_sites
+  variant="mosaic"
+  min-width="220px"
+  gap="var(--spacing-sm)"
+  show-summary=true
+%}
 
 ---
 
 ## Starting Templates
 
-Clean starting points for each template type. Fork one on GitHub to make it your own.
+These are clean starting points rather than finished examples. Use one when you want the structure in place before you add your own content.
 
-{% include cards/card-stack.html cards=page.template_sites show-tags=true %}
+{% include nav/gallery-grid.html
+  items=page.template_sites
+  variant="uniform"
+  min-width="240px"
+  gap="var(--spacing-sm)"
+  show-summary=true
+%}
 
 ---
 
