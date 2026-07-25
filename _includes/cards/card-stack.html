@@ -16,6 +16,7 @@
 {% assign tag_data = include.tag-data | default: false %}
 {% assign sorted_cards = include.cards | sort: "position" %}
 
+{::nomarkdown}
 {% if include.cards and sorted_cards.size > 0 %}
   {% for card in sorted_cards %}
   {% if card.title and card.title != "" %}
@@ -59,3 +60,4 @@
     card-stack include needs a cards collection.
   </div>
 {% endif %}
+{:/nomarkdown}

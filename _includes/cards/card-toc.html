@@ -13,6 +13,7 @@
 
 {% assign rows = include.rows | sort: "position" %}
 
+{::nomarkdown}
 {% if include.rows and rows.size > 0 %}
   {% for row in rows %}
     <div class="toc-row">
@@ -40,3 +41,4 @@
     card-toc include needs a rows collection.
   </div>
 {% endif %}
+{:/nomarkdown}
