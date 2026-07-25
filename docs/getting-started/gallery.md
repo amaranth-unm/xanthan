@@ -49,24 +49,6 @@ gallery_sites:
     link: "https://amaranth.unm.edu/studio/annual-report-25-26/"
     tags: ["annual report", "studio"]
 
-template_sites:
-  - title: "Portfolio Template"
-    summary: "A clean starting point for personal or professional academic sites. About page, CV, and sample project pages — fork it, add your content."
-    thumbnail: "/assets/images/gallery/portfolio-screenshot.png"
-    link: "https://xanthan-web.github.io/portfolio-template"
-    tags: ["template"]
-
-  - title: "Class Project Template"
-    summary: "A collaborative archive template with card directories and sample student essays. The instructor sets up the structure; students fill it in."
-    thumbnail: "/assets/images/gallery/class-project-screenshot.png"
-    link: "https://xanthan-web.github.io/class-project-template"
-    tags: ["template"]
-
-  - title: "ScrollStory Template"
-    summary: "An immersive scroll-driven narrative template showing the full range of scrollstory components: fixed backgrounds, text panels, image carousels."
-    thumbnail: "/assets/images/gallery/forest-scroll.gif"
-    link: "https://xanthan-web.github.io/scrollstory-template"
-    tags: ["template"]
 ---
 
 # Sites Built with Xanthan
@@ -79,20 +61,6 @@ Use this page for browsing. If you are ready to make your own site, start with t
   items=page.gallery_sites
   variant="uniform"
   min-width="300px"
-  gap="var(--spacing-md)"
-  show-summary=true
-%}
-
----
-
-## Starting Templates
-
-These are clean starting points rather than finished examples. Use one when you want the structure in place before you add your own content.
-
-{% include nav/gallery-grid.html
-  items=page.template_sites
-  variant="uniform"
-  min-width="280px"
   gap="var(--spacing-md)"
   show-summary=true
 %}
