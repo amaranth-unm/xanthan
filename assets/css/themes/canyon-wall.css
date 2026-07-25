@@ -24,17 +24,28 @@ CSS VARIABLE OVERRIDES
   --granite-white: #f3efe5;       /* Pale stone / page surface */
   --limestone: #ded0b5;           /* Light cliff face */
   --trail-tan: #c7a77a;           /* Dust and dry grass */
-  --copper-hover: #b8643e;        /* Warm interaction color */
+  --copper-hover: #8f4a34;        /* Muted copper, used sparingly */
 
   /* ===== Override Base Theme Variables ===== */
   /* Backgrounds */
   --bg-page: var(--granite-white);
-  --bg-card: var(--limestone);
-  --bg-accent: color-mix(in srgb, var(--trail-tan) 24%, var(--bg-page));
+  --bg-card: color-mix(in srgb, var(--granite-white) 86%, var(--limestone));
+  --bg-accent: color-mix(in srgb, var(--ponderosa-green) 8%, var(--bg-page));
   --bg-code: color-mix(in srgb, var(--limestone) 70%, var(--bg-page));
   --bg-nav: var(--shadow-gray);
   --bg-footer: var(--ponderosa-green);
   --bg-footer-bottom: var(--shadow-gray);
+
+  /* Homepage sections */
+  --bg-section-alt: color-mix(in srgb, var(--ponderosa-green) 9%, var(--granite-white));
+  --bg-section-warm: var(--shadow-gray);
+  --text-section-warm: var(--granite-white);
+  --text-section-warm-heading: var(--granite-white);
+  --text-section-warm-link: var(--limestone);
+  --text-section-warm-link-hover: var(--granite-white);
+  --border-section-warm: var(--canyon-red);
+  --border-section-accent: var(--canyon-red);
+  --hero-tagline-color: color-mix(in srgb, var(--shadow-gray) 76%, var(--bg-page));
 
   /* Text */
   --text-body: var(--shadow-gray);
@@ -46,9 +57,9 @@ CSS VARIABLE OVERRIDES
   /* Accents & Interactive */
   --accent-primary: var(--ponderosa-green);
   --accent-border: var(--canyon-red);
-  --interactive-hover: var(--copper-hover);
+  --interactive-hover: var(--canyon-red-dark);
   --interactive-subtle: color-mix(in srgb, var(--ponderosa-green) 14%, transparent);
-  --interactive-subtle-hover: color-mix(in srgb, var(--copper-hover) 18%, transparent);
+  --interactive-subtle-hover: color-mix(in srgb, var(--canyon-red) 16%, transparent);
   --accent-primary-dark: var(--shadow-gray);
 
   /* Heading hierarchy */
@@ -56,7 +67,7 @@ CSS VARIABLE OVERRIDES
   --text-h2: var(--ponderosa-green);
   --text-h3: var(--canyon-red);
   --text-h4: var(--shadow-gray);
-  --text-h5: var(--trail-tan);
+  --text-h5: var(--canyon-red-dark);
 
   /* Status colors tuned to the palette */
   --success: var(--ponderosa-green);

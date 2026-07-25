@@ -138,7 +138,7 @@ Here's what that looks like in practice:
   <div class="container">
 {:/nomarkdown}
 
-<h2 style="color: var(--amber);">Yes, it's like the gum.</h2>
+<h2>Yes, it's like the gum.</h2>
 
 Xanthan gum is a polysaccharide used as a binder and emulsifier---it transforms disparate ingredients into something cohesive and stable. This platform does the same: it binds simple, durable web technologies into a framework for digital scholarship. Text, media, code, and argument become a coherent whole with a long shelf life.
 
