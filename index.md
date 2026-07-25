@@ -31,9 +31,11 @@ Website templates for academics who want to publish, teach, and collaborate onli
 
 ## What is Xanthan?
 
-Xanthan is a set of website templates and documentation built for people doing public-facing academic work. Choose a template, add your content in plain text, and publish---no coding, no installation, no monthly fees. Built on simple, durable web standards designed to last decades, not grant cycles.
+{: .lede}
+Xanthan is a set of website templates and documentation built for people doing public-facing academic work. Choose a template, add your content in plain text, and publish---no coding, no installation, no monthly fees.
 
-It is also built for learning in public. The files are visible. The structure is explainable. The design choices can be inspected, discussed, and revised by humans, even when AI helps with the implementation.
+{: .section-intro}
+Built on simple, durable web standards designed to last decades, not grant cycles. It is also built for learning in public: the files are visible, the structure is explainable, and the design choices can be inspected, discussed, and revised by humans, even when AI helps with the implementation.
 
 {::nomarkdown}
 </div> <!-- close main container -->
@@ -150,6 +152,7 @@ Those guardrails make AI more useful, not less. You describe what you want in pl
 "
 %}
 
+{: .section-intro}
 Here's what that looks like in practice:
 
 - *"Give my site a warmer feel---cream background, dark brown text, muted terracotta accents."* The AI finds your theme variables and adjusts the palette as a coordinated set you can still edit by hand.

@@ -53,6 +53,16 @@ CSS VARIABLE OVERRIDES
   --text-feature-card-muted: color-mix(in srgb, var(--granite-white) 76%, transparent);
   --border-feature-card: color-mix(in srgb, var(--canyon-red) 70%, var(--shadow-gray));
   --border-feature-card-hover: var(--rim-green-light);
+  --bg-feature-band: var(--shadow-gray);
+  --text-feature-band: var(--granite-white);
+  --text-feature-band-muted: color-mix(in srgb, var(--granite-white) 76%, transparent);
+  --text-feature-band-link: var(--rim-green-light);
+  --text-feature-band-link-hover: var(--granite-white);
+  --bg-editorial-note: color-mix(in srgb, var(--rim-green-light) 18%, var(--granite-white));
+  --border-editorial-note: var(--canyon-red);
+  --text-lede: color-mix(in srgb, var(--shadow-gray) 86%, var(--canyon-red));
+  --text-kicker: var(--canyon-red-dark);
+  --metadata-border: color-mix(in srgb, var(--canyon-red) 32%, transparent);
 
   /* Text */
   --text-body: var(--shadow-gray);

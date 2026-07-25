@@ -51,6 +51,82 @@ Etc...
 
 ---
 
+## Editorial Rhythm
+
+Most pages do not need fancy typography. They do need rhythm: a strong opening, clear transitions, and occasional moments that tell the reader, "this part matters." Xanthan includes a few simple CSS classes for that work. They are ordinary Markdown/HTML classes, not includes, so you can use them without learning new component syntax.
+
+### Lede paragraph
+
+Use a lede for the opening paragraph of an essay, homepage section, or project description. It gives the first paragraph more presence without changing the whole page.
+
+```markdown
+{: .lede}
+This project asks what public history looks like when students write for readers beyond the classroom.
+```
+
+{: .lede}
+This project asks what public history looks like when students write for readers beyond the classroom.
+
+### Section intro
+
+Use a section intro after a heading when you want to frame what follows. It is quieter than a lede, but more deliberate than a normal paragraph.
+
+```markdown
+## Collaborative Work
+
+{: .section-intro}
+These pages show how a class project can become a shared public archive rather than a stack of isolated assignments.
+```
+
+{: .section-intro}
+These pages show how a class project can become a shared public archive rather than a stack of isolated assignments.
+
+### Field note or evidence note
+
+Use a field note for contextual asides, source notes, or editorial explanations that should stay close to the argument.
+
+```markdown
+{: .field-note}
+This image comes from a student-built archive. The caption should explain what the reader can learn from it, not just identify what it shows.
+```
+
+{: .field-note}
+This image comes from a student-built archive. The caption should explain what the reader can learn from it, not just identify what it shows.
+
+### Metadata strip
+
+Use a metadata strip when the page needs compact context: course, author, date, project type, or status.
+
+```markdown
+{: .metadata-strip}
+Course: HIST 300 | Project type: Collaborative archive | Status: In progress
+```
+
+{: .metadata-strip}
+Course: HIST 300 | Project type: Collaborative archive | Status: In progress
+
+### Feature band
+
+Use a feature band when a section deserves a stronger visual break. It is useful for major claims, calls to action, or a short cluster of links. Because it is a wrapper, write it with HTML and keep the content inside simple Markdown or HTML.
+
+```html
+<div class="feature-band">
+  <h2>A Stronger Section</h2>
+  <p>This band creates a deliberate pause without adding ornament or a new component.</p>
+</div>
+```
+
+{::nomarkdown}
+<div class="feature-band">
+  <h2>A Stronger Section</h2>
+  <p>This band creates a deliberate pause without adding ornament or a new component.</p>
+</div>
+{:/nomarkdown}
+
+Use these sparingly. The goal is not to decorate every paragraph. The goal is to give a page a few editorial decisions that readers can feel.
+
+---
+
 
 ## Pull Quotes
 Pull quotes highlight a key passage from your text: a memorable phrase, a central argument, a line worth making the reader pause on. They are editorial callouts, not source quotations. Place them between paragraphs for visual emphasis.
