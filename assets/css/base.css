@@ -47,6 +47,8 @@ PAGE SETUP & CUSTOMIZATION
   --bg-code: var(--sage-pale);
   --bg-nav: var(--sage-deep);
   --bg-section-alt: var(--bg-card);
+  --border-section-alt: color-mix(in srgb, var(--accent-primary) 16%, transparent);
+  --shadow-section-alt: inset 0 1px 0 var(--border-section-alt), inset 0 -1px 0 var(--border-section-alt);
   --bg-section-warm: var(--bg-accent);
   --text-section-warm: var(--text-body);
   --text-section-warm-heading: var(--text-h2);
@@ -225,8 +227,9 @@ SECTION BACKGROUNDS - Subtle visual rhythm
 /* Alternating section backgrounds for visual hierarchy - full width */
 .section-alt {
   grid-column: full;
-  background-color: var(--bg-section-alt);
-  padding: var(--spacing-lg) max(var(--spacing-sm), calc(50% - 24rem));
+  background: var(--bg-section-alt);
+  padding: var(--spacing-xl) max(var(--spacing-sm), calc(50% - 24rem));
+  box-shadow: var(--shadow-section-alt);
 }
 
 .section-alt h2:first-child {
@@ -244,6 +247,15 @@ SECTION BACKGROUNDS - Subtle visual rhythm
 
 .section-warm h2:first-child {
   margin-top: 0;
+}
+
+/* A band that wraps its own .container would otherwise indent twice — its own
+   padding plus the container's gutter — leaving banded sections ~1rem inside
+   the rest of the page. Let the inner container do the centering instead. */
+.section-alt:has(> .container),
+.section-warm:has(> .container) {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .section-warm {
@@ -292,6 +304,59 @@ SECTION BACKGROUNDS - Subtle visual rhythm
   }
 }
 
+
+/*****************************************************
+FEATURE GRID
+*****************************************************/
+/* Short titled points set side by side instead of stacked.
+   👉 Pass columns=3 to the include for a three-across row. */
+.feature-grid {
+  /* Display */
+  display: grid;
+  gap: var(--spacing-lg) var(--spacing-xl);
+
+  /* Box Model */
+  margin: var(--spacing-lg) 0;
+}
+
+/* minmax(0, 1fr) rather than 1fr so long words can't widen a column */
+.feature-grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.feature-grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.feature-grid-item {
+  /* Box Model */
+  padding-top: var(--spacing-sm);
+
+  /* Visual */
+  border-top: 2px solid var(--accent-border);
+}
+
+.feature-grid-item h3 {
+  /* Box Model */
+  margin-top: 0;
+  margin-bottom: var(--spacing-xs);
+
+  /* Typography */
+  font-size: 1.25rem;
+}
+
+.feature-grid-item p:last-child {
+  /* Box Model */
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .feature-grid--2,
+  .feature-grid--3 {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Right-aligned call-out — wraps a .btn-secondary .btn-sm link */
 .link-callout {
   text-align: right;
@@ -307,7 +372,12 @@ JUMBOTRON
       and control gradient direction. */
 .jumbotron {
   /* Display */
-  display: flex;
+  /* The background breaks out to full width, but the text inside sits on the
+     page's own content column. Subgrid borrows the container's columns, so the
+     text stays aligned even where that column is narrower — a docs page with a
+     scrollspy TOC, for instance. */
+  display: grid;
+  grid-template-columns: subgrid;
   align-items: center;
 
   /* Grid breakout — full viewport width */
@@ -320,15 +390,16 @@ JUMBOTRON
 }
 
 /* Text position + gradient direction — set via box-align parameter */
-.jumbotron--left  { justify-content: flex-start; }
-.jumbotron--right { justify-content: flex-end; }
-.jumbotron--center { justify-content: center; }
+.jumbotron--left .jumbotron-content   { justify-self: start; }
+.jumbotron--right .jumbotron-content  { justify-self: end; }
+.jumbotron--center .jumbotron-content { justify-self: center; }
 
 /* 👉 To change text width, padding, or font for all jumbotrons, edit here. */
 .jumbotron-content {
   /* Box Model */
-  max-width: 45rem;
-  padding: var(--spacing-lg);
+  grid-column: content;
+  max-width: 34rem;
+  padding: var(--spacing-lg) 0;
 
   /* Typography */
   font-family: var(--font-body);
@@ -360,7 +431,7 @@ JUMBOTRON
 
   /* Typography */
   font-size: clamp(1.4rem, 2.5vw, 2rem);
-  color: var(--accent-primary);
+  color: var(--text-h2);
 }
 
 .jumbotron--center .jumbotron-content h2 {
@@ -385,7 +456,7 @@ JUMBOTRON
 
   .jumbotron-content {
     max-width: 100%;
-    padding: var(--spacing-md);
+    padding: var(--spacing-md) 0;
   }
 
   .jumbotron-content h2 {

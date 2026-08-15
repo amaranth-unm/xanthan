@@ -252,13 +252,23 @@ HTML5 audio player. See [Media](../editing/media) for details on hosting audio f
 
 **File:** `nav/scrollspy-toc.html`
 
-Floating sidebar that auto-generates a table of contents from all `h2` headings on the page. Highlights the current section as the reader scrolls.
+Sticky sidebar that auto-generates a table of contents from the headings on the page. Highlights the current section as the reader scrolls.
 
 ```
 {% raw %}{% include nav/scrollspy-toc.html %}{% endraw %}
 ```
 
-No parameters. Place near the top of your page content (after front matter). On mobile, it collapses to a static block above the content.
+| Parameter | Default | Description |
+|---|---|---|
+| `headings` | `h2` | CSS selector for the headings to track. |
+
+By default it tracks `h2` headings. If your sections are `h3`—as on an FAQ page, where each question is a smaller heading—pass the selector explicitly:
+
+```
+{% raw %}{% include nav/scrollspy-toc.html headings="h3" %}{% endraw %}
+```
+
+Place near the top of your page content (after front matter). On screens under 1100px it collapses to a horizontal list above the content; at wider sizes it moves into a sidebar column and the page's text column narrows to make room. If the page has no matching headings, the component removes itself so no empty sidebar is reserved.
 
 ---
 
@@ -439,6 +449,46 @@ A horizontal row with text and a button link. Useful for landing pages or featur
 | `link` | yes | --- | Button destination URL |
 | `button` | no | uses `title` | Button label |
 | `text-width` | no | `50` | Percentage width of text area |
+
+---
+
+## Feature Grid
+
+**File:** `layout/feature-grid.html`
+
+A set of short titled points set side by side instead of stacked. Use it for the
+"here's what this gives you" passages that otherwise become a long column of
+small headings and paragraphs. It collapses to a single column on phones.
+
+The points live in your page's front matter, so the page body stays short:
+
+```
+{% raw %}---
+title: About This Project
+principles:
+  - title: "Open"
+    text: "Your site is made of files you control and can move elsewhere."
+  - title: "Transparent"
+    text: "The structure is visible: content, navigation, and design."
+  - title: "Accessible"
+    text: "Start with Markdown, then learn the vocabulary of the web."
+  - title: "Collaborative"
+    text: "Projects can grow through many contributors."
+---{% endraw %}
+```
+
+Then place it wherever you want the grid to appear:
+
+```
+{% raw %}{% include layout/feature-grid.html features=page.principles %}{% endraw %}
+```
+
+| Parameter | Required | Default | Notes |
+|-----------|----------|---------|-------|
+| `features` | yes | --- | Array of `title` / `text` pairs, usually `page.<name>` |
+| `columns` | no | `2` | `2` or `3` columns on wide screens |
+
+`text` accepts Markdown, so links and emphasis work inside a point.
 
 ---
 

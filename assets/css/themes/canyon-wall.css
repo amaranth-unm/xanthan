@@ -38,7 +38,8 @@ CSS VARIABLE OVERRIDES
   --bg-footer-bottom: var(--shadow-gray);
 
   /* Homepage sections */
-  --bg-section-alt: color-mix(in srgb, var(--rim-green-light) 28%, var(--granite-white));
+  --bg-section-alt: linear-gradient(180deg, color-mix(in srgb, var(--limestone) 72%, var(--granite-white)), color-mix(in srgb, var(--limestone) 52%, var(--granite-white)));
+  --border-section-alt: color-mix(in srgb, var(--canyon-red) 18%, var(--granite-white));
   --bg-section-warm: var(--shadow-gray);
   --text-section-warm: var(--granite-white);
   --text-section-warm-heading: var(--granite-white);
