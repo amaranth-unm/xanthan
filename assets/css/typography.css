@@ -40,11 +40,6 @@ h2 {
   font-size: clamp(1.55rem, 3vw, 2rem);
 }
 
-.container > h2 {
-  padding-left: var(--spacing-sm);
-  border-left: 4px solid var(--accent-border);
-}
-
 .container > h2:first-child {
   margin-top: var(--spacing-md);
 }
@@ -60,14 +55,18 @@ h4 {
   color: var(--text-h4);
   margin-top: var(--spacing-md);
   margin-bottom: 0.8rem;
-  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
 }
 
+/* Small uppercase label. Sized just above body copy so it still reads as a
+   heading rather than a caption, with tracking so the caps don't crowd. */
 h5 {
   color: var(--text-h5);
-  margin-top: var(--spacing-xs);
-  margin-bottom: 0.25rem;
-  font-size: 1rem;
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.045em;
   text-transform: uppercase;
 }
 
