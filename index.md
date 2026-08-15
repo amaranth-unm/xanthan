@@ -16,6 +16,15 @@ template_cards:
     summary: "An immersive scrolling narrative with background images and layered text. Like StoryMaps, but non-proprietary, editable, and yours to keep."
     thumbnail: "/assets/images/gallery/forest-scroll.gif"
     link: "docs/getting-started/templates#scrollstory"
+reasons:
+  - title: "You own your content"
+    text: "Your site is text files in a repository you control. Move it to any host, take it between institutions, keep it after the grant ends. Hosting on GitHub Pages is free---no ads, no subscription, no terms-of-service surprises."
+  - title: "Built to last"
+    text: "HTML, CSS, and Markdown have worked for decades and will keep working. There's no database to secure, no software to update, no security patches to apply. What you build today will still run in 2050 without maintenance."
+  - title: "You learn by working"
+    text: "Start with plain-language prompts and Markdown, then pick up HTML, CSS, and Git as you go. These aren't \"website skills\"---they're foundational to digitally-engaged humanities work, and you learn them by building something real."
+  - title: "Others can build on it"
+    text: "The structure is visible: content, navigation, design, and reusable components each have a place. Students can learn from how a site is assembled, and colleagues can contribute without everyone arriving with the same technical confidence."
 ---
 
 {: .hero-section}
@@ -35,57 +44,7 @@ Website templates for academics who want to publish, teach, and collaborate onli
 Xanthan is a set of website templates and documentation built for people doing public-facing academic work. Choose a template, add your content in plain text, and publish---no coding, no installation, no monthly fees.
 
 {: .section-intro}
-Built on simple, durable web standards designed to last decades, not grant cycles. It is also built for learning in public: the files are visible, the structure is explainable, and the design choices can be inspected, discussed, and revised by humans, even when AI helps with the implementation.
-
-{::nomarkdown}
-</div> <!-- close main container -->
-
-<div class="section-alt">
-  <div class="container">
-{:/nomarkdown}
-
-## Websites with a pedagogical trail
-
-A solo AI-generated website can be impressive, but it often leaves little behind except the finished artifact. Xanthan preserves the trail: the Markdown pages, YAML navigation, CSS theme files, and documented components that show how the site works.
-
-That matters for academic work. Students can learn from the structure. Instructors can review how a class project is assembled. Collaborators can see and improve each other's pages. Future editors can change the site without starting over or asking AI to regenerate everything.
-
-{::nomarkdown}
-<div class="section-accent">
-{:/nomarkdown}
-
-##### Open
-No proprietary authoring platform is required. Your site is made of files you control and can move elsewhere.
-
-##### Transparent
-The structure is visible: content, navigation, design, and reusable components each have a place.
-
-##### Accessible
-Beginners can start with Markdown and plain-language AI prompts, then learn the vocabulary of the web through small edits.
-
-##### Collaborative
-Class projects can grow through many contributors without requiring everyone to arrive with the same technical confidence.
-
-{::nomarkdown}
-</div>
-{:/nomarkdown}
-
-## Who Xanthan is for
-
-**Scholars seeking public engagement.** Move your work beyond paywalls and PDFs. Build research portfolios, multimedia essays, and interactive arguments that reach broader audiences---on a site you control, not a platform that controls you.
-
-**Instructors teaching digital literacy.** Turn class projects into real public scholarship. Students build collectively around shared themes---local history archives, community documentation, thematic collections---learning web fundamentals while creating work that outlasts the semester.
-
-**Students building professional presence.** Create a portfolio that showcases your research, teaching, and digital skills. Own your academic identity rather than scattering it across platforms.
-
-{::nomarkdown}
-  </div>
-</div>
-{:/nomarkdown}
-
-{::nomarkdown}
-<div class="container"> <!-- reopen main container -->
-{:/nomarkdown}
+Built on simple, durable web standards designed to last decades, not grant cycles---and built for learning in public, so the choices behind a site stay visible to the people who use, teach, and inherit it.
 
 
 ## What Can You Build?
@@ -106,25 +65,7 @@ Ready to start? Choose a card above for a guided template path. Or, if you want 
 
 Digital humanities work should be as open in its process as in its product. Xanthan is built on a simple conviction: scholars shouldn't have to rent their web presence from proprietary platforms, and they shouldn't need a computer science degree to publish online.
 
-{::nomarkdown}
-<div class="section-accent">
-{:/nomarkdown}
-
-##### You own your content
-Your site is text files in a repository you control. Move it to any host. Take it between institutions. No platform lock-in, no terms-of-service surprises. It's yours.
-
-##### Built to last
-HTML, CSS, and Markdown will outlive any proprietary platform. Static sites have no databases to secure, no software to update, no security patches to apply. What you build today will still work in 2050 with zero maintenance.
-
-##### You learn by working
-Markdown, GitHub, HTML, CSS---these aren't "website skills." They're foundational to digitally-engaged humanities work. You pick them up naturally by building real projects, not by sitting through tutorials.
-
-##### Free and open
-GitHub Pages hosting costs nothing. No ads, no freemium upsells, no surprise bills. Students and colleagues can see how your site works, learn from your choices, and build on your code.
-
-{::nomarkdown}
-</div>
-{:/nomarkdown}
+{% include layout/feature-grid.html features=page.reasons %}
 
 {: .link-callout}
 [See more in our FAQs →](faqs#why-not-use-wix-or-squarespace){: .btn-secondary .btn-sm}
@@ -136,6 +77,14 @@ GitHub Pages hosting costs nothing. No ads, no freemium upsells, no surprise bil
 <div class="container"> <!-- reopen main container -->
 {:/nomarkdown}
 
+## Who Xanthan is for
+
+**Scholars seeking public engagement.** Move your work beyond paywalls and PDFs. Build research portfolios, multimedia essays, and interactive arguments that reach broader audiences---on a site you control, not a platform that controls you.
+
+**Instructors teaching digital literacy.** Turn class projects into real public scholarship. Students build collectively around shared themes---local history archives, community documentation, thematic collections---learning web fundamentals while creating work that outlasts the semester.
+
+**Students building professional presence.** Create a portfolio that showcases your research, teaching, and digital skills. Own your academic identity rather than scattering it across platforms.
+
 
 {% include images/jumbotron.html
   image-path="/assets/images/site/scaffolding-hand.png"
@@ -146,9 +95,11 @@ GitHub Pages hosting costs nothing. No ads, no freemium upsells, no surprise bil
 
 ## Built for AI Collaboration
 
-AI can generate a website from a blank prompt. The harder question is whether anyone can understand and maintain what it made. Xanthan gives AI a curated context: named design variables, modular components with documented parameters, clear file organization, and plain-text content.
+AI can generate a website from a blank prompt. The harder question is what it leaves behind---usually just the finished artifact, impressive but opaque to whoever has to change it next.
 
-Those guardrails make AI more useful, not less. You describe what you want in plain language. The AI works inside a structure designed for durable academic websites. You stay in the editorial role---judging results, giving feedback, and deciding what's right for your project.
+Xanthan preserves the trail. Markdown pages, YAML navigation, CSS theme files, and components with documented parameters give AI a curated context to work inside, and leave people something they can still read.
+
+Those guardrails make AI more useful, not less. You describe what you want in plain language, and you stay in the editorial role---judging results, giving feedback, and deciding what's right for your project.
 "
 %}
 
@@ -167,6 +118,8 @@ Here's what that looks like in practice:
 [See our AI guide →](docs/using-ai/){: .btn-secondary .btn-sm}
 
 {::nomarkdown}
+</div> <!-- close main container -->
+
 <div class="section-warm">
   <div class="container">
 {:/nomarkdown}
@@ -178,8 +131,10 @@ Xanthan gum is a polysaccharide used as a binder and emulsifier---it transforms 
 Good infrastructure, like good binding agents, should be reliable, unobtrusive, and built to last. [Read more about our philosophy](about).
 
 {::nomarkdown}
-  </div>
-</div>
+  </div> <!-- close container -->
+</div> <!-- close section-warm -->
+
+<div class="container"> <!-- reopen main container -->
 {:/nomarkdown}
 
 ## The best way to learn is to start
