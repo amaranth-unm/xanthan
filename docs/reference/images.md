@@ -1,12 +1,12 @@
 ---
-title: Images
+title: Images & Media
 layout: default
 date: 2026-02-14
 ---
 
 {% include nav/scrollspy-toc.html %}
 
-# Images
+# Images & Media
 
 An image is never just decoration. It establishes credibility, creates a sense of place, shows something that words can't, or gives a reader a moment to breathe between ideas. How you place an image shapes how it functions---whether it commands the full page, sits beside an argument, or anchors a section.
 
@@ -396,6 +396,29 @@ See the [ScrollStories overview](../scrollstories/) to learn what's available, o
 
 **When in doubt, use absolute paths.** They always resolve the same way regardless of which page you're on. And remember: paths are case-sensitive. `Photo.jpg` is not the same as `photo.jpg`."
 %}
+
+---
+
+## Embedding media
+
+Beyond images, you can embed audio, video, and 3D models. In most cases you copy an "embed code" from a service like YouTube or SketchFab and paste it onto your page. For a few formats Xanthan provides an include so the markup stays standardized and easy to maintain.
+
+### Sound files
+
+To embed a sound file with a simple playback interface, use the `audio.html` include and set `src` to the path of your file.
+
+```
+{% raw %}
+{% include media/audio.html
+  src="/assets/audio/sample-audio.mp3"
+%}
+{% endraw %}
+```
+
+### Embed codes from other services
+
+For YouTube, Vimeo, SketchFab, and similar services, copy the embed code the service gives you and paste it directly into your page. It will render as-is.
+
 
 **Image doesn't appear:**
 - Check that the file path and filename match exactly (paths are case-sensitive)

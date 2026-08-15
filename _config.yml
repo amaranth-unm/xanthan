@@ -7,6 +7,7 @@ search: true
 theme_css: canyon-wall
 
 exclude:
+  - AGENTS.md
   - CLAUDE.md
   - CHANGELOG.md
   - README.md

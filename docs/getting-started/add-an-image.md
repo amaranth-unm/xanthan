@@ -24,7 +24,7 @@ We'll do exactly that here.
 
 ## Start with a working example
 
-Open [Images guide](../editing/images) in one tab and your page file in another.
+Open [Images guide](../reference/images) in one tab and your page file in another.
 
 Find a `figure.html` example in the guide, copy it, and paste it into your page. Then edit just these values:
 
@@ -84,4 +84,4 @@ The `figure.html` include has a few options you can adjust:
 - **`caption`** --- text that appears below the image
 - **`alt-text`** --- description for accessibility (always include this)
 
-`figure.html` always centers the image. To place an image *beside* text instead, use `figure-wrap.html`. For the full range of image options---side-by-side layouts, carousels, full-width jumbotrons, and more---see the [Images guide](../editing/images).
+`figure.html` always centers the image. To place an image *beside* text instead, use `figure-wrap.html`. For the full range of image options---side-by-side layouts, carousels, full-width jumbotrons, and more---see the [Images guide](../reference/images).

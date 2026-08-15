@@ -78,15 +78,28 @@ Horizontal lines inside a dropdown help organize long menus:
 - title: "Content"
   items:
     - title: "Typography"
-      url: "/editing/typography"
+      url: "/reference/typography"
     - title: "Images"
-      url: "/editing/images"
+      url: "/reference/images"
 
     - divider: true
 
     - title: "Previewing Locally"
-      url: "/editing/previewing-locally"
+      url: "/reference/working-locally"
 ```
+
+### Editing the menu in GitHub
+
+The top menu is controlled by one data file, `_data/nav-top.yml`.
+
+1. Press `.` on your repository page to open the browser editor
+2. Open `_data/nav-top.yml`
+3. Follow the pattern of the existing entries:
+   ```yaml
+   - title: "My New Page"
+     url: "/my-new-page"
+   ```
+4. Commit and sync
 
 ### Common tasks
 

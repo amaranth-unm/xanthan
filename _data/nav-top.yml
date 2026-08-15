@@ -9,45 +9,25 @@
       url: "/docs/getting-started/first-edit"
     - title: "Add an Image"
       url: "/docs/getting-started/add-an-image"
-    - title: "StoryMaps-style Pages"
-      url: "/docs/scrollstories"
     - divider: true
     - title: "Built with Xanthan"
       url: "/docs/getting-started/gallery"
 
-- title: "Editing"
+- title: "ScrollStories"
   items:
-    - title: "Editing Workflows"
-      url: "/docs/editing/"
+    - title: "What ScrollStories Are"
+      url: "/docs/scrollstories/"
 
     - divider: true
 
-    - title: "Typography"
-      url: "/docs/editing/typography"
-    - title: "Images"
-      url: "/docs/editing/images"
-    - title: "Media"
-      url: "/docs/editing/media"
-    - title: "ScrollStories"
-      url: "/docs/scrollstories"
-    - title: "Colors & Fonts"
-      url: "/docs/editing/colors-and-fonts"
-    - title: "Themes"
-      url: "/docs/editing/themes"
-
-    - divider: true
-
-    - title: "Navigation"
-      url: "/docs/editing/navigation"
-    - title: "Search"
-      url: "/docs/editing/search"
-    - title: "Tags"
-      url: "/docs/editing/tags"
-
-    - divider: true
-
-    - title: "Previewing Locally"
-      url: "/docs/editing/previewing-locally"
+    - title: "Background Scroll Boxes"
+      url: "/docs/scrollstories/bg-scrollbox"
+    - title: "Background Switching"
+      url: "/docs/scrollstories/bg-switch"
+    - title: "Side-Scrolling Text"
+      url: "/docs/scrollstories/side-scroll"
+    - title: "Peekaboo Images"
+      url: "/docs/scrollstories/peekaboo"
 
 - title: "Reference"
   items:
@@ -57,8 +37,31 @@
       url: "/docs/reference/site-structure"
     - title: "Component Library"
       url: "/docs/reference/component-library"
-    - title: "ScrollStory Techniques"
-      url: "/docs/scrollstories/bg-scrollbox"
+
+    - divider: true
+
+    - title: "Typography"
+      url: "/docs/reference/typography"
+    - title: "Images & Media"
+      url: "/docs/reference/images"
+    - title: "Colors & Fonts"
+      url: "/docs/reference/colors-and-fonts"
+    - title: "Themes"
+      url: "/docs/reference/themes"
+
+    - divider: true
+
+    - title: "Navigation"
+      url: "/docs/reference/navigation"
+    - title: "Search"
+      url: "/docs/reference/search"
+    - title: "Tags"
+      url: "/docs/reference/tags"
+
+    - divider: true
+
+    - title: "Working Locally"
+      url: "/docs/reference/working-locally"
     - title: "Troubleshooting"
       url: "/docs/reference/troubleshooting"
 

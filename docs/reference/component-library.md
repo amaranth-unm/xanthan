@@ -234,7 +234,7 @@ For quoted source material, use Markdown blockquotes with `>` and style the resu
 
 **File:** `media/audio.html`
 
-HTML5 audio player. See [Media](../editing/media) for details on hosting audio files.
+HTML5 audio player. See [Images & Media](images#embedding-media) for details on hosting audio files.
 
 ```
 {% raw %}{% include media/audio.html

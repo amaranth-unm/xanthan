@@ -45,7 +45,7 @@ Named CSS variables, modular components with clear parameters, readable file str
 Full documentation lives on the Xanthan site and is also bundled in each template repository (matched to your version of the code):
 
 - **[Getting Started](https://xanthan-web.github.io/xanthan/docs/getting-started/)** — From zero to a live site in 15 minutes
-- **[Editing](https://xanthan-web.github.io/xanthan/docs/editing/)** — Colors, fonts, images, navigation, typography
+- **[Reference](https://xanthan-web.github.io/xanthan/docs/reference/)** — Colors, fonts, images, navigation, typography
 - **[Reference](https://xanthan-web.github.io/xanthan/docs/reference/)** — Component library, front matter, troubleshooting
 - **[Using AI](https://xanthan-web.github.io/xanthan/docs/using-ai/)** — Working with AI assistants to build your site
 - **[ScrollStories](https://xanthan-web.github.io/xanthan/docs/scrollstories/)** — Building scroll-driven narratives

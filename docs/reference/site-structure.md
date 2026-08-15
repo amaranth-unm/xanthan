@@ -52,7 +52,7 @@ The assets folder is one you'll interact with frequently—adding images and occ
 ### `docs/`
 **Documentation and guides**
 
-All the documentation for Xanthan, organized into sections: `getting-started/` (setup tutorials), `editing/` (content and customization guides), `reference/` (this page and other lookup resources), `using-ai/` (AI assistance guides), and `scrollstories/` (scrolling narrative documentation). You can safely delete this entire folder when you no longer need the guides—it won't affect your site.
+All the documentation for Xanthan, organized into sections: `getting-started/` (setup tutorials), `reference/` (this page and other lookup resources), `using-ai/` (AI assistance guides), and `scrollstories/` (scrolling narrative documentation). You can safely delete this entire folder when you no longer need the guides—it won't affect your site.
 
 ### `scrollstories/`
 **StoryMaps-style example pages**
@@ -60,6 +60,18 @@ All the documentation for Xanthan, organized into sections: `getting-started/` (
 This folder contains working ScrollStory examples: Xanthan pages where text, images, maps, and media can unfold as the reader scrolls. You can open an example to study the pattern, duplicate one as a starting point, or delete the folder if your site does not need StoryMaps-style pages.
 
 ---
+
+## Moving files into folders
+
+To organize pages into folders (e.g. `projects/my-project.md`) from GitHub's browser editor:
+
+1. Open the file in the editor
+2. Click the filename at the top of the editor tab
+3. Edit the path to include the folder --- GitHub creates the folder automatically
+4. Commit and sync
+
+Remember that moving a page changes its URL, so update any links pointing at it.
+
 
 ## Content Folders (Varies by Template)
 
@@ -112,4 +124,4 @@ Everything else? You'll learn it as you need it. The component files, documentat
 ## Next Steps
 
 - **[Pages & Front Matter](pages-and-front-matter)** - Learn how individual page files are structured
-- **[Editing Workflows](../editing/)** - Make your first changes to your site
+- **[Make Your First Edit](../getting-started/first-edit)** - Make your first changes to your site

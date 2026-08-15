@@ -1,18 +1,85 @@
 ---
-title: Previewing Locally
+title: Working Locally
 layout: default
 date: 2025-01-01
 ---
 
-# Previewing Locally
+# Working Locally
 
 {% include nav/scrollspy-toc.html %}
 
-Tired of waiting 1–2 minutes every time you make a change just to see if it worked? Want to preview your site instantly on your own computer before publishing changes to your public site on GitHub?
+{: .lede}
+**You do not need any of this.** You can build, edit, and publish an entire Xanthan site from your browser and never install a thing. This page is here for when you want to work faster, not because the work requires it.
 
-A widespread app called Docker lets you run your entire website on your computer, so you can see changes immediately. Make an edit, save the file, refresh your browser. No pushing changes and waiting for GitHub Pages to rebuild your site.
+Two things change once a site gets busy. Every push to GitHub means waiting a minute or two to see whether an edit worked, and the browser editor gets awkward when you're moving many files at once. Working on your own computer removes both problems: edit, save, refresh, see it immediately.
 
-This guide shows you how to set up local development using Docker, even if you've never heard of it before.
+There are two halves to this, and they are independent. You can set up local *editing* without local *previewing*, or the reverse.
+
+---
+
+## Editing on your own computer
+
+For frequent editing, working on your own computer is faster and more flexible. You'll need two free tools.
+
+### 1. Install the tools
+
+- **[GitHub Desktop](https://desktop.github.com)** --- keeps your local files and GitHub repository in sync
+- **[Visual Studio Code](https://code.visualstudio.com)** --- a proper code editor with file management, search/replace, and AI assistant support
+
+### 2. Clone your repository
+
+1. In GitHub Desktop, go to **File > Clone Repository**
+2. Find your site's repository in the GitHub.com tab
+3. Select it and click **Clone**
+4. Choose where on your computer you want the files
+
+### 3. Edit in VS Code
+
+1. In GitHub Desktop, click **"Open in Visual Studio Code"**
+2. VS Code opens with your full project loaded
+3. Edit files, add images, rename and move things---all with a real file manager
+
+### 4. Commit and push
+
+When you save a file, GitHub Desktop notices the change automatically:
+
+1. Switch to GitHub Desktop
+2. Your changed files appear in the left sidebar
+3. Add a short summary of what you changed
+4. Click **"Commit to main"**
+5. Click **"Push origin"** to send changes to GitHub
+
+Your site rebuilds automatically in about a minute.
+
+### Before you commit
+
+A quick checklist to prevent common errors:
+
+- Matching quotes in include blocks (`"..."` not `"...'`)
+- File paths that match actual file locations exactly
+- Include blocks with proper delimiters (`{%raw%}{% ... %}{%endraw%}`)
+- Front matter properly formatted between `---` markers
+
+---
+
+## Browser or local?
+
+| | GitHub editor | Local editing |
+|---|---|---|
+| **Setup** | None | Install 2 apps |
+| **Best for** | Quick edits, single pages | Frequent changes, multiple files |
+| **File management** | Limited | Full (drag, drop, rename, move) |
+| **Works offline** | No | Yes |
+| **AI assistance** | Limited | Full (Copilot, Cursor, etc.) |
+| **Instant preview** | No | Yes (with Docker, below) |
+
+Most people start in the browser and move to local editing as their site grows. There is no wrong answer---use whatever keeps you productive.
+
+---
+
+## Previewing with Docker
+
+The rest of this page covers instant local preview. It is the more involved half, and the one you are least likely to need early on.
 
 ---
 
@@ -137,7 +204,7 @@ Once you have Docker installed, here's your typical workflow to edit your site:
 4. **Open browser** to `http://localhost:4000`
 5. **Edit files** in VS Code and watch changes appear instantly
 6. **When done**, press `Ctrl + C` in the terminal to stop the server
-7. **Commit and push** your changes to GitHub (see [Editing Workflows](../editing/) guide)
+7. **Commit and push** your changes to GitHub (see [Editing on your own computer](#editing-on-your-own-computer) above)
 
 {% include typography/alert.html
   class="info"

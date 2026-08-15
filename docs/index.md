@@ -24,29 +24,20 @@ From zero to a live site in 15 minutes. Choose a template, create your repositor
 
 ---
 
-## Editing
+## ScrollStories
 
-Make it yours. Pages, typography, images, colors, navigation, and StoryMaps-style ScrollStories.
+Xanthan's way to build familiar StoryMaps-style narratives, from files you can edit by hand and ask AI to help revise.
 
-{% assign ed = site.pages | where_exp: "pg", "pg.path contains 'docs/editing/'" | sort: "title" %}
-{% for pg in ed %}{% unless pg.path contains 'index' %}
+{% assign ss = site.pages | where_exp: "pg", "pg.path contains 'docs/scrollstories/'" | sort: "title" %}
+{% for pg in ss %}
 - [{{ pg.title }}]({{ pg.url | prepend: site.baseurl }})
-{% endunless %}{% endfor %}
-
-### StoryMaps-style pages
-
-ScrollStories are Xanthan's way to build familiar StoryMaps-style narratives with files you can edit by hand and ask AI to help revise.
-
-- [StoryMaps-Style Pages with ScrollStories]({{ site.baseurl }}/docs/scrollstories/)
-- [Background Scroll Boxes]({{ site.baseurl }}/docs/scrollstories/bg-scrollbox/)
-- [Background Switching]({{ site.baseurl }}/docs/scrollstories/bg-switch/)
-- [Side-Scrolling Text]({{ site.baseurl }}/docs/scrollstories/side-scroll/)
+{% endfor %}
 
 ---
 
 ## Reference
 
-Look things up. Site structure, component library, front matter, ScrollStory techniques, and troubleshooting.
+Look things up when you need them. Typography, images, colors, navigation, front matter, components, and troubleshooting.
 
 {% assign ref = site.pages | where_exp: "pg", "pg.path contains 'docs/reference/'" | sort: "title" %}
 {% for pg in ref %}{% unless pg.path contains 'index' %}

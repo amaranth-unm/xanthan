@@ -100,7 +100,7 @@ GitHub Copilot is free for students and educators through [GitHub Education](htt
 
 For more substantial work, a local editing environment with an integrated AI assistant is the most capable option. The AI can read and edit your files directly, and you can preview changes on your computer before publishing them.
 
-See [Editing Workflows](../editing/) for how to set up local editing, then add one of these AI tools:
+See [Working Locally](../reference/working-locally) for how to set up local editing, then add one of these AI tools:
 
 - **GitHub Copilot** in VS Code, free for students and educators through GitHub Education
 - **Continue**, a free and open source VS Code extension

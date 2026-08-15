@@ -12,6 +12,24 @@ Every page on your site is a plain text file with an `.md` extension. The file h
 
 ---
 
+## Adding a new page
+
+In GitHub's browser editor (press `.` on your repository page):
+
+1. Right-click in the file tree and choose **"New File"**
+2. Name it ending in `.md` (e.g. `my-new-page.md`)
+3. Add front matter at the top:
+   ```yaml
+   ---
+   title: My New Page
+   layout: default
+   ---
+   ```
+4. Write your content below the front matter
+5. Commit and sync
+
+The page is live at `/my-new-page` once GitHub rebuilds. To put it in a menu, see [Navigation](navigation).
+
 ## The front matter block
 
 Front matter is the section between two lines of triple dashes at the very top of a file. It uses YAML syntax---simple `key: value` pairs that tell Jekyll how to handle the page.
@@ -72,12 +90,12 @@ Add a full-width header image to any page. The `header-tier` controls visual wei
 | `toc-section` | `toc-section: essays` | Groups the page under a section in nav-left layouts |
 | `order` | `order: 3` | Controls sort order within a section |
 | `thumbnail` | `thumbnail: images/thumb.jpg` | Image used in navigation cards |
-| `tags` | `tags: [mapping, history]` | Categorizes pages; see [Tags](../editing/tags) |
+| `tags` | `tags: [mapping, history]` | Categorizes pages; see [Tags](tags) |
 | `autoscroll` | `autoscroll: true` | Enables hands-free auto-scroll (press P to start/pause); ScrollStory pages only; off by default |
 
 ### Geographic fields
 
-For pages that should appear on an [interactive map](../editing/navigation#interactive-maps):
+For pages that should appear on an [interactive map](navigation#interactive-maps):
 
 | Field | Example | What it does |
 |-------|---------|--------------|
@@ -117,7 +135,7 @@ The `layout` field determines how the page renders. Xanthan includes several:
 | `nav-left` | Page with a left sidebar listing pages in the same folder |
 | `nav-profile` | Page with a profile sidebar (image, bio, links) |
 
-Most pages use `xanthan`. The other layouts are documented in [Navigation](../editing/navigation) and [ScrollStories](../scrollstories/).
+Most pages use `xanthan`. The other layouts are documented in [Navigation](navigation) and [ScrollStories](../scrollstories/).
 
 ---
 
@@ -175,6 +193,6 @@ See the [Component Library](component-library) for every available include with 
 
 ## Next steps
 
-- [Images](../editing/images) --- placing and formatting images on your pages
-- [Typography](../editing/typography) --- text formatting, lists, and block elements
-- [Navigation](../editing/navigation) --- how pages connect through menus, cards, and sidebars
+- [Images](images) --- placing and formatting images on your pages
+- [Typography](typography) --- text formatting, lists, and block elements
+- [Navigation](navigation) --- how pages connect through menus, cards, and sidebars
