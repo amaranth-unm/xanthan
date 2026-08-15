@@ -28,10 +28,10 @@ reasons:
 ---
 
 {: .hero-section}
-# Show Your Work
+# Sh<span class="hero-own"><span class="hero-paren">(</span>own<span class="hero-paren">)</span></span> Your Work
 
 {: .hero-tagline}
-Websites for academics who publish, teach, and collaborate in the open---where students and colleagues can see how the work was made, not just what it concluded.
+Create websites with dynamic interfaces from plain text files---for academics who publish, teach, and collaborate in the open.
 
 {: .hero-cta}
 [Get Started →](docs/getting-started/){: .btn-primary .btn-lg}
