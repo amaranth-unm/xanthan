@@ -25,7 +25,9 @@
     {% assign card_image = card.thumbnail %}
     {% assign card_href = card.link | default: card.url %}
     {% capture card_href_resolved %}{% include helpers/link-path.html link=card_href %}{% endcapture %}
-    {% assign card_summary = card.summary | default: card.description | default: card.excerpt | strip_html | truncate: 160 %}
+    {% comment %} Only auto-derived excerpts get truncated; authored summaries print in full. {% endcomment %}
+    {% assign card_excerpt = card.excerpt | strip_html | truncate: 160 %}
+    {% assign card_summary = card.summary | default: card.description | default: card_excerpt | strip_html %}
     {% if tag_data and card.tags %}
       {% assign page_tags = card.tags | join: "|" | downcase %}
     {% endif %}
