@@ -49,9 +49,23 @@ Built on simple, durable web standards designed to last decades, not grant cycle
 
 ## What Can You Build?
 
-{% include cards/card-stack.html cards=page.template_cards card-class="homepage-template-card" %}
+{% comment %}
+  The gallery entries live in docs/getting-started/gallery.md so the two pages
+  can't drift apart. Add a site there and it appears in both places.
+{% endcomment %}
+{% assign gallery_page = site.pages | where: "path", "docs/getting-started/gallery.md" | first %}
 
-Ready to start? Choose a card above for a guided walkthrough. Or, if you want to browse first, see [sites built with Xanthan →](docs/getting-started/gallery)
+{% include nav/gallery-grid.html
+  items=gallery_page.gallery_sites
+  variant="uniform"
+  min-width="240px"
+  gap="var(--spacing-sm)"
+%}
+
+Course archives, oral history collections, digital exhibits, scrolling narratives, mapped directories, annual reports---every one of these is a real Xanthan site, and every one of them is plain text underneath.
+
+{: .link-callout}
+[See the full gallery →](docs/getting-started/gallery){: .btn-secondary .btn-sm}
 
 
 {::nomarkdown}
@@ -129,6 +143,8 @@ Good infrastructure, like good binding agents, should be reliable, unobtrusive, 
 ## The best way to learn is to start
 
 The guides look detailed---they walk through every step---but the process itself is surprisingly quick. Choose a template, click a few buttons to create your own copy, edit a text file, and you have a live website. The whole thing takes minutes, not hours. Reading about it takes longer than doing it.
+
+{% include cards/card-stack.html cards=page.template_cards card-class="homepage-template-card" %}
 
 {: style="text-align: right;"}
 [Choose a Template →](docs/getting-started/templates){: .btn-primary}
