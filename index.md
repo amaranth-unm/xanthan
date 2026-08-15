@@ -4,18 +4,18 @@ layout: default
 date: 2026-01-01
 summary: Open, transparent, AI-ready websites for scholars, instructors, and students. Built for public work people can understand, teach, and maintain.
 template_cards:
-  - title: "Personal Portfolio"
-    summary: "A professional site for your research, teaching, and creative work. About page, CV, project pages, top navigation — a guided starting point for owning your academic identity online."
+  - title: "Portfolio"
+    summary: "One person's work: research, teaching, and creative projects. About page, CV, project pages, and a clear top navigation connecting them."
     thumbnail: "/assets/images/gallery/portfolio-screenshot.png"
     link: "docs/getting-started/templates#portfolio"
-  - title: "Class Project"
-    summary: "A collaborative archive for student work around a shared theme. Card directories, maps, and sample essays — a guided starting point for class projects that outlast the semester."
+  - title: "Collection"
+    summary: "Many pieces by many people around a shared theme — essays, oral histories, exhibits, mapped directories. Card pages organize contributions as the site grows."
     thumbnail: "/assets/images/gallery/class-project-screenshot.png"
-    link: "docs/getting-started/templates#class-project"
-  - title: "ScrollStory"
-    summary: "An immersive scrolling narrative with background images and layered text. Like StoryMaps, but non-proprietary, editable, and yours to keep."
+    link: "docs/getting-started/templates#collection"
+  - title: "Single Story"
+    summary: "One continuous scrolling narrative with background images and layered text. Like StoryMaps, but non-proprietary, editable, and yours to keep."
     thumbnail: "/assets/images/gallery/forest-scroll.gif"
-    link: "docs/getting-started/templates#scrollstory"
+    link: "docs/getting-started/templates#single-story"
 reasons:
   - title: "You own your content"
     text: "Your site is text files in a repository you control. Move it to any host, take it between institutions, keep it after the grant ends. Hosting on GitHub Pages is free---no ads, no subscription, no terms-of-service surprises."
@@ -41,7 +41,7 @@ Create websites with dynamic interfaces from plain text files---for academics wh
 ## What is Xanthan?
 
 {: .lede}
-Xanthan gives you a working website and the documentation to change it, built for people doing public-facing academic work. Pick the one closest to what you're making, add your content in plain text, and publish---no coding, no installation, no monthly fees.
+Xanthan gives you a working website and the documentation to change it, built for people doing public-facing academic work. Pick the starter site closest to what you're making, add your content in plain text, and publish---no coding, no installation, no monthly fees.
 
 {: .section-intro}
 Built on simple, durable web standards designed to last decades, not grant cycles---and built for learning in public, so the choices behind a site stay visible to the people who use, teach, and inherit it.
@@ -142,9 +142,9 @@ Good infrastructure, like good binding agents, should be reliable, unobtrusive, 
 
 ## The best way to learn is to start
 
-The guides look detailed---they walk through every step---but the process itself is surprisingly quick. Choose a template, click a few buttons to create your own copy, edit a text file, and you have a live website. The whole thing takes minutes, not hours. Reading about it takes longer than doing it.
+The guides look detailed---they walk through every step---but the process itself is surprisingly quick. Pick a starter site, click a few buttons to create your own copy, edit a text file, and you have a live website. The whole thing takes minutes, not hours. Reading about it takes longer than doing it.
 
 {% include cards/card-stack.html cards=page.template_cards card-class="homepage-template-card" %}
 
 {: style="text-align: right;"}
-[Choose a Template →](docs/getting-started/templates){: .btn-primary}
+[Choose a Starter Site →](docs/getting-started/templates){: .btn-primary}

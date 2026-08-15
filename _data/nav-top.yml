@@ -1,7 +1,7 @@
 
 - title: "Getting Started"
   items:
-    - title: "Choose a Template"
+    - title: "Choose a Starter Site"
       url: "/docs/getting-started/templates"
     - title: "Create Your Site"
       url: "/docs/getting-started/"

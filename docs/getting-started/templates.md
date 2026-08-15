@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Choose a Template
+title: Choose a Starter Site
 date: 2026-02-14
 ---
 
 {% include nav/scrollspy-toc.html %}
 
-# Choose a Template
+# Choose a Starter Site
 
-Xanthan offers four starting points, each designed for a different kind of project. Pick the one closest to what you're building---you can always add features later.
+Xanthan offers three starter sites, each a different shape of project: one person's work, many contributors' work, or a single continuous narrative. Pick the closest one---you can always add features later.
 
-Browse the options below. See a live example, explore the clean starting template, then click "Use this template" on GitHub to make it your own.
+Browse the options below. See a live example, explore the clean starter site, then click "Use this template" on GitHub to make it your own.
 
 ---
 
@@ -22,7 +22,7 @@ A personal or professional site for presenting your work, interests, and credent
 <div class="template-buttons">
   <div class="template-btn-row">
     <a class="template-btn" href="https://xanthan-web.github.io/alexandra-ruiz/" target="_blank">Live example</a>
-    <a class="template-btn" href="https://xanthan-web.github.io/portfolio-template" target="_blank">View template</a>
+    <a class="template-btn" href="https://xanthan-web.github.io/portfolio-template" target="_blank">View starter site</a>
   </div>
   <a class="template-btn primary" href="./?template=portfolio">Use this template →</a>
 </div>
@@ -38,15 +38,15 @@ A personal or professional site for presenting your work, interests, and credent
 
 ---
 
-## Class Project
+## Collection
 
 {% capture class_project_text %}
-This template shows how many individual ScrollStories or pages can belong together as a shared collection. Card-based directory pages organize contributions automatically, so the site grows as people add to it. The instructor sets up the structure; students follow clear directions to fill it in. Because the pages are plain text files, students can learn from each other's work and the project remains editable after the semester ends.
+A site that gathers many pieces by many people around a shared theme: essays, oral histories, digital exhibits, object grids, mapped directories. Card-based directory pages organize contributions automatically, so the site grows as people add to it. One person sets up the structure and contributors fill it in, which makes this the usual choice for course sites---though it is equally the shape for a workshop archive, an exhibit, or an annual report. Because the pages are plain text files, students can learn from each other's work and the project remains editable long after the contributors have moved on.
 
 <div class="template-buttons">
   <div class="template-btn-row">
     <a class="template-btn" href="https://amaranth.unm.edu/campus-history/" target="_blank">Live example</a>
-    <a class="template-btn" href="https://xanthan-web.github.io/class-project-template" target="_blank">View template</a>
+    <a class="template-btn" href="https://xanthan-web.github.io/class-project-template" target="_blank">View starter site</a>
   </div>
   <a class="template-btn primary" href="./?template=class-project">Use this template →</a>
 </div>
@@ -56,23 +56,23 @@ This template shows how many individual ScrollStories or pages can belong togeth
   image-path="/assets/images/gallery/class-project-screenshot.png"
   image-position="right"
   image-width="45%"
-  alt-text="Class Project template screenshot"
+  alt-text="Collection starter site screenshot"
   text=class_project_text
 %}
 
 ---
 
-## ScrollStory
+## Single Story
 
 {% capture scrollstory_text %}
-If you've used StoryMaps, the shape will feel familiar: text, images, maps, and media unfolding as the reader scrolls. The ScrollStory template puts that form at the center of the site, with a main scrolling narrative ready to edit and extend.
+If you've used StoryMaps, the shape will feel familiar: text, images, maps, and media unfolding as the reader scrolls. This starter site puts that form at the center: the whole site is one narrative, ready to edit and extend.
 
-Every Xanthan template can publish ScrollStories. Choose this one when the immersive narrative is the main event rather than one page inside a broader portfolio or class project. The work still happens in plain text files, so you can revise by hand or ask AI to help build sections without giving up editorial control.
+Every Xanthan site can publish ScrollStories---it is a feature, not a format you have to commit to. Choose this starting point only when the narrative *is* the site, rather than one page inside a portfolio or a collection. The work still happens in plain text files, so you can revise by hand or ask AI to help build sections without giving up editorial control.
 
 <div class="template-buttons">
   <div class="template-btn-row">
     <a class="template-btn" href="https://amaranth.unm.edu" target="_blank">Live example</a>
-    <a class="template-btn" href="https://xanthan-web.github.io/scrollstory-template" target="_blank">View template</a>
+    <a class="template-btn" href="https://xanthan-web.github.io/scrollstory-template" target="_blank">View starter site</a>
   </div>
   <a class="template-btn primary" href="./?template=scrollstory">Use this template →</a>
 </div>
@@ -82,7 +82,7 @@ Every Xanthan template can publish ScrollStories. Choose this one when the immer
   image-path="/assets/images/gallery/forest-scroll.gif"
   image-position="right"
   image-width="45%"
-  alt-text="ScrollStory template example"
+  alt-text="Single Story starter site example"
   text=scrollstory_text
 %}
 
@@ -91,4 +91,4 @@ Every Xanthan template can publish ScrollStories. Choose this one when the immer
 
 ## Not sure?
 
-The difference between the templates is usually a few files and some starting examples. All the core component functionality comes with each template, including ScrollStories. Pick the closest starting shape, then add or remove pages as your project clarifies.
+The difference between them is usually a few files and some starting examples. Every one ships the full set of components, including ScrollStories. Pick the closest shape, then add or remove pages as your project clarifies.
