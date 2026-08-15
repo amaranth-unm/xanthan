@@ -1,8 +1,8 @@
 ---
-title: Xanthan — Web Templates for Digital Humanities
+title: Xanthan — Websites for Digital Humanities
 layout: default
 date: 2026-01-01
-summary: Open, transparent, AI-ready website templates for scholars, instructors, and students. Built for public work people can understand, teach, and maintain.
+summary: Open, transparent, AI-ready websites for scholars, instructors, and students. Built for public work people can understand, teach, and maintain.
 template_cards:
   - title: "Personal Portfolio"
     summary: "A professional site for your research, teaching, and creative work. About page, CV, project pages, top navigation — a guided starting point for owning your academic identity online."
@@ -41,7 +41,7 @@ Websites for academics who publish, teach, and collaborate in the open---where s
 ## What is Xanthan?
 
 {: .lede}
-Xanthan is a set of website templates and documentation built for people doing public-facing academic work. Choose a template, add your content in plain text, and publish---no coding, no installation, no monthly fees.
+Xanthan gives you a working website and the documentation to change it, built for people doing public-facing academic work. Pick the one closest to what you're making, add your content in plain text, and publish---no coding, no installation, no monthly fees.
 
 {: .section-intro}
 Built on simple, durable web standards designed to last decades, not grant cycles---and built for learning in public, so the choices behind a site stay visible to the people who use, teach, and inherit it.
@@ -51,7 +51,7 @@ Built on simple, durable web standards designed to last decades, not grant cycle
 
 {% include cards/card-stack.html cards=page.template_cards card-class="homepage-template-card" %}
 
-Ready to start? Choose a card above for a guided template path. Or, if you want to browse first, see [sites built with Xanthan →](docs/getting-started/gallery)
+Ready to start? Choose a card above for a guided walkthrough. Or, if you want to browse first, see [sites built with Xanthan →](docs/getting-started/gallery)
 
 
 {::nomarkdown}

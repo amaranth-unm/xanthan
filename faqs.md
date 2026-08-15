@@ -13,7 +13,7 @@ summary: Common questions about Xanthan and how it's different from other platfo
 
 ### What is Xanthan?
 
-Xanthan is a collection of ready-to-use website starter kits designed specifically for historians, educators, and researchers who want a place to showcase their work, manage a collaborative class website, or experiment with digital storytelling.
+Xanthan gives you a working website and the documentation to change it, designed specifically for historians, educators, and researchers who want a place to showcase their work, manage a collaborative class website, or experiment with digital storytelling.
 
 **What makes Xanthan different:**
 - **No closed platforms.** Everything runs through GitHub, a free platform that both stores your files and publishes your website.
@@ -112,7 +112,7 @@ People often argue that learning web tools is futile because technology changes 
    By focusing on lightweight, portable content that can last indefinitely, static sites embody the ideals of digital preservation. They don’t depend on a proprietary platform or a server that might vanish. 
 
 4. **They teach timeless design thinking.**
-   Learning to use a static site template is also learning how to structure information clearly, design for readability, and separate content from presentation—all principles that extend far beyond any one technology stack.
+   Learning to run a static site is also learning how to structure information clearly, design for readability, and separate content from presentation—all principles that extend far beyond any one technology stack.
 
 ---
 
