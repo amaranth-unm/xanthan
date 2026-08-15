@@ -28,10 +28,10 @@ reasons:
 ---
 
 {: .hero-section}
-# Own Your Work on the Open Web
+# Websites That Explain Themselves
 
 {: .hero-tagline}
-Website templates for academics who want to publish, teach, and collaborate online---without renting space from platforms that come and go.
+Templates for academics who publish, teach, and collaborate online---built so the site itself stays readable by your students, your collaborators, and you in ten years.
 
 {: .hero-cta}
 [Get Started →](docs/getting-started/){: .btn-primary .btn-lg}
