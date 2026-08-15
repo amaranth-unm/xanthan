@@ -28,10 +28,10 @@ reasons:
 ---
 
 {: .hero-section}
-# Websites That Explain Themselves
+# Show Your Work
 
 {: .hero-tagline}
-Templates for academics who publish, teach, and collaborate online---built so the site itself stays readable by your students, your collaborators, and you in ten years.
+Websites for academics who publish, teach, and collaborate in the open---where students and colleagues can see how the work was made, not just what it concluded.
 
 {: .hero-cta}
 [Get Started →](docs/getting-started/){: .btn-primary .btn-lg}
