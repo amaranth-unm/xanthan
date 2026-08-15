@@ -216,7 +216,8 @@ When adding new includes, components, or framework features:
 ## Common pitfalls
 
 - **Editing xanthan vs. amaranth**: The Amaranth site at UNM is a separate project that *uses* Xanthan. Changes to the framework go in xanthan; changes to that specific site go in amaranth.
-- **hr + scrollspy float interaction**: `hr` elements have `clear: both` in typography.css, which interacts badly with the scrollspy-toc's `float: right`. Fixed with `.container:has(.scrollspy-toc) hr { clear: none; }` in scrollspy-toc.html.
+- **scrollspy-toc heading level**: the component tracks `h2` by default. On pages whose sections are `h3` (e.g. `faqs.md`, where each question is a question-sized heading), pass `headings="h3"` or the TOC comes up empty.
+- **scrollspy-toc reserves its column via `:has()`**: above 1100px, `.container:has(.scrollspy-toc)` redefines the container's `grid-template-columns` to add a sidebar column and narrow the text column. The nav must therefore be absent from the DOM — not merely hidden — when it has nothing to show, or the page keeps an empty column. The include's JS removes itself when no headings match. It is grid-based, not floated; don't reintroduce float/clear workarounds.
 - **rsync exclude depth**: `--exclude='index.md'` matches at all depths. Use `--exclude='/index.md'` to match only the root.
 - **Navbar centering**: Brand + nav are centered as a group via CSS (`justify-content: center` on container-fluid + `flex-grow: 0` on navbar-collapse), not via Bootstrap margin utilities.
 

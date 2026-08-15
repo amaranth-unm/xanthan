@@ -1,4 +1,11 @@
-<!-- Scrollspy Table of Contents -->
+<!-- Scrollspy Table of Contents
+
+     Parameters:
+       headings - CSS selector for the headings to track. Optional; defaults to "h2".
+                  Use headings="h3" on pages whose sections are h3 (e.g. FAQ questions).
+
+     Example: {% raw %}{% include nav/scrollspy-toc.html headings="h3" %}{% endraw %}
+-->
 <nav class="scrollspy-toc">
   <h4>On this page</h4>
   <ul id="toc-list">
@@ -148,9 +155,16 @@
     const tocList = document.getElementById('toc-list');
     if (!tocList) return;
 
-    // Find all h2 headings in the main content
-    const headings = document.querySelectorAll('.container h2');
-    if (headings.length === 0) return;
+    // Find the headings to track (defaults to h2; override with headings="h3")
+    const headings = document.querySelectorAll('.container {{ include.headings | default: "h2" }}');
+
+    // No matching headings: remove the nav entirely so the container grid
+    // doesn't reserve an empty sidebar column via :has(.scrollspy-toc).
+    if (headings.length === 0) {
+      const nav = tocList.closest('.scrollspy-toc');
+      if (nav) nav.remove();
+      return;
+    }
 
     // Generate TOC links
     headings.forEach((heading, index) => {
