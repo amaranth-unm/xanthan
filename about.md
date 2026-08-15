@@ -18,6 +18,16 @@ Xanthan is designed to support that agency. It gives you a long-lasting foundati
 
 ---
 
+## On "showing your work"
+
+"Show your work" is a classroom instruction before it is anything else: show your working, not just your answer. That is the sense Xanthan means. A finished website, like a finished proof, hides the reasoning that produced it---and in scholarship the reasoning is often the part worth teaching.
+
+It is also the title of [Austin Kleon's 2014 book](https://austinkleon.com/show-your-work/) on sharing creative process in public, which makes a related argument for artists and makers: think process, not product. The overlap is real and worth naming.
+
+Xanthan takes the idea somewhere that book does not go. Kleon writes for the individual creative building an audience. The work Xanthan is built for is usually collective---a seminar, a workshop, a studio, a class that will hand its site to the next class---and the people who need to see the working are not an audience at all. They are students, collaborators, and whoever inherits the project after everyone involved has moved on.
+
+---
+
 ## Project Origins
 
 Xanthan was created by [Fred Gibbs](https://fredgibbs.net) at the University of New Mexico as part of ongoing research into sustainable, accessible digital infrastructure for humanities scholarship. The project emerged from years of teaching digital methods and watching students struggle with platform lock-in, unsustainable subscription models, and tools that taught them nothing about how the web actually works.
