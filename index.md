@@ -103,17 +103,6 @@ Those guardrails make AI more useful, not less. You describe what you want in pl
 "
 %}
 
-{: .section-intro}
-Here's what that looks like in practice:
-
-- *"Give my site a warmer feel---cream background, dark brown text, muted terracotta accents."* The AI finds your theme variables and adjusts the palette as a coordinated set you can still edit by hand.
-
-- *"Create a page for my CV with proper headings and a clean layout. Here's the content."* The AI generates a readable Markdown page with the right structure, formatting, and navigation entry.
-
-- *"My site won't build. Here's the error message."* The AI reads the error, identifies the problem, and walks you through the fix.
-
-- *"Build a StoryMaps-style section where a background image stays fixed while text panels scroll over it."* The AI assembles the right ScrollStory components with syntax you can inspect, copy, and adjust.
-
 {: .link-callout}
 [See our AI guide →](docs/using-ai/){: .btn-secondary .btn-sm}
 
