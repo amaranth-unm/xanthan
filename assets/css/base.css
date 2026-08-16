@@ -65,6 +65,8 @@ PAGE SETUP & CUSTOMIZATION
   --bg-section-alt: var(--bg-card);
   --border-section-alt: color-mix(in srgb, var(--accent-primary) 16%, transparent);
   --shadow-section-alt: inset 0 1px 0 var(--border-section-alt), inset 0 -1px 0 var(--border-section-alt);
+  --text-section-alt-heading: var(--text-h2);
+  --text-section-cool-heading: var(--text-h2);
   --bg-section-cool: color-mix(in srgb, var(--accent-primary) 10%, var(--bg-page));
   --border-section-cool: color-mix(in srgb, var(--accent-primary) 20%, transparent);
   --shadow-section-cool: inset 0 1px 0 var(--border-section-cool), inset 0 -1px 0 var(--border-section-cool);
@@ -255,6 +257,13 @@ SECTION BACKGROUNDS - Subtle visual rhythm
   margin-top: 0;
 }
 
+/* Headings on a tinted band take a colour from that band's own family. The
+   default heading colour is tuned for the page background, and repeating it
+   on a coloured field reads flat. */
+.section-alt h2 {
+  color: var(--text-section-alt-heading);
+}
+
 /* A second tinted band, distinct from .section-alt, so two banded sections on
    one page do not read as the same interruption twice. */
 .section-cool {
@@ -266,6 +275,10 @@ SECTION BACKGROUNDS - Subtle visual rhythm
 
 .section-cool h2:first-child {
   margin-top: 0;
+}
+
+.section-cool h2 {
+  color: var(--text-section-cool-heading);
 }
 
 /* Themed section background - for special emphasis moments */
