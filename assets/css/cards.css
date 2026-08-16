@@ -327,19 +327,25 @@ CARDS
   margin-inline: auto;
 }
 
+/* At rest the caption is a band along the bottom carrying just the title.
+   On hover it grows to cover the whole tile so the description has room —
+   inset animates from "top: 100% minus the band" to "top: 0". */
 .gallery-grid-caption {
   position: absolute;
-  inset: auto 0 0 0;
-  width: 100%;
+  inset: 0 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   padding: var(--spacing-xs) var(--spacing-sm) var(--spacing-sm);
   background: linear-gradient(to top, var(--gallery-caption-rest) 0%, var(--gallery-caption-rest) 58%, transparent 100%);
   text-shadow: var(--page-header-title-shadow);
-  transition: background var(--transition-normal), padding var(--transition-normal);
+  transition: background var(--transition-normal), backdrop-filter var(--transition-normal);
 }
 
 .gallery-grid-link:hover .gallery-grid-caption,
 .gallery-grid-link:focus-visible .gallery-grid-caption {
-  background: linear-gradient(to top, var(--gallery-caption-active) 0%, var(--gallery-caption-active) 84%, transparent 100%);
+  background: var(--gallery-caption-active);
+  backdrop-filter: blur(2px);
 }
 
 .gallery-grid-caption h3 {
@@ -355,8 +361,8 @@ CARDS
   margin: 0;
   overflow: hidden;
   color: var(--text-on-dark);
-  font-size: 0.85rem;
-  line-height: 1.4;
+  font-size: 0.8rem;
+  line-height: 1.45;
   opacity: 0;
   transform: translateY(var(--spacing-xs));
   transition: max-height var(--transition-normal), margin var(--transition-normal), opacity var(--transition-normal), transform var(--transition-normal);
@@ -364,10 +370,25 @@ CARDS
 
 .gallery-grid-link:hover .gallery-grid-caption p,
 .gallery-grid-link:focus-visible .gallery-grid-caption p {
-  max-height: 9rem;
+  max-height: 14rem;
   margin-top: var(--spacing-xs);
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Touch devices have no hover, so the description would never be reachable.
+   Show it standing rather than leaving those readers with titles only. */
+@media (hover: none) {
+  .gallery-grid-caption {
+    background: var(--gallery-caption-active);
+  }
+
+  .gallery-grid-caption p {
+    max-height: 14rem;
+    margin-top: var(--spacing-xs);
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (min-width: 768px) {

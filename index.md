@@ -47,6 +47,7 @@ Course archives, oral history collections, digital exhibits, scrolling narrative
   class="gallery-grid--wide"
   min-width="190px"
   gap="var(--spacing-md)"
+  show-summary=true
 %}
 
 {::nomarkdown}
