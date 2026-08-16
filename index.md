@@ -3,19 +3,6 @@ title: Xanthan — Websites for Digital Humanities
 layout: default
 date: 2026-01-01
 summary: Open, transparent, AI-ready websites for scholars, instructors, and students. Built for public work people can understand, teach, and maintain.
-template_cards:
-  - title: "Portfolio"
-    summary: "One person's work: research, teaching, and creative projects. About page, CV, project pages, and a clear top navigation connecting them."
-    thumbnail: "/assets/images/gallery/portfolio-screenshot.png"
-    link: "docs/getting-started/templates#portfolio"
-  - title: "Collection"
-    summary: "Many pieces by many people around a shared theme — essays, oral histories, exhibits, mapped directories. Card pages organize contributions as the site grows."
-    thumbnail: "/assets/images/gallery/class-project-screenshot.png"
-    link: "docs/getting-started/templates#collection"
-  - title: "Single Story"
-    summary: "One continuous scrolling narrative with background images and layered text. Like StoryMaps, but non-proprietary, editable, and yours to keep."
-    thumbnail: "/assets/images/gallery/forest-scroll.gif"
-    link: "docs/getting-started/templates#single-story"
 reasons:
   - title: "You own your content"
     text: "Your site is text files in a repository you control. Move it to any host, take it between institutions, keep it after the grant ends. Hosting on GitHub Pages is free---no ads, no subscription, no terms-of-service surprises."
@@ -130,9 +117,11 @@ Good infrastructure, like good binding agents, should be reliable, unobtrusive, 
 <div class="container"> <!-- reopen main container -->
 {:/nomarkdown}
 
-## Where to start
+## Easier done than said
 
-{% include cards/card-stack.html cards=page.template_cards card-class="homepage-template-card" %}
+This is one of those things that takes longer to describe than to do. The guides run long because every step is written out---you shouldn't have to work anything out on your own, or guess what a page means by "commit."
+
+The doing is short. Make a site from one of the starting points, change a line of text, watch it go live. Ten minutes of that will teach you more about how this works than any paragraph here can.
 
 {: style="text-align: right;"}
 [Choose a Starter Site →](docs/getting-started/templates){: .btn-primary}
