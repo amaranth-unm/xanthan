@@ -302,11 +302,22 @@ CARDS
   filter: saturate(1.08) contrast(1.02);
 }
 
+/* A gallery is pictures, not prose, so it has no reading measure to respect.
+   This variant breaks out of the text column to a wider block and centres
+   itself, which is what lets the tiles be smaller and more numerous without
+   the grid feeling cramped.
+   👉 Pass class="gallery-grid--wide" to the include. */
+.container > .gallery-grid--wide {
+  grid-column: full;
+  width: min(100% - 2 * var(--spacing-lg), 64rem);
+  margin-inline: auto;
+}
+
 .gallery-grid-caption {
   position: absolute;
   inset: auto 0 0 0;
   width: 100%;
-  padding: var(--spacing-sm) var(--spacing-md) var(--spacing-md);
+  padding: var(--spacing-xs) var(--spacing-sm) var(--spacing-sm);
   background: linear-gradient(to top, var(--gallery-caption-rest) 0%, var(--gallery-caption-rest) 58%, transparent 100%);
   text-shadow: var(--page-header-title-shadow);
   transition: background var(--transition-normal), padding var(--transition-normal);
@@ -320,8 +331,9 @@ CARDS
 .gallery-grid-caption h3 {
   margin: 0;
   color: var(--text-on-dark);
-  font-size: 1.2rem;
-  line-height: 1.2;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.25;
 }
 
 .gallery-grid-caption p {
@@ -329,7 +341,7 @@ CARDS
   margin: 0;
   overflow: hidden;
   color: var(--text-on-dark);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   line-height: 1.4;
   opacity: 0;
   transform: translateY(var(--spacing-xs));

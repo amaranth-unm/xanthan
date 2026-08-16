@@ -36,6 +36,13 @@ A finished website for your readers, and a visible record of how it was made for
 {: .lede}
 Xanthan makes websites for academic work that stay easy to change. You edit plain text files and the site rebuilds itself---no admin panel to learn, no subscription to keep paying, and nothing hidden from the people who use, teach, or inherit your work.
 
+{::nomarkdown}
+</div> <!-- close main container -->
+
+<div class="section-alt">
+  <div class="container">
+{:/nomarkdown}
+
 ## What Can You Build?
 
 {% comment %}
@@ -47,8 +54,9 @@ Xanthan makes websites for academic work that stay easy to change. You edit plai
 {% include nav/gallery-grid.html
   items=gallery_page.gallery_sites
   variant="uniform"
-  min-width="240px"
-  gap="var(--spacing-sm)"
+  class="gallery-grid--wide"
+  min-width="190px"
+  gap="var(--spacing-md)"
 %}
 
 Course archives, oral history collections, digital exhibits, scrolling narratives, mapped directories, annual reports---every one of these is a real Xanthan site, and every one of them is plain text underneath.
@@ -56,12 +64,11 @@ Course archives, oral history collections, digital exhibits, scrolling narrative
 {: .link-callout}
 [See the full gallery →](docs/getting-started/gallery){: .btn-secondary .btn-sm}
 
-
 {::nomarkdown}
-</div> <!-- close main container -->
+  </div> <!-- close container -->
+</div> <!-- close section-alt -->
 
-<div class="section-alt">
-  <div class="container">
+<div class="container"> <!-- reopen main container -->
 {:/nomarkdown}
 
 ## Why Xanthan?
@@ -73,12 +80,6 @@ Digital humanities work should be as open in its process as in its product. Xant
 {: .link-callout}
 [See more in our FAQs →](faqs#why-not-use-wix-or-squarespace){: .btn-secondary .btn-sm}
 
-{::nomarkdown}
-  </div> <!-- close container -->
-</div> <!-- close section-alt -->
-
-<div class="container"> <!-- reopen main container -->
-{:/nomarkdown}
 
 ## Who Xanthan is for
 
