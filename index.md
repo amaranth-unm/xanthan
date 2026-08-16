@@ -56,6 +56,15 @@ Course archives, oral history collections, digital exhibits, scrolling narrative
 <div class="container"> <!-- reopen main container -->
 {:/nomarkdown}
 
+## What Xanthan actually is
+
+Xanthan is not software. There is nothing to install, no account to open with us, and nothing of yours running on our servers. It is a set of files---page layouts, ready-made components, stylesheets---and, just as importantly, directions for what to do with them.
+
+You copy those files into a free GitHub account. GitHub stores files and publishes websites for millions of people, it will turn your copy into a live site at no charge, and the site sits in your account rather than ours. From then on, editing the site means editing text in those files.
+
+So this is low-tech, not no-tech. You will open text files and click buttons on a website. You will not write code, run a server, manage a database, or install anything. Every step is written out---and the small amount of technology involved is exactly what buys the rest.
+
+
 ## Why Xanthan?
 
 Digital humanities work should be as open in its process as in its product. Xanthan is built on a simple conviction: scholars shouldn't have to rent their web presence from proprietary platforms, and they shouldn't need a computer science degree to publish online.
