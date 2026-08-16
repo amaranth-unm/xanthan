@@ -845,15 +845,22 @@ HERO SECTION (Homepage)
   font-weight: 400;
 }
 
+/* The tagline is the bridge from the headline into the argument, so it is set
+   a little larger than body copy and on a narrower measure than the text
+   below it. The generous space beneath is deliberate: it ends the hero
+   without a rule or a button, and lets the first section arrive on its own. */
 .hero-tagline {
   text-align: center;
-  font-size: 1.25rem;
-  line-height: 1.6;
+  font-size: 1.3rem;
+  line-height: 1.65;
   color: var(--hero-tagline-color);
-  margin: 1rem auto 1.5rem;
-  max-width: 700px;
+  margin: var(--spacing-md) auto var(--spacing-xl);
+  max-width: 34rem;
 }
 
+/* Optional centred call-to-action for a landing page. Not used on the Xanthan
+   homepage: a large button above the argument asks for a decision before the
+   reader has been given a reason. Kept for sites that want one. */
 .hero-cta {
   text-align: center;
   margin: 0 0 2.5rem;

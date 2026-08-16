@@ -33,11 +33,6 @@ reasons:
 {: .hero-tagline}
 A finished website for your readers, and a visible record of how it was made for everyone else.
 
-{: .hero-cta}
-[Get Started →](docs/getting-started/){: .btn-primary .btn-lg}
-
----
-
 ## What is Xanthan?
 
 {: .lede}
