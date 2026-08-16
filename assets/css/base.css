@@ -49,6 +49,9 @@ PAGE SETUP & CUSTOMIZATION
   --bg-section-alt: var(--bg-card);
   --border-section-alt: color-mix(in srgb, var(--accent-primary) 16%, transparent);
   --shadow-section-alt: inset 0 1px 0 var(--border-section-alt), inset 0 -1px 0 var(--border-section-alt);
+  --bg-section-cool: color-mix(in srgb, var(--accent-primary) 10%, var(--bg-page));
+  --border-section-cool: color-mix(in srgb, var(--accent-primary) 20%, transparent);
+  --shadow-section-cool: inset 0 1px 0 var(--border-section-cool), inset 0 -1px 0 var(--border-section-cool);
   --bg-section-warm: var(--bg-accent);
   --text-section-warm: var(--text-body);
   --text-section-warm-heading: var(--text-h2);
@@ -236,6 +239,19 @@ SECTION BACKGROUNDS - Subtle visual rhythm
   margin-top: 0;
 }
 
+/* A second tinted band, distinct from .section-alt, so two banded sections on
+   one page do not read as the same interruption twice. */
+.section-cool {
+  grid-column: full;
+  background: var(--bg-section-cool);
+  padding: var(--spacing-xl) max(var(--spacing-sm), calc(50% - 24rem));
+  box-shadow: var(--shadow-section-cool);
+}
+
+.section-cool h2:first-child {
+  margin-top: 0;
+}
+
 /* Themed section background - for special emphasis moments */
 .section-warm {
   grid-column: full;
@@ -253,6 +269,7 @@ SECTION BACKGROUNDS - Subtle visual rhythm
    padding plus the container's gutter — leaving banded sections ~1rem inside
    the rest of the page. Let the inner container do the centering instead. */
 .section-alt:has(> .container),
+.section-cool:has(> .container),
 .section-warm:has(> .container) {
   padding-left: 0;
   padding-right: 0;

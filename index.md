@@ -27,7 +27,13 @@ Xanthan makes academic websites that stay easy to change---and easy to change to
   <div class="container">
 {:/nomarkdown}
 
+{::nomarkdown}<div class="wide-header">{:/nomarkdown}
+
 ## What Can You Build?
+
+Course archives, oral history collections, digital exhibits, scrolling narratives, mapped directories, annual reports---every one of these is a real Xanthan site, and every one of them is plain text underneath.
+
+{::nomarkdown}</div>{:/nomarkdown}
 
 {% comment %}
   The gallery entries live in docs/getting-started/gallery.md so the two pages
@@ -42,11 +48,6 @@ Xanthan makes academic websites that stay easy to change---and easy to change to
   min-width="190px"
   gap="var(--spacing-md)"
 %}
-
-Course archives, oral history collections, digital exhibits, scrolling narratives, mapped directories, annual reports---every one of these is a real Xanthan site, and every one of them is plain text underneath.
-
-{: .link-callout}
-[See the full gallery →](docs/getting-started/gallery){: .btn-secondary .btn-sm}
 
 {::nomarkdown}
   </div> <!-- close container -->
@@ -65,6 +66,13 @@ Digital humanities work should be as open in its process as in its product. Xant
 [See more in our FAQs →](faqs#why-not-use-wix-or-squarespace){: .btn-secondary .btn-sm}
 
 
+{::nomarkdown}
+</div> <!-- close main container -->
+
+<div class="section-cool">
+  <div class="container">
+{:/nomarkdown}
+
 ## Who Xanthan is for
 
 **Scholars seeking public engagement.** Move your work beyond paywalls and PDFs. Build research portfolios, multimedia essays, and interactive arguments that reach broader audiences---on a site you control, not a platform that controls you.
@@ -73,6 +81,12 @@ Digital humanities work should be as open in its process as in its product. Xant
 
 **Students building professional presence.** Create a portfolio that showcases your research, teaching, and digital skills. Own your academic identity rather than scattering it across platforms.
 
+{::nomarkdown}
+  </div> <!-- close container -->
+</div> <!-- close section-cool -->
+
+<div class="container"> <!-- reopen main container -->
+{:/nomarkdown}
 
 {% include images/jumbotron.html
   image-path="/assets/images/site/scaffolding-hand.png"
@@ -88,11 +102,10 @@ AI can generate a website from a blank prompt. The harder question is what it le
 Xanthan preserves the trail. Markdown pages, YAML navigation, CSS theme files, and components with documented parameters give AI a curated context to work inside, and leave people something they can still read.
 
 Those guardrails make AI more useful, not less. You describe what you want in plain language, and you stay in the editorial role---judging results, giving feedback, and deciding what's right for your project.
+
+[See our AI guide →](docs/using-ai/){: .btn-secondary .btn-sm}
 "
 %}
-
-{: .link-callout}
-[See our AI guide →](docs/using-ai/){: .btn-secondary .btn-sm}
 
 {::nomarkdown}
 </div> <!-- close main container -->

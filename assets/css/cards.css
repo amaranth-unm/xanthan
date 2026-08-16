@@ -302,6 +302,20 @@ CARDS
   filter: saturate(1.08) contrast(1.02);
 }
 
+/* Heading and intro for a wide block. Without this the heading sits on the
+   narrower text column while the grid below starts further left, and the two
+   read as unrelated. Matches gallery-grid--wide so their left edges agree.
+   Prose inside keeps a readable measure rather than running the full width. */
+.container > .wide-header {
+  grid-column: full;
+  width: min(100% - 2 * var(--spacing-lg), 64rem);
+  margin-inline: auto;
+}
+
+.wide-header > p {
+  max-width: 44rem;
+}
+
 /* A gallery is pictures, not prose, so it has no reading measure to respect.
    This variant breaks out of the text column to a wider block and centres
    itself, which is what lets the tiles be smaller and more numerous without

@@ -9,9 +9,6 @@
       url: "/docs/getting-started/first-edit"
     - title: "Add an Image"
       url: "/docs/getting-started/add-an-image"
-    - divider: true
-    - title: "Built with Xanthan"
-      url: "/docs/getting-started/gallery"
 
 - title: "ScrollStories"
   items:
