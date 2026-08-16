@@ -28,17 +28,21 @@ None of it is required. Every change on this page can be made by hand, and the [
 
 ---
 
-## Four things worth doing next
+## What to do next
 
-**Replace the sample content.** The fastest way to stop feeling like a visitor on your own site.
+**Start by replacing the words yourself.** Open the about page, select the sample text, type yours over it, save. That is the entire operation---no prompt, no assistant, no syntax. Do two or three pages this way before anything else, because it is the fastest way to see that these really are just text files and that you are not locked out of your own site.
 
-> *"Replace the text on the about page with this, and keep the same formatting: [paste your text]"*
+That is the line worth learning early. Writing is the part you do. The machinery around it is the part you can hand off, and it is where an assistant actually saves you something.
 
-**Change how it looks.** Color and type do more than anything else to make a site feel like yours.
+**Change how it looks.** Color and type do more than anything else to make a site feel yours, and they live in variables spread across a stylesheet---findable by hand, tedious to keep consistent.
 
-> *"Give the site a warmer feel---a cream background, dark brown text, and a muted terracotta accent."*
+> *"Give the site a warmer feel---a cream background, dark brown text, and a muted terracotta accent. Keep the hover and border colors in step with it."*
 
-**Add the pages you actually need, and delete the ones you don't.**
+**Add a component.** Galleries, side-by-side images, scrolling sections and maps all take named parameters. You can copy them out of the Component Library yourself; asking is faster than looking up which parameter does what.
+
+> *"Put a two-column image gallery on my projects page, with captions under each image."*
+
+**Reshape the site, not just a page.** Adding a page means writing it, naming it, and adding it to the navigation---three files that have to agree.
 
 > *"Add a page for my CV with proper headings, and put it in the top menu."*
 >
