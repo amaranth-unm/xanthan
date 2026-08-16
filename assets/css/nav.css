@@ -378,3 +378,30 @@ BREADCRUMB NAVIGATION
 }
 
 } /* end media screen */
+
+/*****************************************************
+REPOSITORY LINK (top nav)
+*****************************************************/
+/* Sits beside the search button and matches its weight. Rendered only when
+   `repository` is set in _config.yml. */
+.repo-link {
+  display: flex;
+  align-items: center;
+  padding: 0.3rem 0.5rem;
+  color: var(--text-on-dark);
+  border-bottom: 0;
+  transition: color var(--transition-fast);
+}
+
+.repo-link:hover,
+.repo-link:focus {
+  color: var(--interactive-hover);
+  border-bottom: 0;
+  outline: none;
+}
+
+.repo-link svg {
+  width: 1.15em;
+  height: 1.15em;
+  fill: currentColor;
+}

@@ -70,7 +70,7 @@ Your change is live on the open web.
 
 ## What just happened
 
-You edited a file, committed the change (saving a versioned snapshot), and pushed it to GitHub, which rebuilt your site automatically. The tools are just text files and version control---nothing proprietary, nothing you can't take with you.
+You edited a file, committed the change (saving a versioned snapshot), and pushed it to GitHub, which rebuilt your site automatically. The tools are just text files and the GitHub platform that makes and publishes your site from those files. You can take the files for your site and host them anywhere, and if you do nothing to your site for a decade, your site will still be working.
 
 ---
 

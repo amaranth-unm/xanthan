@@ -4,6 +4,10 @@ version: 1.0.0
 baseurl:
 analytics_id:
 search: true
+
+# Repository link shown as a GitHub icon in the top nav.
+# Remove this line to hide the icon.
+repository: https://github.com/xanthan-web/xanthan
 theme_css: canyon-wall
 
 exclude:
