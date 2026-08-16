@@ -24,6 +24,8 @@ So you can describe what you want in ordinary language---"make the headings warm
 
 This is not a way around understanding your own site. It is a way into it. Ask for a change, look at what moved, then ask *why that file*. You pick up the vocabulary by using it, which is faster than learning it first and building second.
 
+None of it is required. Every change on this page can be made by hand, and the [Reference](../reference/pages-and-front-matter) pages document how. But learning CSS syntax well enough to change a color is time spent on something that probably isn't near the top of your list, and the structure is here so you can spend it elsewhere.
+
 ---
 
 ## Four things worth doing next
