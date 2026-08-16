@@ -130,9 +130,7 @@ Good infrastructure, like good binding agents, should be reliable, unobtrusive, 
 <div class="container"> <!-- reopen main container -->
 {:/nomarkdown}
 
-## The best way to learn is to start
-
-The guides look detailed---they walk through every step---but the process itself is surprisingly quick. Pick a starter site, click a few buttons to create your own copy, edit a text file, and you have a live website. The whole thing takes minutes, not hours. Reading about it takes longer than doing it.
+## Where to start
 
 {% include cards/card-stack.html cards=page.template_cards card-class="homepage-template-card" %}
 
