@@ -308,3 +308,108 @@ jobs:
           git push
 
           echo "✓ Changes pushed to class-project-template"
+
+  # ---------------------------------------------------------------------------
+  # Object Collection starter site.
+  #
+  # DISABLED until the repository exists. To enable:
+  #   1. gh repo create xanthan-web/object-collection-template --public
+  #   2. Seed it from class-project-template, then swap the essays directory
+  #      for an objects one (see docs/getting-started/templates.md).
+  #   3. Uncomment every line of the job below.
+  #
+  # Left commented rather than live because the checkout step fails against a
+  # repository that does not exist, and this workflow runs on every push to
+  # main. Jobs here are independent, so a broken one would not stop the other
+  # three syncing — it would just keep CI red.
+  # ---------------------------------------------------------------------------
+  # sync-object-collection-template:
+  # if: github.event.inputs.template == 'all' || github.event.inputs.template == 'class-project' || github.event.inputs.template == ''
+  # runs-on: ubuntu-latest
+  # steps:
+  # - name: Checkout xanthan main
+  # uses: actions/checkout@v4
+  # with:
+  # path: xanthan-source
+  # fetch-depth: 2
+  #
+  # - name: Checkout object-collection-template
+  # uses: actions/checkout@v4
+  # with:
+  # repository: xanthan-web/object-collection-template
+  # token: ${{ secrets.SYNC_TOKEN }}
+  # path: object-collection-template
+  #
+  # - name: Sync core files to object-collection-template
+  # run: |
+  # echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  # echo "Syncing to object-collection-template"
+  # echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  #
+  # # Sync complete code libraries (excludes template-specific images)
+  # rsync -av --delete xanthan-source/_includes/ object-collection-template/_includes/
+  # rsync -av --delete xanthan-source/_layouts/ object-collection-template/_layouts/
+  # rsync -av --delete xanthan-source/assets/css/ object-collection-template/assets/css/
+  # rsync -av --delete xanthan-source/assets/js/ object-collection-template/assets/js/
+  # rsync -av --delete --exclude='milton-snow/' xanthan-source/scrollstories/ object-collection-template/scrollstories/
+  #
+  # # Sync docs — includes root index.md (shared landing page with auto-generated link list)
+  # rsync -av --delete xanthan-source/docs/ object-collection-template/docs/
+  #
+  # # Sync shared background images but preserve template-specific images
+  # rsync -av --delete xanthan-source/assets/images/backgrounds/ object-collection-template/assets/images/backgrounds/ 2>/dev/null || true
+  #
+  # # Sync dependency files
+  # cp xanthan-source/Gemfile object-collection-template/Gemfile
+  # cp xanthan-source/.gitignore object-collection-template/.gitignore
+  # cp xanthan-source/CHANGELOG.md object-collection-template/XANTHAN_CHANGELOG.md
+  #
+  # # Sync data files needed by doc pages (nav demos)
+  # cp xanthan-source/_data/nav-profile.yml object-collection-template/_data/nav-profile.yml 2>/dev/null || true
+  #
+  # # DO NOT sync _config.yml, nav-sections.yml, or nav-top.yml - they are template-specific
+  #
+  # echo "✓ Synced core files to object-collection-template"
+  #
+  # cd object-collection-template
+  # git status -s
+  #
+  # - name: Create PR or push changes
+  # run: |
+  # cd object-collection-template
+  #
+  # if [[ -z $(git status -s) ]]; then
+  # echo "✓ No changes to commit"
+  # exit 0
+  # fi
+  #
+  # if [[ "${{ github.event.inputs.dry_run }}" == "true" ]]; then
+  # echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  # echo "DRY RUN - Would commit these changes:"
+  # echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  # git diff --stat
+  # exit 0
+  # fi
+  #
+  # git add -A
+  #
+  # # Get the original commit message from xanthan and save to file
+  # cd ../xanthan-source
+  # git log -1 --pretty=%B HEAD > /tmp/commit-msg.txt
+  # cd ../object-collection-template
+  #
+  # {
+  # cat /tmp/commit-msg.txt
+  # echo ""
+  # echo "Synced from xanthan commit: ${{ github.sha }}"
+  # echo ""
+  # echo "Changes:"
+  # git diff --cached --stat
+  # echo ""
+  # echo "[skip ci]"
+  # } > /tmp/final-commit-msg.txt
+  #
+  # git commit -F /tmp/final-commit-msg.txt
+  # git push
+  #
+  # echo "✓ Changes pushed to object-collection-template"

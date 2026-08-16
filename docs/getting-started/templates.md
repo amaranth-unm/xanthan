@@ -8,7 +8,7 @@ date: 2026-02-14
 
 # Choose a Starter Site
 
-Xanthan offers three starter sites, each a different shape of project: one person's work, many contributors' work, or a single continuous narrative. Pick the closest one---you can always add features later.
+Xanthan offers four starter sites, each a different shape of project: one person's work, a collection of writing, a collection of objects, or a single continuous narrative. Pick the closest one---you can always add features later.
 
 Browse the options below. See a live example, explore the clean starter site, then click "Use this template" on GitHub to make it your own.
 
@@ -38,10 +38,10 @@ A personal or professional site for presenting your work, interests, and credent
 
 ---
 
-## Collection
+## Essay Collection
 
 {% capture class_project_text %}
-A site that gathers many pieces by many people around a shared theme: essays, oral histories, digital exhibits, object grids, mapped directories. Card-based directory pages organize contributions automatically, so the site grows as people add to it. One person sets up the structure and contributors fill it in, which makes this the usual choice for course sites---though it is equally the shape for a workshop archive, an exhibit, or an annual report. Because the pages are plain text files, students can learn from each other's work and the project remains editable long after the contributors have moved on.
+A site that gathers writing by many people around a shared theme: student essays, oral histories, reflections, a workshop archive. Card-based directory pages organize contributions automatically, so the site grows as people add to it. One person sets up the structure and contributors fill it in, which makes this the usual choice for course sites. Because the pages are plain text files, students can learn from each other's work and the project remains editable long after the contributors have moved on.
 
 <div class="template-buttons">
   <div class="template-btn-row">
@@ -56,8 +56,34 @@ A site that gathers many pieces by many people around a shared theme: essays, or
   image-path="/assets/images/gallery/class-project-screenshot.png"
   image-position="right"
   image-width="45%"
-  alt-text="Collection starter site screenshot"
+  alt-text="Essay Collection starter site screenshot"
   text=class_project_text
+%}
+
+---
+
+## Object Collection
+
+{% capture object_collection_text %}
+The same collaborative shape, but built around things rather than prose: artefacts, sites, specimens, images, places. Each object gets its own folder and page carrying what you actually catalogue---an image, a date, a medium, coordinates, tags---and an image-first grid assembles the directory. Add `geo` coordinates and the objects appear on a map as well as in the grid.
+
+Choose this over Essay Collection when the object *is* the entry and the writing supports it. A digital exhibit, a material-culture course, a site survey, a collection catalogue.
+
+<div class="template-buttons">
+  <div class="template-btn-row">
+    <a class="template-btn" href="https://amaranth.unm.edu/silk-road/" target="_blank">Live example</a>
+    <a class="template-btn" href="https://xanthan-web.github.io/object-collection-template" target="_blank">View starter site</a>
+  </div>
+  <a class="template-btn primary" href="./?template=object-collection">Use this template →</a>
+</div>
+{% endcapture %}
+
+{% include images/figure-wrap.html
+  image-path="/assets/images/gallery/silk-road.jpg"
+  image-position="right"
+  image-width="45%"
+  alt-text="Object Collection starter site screenshot"
+  text=object_collection_text
 %}
 
 ---

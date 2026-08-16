@@ -46,12 +46,21 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     {
       id: 'class-project',
-      name: 'Class Project',
-      description: 'Gather student work into a shared public site. Students contribute readable pages; the class builds a collaborative collection that can outlast the semester.',
+      name: 'Essay Collection',
+      description: 'Gather writing by many people into a shared public site. Contributors add readable pages; the collection can outlast the semester that started it.',
       repoName: 'xanthan-web/class-project-template',
       repoUrl: 'http://github.com/xanthan-web/class-project-template',
       webUrl: 'https://xanthan-web.github.io/class-project-template',
       liveUrl: 'https://amaranth.unm.edu/campus-history/'
+    },
+    {
+      id: 'object-collection',
+      name: 'Object Collection',
+      description: 'Build a collection around things rather than prose. Each object gets a page with an image, a date, tags, and optional coordinates; an image-first grid and a map assemble the directory.',
+      repoName: 'xanthan-web/object-collection-template',
+      repoUrl: 'http://github.com/xanthan-web/object-collection-template',
+      webUrl: 'https://xanthan-web.github.io/object-collection-template',
+      liveUrl: 'https://amaranth.unm.edu/silk-road/'
     },
     {
       id: 'scrollstory',
@@ -254,7 +263,7 @@ sarah-martinez.github.io
 {:/nomarkdown}
 
 {::nomarkdown}
-<div class="template-guidance class-project scrollstory xanthan" style="display: none;">
+<div class="template-guidance class-project object-collection scrollstory xanthan" style="display: none;">
 {:/nomarkdown}
 
 Your repository name will become part of your website address, so choose something simple and descriptive.
@@ -303,7 +312,7 @@ When ready, click the green **"Create Repository"** button.
 {:/nomarkdown}
 
 {::nomarkdown}
-<div class="template-guidance class-project scrollstory xanthan" style="display: none;">
+<div class="template-guidance class-project object-collection scrollstory xanthan" style="display: none;">
 {:/nomarkdown}
 
 If you named your repository something other than the starter site repository name, you need to make one quick edit to get your site running.
