@@ -9,14 +9,7 @@ summary: Create your Xanthan site in 10 minutes with this step-by-step guide.
 
 # Create Your Site
 
-**A live website in 10 minutes.** No software to install—everything happens in your browser. By the end, you'll have a site on the open web and understand how it works well enough to start making it your own.
-
-## What you'll need
-- A free GitHub account (we'll create this in Step 1)
-- A web browser
-- 10--15 minutes
-
-No coding or web experience necessary. You'll be editing text files and clicking buttons.
+**A live website in 10 minutes.** Everything happens in your browser: nothing to install, and no coding or web experience needed. The one thing you'll need is a free GitHub account, and Step 2 walks you through making one. By the end you'll have a site on the open web and enough of a feel for how it works to start making it your own.
 
 ---
 
