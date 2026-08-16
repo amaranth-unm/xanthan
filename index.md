@@ -33,14 +33,8 @@ reasons:
 {: .hero-tagline}
 A finished website for your readers, and a visible record of how it was made for everyone else.
 
-## What is Xanthan?
-
 {: .lede}
-Xanthan is built for people doing public-facing academic work. Pick the starter site closest to what you're making, add your content in plain text, and publish---no coding, no installation, no monthly fees.
-
-{: .section-intro}
-Built on simple, durable web standards designed to last decades, not grant cycles---and built for learning in public, so the choices behind a site stay visible to the people who use, teach, and inherit it.
-
+Xanthan makes websites for academic work that stay easy to change. You edit plain text files and the site rebuilds itself---no admin panel to learn, no subscription to keep paying, and nothing hidden from the people who use, teach, or inherit your work.
 
 ## What Can You Build?
 
