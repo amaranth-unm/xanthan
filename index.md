@@ -17,11 +17,8 @@ reasons:
 {: .hero-section}
 # Show Your Work
 
-{: .hero-tagline}
-A finished website for your readers, and a visible record of how it was made for everyone else.
-
 {: .lede}
-Xanthan makes websites for academic work that stay easy to change. You edit plain text files and the site rebuilds itself---no admin panel to learn, no subscription to keep paying, and nothing hidden from the people who use, teach, or inherit your work.
+Xanthan makes academic websites that stay easy to change---and easy to change together. You edit plain text files and the site rebuilds itself. Students and colleagues can contribute without a license or a lesson, the work stays yours to move and keep, and it will still be running long after this year's platforms are gone.
 
 {::nomarkdown}
 </div> <!-- close main container -->

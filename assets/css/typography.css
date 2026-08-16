@@ -114,7 +114,13 @@ p:has(+ ol) {
   color: var(--text-lede);
   font-size: clamp(1.2rem, 2vw, 1.45rem);
   line-height: 1.55;
-  text-align: left;
+
+  /* Justified to both margins. hyphens is not optional here: without it the
+     browser can only stretch the word spaces to reach the right edge, which
+     opens rivers of white down a paragraph set this large. Hyphenation lets
+     it break words instead and keeps the spacing even. */
+  text-align: justify;
+  hyphens: auto;
 }
 
 .section-intro {

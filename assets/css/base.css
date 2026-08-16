@@ -830,13 +830,15 @@ HERO SECTION (Homepage)
 .hero-section {
   text-align: center;
   max-width: 800px;
-  margin: 3rem auto 0;
+  /* Bottom margin matters: the headline may sit directly on the opening
+     paragraph, with no tagline between them to hold the two apart. */
+  margin: 3rem auto var(--spacing-lg);
 }
 
-/* The tagline is the bridge from the headline into the argument, so it is set
-   a little larger than body copy and on a narrower measure than the text
-   below it. The generous space beneath is deliberate: it ends the hero
-   without a rule or a button, and lets the first section arrive on its own. */
+/* Optional subtitle between the headline and the opening paragraph. Not used
+   on the Xanthan homepage, which goes straight from headline to lede. Set a
+   little larger than body copy and on a narrower measure, with generous space
+   beneath so the hero ends without needing a rule or a button. */
 .hero-tagline {
   text-align: center;
   font-size: 1.3rem;
