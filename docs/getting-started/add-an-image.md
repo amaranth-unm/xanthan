@@ -75,3 +75,9 @@ The `figure.html` include has a few options you can adjust:
 - **`alt-text`** --- description for accessibility (always include this)
 
 `figure.html` always centers the image. To place an image *beside* text instead, use `figure-wrap.html`. For the full range of image options---side-by-side layouts, carousels, full-width jumbotrons, and more---see the [Images guide](../reference/images).
+
+---
+
+## Next step
+
+**[Customizing Your Site](customizing)** --- your site still looks like the starter. Here is how to make it yours.

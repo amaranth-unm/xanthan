@@ -9,6 +9,8 @@
       url: "/docs/getting-started/first-edit"
     - title: "Add an Image"
       url: "/docs/getting-started/add-an-image"
+    - title: "Customizing Your Site"
+      url: "/docs/getting-started/customizing"
 
 - title: "ScrollStories"
   items:
