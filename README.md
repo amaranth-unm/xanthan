@@ -4,7 +4,7 @@ A Jekyll + GitHub Pages framework for building academic websites — portfolios,
 
 ## Quick Start
 
-Xanthan offers three starting templates. Pick the one closest to what you're building and click "Use this template" on GitHub to make it your own.
+Xanthan offers four starter sites. Pick the one closest to what you're building, then click the green "Use this template" button on GitHub to make it your own.
 
 | Template | Best for | Links |
 |---|---|---|

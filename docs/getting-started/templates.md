@@ -10,7 +10,7 @@ date: 2026-02-14
 
 Xanthan offers four starter sites, each a different shape of project: one person's work, a collection of writing, a collection of objects, or a single continuous narrative. Pick the closest one---you can always add features later.
 
-Browse the options below. See a live example, explore the clean starter site, then click "Use this template" on GitHub to make it your own.
+Browse the options below. See a live example, explore the clean starter site, then start with the one closest to your project. GitHub calls the final step "Use this template," which is the green button you will click there.
 
 ---
 
@@ -24,7 +24,7 @@ A personal or professional site for presenting your work, interests, and credent
     <a class="template-btn" href="https://xanthan-web.github.io/alexandra-ruiz/" target="_blank">Live example</a>
     <a class="template-btn" href="https://xanthan-web.github.io/portfolio-template" target="_blank">View starter site</a>
   </div>
-  <a class="template-btn primary" href="./?template=portfolio">Use this template →</a>
+  <a class="template-btn primary" href="./?template=portfolio">Start with this one →</a>
 </div>
 {% endcapture %}
 
@@ -32,7 +32,7 @@ A personal or professional site for presenting your work, interests, and credent
   image-path="/assets/images/gallery/portfolio-screenshot.png"
   image-position="right"
   image-width="45%"
-  alt-text="Portfolio template screenshot"
+  alt-text="Portfolio starter site screenshot"
   text=portfolio_text
 %}
 
@@ -48,7 +48,7 @@ A site that gathers writing by many people around a shared theme: student essays
     <a class="template-btn" href="https://amaranth.unm.edu/campus-history/" target="_blank">Live example</a>
     <a class="template-btn" href="https://xanthan-web.github.io/class-project-template" target="_blank">View starter site</a>
   </div>
-  <a class="template-btn primary" href="./?template=class-project">Use this template →</a>
+  <a class="template-btn primary" href="./?template=class-project">Start with this one →</a>
 </div>
 {% endcapture %}
 
@@ -74,7 +74,7 @@ Choose this over Essay Collection when the object *is* the entry and the writing
     <a class="template-btn" href="https://amaranth.unm.edu/silk-road/" target="_blank">Live example</a>
     <a class="template-btn" href="https://xanthan-web.github.io/object-collection-template" target="_blank">View starter site</a>
   </div>
-  <a class="template-btn primary" href="./?template=object-collection">Use this template →</a>
+  <a class="template-btn primary" href="./?template=object-collection">Start with this one →</a>
 </div>
 {% endcapture %}
 
@@ -100,7 +100,7 @@ Every Xanthan site can publish ScrollStories---it is a feature, not a format you
     <a class="template-btn" href="https://amaranth.unm.edu" target="_blank">Live example</a>
     <a class="template-btn" href="https://xanthan-web.github.io/scrollstory-template" target="_blank">View starter site</a>
   </div>
-  <a class="template-btn primary" href="./?template=scrollstory">Use this template →</a>
+  <a class="template-btn primary" href="./?template=scrollstory">Start with this one →</a>
 </div>
 {% endcapture %}
 

@@ -109,20 +109,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const useBtn = document.createElement('button');
       useBtn.className = 'template-btn primary';
-      useBtn.textContent = 'Use Template';
+      useBtn.textContent = 'Choose this one';
       useBtn.addEventListener('click', () => selectTemplate(template.id));
 
       const viewBtn = document.createElement('a');
       viewBtn.className = 'template-btn';
-      viewBtn.textContent = 'View Demo';
+      viewBtn.textContent = 'View starter site';
       viewBtn.href = template.webUrl || template.repoUrl;
       viewBtn.target = '_blank';
 
-      // Live Example button (only for templates with a real-world example site)
+      // Live example button (only for starter sites with a real-world example)
       if (template.liveUrl) {
         const liveBtn = document.createElement('a');
         liveBtn.className = 'template-btn';
-        liveBtn.textContent = 'Live Example';
+        liveBtn.textContent = 'Live example';
         liveBtn.href = template.liveUrl;
         liveBtn.target = '_blank';
         buttonContainer.appendChild(liveBtn);
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Reset all primary buttons, then mark the selected one
     document.querySelectorAll('.template-btn.primary').forEach(btn => {
-      btn.textContent = 'Use Template';
+      btn.textContent = 'Choose this one';
       btn.classList.remove('selected-btn');
     });
     if (selectedCard) {
