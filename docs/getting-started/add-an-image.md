@@ -10,21 +10,11 @@ date: 2026-02-14
 
 You've edited text. Now let's add an image to your site---the full process from uploading the file to seeing it on a page.
 
-Before we start, one core Xanthan workflow: **find something that already works, copy it, then adapt it**.
-
-You don't need to write include code from scratch. In practice, the fastest and safest way to add a new thing is:
-
-1. Find an existing example that looks close to what you want
-2. Copy and paste that block
-3. Change only the values you need (file path, caption, width, alt text)
-
-We'll do exactly that here.
+Before we start, keep in mind that we're really just doing one core Xanthan workflow: **find something that already works, copy it, then adapt it**.
 
 ---
 
 ## Start with a working example
-
-Open [Images guide](../reference/images) in one tab and your page file in another.
 
 Find a `figure.html` example in the guide, copy it, and paste it into your page. Then edit just these values:
 

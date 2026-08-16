@@ -34,6 +34,13 @@ PAGE SETUP & CUSTOMIZATION
   --warm-light: #e8e4df;   /* Light warm tone for cards */
   --golden-wash: color-mix(in srgb, var(--golden-clay) 18%, var(--bg-page));  /* Clay-tinted wash for special sections */
 
+  /* Syntax highlighting tints — legible on a dark code block */
+  --syntax-sand: #dcc89c;
+  --syntax-mint: #a9caa1;
+  --syntax-sky: #9ec0d6;
+  --syntax-coral: #dfa084;
+  --syntax-quiet: #93a89a;
+
   /* Accent colors */
   --golden-clay: #b8956a;  /* Warm clay */
   --golden-clay-dark: #8b6f47;  /* Darker warm clay for headings */
@@ -45,6 +52,15 @@ PAGE SETUP & CUSTOMIZATION
   --bg-card: var(--warm-light);
   --bg-accent: var(--golden-wash);
   --bg-code: var(--sage-pale);
+
+  /* Fenced code blocks are dark; inline code stays light inside prose */
+  --bg-code-block: var(--sage-dark);
+  --text-code-block: var(--warm-white);
+  --code-key: var(--syntax-sand);
+  --code-string: var(--syntax-mint);
+  --code-name: var(--syntax-sky);
+  --code-literal: var(--syntax-coral);
+  --code-quiet: var(--syntax-quiet);
   --bg-nav: var(--sage-deep);
   --bg-section-alt: var(--bg-card);
   --border-section-alt: color-mix(in srgb, var(--accent-primary) 16%, transparent);

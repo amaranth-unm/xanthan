@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
       repoName: 'xanthan-web/scrollstory-template',
       repoUrl: 'http://github.com/xanthan-web/scrollstory-template',
       webUrl: 'https://xanthan-web.github.io/scrollstory-template',
-      liveUrl: 'https://amaranth.unm.edu'
+      liveUrl: 'https://amaranth.unm.edu/studio/name-origins/'
     }
   ];
 
