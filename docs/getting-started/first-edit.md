@@ -14,12 +14,12 @@ Your site is live. Now let's change something so you can see the full cycle: edi
 
 ## Open the code editor
 
-GitHub has a built-in code editor that works like a real development environment---right in your browser.
+GitHub has a built-in code editor--right in your browser, so you can do all the editing your need to do without other software.
 
 1. Go to your repository on GitHub (e.g., `github.com/YOUR-USERNAME/YOUR-REPO`)
 2. Press the **`.`** key on your keyboard
 
-That's it. GitHub opens a full VS Code editor in your browser, with your file tree on the left and an editor on the right. No installation required.
+That's it. GitHub opens a code editor in your browser, with your file tree on the left and an editor on the right. Easy to see your files and make quick changes!
 
 ---
 
@@ -70,7 +70,7 @@ Your change is live on the open web.
 
 ## What just happened
 
-You edited a file, committed the change (saving a versioned snapshot), and pushed it to GitHub, which rebuilt your site automatically. This is the same workflow professional developers use every day. The tools are just text files and version control---nothing proprietary, nothing you can't take with you.
+You edited a file, committed the change (saving a versioned snapshot), and pushed it to GitHub, which rebuilt your site automatically. The tools are just text files and version control---nothing proprietary, nothing you can't take with you.
 
 ---
 

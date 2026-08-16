@@ -15,7 +15,17 @@ summary: Create your Xanthan site in 10 minutes with this step-by-step guide.
 
 ## Step 1: Choose your starter site
 
-Pick the starter site closest to what you're building. Selecting one updates the links in the instructions below. 
+{::nomarkdown}
+<p class="starter-intro" data-state="fresh">
+  Pick the starter site closest to what you're building. Selecting one updates
+  the links in the instructions below.
+</p>
+<p class="starter-intro" data-state="chosen" style="display: none;">
+  You already chose the <span class="template-name"></span> starter site, so the
+  instructions below are set up for it. Change your mind here if you'd rather
+  start somewhere else.
+</p>
+{:/nomarkdown}
 
 Not sure? See the [starter site overview](templates) for details on each option, or just start with Portfolio—you can always change direction later. 
 
@@ -57,21 +67,12 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     {
       id: 'scrollstory',
-      name: 'Scrollstory',
+      name: 'Single Story',
       description: 'A StoryMaps-style site for an immersive scrolling narrative, built from editable text files instead of a proprietary platform.',
       repoName: 'xanthan-web/scrollstory-template',
       repoUrl: 'http://github.com/xanthan-web/scrollstory-template',
       webUrl: 'https://xanthan-web.github.io/scrollstory-template',
       liveUrl: 'https://amaranth.unm.edu'
-    },
-    {
-      id: 'xanthan',
-      name: 'Xanthan',
-      description: "The whole shebang. You'll get a copy of everything you see on this site.",
-      repoName: 'xanthan-web/xanthan',
-      repoUrl: 'http://github.com/xanthan-web/xanthan',
-      webUrl: null,
-      liveUrl: null
     }
   ];
 
@@ -179,9 +180,11 @@ document.addEventListener('DOMContentLoaded', function() {
       repoLink.textContent = template.name + ' repository';
     }
 
-    // Update all repo references (lowercase for repository names)
+    // Update all repo references. Use the actual repository name — the
+    // display name no longer matches it (Essay Collection lives in
+    // class-project-template), so lowercasing the label would be wrong.
     document.querySelectorAll('.template-repo-name').forEach(el => {
-      el.textContent = template.name.toLowerCase();
+      el.textContent = template.repoName.split('/').pop();
     });
 
     // Show/hide template-specific guidance
@@ -198,9 +201,19 @@ document.addEventListener('DOMContentLoaded', function() {
   const requestedTemplate = urlParams.get('template');
   if (requestedTemplate && templates.find(t => t.id === requestedTemplate)) {
     selectTemplate(requestedTemplate);
+    // Arrived from the chooser with a starter site already picked — say so
+    // rather than asking the reader to make the same decision twice.
+    const fresh = document.querySelector('.starter-intro[data-state="fresh"]');
+    const chosen = document.querySelector('.starter-intro[data-state="chosen"]');
+    if (fresh && chosen) {
+      fresh.style.display = 'none';
+      chosen.style.display = 'block';
+    }
   } else {
+    // selectTemplate, not updateContent: the default starter site drives the
+    // rest of the page, so its card and button have to show as chosen too.
     const defaultTemplate = templates.find(t => t.default);
-    updateContent(defaultTemplate.id);
+    selectTemplate(defaultTemplate.id);
   }
 });
 </script>
@@ -256,10 +269,15 @@ sarah-martinez.github.io
 {:/nomarkdown}
 
 {::nomarkdown}
-<div class="template-guidance class-project object-collection scrollstory xanthan" style="display: none;">
+<div class="template-guidance class-project object-collection scrollstory" style="display: none;">
 {:/nomarkdown}
 
-Your repository name will become part of your website address, so choose something simple and descriptive.
+Your repository name becomes part of your website address, so choose something simple and descriptive. This site is a Xanthan site itself: its repository is named `xanthan` under the `xanthan-web` account, which is why it lives at
+
+```
+https://ACCOUNT.github.io/REPOSITORY/
+https://xanthan-web.github.io/xanthan/
+```
 
 **Naming rules:**
 - All lowercase letters
@@ -305,7 +323,7 @@ When ready, click the green **"Create Repository"** button.
 {:/nomarkdown}
 
 {::nomarkdown}
-<div class="template-guidance class-project object-collection scrollstory xanthan" style="display: none;">
+<div class="template-guidance class-project object-collection scrollstory" style="display: none;">
 {:/nomarkdown}
 
 If you named your repository something other than the starter site repository name, you need to make one quick edit to get your site running.

@@ -149,28 +149,31 @@ Loaded only on pages whose URL contains /docs/
   color: var(--accent-primary-dark);
 }
 
+/* In the starter-site picker the accent colour marks the current choice, not
+   the available ones. An unchosen button is quiet; the chosen one is the only
+   thing wearing the accent, so the reader can see their selection at a glance
+   instead of hunting for which card is highlighted. */
 .template-btn.primary {
-  background: var(--accent-primary);
-  color: var(--text-on-dark);
-  border-color: var(--accent-primary);
+  background: var(--interactive-subtle);
+  color: var(--accent-primary-dark);
+  border-color: var(--border-medium);
   width: 100%;
   flex: none;
   font-weight: 600;
 }
 
 .template-btn.primary:hover {
-  background: var(--interactive-hover);
+  background: var(--interactive-subtle-hover);
   border-color: var(--interactive-hover);
-  color: var(--text-on-dark);
+  color: var(--accent-primary-dark);
 }
 
 .template-btn.primary.selected-btn {
-  background: var(--text-muted);
-  border-color: var(--text-muted);
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
   color: var(--text-on-dark);
   cursor: default;
   pointer-events: none;
-  opacity: 0.7;
 }
 
 .template-btn.placeholder {
