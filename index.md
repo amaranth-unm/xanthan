@@ -31,7 +31,7 @@ reasons:
 # Sh<span class="hero-own"><span class="hero-paren">(</span>own<span class="hero-paren">)</span></span> Your Work
 
 {: .hero-tagline}
-Create websites with dynamic interfaces from plain text files---for academics who publish, teach, and collaborate in the open.
+A finished website for your readers, and a visible record of how it was made for everyone else.
 
 {: .hero-cta}
 [Get Started →](docs/getting-started/){: .btn-primary .btn-lg}
@@ -41,7 +41,7 @@ Create websites with dynamic interfaces from plain text files---for academics wh
 ## What is Xanthan?
 
 {: .lede}
-Xanthan gives you a working website and the documentation to change it, built for people doing public-facing academic work. Pick the starter site closest to what you're making, add your content in plain text, and publish---no coding, no installation, no monthly fees.
+Xanthan is built for people doing public-facing academic work. Pick the starter site closest to what you're making, add your content in plain text, and publish---no coding, no installation, no monthly fees.
 
 {: .section-intro}
 Built on simple, durable web standards designed to last decades, not grant cycles---and built for learning in public, so the choices behind a site stay visible to the people who use, teach, and inherit it.
