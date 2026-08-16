@@ -833,18 +833,6 @@ HERO SECTION (Homepage)
   margin: 3rem auto 0;
 }
 
-/* "Sh(own) Your Work" — the headline reads as both show and own. Tint the
-   letters that spell the second word and let the brackets recede, so the
-   pun is available on a second look without shouting on the first. */
-.hero-own {
-  color: var(--accent-primary);
-}
-
-.hero-paren {
-  opacity: 0.45;
-  font-weight: 400;
-}
-
 /* The tagline is the bridge from the headline into the argument, so it is set
    a little larger than body copy and on a narrower measure than the text
    below it. The generous space beneath is deliberate: it ends the hero

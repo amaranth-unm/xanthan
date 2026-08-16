@@ -104,9 +104,12 @@ p:has(+ ol) {
 }
 
 /* Editorial utilities: simple classes for stronger page rhythm */
+/* No max-width of its own: the lede sits in the container's content column
+   like everything else, so its right edge lines up with the body copy. The
+   larger type already shortens the measure in characters — capping the width
+   as well made it noticeably narrower than the text around it. */
 .lede,
 .lead {
-  max-width: 44rem;
   margin: 0 0 var(--spacing-lg) 0;
   color: var(--text-lede);
   font-size: clamp(1.2rem, 2vw, 1.45rem);

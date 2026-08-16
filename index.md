@@ -28,7 +28,7 @@ reasons:
 ---
 
 {: .hero-section}
-# Sh<span class="hero-own"><span class="hero-paren">(</span>own<span class="hero-paren">)</span></span> Your Work
+# Show Your Work
 
 {: .hero-tagline}
 A finished website for your readers, and a visible record of how it was made for everyone else.
