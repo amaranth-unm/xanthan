@@ -50,7 +50,9 @@
       {% assign item_image = item[image_field] | default: item.thumbnail | default: item.header-image %}
       {% assign item_href = item.link | default: item.url %}
       {% capture item_href_resolved %}{% include helpers/link-path.html link=item_href %}{% endcapture %}
-      {% assign item_summary = item.summary | default: item.description | default: item.excerpt | strip_html | truncate: 120 %}
+      {% comment %} Only auto-derived excerpts get truncated; authored summaries print in full. {% endcomment %}
+      {% assign item_excerpt = item.excerpt | strip_html | truncate: 120 %}
+      {% assign item_summary = item.summary | default: item.description | default: item_excerpt | strip_html %}
 
       {% if item.title and item_image %}
         {% capture item_image_url %}{% include helpers/image-path.html image-path=item_image page-dir=item.dir %}{% endcapture %}

@@ -327,31 +327,45 @@ CARDS
   margin-inline: auto;
 }
 
-/* At rest the caption is a band along the bottom carrying just the title.
-   On hover it grows to cover the whole tile so the description has room —
-   inset animates from "top: 100% minus the band" to "top: 0". */
+/* The element always spans the tile; how much of the image it hides is done
+   with the gradient, which animates smoothly where a height change would not.
+   At rest it is a band across the bottom third carrying only the title. On
+   hover the scrim rises to about four fifths, leaving the top of the
+   screenshot visible so the tile still reads as a website.
+   Deliberately no backdrop-filter: it applies to the element's whole box, so
+   a blur here would frost the entire preview no matter what the gradient
+   does — which is what made the hover state feel like a full cover. */
 .gallery-grid-caption {
   position: absolute;
-  inset: 0 0 0 0;
+  inset: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: var(--spacing-xs) var(--spacing-sm) var(--spacing-sm);
-  background: linear-gradient(to top, var(--gallery-caption-rest) 0%, var(--gallery-caption-rest) 58%, transparent 100%);
+  background: linear-gradient(
+    to top,
+    var(--gallery-caption-rest) 0%,
+    var(--gallery-caption-rest) 30%,
+    transparent 62%
+  );
   text-shadow: var(--page-header-title-shadow);
-  transition: background var(--transition-normal), backdrop-filter var(--transition-normal);
+  transition: background var(--transition-normal);
 }
 
 .gallery-grid-link:hover .gallery-grid-caption,
 .gallery-grid-link:focus-visible .gallery-grid-caption {
-  background: var(--gallery-caption-active);
-  backdrop-filter: blur(2px);
+  background: linear-gradient(
+    to top,
+    var(--gallery-caption-active) 0%,
+    var(--gallery-caption-active) 78%,
+    transparent 94%
+  );
 }
 
 .gallery-grid-caption h3 {
   margin: 0;
   color: var(--text-on-dark);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 600;
   line-height: 1.25;
 }
@@ -380,7 +394,12 @@ CARDS
    Show it standing rather than leaving those readers with titles only. */
 @media (hover: none) {
   .gallery-grid-caption {
-    background: var(--gallery-caption-active);
+    background: linear-gradient(
+      to top,
+      var(--gallery-caption-active) 0%,
+      var(--gallery-caption-active) 78%,
+      transparent 94%
+    );
   }
 
   .gallery-grid-caption p {

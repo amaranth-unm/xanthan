@@ -35,14 +35,8 @@ Course archives, oral history collections, digital exhibits, scrolling narrative
 
 {::nomarkdown}</div>{:/nomarkdown}
 
-{% comment %}
-  The gallery entries live in docs/getting-started/gallery.md so the two pages
-  can't drift apart. Add a site there and it appears in both places.
-{% endcomment %}
-{% assign gallery_page = site.pages | where: "path", "docs/getting-started/gallery.md" | first %}
-
 {% include nav/gallery-grid.html
-  items=gallery_page.gallery_sites
+  items=site.data.gallery
   variant="uniform"
   class="gallery-grid--wide"
   min-width="190px"
