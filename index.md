@@ -20,23 +20,12 @@ reasons:
 {: .lede}
 Xanthan makes academic websites that stay easy to change---and easy to change together. You edit plain text files and the site rebuilds itself. Students and colleagues can contribute without a license or a lesson, the work stays yours to move and keep, and it will still be running long after this year's platforms are gone.
 
-{::nomarkdown}
-</div> <!-- close main container -->
-
-<div class="section-alt">
-  <div class="container">
-{:/nomarkdown}
-
-{::nomarkdown}<div class="wide-header">{:/nomarkdown}
-
-## What Can You Build?
-
-Course archives, oral history collections, digital exhibits, scrolling narratives, mapped directories, annual reports---every one of these is a real Xanthan site, and every one of them is plain text underneath.
-
-{::nomarkdown}</div>{:/nomarkdown}
+{% include layout/section.html style="alt" %}
 
 {% include nav/gallery-grid.html
   items=site.data.gallery
+  heading="What Can You Build?"
+  intro="Course archives, oral history collections, digital exhibits, scrolling narratives, mapped directories, annual reports---every one of these is a real Xanthan site, and every one of them is plain text underneath."
   variant="uniform"
   class="gallery-grid--wide"
   min-width="190px"
@@ -44,12 +33,7 @@ Course archives, oral history collections, digital exhibits, scrolling narrative
   show-summary=true
 %}
 
-{::nomarkdown}
-  </div> <!-- close container -->
-</div> <!-- close section-alt -->
-
-<div class="container"> <!-- reopen main container -->
-{:/nomarkdown}
+{% include layout/section-end.html %}
 
 ## What Xanthan actually is
 Xanthan is not software; it's not a platform. There is nothing to install, no account to create. It is a set of files that make a website on a free, widely used platform, and directions for what to do with them.
@@ -68,12 +52,7 @@ Digital humanities work should be as open in its process as in its product. Xant
 [See more in our FAQs →](faqs#why-not-use-wix-or-squarespace){: .btn-secondary .btn-sm}
 
 
-{::nomarkdown}
-</div> <!-- close main container -->
-
-<div class="section-cool">
-  <div class="container">
-{:/nomarkdown}
+{% include layout/section.html style="cool" %}
 
 ## Who Xanthan is for
 
@@ -83,12 +62,7 @@ Digital humanities work should be as open in its process as in its product. Xant
 
 **Students building professional presence.** Create a portfolio that showcases your research, teaching, and digital skills. Own your academic identity rather than scattering it across platforms.
 
-{::nomarkdown}
-  </div> <!-- close container -->
-</div> <!-- close section-cool -->
-
-<div class="container"> <!-- reopen main container -->
-{:/nomarkdown}
+{% include layout/section-end.html %}
 
 {% include images/jumbotron.html
   image-path="/assets/images/site/scaffolding-hand.png"
@@ -109,25 +83,15 @@ Those guardrails make AI more useful, not less. You describe what you want in pl
 "
 %}
 
-{::nomarkdown}
-</div> <!-- close main container -->
+{% include layout/section.html style="warm" %}
 
-<div class="section-warm">
-  <div class="container">
-{:/nomarkdown}
-
-<h2>Yes, it's like the gum.</h2>
+## Yes, it's like the gum.
 
 Xanthan gum is a polysaccharide used as a binder and emulsifier---it transforms disparate ingredients into something cohesive and stable. This platform does the same: it binds simple, durable web technologies into a framework for digital scholarship. Text, media, code, and argument become a coherent whole with a long shelf life.
 
 Good infrastructure, like good binding agents, should be reliable, unobtrusive, and built to last. [Read more about our philosophy](about).
 
-{::nomarkdown}
-  </div> <!-- close container -->
-</div> <!-- close section-warm -->
-
-<div class="container"> <!-- reopen main container -->
-{:/nomarkdown}
+{% include layout/section-end.html %}
 
 ## Easier done than said
 

@@ -406,6 +406,16 @@ Image-first navigation for collections. Use it when readers are choosing among p
 
 Items should have `title`, `thumbnail`, and either `url` or `link`. If an item does not have an image, Xanthan renders a visible warning so the missing field is easy to find.
 
+Pass `heading` and `intro` rather than writing them above the include: the
+grid is wider than the text column, so a heading written in the page body
+would sit on a different left edge and the two would read as unrelated.
+
+| Parameter | Notes |
+|-----------|-------|
+| `heading` | Section heading, aligned to the grid's left edge |
+| `intro` | Paragraph under the heading; Markdown supported |
+| `heading-level` | 2--6, level for each tile title (default 3) |
+
 ---
 
 ## Interactive Map
@@ -472,6 +482,42 @@ A horizontal row with text and a button link. Useful for landing pages or featur
 | `link` | yes | --- | Button destination URL |
 | `button` | no | uses `title` | Button label |
 | `text-width` | no | `50` | Percentage width of text area |
+
+---
+
+## Section Band
+
+**Files:** `layout/section.html` and `layout/section-end.html`
+
+A full-width tinted or dark band behind a run of content, used to break a long
+page into visually distinct stretches.
+
+Page content normally sits inside a centred column. A band has to span the
+whole window, which means stepping outside that column and back in again --- so
+this comes as a pair. Put your content between them and write ordinary Markdown
+in the middle.
+
+```
+{% raw %}{% include layout/section.html style="cool" %}
+
+## Who this is for
+
+Ordinary Markdown goes here---headings, paragraphs, images, other includes.
+
+{% include layout/section-end.html %}{% endraw %}
+```
+
+| Parameter | Required | Default | Notes |
+|-----------|----------|---------|-------|
+| `style` | no | `alt` | `alt`, `cool`, or `warm` |
+
+- **`alt`** --- a subtle tint. The everyday band.
+- **`cool`** --- a second tint, for when two bands would otherwise sit close
+  enough to read as the same interruption twice.
+- **`warm`** --- a dark band with light text, for a deliberate change of voice.
+
+**Always close what you open.** A band without its `section-end` will run to
+the bottom of the page.
 
 ---
 

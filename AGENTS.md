@@ -242,6 +242,19 @@ These rules govern all additions to the framework. They exist to keep the codeba
 - Components must fail visibly, not silently. If a required parameter is missing, emit a visible warning (e.g., a placeholder div with a descriptive message).
 - Parameters should be thematically grouped in the comment block: image params together, layout params together.
 
+### Page content
+
+- **Pages should not contain raw HTML.** If a page needs structure the Markdown
+  cannot express, that is a missing component, not a licence to open a `div`.
+  A page full of `{::nomarkdown}` blocks cannot be edited by someone who only
+  knows Markdown, which is most of the audience.
+- **Wrapping structure comes as an open/close include pair**, named `x.html`
+  and `x-end.html` (see `layout/section.html`). Document the pairing in the
+  comment block — an unclosed wrapper swallows the rest of the page.
+- **A component that breaks out of the text column renders its own heading**
+  rather than expecting one above the include. A heading written in the page
+  body sits on the text column and will not line up (see `nav/gallery-grid.html`).
+
 ### Layouts
 - The default layout is `default.html`. Other layouts extend or parallel it: `scrollstory.html`, `nav-left.html`, `nav-profile.html`.
 - All layouts include `html/html-head.html`, `nav/nav-top.html`, and `layout/footer.html`.

@@ -38,12 +38,7 @@ Snow's dedication to honing his skills with a camera eventually led him to work 
 > His older sister reported that Snow "...was a demon for self-discipline: shaved with a straight razor in the dark to develop control. Honestly ... (my brother) was a perfectionist."
 
 
-{::nomarkdown}
-</div> <!-- close main container -->
-
-<div class="section-alt">
-  <div class="container">
-{:/nomarkdown}
+{% include layout/section.html style="alt" %}
 
 {% capture big_belly_text %}
 ## All were intended to provide proof that federal technologies were in fact working to "rehabilitate" Navajo lands and lives. Instead, Snow's photographs demonstrate the aftermath of the immense harm inflicted on Diné communities during this period.
@@ -60,14 +55,7 @@ Snow's dedication to honing his skills with a camera eventually led him to work 
 
 
 
-{::nomarkdown}
-  </div>
-</div>
-{:/nomarkdown}
-
-{::nomarkdown}
-<div class="container"> <!-- reopen main container -->
-{:/nomarkdown}
+{% include layout/section-end.html %}
 
 
 
@@ -114,12 +102,7 @@ captions = captions
 <br style="clear: both">
 <br style="clear: both">
 
-{::nomarkdown}
-</div> <!-- close main container -->
-
-<div class="section-alt">
-  <div class="container">
-{:/nomarkdown}
+{% include layout/section.html style="alt" %}
 
 ## In one photograph, Snow sits next to an elder, with his proximity suggesting that he knew the family of the elder and had taken their photographs several times. 
 
@@ -131,14 +114,7 @@ captions = captions
 
 
 
-{::nomarkdown}
-  </div>
-</div>
-{:/nomarkdown}
-
-{::nomarkdown}
-<div class="container"> <!-- reopen main container -->
-{:/nomarkdown}
+{% include layout/section-end.html %}
 
 
 
@@ -286,12 +262,7 @@ Livestock organized life. Extended kin networks followed sheep to grazing pastur
 %}
 
 
-{::nomarkdown}
-</div> <!-- close main container -->
-
-<div class="section-alt">
-  <div class="container">
-{:/nomarkdown}
+{% include layout/section.html style="alt" %}
 
 ## The federal government's effort to eradicate Indigenous people included the violent removal of Diné people from their homelands, after a scorch and burn campaign led to their surrender. 
 
@@ -301,14 +272,7 @@ Livestock organized life. Extended kin networks followed sheep to grazing pastur
 
 
 
-{::nomarkdown}
-  </div>
-</div>
-{:/nomarkdown}
-
-{::nomarkdown}
-<div class="container"> <!-- reopen main container -->
-{:/nomarkdown}
+{% include layout/section-end.html %}
 
 
 
