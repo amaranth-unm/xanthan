@@ -23,6 +23,7 @@ Use this page for browsing. If you are ready to make your own site, start with t
   min-width="300px"
   gap="var(--spacing-md)"
   show-summary=true
+  heading-level=2
 %}
 
 ---

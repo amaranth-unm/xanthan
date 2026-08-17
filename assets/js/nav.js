@@ -16,6 +16,22 @@
 
     // Dropdown menus
     document.querySelectorAll('.top-nav-dropdown-toggle').forEach(function (toggle) {
+      // role="button" promises Space as well as Enter; anchors only give
+      // Enter for free. Escape closes, which keyboard users will expect.
+      toggle.addEventListener('keydown', function (e) {
+        if (e.key === ' ' || e.key === 'Spacebar') {
+          e.preventDefault();
+          this.click();
+        } else if (e.key === 'Escape') {
+          var open = this.closest('.has-dropdown').querySelector('.top-nav-dropdown.show');
+          if (open) {
+            open.classList.remove('show');
+            this.setAttribute('aria-expanded', 'false');
+            this.focus();
+          }
+        }
+      });
+
       toggle.addEventListener('click', function (e) {
         e.preventDefault();
         var menu = this.nextElementSibling;

@@ -252,6 +252,39 @@ These rules govern all additions to the framework. They exist to keep the codeba
 - Use `console.warn()` for user-facing errors, not silent failures.
 - Touch events and mobile behavior must be tested.
 
+### Accessibility
+
+These are requirements, not aspirations. The project's argument is that a site
+should be readable by the people who use, teach, and inherit it; readers using
+a screen reader or a keyboard are part of that claim, not an edge case.
+
+- **Every component that renders an image takes an alt parameter.** Falling
+  back to a caption or title is acceptable; rendering no `alt` attribute at all
+  is not.
+- **Never hard-code a heading level in a component.** A component cannot know
+  what section it sits in, so a fixed level creates gaps in the document
+  outline. Take a `heading-level` parameter with a sensible default (see
+  `typography/alert.html`).
+- **Anything interactive must work from the keyboard.** If you give an element
+  `role="button"`, it has to respond to Space as well as Enter — anchors only
+  give you Enter for free. Menus and overlays close on Escape.
+- **Every form control has a label**, `.visually-hidden` if the design has no
+  room for a visible one. A placeholder is not a label.
+- **Contrast: 4.5:1 for body text, 3:1 for large text**, checked against the
+  themes the component will actually appear on, not just the default one.
+- **Respect `prefers-reduced-motion`.** `base.css` neutralises CSS transitions
+  and animations globally; components that animate in JavaScript must check the
+  query themselves (see `images/carousel.html`).
+- **Motion the user did not start must be pausable.** `scrollybox/auto-scroll.html`
+  is the reference: opt-in, pausable from the keyboard, with a visible state.
+- **Use the semantic element before reaching for a role.** `<aside>`, `<nav>`,
+  `<main>` carry meaning that a div plus ARIA only approximates. Reserve
+  `role="alert"` for content that genuinely changes after load — it interrupts
+  screen readers.
+
+Layouts supply `<main id="main">` and the skip link (`nav/skip-link.html`); a
+new layout needs both.
+
 ### Documentation pages
 - Lead with the user's goal, not the technical mechanism.
 - Use plain-language prompts in AI examples, not technical descriptions.

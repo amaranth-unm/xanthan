@@ -966,3 +966,56 @@ HERO SECTION (Homepage)
   }
 
 }
+
+/*****************************************************
+ACCESSIBILITY UTILITIES
+*****************************************************/
+
+/* Available to assistive technology, invisible on screen. Use for labels that
+   would be redundant sighted but are needed by a screen reader. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip link — hidden until focused, then pinned to the top-left so a keyboard
+   user can jump past the navigation instead of tabbing through every menu. */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: var(--bg-page);
+  color: var(--text-body);
+  border: 2px solid var(--accent-primary);
+  border-radius: 0 0 var(--radius-sm) 0;
+  transform: translateY(-120%);
+  transition: transform var(--transition-fast);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: none;
+}
+
+/* Motion is a preference, not a detail. Anything animated for decoration is
+   reduced to a near-instant change; components with their own motion logic
+   (the carousel, auto-scroll) check the same query in JS. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

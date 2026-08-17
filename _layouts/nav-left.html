@@ -5,11 +5,13 @@
 
 <body>
 
+    {% include nav/skip-link.html %}
+
   <div class="left-bar">
     {% include nav/nav-left.html %}
   </div>
 
-  <div class="main-content">
+  <main id="main" class="main-content">
 
     {% include nav/nav-top.html %}
 
@@ -21,7 +23,7 @@
 
   {% include nav/search.html %}
 
-  </div> <!-- main-content -->
+  </main> <!-- main-content -->
 
   {% include html/html-js.html %}
 

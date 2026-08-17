@@ -4,6 +4,8 @@
   {% include html/html-head.html %}
 
   <body>
+
+    {% include nav/skip-link.html %}
     
     <div class="page-wrap">
       
@@ -36,9 +38,9 @@
 
     
 
-    <div class="container">
+    <main id="main" class="container">
       {{ content }}
-    </div> <!-- /container -->
+    </main> <!-- /container -->
 
     {% include layout/footer.html %}
 

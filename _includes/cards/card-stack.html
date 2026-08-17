@@ -5,6 +5,7 @@
     {% include cards/card-stack.html cards=pages show-tags=true %}
 
   Parameters:
+    - heading-level: 2–6, level for each item title (default: 3)
     - cards: array of page/card objects to display
     - show-tags: (optional, default true) whether to display tags on cards
     - tag-data: (optional, default false) add data-tags attribute for filtering
@@ -14,6 +15,7 @@
 {% endcomment %}
 
 {% assign show_tags = include.show-tags | default: true %}
+{% assign heading_level = include.heading-level | default: 3 %}
 {% assign tag_data = include.tag-data | default: false %}
 {% assign card_class = include.card-class | default: "" %}
 {% assign sorted_cards = include.cards | sort: "position" %}
@@ -43,7 +45,7 @@
         <div class="card-body">
           <div>
             {% if card.kicker %}<p class="card-kicker">{{ card.kicker }}</p>{% endif %}
-            <h3>{{ card.title }}</h3>
+            <h{{ heading_level }}>{{ card.title }}</h{{ heading_level }}>
             {% if card.byline %}<p class="card-byline">{{ card.byline }}</p>{% endif %}
             <p class="card-text">{{ card_summary }}</p>
           </div>

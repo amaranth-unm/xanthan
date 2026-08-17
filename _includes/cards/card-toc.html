@@ -2,6 +2,7 @@
   Card TOC — compact linked rows from a collection of pages or card objects
 
   Parameters:
+    - heading-level: 2–6, level for each item title (default: 3)
     - rows: collection of page/card objects (required)
 
   Recommended row fields:
@@ -12,6 +13,7 @@
 {% endcomment %}
 
 {% assign rows = include.rows | sort: "position" %}
+{% assign heading_level = include.heading-level | default: 3 %}
 
 {::nomarkdown}
 {% if include.rows and rows.size > 0 %}
@@ -22,7 +24,7 @@
       <a href="{{ link_resolved | strip }}">
         <div class="toc-row-flex">
           <div class="toc-body">
-            <h3>{{ row.title | default: 'Untitled' }}</h3>
+            <h{{ heading_level }}>{{ row.title | default: 'Untitled' }}</h{{ heading_level }}>
             {% if row.summary %}
               <p>{{ row.summary }}</p>
             {% endif %}

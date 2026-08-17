@@ -5,6 +5,7 @@
     {% include nav/gallery-grid.html items=site.pages %}
 
   Parameters:
+    - heading-level: 2–6, level for each item title (default: 3)
     - items: collection of page/card objects to display (required)
     - variant: layout style, "mosaic" or "uniform" (optional, default "mosaic")
     - min-width: minimum tile width for responsive grid columns (optional, default "180px")
@@ -26,6 +27,7 @@
 {% endcomment %}
 
 {% assign items = include.items | sort: "position" %}
+{% assign heading_level = include.heading-level | default: 3 %}
 {% assign variant = include.variant | default: "mosaic" %}
 {% assign min_width = include.min-width | default: "180px" %}
 {% assign gap = include.gap | default: "var(--spacing-xs)" %}
@@ -62,7 +64,7 @@
             {% if show_title or show_summary %}
               <div class="gallery-grid-caption">
                 {% if show_title %}
-                  <h3>{{ item.title }}</h3>
+                  <h{{ heading_level }}>{{ item.title }}</h{{ heading_level }}>
                 {% endif %}
                 {% if show_summary and item_summary %}
                   <p>{{ item_summary }}</p>

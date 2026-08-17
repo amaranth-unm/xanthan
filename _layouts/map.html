@@ -8,11 +8,15 @@
 
 <body>
 
+    {% include nav/skip-link.html %}
+
   <div class="page-wrap">
 
     {% include nav/nav-top.html %}
 
-    {{ content }}
+    <main id="main">
+      {{ content }}
+    </main>
 
     {% include layout/footer.html %}
 
