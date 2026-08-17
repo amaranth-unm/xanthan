@@ -11,19 +11,21 @@
     {% include nav/nav-left.html %}
   </div>
 
-  <main id="main" class="main-content">
+  <div class="main-content">
 
     {% include nav/nav-top.html %}
 
-    <div class="container">
-      {{ content }}
-    </div>
+    <main id="main">
+      <div class="container">
+        {{ content }}
+      </div>
+    </main>
     
     {% include layout/footer.html %}
 
   {% include nav/search.html %}
 
-  </main> <!-- main-content -->
+  </div> <!-- main-content -->
 
   {% include html/html-js.html %}
 

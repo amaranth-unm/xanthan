@@ -44,11 +44,11 @@
   link: "http://histscifi.com"
   tags: ["workshop archive"]
 
-- title: "Amaranth Year in Review"
-  summary: "A studio's annual report, showing the same collaborative structure works for institutional reporting as for coursework."
+- title: "Amaranth"
+  summary: "UNM's Digital Humanities Studio."
   thumbnail: "/assets/images/gallery/amaranth-year-review.png"
-  link: "https://amaranth.unm.edu/studio/annual-report-25-26/"
-  tags: ["annual report", "studio"]
+  link: "https://amaranth.unm.edu/"
+  tags: ["digital studio", "research project"]
 
 - title: "Silk Road"
   summary: "Students research goods, routes, and objects separately, and the cards assemble their work into one navigable collection."
@@ -56,7 +56,7 @@
   link: "https://amaranth.unm.edu/silk-road/"
   tags: ["class project", "collaborative"]
 
-- title: "Rio Grande Farmer Oral Histories"
+- title: "Farming Oral Histories"
   summary: "Interviews gathered by many students become a public archive that the communities involved can actually read."
   thumbnail: "/assets/images/gallery/farming-oral-histories.jpg"
   link: "https://amaranth.unm.edu/farming-oral-histories/"
@@ -80,20 +80,14 @@
   link: "https://profpurplekale.github.io/History-337/"
   tags: ["class project", "course site"]
 
-- title: "AAPI Experiences in New Mexico"
+- title: "Xanthan"
   summary: "An introductory class doing local research, showing that beginners can produce work worth publishing."
   thumbnail: "/assets/images/gallery/history-1105.jpg"
-  link: "https://profpurplekale.github.io/History-1105/"
-  tags: ["class project", "local history"]
+  link: "https://xanthan-web-github.io"
+  tags: ["research project", "publishing"]
 
 - title: "Food Stories"
   summary: "Essays and oral history excerpts side by side, letting students contribute in whichever form suits their material."
   thumbnail: "/assets/images/gallery/food-stories.jpg"
   link: "https://amaranth.unm.edu/food-stories/"
   tags: ["class project", "oral history"]
-
-- title: "Advanced Historiography"
-  summary: "A graduate seminar writing method and theory for public readers, which is harder than writing it for the instructor."
-  thumbnail: "/assets/images/gallery/historiography-podcasts.jpg"
-  link: "https://amaranth.unm.edu/historiography-podcasts/"
-  tags: ["class project", "graduate seminar"]
