@@ -130,6 +130,42 @@ AI assistants can read your entire project and explain it in context. This is di
 
 ---
 
+## Building something you saw in the gallery
+
+The sites in the [gallery](../getting-started/gallery) are real projects, and
+several were extended past what Xanthan ships. The gap is usually smaller than
+it looks: the underlying structure is standard, and the distance from a starter
+site to something like these is mostly arranging components you already have.
+
+Point your assistant at the site and say what you want from it. It can read a
+public page.
+
+**An essay index with authors,** as on the [Silk Road](https://amaranth.unm.edu/silk-road/essays) essays page:
+
+> *"Make an index page listing every essay in my essays folder, each with its
+> image, title, author, and summary, using the card-stack component. Put the
+> author in the byline field."*
+
+**Records with an affiliation line,** as in the [Rio Grande farmer profiles](https://amaranth.unm.edu/farming-oral-histories/farmer-profiles):
+
+> *"Build a profiles directory where each person's card shows their farm above
+> their name and a short summary below it. Use kicker for the farm."*
+
+**A mapped directory,** as on the [Santa Fe Trail](https://historic-trails.unm.edu/) site:
+
+> *"Add geo coordinates to each of my location pages and put a map on the index
+> that links every pin to its page."*
+
+**An object grid,** as in the [Silk Road material objects](https://amaranth.unm.edu/silk-road/) collection:
+
+> *"Give me a page per object with an image, date, medium and tags, and an
+> image-first grid on the index that links to them."*
+
+Ask what it used, then look at the files. That is how the gallery stops being
+other people's work and starts being a parts list.
+
+---
+
 ## Fixing problems
 
 When something doesn't look right, AI can diagnose and fix it.
