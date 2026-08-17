@@ -329,7 +329,30 @@ Wide horizontal cards with larger images, stacked vertically.
 | `cards` | yes | A Liquid-assigned collection of pages |
 | `card-class` | no | Additional CSS class added to each card |
 
+
 Cards sort by `position` front matter if present. Pages without `position` appear last.
+
+### Showing who made it
+
+Two optional front-matter fields on the page (or keys on the card object) let a
+card carry attribution --- the thing a collaborative site needs most:
+
+| Field | Renders as | Example |
+|-------|-----------|---------|
+| `kicker` | small uppercase line above the title | `kicker: Casa Fresco Farm` |
+| `byline` | italic line under the title | `byline: Seth Matteucci` |
+
+```
+{% raw %}---
+title: Chess across the Silk Road
+byline: Seth Matteucci
+summary: Traces of the game's history across old trade routes.
+---{% endraw %}
+```
+
+Both are optional and collapse to nothing when unset, so existing cards are
+unaffected. Use `kicker` for the group a piece belongs to (a farm, a course, a
+theme) and `byline` for the people who made it.
 
 ---
 
