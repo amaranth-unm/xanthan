@@ -9,6 +9,7 @@ summary: Create your Xanthan site in 10 minutes with this step-by-step guide.
 
 # Create Your Site
 
+{: .lede}
 **A live website in 10 minutes.** Everything happens in your browser: nothing to install, and no coding or web experience needed. The one thing you'll need is a free GitHub account, and Step 2 walks you through making one. By the end you'll have a site on the open web and enough of a feel for how it works to start making it your own.
 
 ---

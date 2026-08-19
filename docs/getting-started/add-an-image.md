@@ -2,12 +2,14 @@
 layout: default
 title: Add an Image
 date: 2026-02-14
+summary: Upload an image and put it on a page, using the one Xanthan workflow you will reuse everywhere: find something that works, copy it, adapt it.
 ---
 
 {% include nav/scrollspy-toc.html %}
 
 # Add an Image
 
+{: .lede}
 You've edited text. Now let's add an image to your site---the full process from uploading the file to seeing it on a page.
 
 Before we start, keep in mind that we're really just doing one core Xanthan workflow: **find something that already works, copy it, then adapt it**.

@@ -2,12 +2,14 @@
 layout: default
 title: Make Your First Edit
 date: 2026-02-14
+summary: Edit a file, save it, and watch the change appear on your live site — the full cycle, once, so you can see how it works.
 ---
 
 {% include nav/scrollspy-toc.html %}
 
 # Make Your First Edit
 
+{: .lede}
 Your site is live. Now let's change something so you can see the full cycle: edit a file, save it, and watch the change appear on your live site.
 
 ---

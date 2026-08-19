@@ -2,12 +2,14 @@
 layout: default
 title: Choose a Starter Site
 date: 2026-02-14
+summary: Four starter sites, one per shape of project: a portfolio, a collection of writing, a collection of objects, or a single continuous narrative.
 ---
 
 {% include nav/scrollspy-toc.html %}
 
 # Choose a Starter Site
 
+{: .lede}
 Xanthan offers four starter sites, each a different shape of project: one person's work, a collection of writing, a collection of objects, or a single continuous narrative. Pick the closest one---you can always add features later.
 
 Browse the options below. See a live example, explore the clean starter site, then start with the one closest to your project. GitHub calls the final step "Use this template," which is the green button you will click there.

@@ -7,6 +7,7 @@ summary: Real examples of websites built using Xanthan templates — portfolios,
 
 # Sites Built with Xanthan
 
+{: .lede}
 These are working Xanthan sites, not polished marketing demos. They show the range of things people can make from the same underlying system: class archives, visual essays, research collections, map-based directories, annual reports, and small public projects that can keep growing after the first version goes live.
 
 The gallery leans toward collaborative teaching examples on purpose. Xanthan is useful for individual sites, but its strongest argument is often collective work: many contributors, readable files, public audiences, and projects that remain editable after the course or workshop ends.
