@@ -51,7 +51,7 @@ Digital humanities work should be as open in its process as in its product. Xant
 {% include layout/feature-grid.html features=page.reasons %}
 
 {: .link-callout}
-[See more in our FAQs →](faqs#why-not-use-wix-or-squarespace){: .btn-secondary .btn-sm}
+[See more in our FAQs →](faqs#why-not-use-wix-or-squarespace){: .btn-secondary}
 
 {% include layout/section-end.html %}
 
@@ -69,6 +69,7 @@ Digital humanities work should be as open in its process as in its product. Xant
   fade-start="50%"
   fade-end="100%"
   text-shadow=false
+  bg-color="var(--bg-section-alt-flat)"
   text="
 
 ## Built for AI Collaboration.
@@ -78,7 +79,7 @@ Xanthan provides starter sites with amply commented code that give AI a curated 
 
 Those guardrails make AI more useful, not less. You describe what you want in plain language, and you stay in the editorial role---judging results, giving feedback, and deciding what's right for your project.
 
-[See our AI guide →](docs/using-ai/){: .btn-secondary .btn-sm}
+[See our AI guide →](docs/using-ai/){: .btn-secondary}
 "
 %}
 

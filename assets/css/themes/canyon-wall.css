@@ -41,6 +41,7 @@ CSS VARIABLE OVERRIDES
 
   /* Homepage sections */
   --bg-section-alt: linear-gradient(180deg, color-mix(in srgb, var(--limestone) 72%, var(--granite-white)), color-mix(in srgb, var(--limestone) 52%, var(--granite-white)));
+  --bg-section-alt-flat: color-mix(in srgb, var(--limestone) 62%, var(--granite-white));
   --border-section-alt: color-mix(in srgb, var(--canyon-red) 18%, var(--granite-white));
   --text-section-alt-heading: var(--canyon-red-dark);
   --text-section-cool-heading: var(--ponderosa-green);
@@ -53,7 +54,10 @@ CSS VARIABLE OVERRIDES
      on ponderosa is only 3.6:1, where on the old shadow-gray it was 4.8:1. */
   --bg-section-warm: var(--ponderosa-green);
   --text-section-warm: var(--granite-white);
-  --text-section-warm-heading: var(--granite-white);
+  /* Tinted toward the rim green so the heading belongs to the band rather than
+     sitting on top of it. Body copy stays granite, which keeps the two apart.
+     6.5:1 on ponderosa. */
+  --text-section-warm-heading: color-mix(in srgb, var(--rim-green-light) 35%, var(--granite-white));
   --text-section-warm-link: color-mix(in srgb, var(--rim-green-light) 60%, var(--granite-white));
   --text-section-warm-link-hover: var(--granite-white);
   --border-section-warm: var(--canyon-red);

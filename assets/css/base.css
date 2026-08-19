@@ -89,6 +89,11 @@ PAGE SETUP & CUSTOMIZATION
   --code-quiet: var(--syntax-quiet);
   --bg-nav: var(--sage-deep);
   --bg-section-alt: var(--bg-card);
+  /* A flat stand-in for the alt band, for components that need a colour rather
+     than a background — a gradient cannot be a colour stop inside another
+     gradient. Themes whose alt band is a gradient must override this with a
+     representative solid. */
+  --bg-section-alt-flat: var(--bg-card);
   --border-section-alt: color-mix(in srgb, var(--accent-primary) 16%, transparent);
   --shadow-section-alt: inset 0 1px 0 var(--border-section-alt), inset 0 -1px 0 var(--border-section-alt);
   --text-section-alt-heading: var(--text-h2);

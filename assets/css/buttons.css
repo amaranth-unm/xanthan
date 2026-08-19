@@ -15,12 +15,22 @@ Not here: the tag pills and tag filter UI in cards.css, which look similar but
 @media screen {
 
 /* Shared styles — applied to both primary and secondary variants */
+/* One size for both. The names read as emphasis, and emphasis is all they
+   should carry — primary and secondary use the same background, so size was
+   the only thing separating them and that made "primary" mean "big". It is
+   set in rem, not em, so a button is the same size wherever it lands rather
+   than inheriting the type size of the block around it.
+   Reach for .btn-sm or .btn-lg when you actually want a different size. */
 .btn-primary,
 .btn-secondary {
   /* Display */
   display: inline-block;
 
+  /* Box Model */
+  padding: 0.7em 1.5em;
+
   /* Typography */
+  font-size: 1rem;
   font-family: var(--font-body);
   color: var(--button-text);
   text-decoration: none;
@@ -53,10 +63,9 @@ Not here: the tag pills and tag filter UI in cards.css, which look similar but
   background: var(--button-hover-bg);
 }
 
-/* Primary — larger, full emphasis */
+/* Primary — full emphasis. Same size as secondary; the shadow and the hover
+   lift are what mark it as the page's main action. */
 .btn-primary {
-  padding: 1em 2em;
-  font-size: 1.2em;
   box-shadow: var(--shadow-md);
 }
 
@@ -66,10 +75,8 @@ Not here: the tag pills and tag filter UI in cards.css, which look similar but
   transform: translateY(-2px);
 }
 
-/* Secondary — smaller, lower emphasis */
+/* Secondary — lower emphasis, sitting flatter on the page. */
 .btn-secondary {
-  padding: 0.6em 1.2em;
-  font-size: 0.95em;
   box-shadow: var(--shadow-sm);
 }
 
