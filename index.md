@@ -43,6 +43,8 @@ GitHub stores files and publishes websites for millions of people, it will turn 
 So this is low-tech, not no-tech. You will open text files and click buttons on a website. You will not write code, run a server, manage a database, or install anything.
 
 
+{% include layout/section.html style="alt" %}
+
 ## Why Xanthan?
 Digital humanities work should be as open in its process as in its product. Xanthan is built on a simple conviction: scholars shouldn't have to rent their web presence from proprietary platforms, and they shouldn't need a computer science degree to publish online.
 
@@ -51,8 +53,8 @@ Digital humanities work should be as open in its process as in its product. Xant
 {: .link-callout}
 [See more in our FAQs →](faqs#why-not-use-wix-or-squarespace){: .btn-secondary .btn-sm}
 
+{% include layout/section-end.html %}
 
-{% include layout/section.html style="alt" %}
 
 ## Who is Xanthan for?
 
@@ -61,8 +63,6 @@ Digital humanities work should be as open in its process as in its product. Xant
 **Instructors teaching digital literacy.** Turn class projects into real public scholarship. Students build collectively around shared themes---local history archives, community documentation, thematic collections---learning web fundamentals while creating work that outlasts the semester.
 
 **Students building professional presence.** Create a portfolio that showcases your research, teaching, and digital skills. Own your academic identity rather than scattering it across platforms.
-
-{% include layout/section-end.html %}
 
 {% include images/jumbotron.html
   image-path="/assets/images/site/scaffolding-hand.png"
