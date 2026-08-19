@@ -1,5 +1,16 @@
 /*****************************************************
 LEAFLET MAP POPUP STYLES
+
+Popup styling for the Leaflet maps.
+
+The `.leaflet-*` selectors are Leaflet's own class names, overridden here so
+popups match the site rather than the library's default blue-and-white. That is
+what the !important flags below are for.
+
+Loads:    only via the map layout
+Used by:  nav/map.html, layouts/map.html
+Needs:    base.css tokens; Leaflet's own stylesheet must load first
+Not here: nothing else — this file is only for map popups
 *****************************************************/
 
 /* Override Leaflet's default max-width constraint */

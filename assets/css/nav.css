@@ -1,5 +1,14 @@
 /*****************************************************
 NAVIGATION
+
+The top navigation bar and breadcrumbs, including the dropdown behaviour and
+the variant that goes transparent over a hero page header.
+
+Loads:    every page
+Used by:  nav/nav-top.html, nav/breadcrumbs.html
+Needs:    base.css tokens (--bg-nav, --text-on-photo, --spacing-*)
+Not here: the two sidebar navigations (nav-left.css, nav-profile.css) and the
+          search overlay the nav opens (search.css)
 *****************************************************/
 
 @media screen {
@@ -40,12 +49,12 @@ TOPNAV
 .page-wrap:has(.page-header--hero) .top-nav-brand,
 .page-wrap:has(.page-header--hero) .top-nav-link,
 .page-wrap:has(.page-header--hero) .top-nav-toggler {
-  color: var(--white);
+  color: var(--text-on-photo);
 }
 
 .page-wrap:has(.page-header--hero) .top-nav-link:hover {
-  color: var(--white);
-  box-shadow: inset 0 -3px 0 var(--white);
+  color: var(--text-on-photo);
+  box-shadow: inset 0 -3px 0 var(--text-on-photo);
   border-radius: 0;
 }
 

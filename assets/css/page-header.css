@@ -1,19 +1,26 @@
 /*****************************************************
 PAGE HEADER
-All styles for the .page-header component live here.
+
+The header studio — the dark, typographic header drawn above page content when
+a page has `header-image` in its front matter.
 
 Three tiers:  hero (full screen), section (~60vh), banner (~22vh)
 Five filters: botanical, sketch, woodcut, etching, photo
+
+Loads:    only on pages with `header-image` in front matter
+Used by:  layout/page-header.html
+Needs:    base.css tokens (--bg-page-header, --page-header-*)
+Not here: the home hero, which is placed in the page body and can carry
+          buttons (home.css)
 
 Editing guide:
   - Colors:   Edit the page-header variables in assets/css/base.css
   - Tiers:    Scroll to "Tier" sections to adjust heights and spacing
   - Filters:  Scroll to "Filter system" to adjust image treatments
-  - Template: _includes/layout/page-header.html
 
-The accent color (vertical bar + eyebrow text) comes from
---accent-primary in base.css. Override it here inside .page-header
-if you want a different accent color just for headers.
+The accent color (vertical bar + eyebrow text) comes from --accent-primary in
+base.css. Override it here inside .page-header if you want a different accent
+color just for headers.
 *****************************************************/
 
 /* =====================================================

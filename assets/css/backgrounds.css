@@ -1,5 +1,15 @@
 /*****************************************************
-BACKGROUNDs
+BACKGROUNDS
+
+Backgrounds for the scrollybox components — the scroll-driven images that sit
+behind or beside a passage of text.
+
+Loads:    every page
+Used by:  the scrollybox/ includes (bg.html, bg-sticky.html, bg-ss.html,
+          bg-multi-long.html, and their siblings)
+Needs:    base.css tokens
+Not here: the typography those boxes inherit on a scrollstory page
+          (scrollstory.css)
 *****************************************************/
 
 .bg-image {

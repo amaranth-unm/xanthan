@@ -1,5 +1,20 @@
-/* Scrollstory specific styles - fonts imported in base.css */
-/* Typography overrides for scrollstory pages — box model handled by base.css grid */
+/*****************************************************
+SCROLLSTORY
+
+Typography overrides for scrollstory pages only. Fonts are imported in
+base.css; the box model comes from the base.css `.container` grid.
+
+Read the bare `.container` rules below with that in mind: they look site-wide
+and are not. This file is loaded only when a page sets `layout: scrollstory`,
+which is what scopes them. Nothing here needs a wrapper class to "fix" that —
+the conditional load is the scope.
+
+Loads:    only on pages with `layout: scrollstory`
+Used by:  the scrollstory layout and the scrollybox/ includes
+Needs:    base.css tokens
+Not here: the background images themselves (backgrounds.css)
+*****************************************************/
+
 .container {
   font-family: var(--font-serif);
   font-size: 1rem;

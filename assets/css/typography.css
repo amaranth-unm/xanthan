@@ -1,4 +1,19 @@
-/* Typography styles - fonts imported in base.css */
+/*****************************************************
+TYPOGRAPHY
+
+Everything that styles running prose and the things embedded in it. Fonts are
+imported in base.css.
+
+Sections, in order: body type and headings, tables, code blocks, syntax
+highlighting, footnotes, blockquotes, pullquotes, alerts.
+
+Loads:    every page
+Used by:  typography/alert.html, typography/pullquote.html, and every page of
+          Markdown — most of this file styles bare elements, not classes
+Needs:    base.css tokens (--text-*, --font-*, --bg-code*, --spacing-*)
+Not here: the `.container` grid that gives prose its measure (base.css)
+*****************************************************/
+
 
 @media screen {
 

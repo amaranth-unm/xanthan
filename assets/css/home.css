@@ -1,14 +1,19 @@
 /*****************************************************
 HOME / LANDING SECTIONS
 
-Full-width bands for composed landing pages: a hero, an opening argument,
-editorial selections from a collection, and a closing index of links.
+The full-width bands a landing page is built from.
 
-These are the components in _includes/layout/ named home-hero, split-intro,
-picks, feature-block, and link-index. See docs/reference/component-library.md.
+Five components: home-hero, split-intro, feature-block, picks (in three
+variants), and link-index. Each claims the container's `full` column and
+re-centres its own contents at --home-measure, so a page can stack them
+without any wrapper markup.
 
-Everything here is built on the semantic tokens in base.css, so the four
-themes in assets/css/themes/ restyle these sections without touching this file.
+Loads:    every page
+Used by:  layout/home-hero.html, layout/split-intro.html,
+          layout/feature-block.html, layout/picks.html, layout/link-index.html
+Needs:    base.css tokens, and the named-line `.container` grid in base.css
+Not here: the page-header hero drawn from front matter (page-header.css),
+          which is the other way to open a page
 
 👉 To widen or narrow every band at once, override --home-measure.
 *****************************************************/
@@ -21,8 +26,8 @@ themes in assets/css/themes/ restyle these sections without touching this file.
   --home-measure: 64rem;
   --home-band-padding: clamp(2.5rem, 6vw, 5rem);
   --home-scrim: linear-gradient(180deg,
-                  color-mix(in srgb, var(--sage-dark) 4%, transparent),
-                  color-mix(in srgb, var(--sage-dark) 88%, transparent));
+                  color-mix(in srgb, var(--bg-scrim) 4%, transparent),
+                  color-mix(in srgb, var(--bg-scrim) 88%, transparent));
 }
 
 /* Page content sits in the centred `content` column of .container's grid.
@@ -120,9 +125,9 @@ HOME HERO
 
 .home-hero--left .home-hero__image::after {
   background: linear-gradient(90deg,
-                color-mix(in srgb, var(--sage-dark) 90%, transparent) 0%,
-                color-mix(in srgb, var(--sage-dark) 62%, transparent) 38%,
-                color-mix(in srgb, var(--sage-dark) 18%, transparent) 100%);
+                color-mix(in srgb, var(--bg-scrim) 90%, transparent) 0%,
+                color-mix(in srgb, var(--bg-scrim) 62%, transparent) 38%,
+                color-mix(in srgb, var(--bg-scrim) 18%, transparent) 100%);
 }
 
 .home-hero__content {
@@ -194,7 +199,7 @@ HOME HERO
   border-bottom-color: var(--text-feature-band-link);
   border-radius: var(--radius-sm);
   background: var(--text-feature-band-link);
-  color: var(--sage-dark);
+  color: var(--text-body);
   font-weight: 700;
   text-decoration: none;
   transition: background var(--transition-fast), color var(--transition-fast),
@@ -205,7 +210,7 @@ HOME HERO
 .home-hero__actions a:focus-visible {
   background: var(--interactive-hover);
   border-color: var(--interactive-hover);
-  color: var(--sage-dark);
+  color: var(--text-body);
   transform: translateY(-2px);
 }
 
@@ -351,7 +356,7 @@ count is an authoring decision rather than a CSS edit.
   min-height: 22rem;
   padding: var(--spacing-sm);
   color: var(--text-on-dark);
-  background: var(--sage-dark);
+  background: var(--bg-tile);
 }
 
 .home-picks--tiles .home-pick img,
@@ -509,7 +514,7 @@ FEATURE BLOCK — one item at full width
 .feature-block__cta:hover {
   background: var(--interactive-hover-bg);
   border-color: var(--interactive-hover);
-  color: var(--sage-dark);
+  color: var(--text-body);
 }
 
 

@@ -1,5 +1,13 @@
 /*****************************************************
 SEARCH
+
+The search overlay: the toggle in the nav, the full-screen panel it opens, and
+the result list.
+
+Loads:    only when `search` is set in _config.yml
+Used by:  nav/search.html
+Needs:    base.css tokens (--bg-field, --text-on-photo, --overlay-dark)
+Not here: the nav bar the toggle sits in (nav.css)
 *****************************************************/
 
 @media screen {
@@ -88,7 +96,7 @@ SEARCH
   font-family: var(--font-body);
   font-size: 1.1rem;
   color: var(--text-body);
-  background: var(--white);
+  background: var(--bg-field);
   border: 2px solid var(--accent-primary);
   border-radius: var(--radius-md);
   outline: none;
@@ -128,7 +136,7 @@ SEARCH
   font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--white);
+  color: var(--text-on-photo);
   text-decoration: none;
   border-bottom: none;
   transition: color var(--transition-fast);
@@ -153,7 +161,7 @@ SEARCH
 }
 
 .search-no-results strong {
-  color: var(--white);
+  color: var(--text-on-photo);
 }
 
 /* ---- Keyboard hints ---- */

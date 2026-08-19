@@ -1,8 +1,16 @@
 /*****************************************************
-DOCS - Styles for /docs/ reference and guide pages
+DOCS
 
-Loaded only on pages whose URL contains /docs/
-(see _includes/html/html-head.html)
+Styles used only by pages under /docs/ — table column widths, the template
+chooser, and the interactive colour lab.
+
+This is documentation furniture, not framework. A site built with Xanthan never
+loads it unless it keeps the docs.
+
+Loads:    only on pages whose URL contains /docs/ (see html/html-head.html)
+Used by:  docs/getting-started/templates.md, docs/reference/colors-and-fonts.md
+Needs:    base.css tokens
+Not here: anything a reader's own site would use
 *****************************************************/
 
 /*

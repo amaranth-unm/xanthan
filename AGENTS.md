@@ -164,6 +164,9 @@ FAQs               → Common questions
 - Variables use semantic names: `--accent-primary`, `--spacing-md`, `--text-body`, `--bg-card`
 - Themes are separate CSS files that override base variables
 - Typography scale uses `clamp()` for responsive sizing
+- Every stylesheet carries a header block saying what it styles, when it loads,
+  what consumes it, and what belongs elsewhere. Read it before editing; the
+  filename alone does not always tell you (see Coding standards → CSS)
 
 ### Components
 - All reusable components live in `_includes/` with subdirectories (images/, nav/, scrollstory/)
@@ -228,12 +231,58 @@ When adding new includes, components, or framework features:
 These rules govern all additions to the framework. They exist to keep the codebase consistent and AI-legible.
 
 ### CSS
+
+**Token discipline.** This is why the variable layer has stayed healthy; keep it that way.
+
 - **No hardcoded hex colors or raw rgba values** outside of `:root` palette definitions.
 - **No raw palette variable names** (like `--sage`, `--golden-clay`, `--amber`) used in rules outside `:root`. Always use semantic variables (`--accent-primary`, `--interactive-hover`, `--text-body`).
 - **No hardcoded spacing, radius, or shadow values.** Use `--spacing-*`, `--radius-*`, `--shadow-*`.
 - New semantic variables go in `base.css` `:root`, named `--{category}-{purpose}` (e.g., `--bg-footer`, `--text-footer-link`).
 - New named palette colors go in `base.css` `:root` palette block and must immediately be mapped to a semantic variable.
 - Themes override semantic variables only, never raw palette names.
+
+**One file per component.** A stylesheet is named for the thing it styles, and
+an AI asked to restyle that thing should be able to guess the filename. Do not
+add a component's styles to `base.css` because it is already open — that is how
+`base.css` became 1,000 lines with six components inside it.
+
+- A new component gets a new stylesheet, loaded unconditionally in
+  `html/html-head.html` alongside the others. Many small files cost nothing on
+  HTTP/2 and are worth far more than a saved request.
+- Load conditionally only when a stylesheet is genuinely page-type scoped
+  (`docs.css`, `scrollstory.css`, `page-header.css`, `search.css`). If you do,
+  the header must say so — a conditionally loaded file's selectors look
+  site-wide and are not.
+- If a file needs more than one top-level section banner to describe itself, it
+  is probably two files.
+
+**Every stylesheet opens with a header block** in this shape. It is the first
+thing anyone — person or model — reads before editing, and it is the cheapest
+place to prevent an edit landing in the wrong file:
+
+```
+/*****************************************************
+NAME
+
+What this file is for, in a sentence or two. If several distinct families
+share the file, list them.
+
+Loads:    every page | only when <condition>
+Used by:  the includes and layouts that consume these classes
+Needs:    the tokens or files this depends on
+Not here: the adjacent thing someone would plausibly look for here, and the
+          file it actually lives in
+*****************************************************/
+```
+
+The `Not here:` line is the one that does the real work. Write it for the
+mistake you can see someone making, not as a formality.
+
+**Explain the non-obvious in place.** A rule that looks wrong until you know
+why gets a comment saying why — see the `overflow` note on `.home-pick img` in
+`home.css`, or the container-indent note on `.section-alt:has(> .container)` in
+`base.css`. Comments that restate the property (`/* Typography */` above a
+`font-family`) are noise; delete them when you touch that code.
 
 ### Includes / components
 - **Parameter names are hyphenated**: `image-path`, `box-align`, `alt-text`. Never camelCase or underscore.

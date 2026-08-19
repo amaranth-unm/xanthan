@@ -1,5 +1,21 @@
 /*****************************************************
 CARDS
+
+Every component that presents a list of pages as a set of tiles or rows.
+
+Four families share this file, and they are not variants of each other:
+  card     — the classic image-and-text card, in grid and stack layouts
+  gallery  — image-first tiles with the caption laid over the picture
+  toc      — table-of-contents rows, the text-forward alternative to cards
+  tag      — the tag pills and the tag filter UI
+
+Loads:    every page
+Used by:  cards/card-grid.html, cards/card-stack.html, cards/card-toc.html,
+          cards/card-toc-compact.html, nav/gallery-grid.html,
+          helpers/card-image.html
+Needs:    base.css tokens (--card-*, --gallery-*, --tag-*, --spacing-*)
+Not here: the picks component, which also shows a set of pages but selects
+          them editorially rather than listing a folder (home.css)
 *****************************************************/
 
 .card {

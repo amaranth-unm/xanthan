@@ -1,6 +1,15 @@
 /*****************************************************
 LEFT NAVIGATION SIDEBAR
-Vertical navigation for content hierarchies
+
+Vertical navigation for content hierarchies, for sites using
+`layout: nav-left`.
+
+Loads:    every page (the layout decides whether the markup exists)
+Used by:  nav/nav-left.html, layouts nav-left.html and nav-profile.html
+Needs:    base.css tokens
+Not here: the profile sidebar, which shares the `.left-bar` class but styles it
+          differently (nav-profile.css) — read both files before changing
+          anything on `.left-bar`
 *****************************************************/
 
 .left-bar {

@@ -1,6 +1,14 @@
 /*****************************************************
 PROFILE SIDEBAR
-Profile-based sidebar for portfolio sites
+
+Profile-based sidebar for portfolio sites, for sites using
+`layout: nav-profile`.
+
+Loads:    every page (the layout decides whether the markup exists)
+Used by:  nav/nav-profile.html, layouts nav-left.html and nav-profile.html
+Needs:    base.css tokens
+Not here: the left nav, which shares the `.left-bar` class (nav-left.css) —
+          read both files before changing anything on `.left-bar`
 *****************************************************/
 
 .left-bar {
