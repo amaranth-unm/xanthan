@@ -2,12 +2,14 @@
 title: AI-Ready Website Building
 layout: default
 date: 2026-02-16
+summary: Why a site built for the second day — the day after AI makes it — needs a structure both you and the assistant can read.
 ---
 
 {% include nav/scrollspy-toc.html %}
 
 # AI-Ready Website Building
 
+{: .lede}
 We have all heard that AI can make a website for you. Sometimes it can. The harder question is what happens the next day: can you understand what it made, change a sentence, swap an image, fix a broken link, teach someone else how the site works, and keep improving it without spending tokens on every tiny edit?
 
 Xanthan is built for that second day.

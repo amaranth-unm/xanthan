@@ -2,11 +2,15 @@
 title: Background Scroll Boxes
 layout: default
 date: 2024-10-24
+summary: Text boxes over a fixed background image, either revealed as the reader scrolls to it or held behind a whole run of text.
 ---
 
 {% include nav/scrollspy-toc.html %}
 
 # Background Scroll Boxes
+
+{: .lede}
+Background scroll boxes hold text over a fixed background image, so the picture stays put while the words move across it. This page covers both versions: an image revealed as the reader scrolls down to meet it, and one that stays behind a whole run of text.
 
 ## Revealed images
 Fixed images move along with scrolling, but sometimes it's fun to have a background image be revealed as the reader scrolls down the page.

@@ -2,12 +2,14 @@
 title: Building with AI
 layout: default
 date: 2026-02-16
+summary: Real prompts for AI assistants in VS Code, organised by what you are trying to accomplish rather than by the technology involved.
 ---
-
-# Building with AI
 
 {% include nav/scrollspy-toc.html %}
 
+# Building with AI
+
+{: .lede}
 These are real prompts you can use with AI assistants in VS Code. They're organized by what you're trying to accomplish, not by which technology they involve. Each one takes advantage of Xanthan's design system---the AI knows how the framework is structured and will make changes that fit.
 
 For all of these, you should be working locally with VS Code and an AI assistant. If you haven't set that up, start with the [setup instructions](./).

@@ -2,11 +2,13 @@
 title: Side-Scrolling Text
 layout: default
 date: 2024-10-24
+summary: Hold an image on screen while the text scrolls past it, and swap it for another partway through.
 ---
 
 {% include nav/scrollspy-toc.html %}
 
 # Side-Scrolling Text
+{: .lede}
 Sometimes it's useful to keep an image on the screen while text scrolls up past it.
 
 It can even be useful to switch one image to another at some point in the text. 

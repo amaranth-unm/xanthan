@@ -2,12 +2,14 @@
 title: Your First AI Edit
 layout: default
 date: 2026-02-16
+summary: Your first few AI edits: change a colour, swap a font, ask what a line does — so you can see how the conversation works before trying anything ambitious.
 ---
 
 {% include nav/scrollspy-toc.html %}
 
 # Your First AI Edit
 
+{: .lede}
 This page is for people who have never used AI to make a technical change. We'll walk through a few real edits---changing a color, swapping a font, asking the AI to explain what's happening---so you can see how the conversation works before trying anything ambitious.
 
 You'll need VS Code open with your Xanthan site and an AI assistant installed. If you haven't set that up yet, see the [setup instructions](./).

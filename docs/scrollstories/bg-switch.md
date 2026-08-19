@@ -2,11 +2,13 @@
 title: Background Switching
 layout: default
 date: 2024-10-24
+summary: Change the background image as the reader scrolls, to mark a difference the text is describing.
 ---
 
 {% include nav/scrollspy-toc.html %}
 
 # Background Switching
+{: .lede}
 Sometimes it's fun to have the background change as a user is scrolling up some text boxes and moving through a story. It's an effective way of highlighting a difference that you're describing in text. 
 
 Here's some dummy text just to simulate a story page.

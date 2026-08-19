@@ -2,6 +2,7 @@
 title: StoryMaps-Style Pages with ScrollStories
 layout: default
 date: 2019-10-05
+summary: A visual narrative where text, images, maps, and media unfold as the reader scrolls — and it is still just a page in your site.
 ---
 
 {% include nav/scrollspy-toc.html %}
@@ -9,6 +10,7 @@ date: 2019-10-05
 # StoryMaps-Style Pages with ScrollStories
 
 {% capture scrollstories_intro %}
+{: .lede}
 If you know StoryMaps, this is the Xanthan version of that idea: a visual narrative where text, images, maps, and media unfold as the reader scrolls. The difference is that a ScrollStory is just a page in your site, written in text files and styled with the same Xanthan system as everything else.
 {% endcapture %}
 

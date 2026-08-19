@@ -2,14 +2,14 @@
 title: Peekaboo Images
 layout: default
 date: 2026-02-27
+summary: An image that stays fixed while the page scrolls down to reveal it — a cinematic pause between sections.
 ---
 
 {% include nav/scrollspy-toc.html %}
 
 # Peekaboo Images
 
-## How it works
-
+{: .lede}
 A peekaboo image stays fixed in place while the page scrolls down to reveal it—the opposite of a jumbotron, which moves with the page. As the reader scrolls, the content above slides away and the image comes into view; once fully visible, the page continues scrolling normally with content passing over it.
 
 This is a ScrollStory technique at heart. It works in any page layout, but it's most effective in longer narrative pages where you want a cinematic visual pause between sections.
