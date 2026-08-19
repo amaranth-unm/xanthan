@@ -1,0 +1,633 @@
+/*****************************************************
+HOME / LANDING SECTIONS
+
+Full-width bands for composed landing pages: a hero, an opening argument,
+editorial selections from a collection, and a closing index of links.
+
+These are the components in _includes/layout/ named home-hero, split-intro,
+picks, feature-block, and link-index. See docs/reference/component-library.md.
+
+Everything here is built on the semantic tokens in base.css, so the four
+themes in assets/css/themes/ restyle these sections without touching this file.
+
+👉 To widen or narrow every band at once, override --home-measure.
+*****************************************************/
+
+@media screen {
+
+:root {
+  /* Matches .wide-header and .gallery-grid--wide so a landing page's bands
+     line up with the wide components already in the framework. */
+  --home-measure: 64rem;
+  --home-band-padding: clamp(2.5rem, 6vw, 5rem);
+  --home-scrim: linear-gradient(180deg,
+                  color-mix(in srgb, var(--sage-dark) 4%, transparent),
+                  color-mix(in srgb, var(--sage-dark) 88%, transparent));
+}
+
+/* Page content sits in the centred `content` column of .container's grid.
+   A band has to span the window, so it claims the `full` column and does its
+   own centring. Written as a child selector for the same reason
+   .container > .wide-header is: it must beat .container > * without relying
+   on stylesheet order. */
+.container > .home-hero,
+.container > .home-split,
+.container > .home-picks,
+.container > .home-index,
+.container > .feature-block {
+  grid-column: full;
+}
+
+.home-split,
+.home-picks,
+.home-index,
+.feature-block {
+  padding: var(--home-band-padding) var(--spacing-md);
+}
+
+.home-split__inner,
+.home-section-heading,
+.home-picks__grid,
+.home-index__grid {
+  max-width: var(--home-measure);
+  margin-inline: auto;
+}
+
+
+/*****************************************************
+SMALL CAPS LABELS
+
+The kicker above a headline and the label above a section heading are the
+same typographic device, so they share a definition. Only the colour differs,
+and that comes from whatever band they sit on.
+*****************************************************/
+
+.home-kicker,
+.home-section-label,
+.home-pick__label {
+  display: block;
+  margin: 0 0 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: var(--text-kicker);
+}
+
+.home-section-heading {
+  margin-bottom: var(--spacing-md);
+}
+
+.home-section-heading h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  line-height: 1.06;
+}
+
+
+/*****************************************************
+HOME HERO
+*****************************************************/
+
+.home-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(26rem, 72vh, 46rem);
+  overflow: hidden;
+  color: var(--text-on-dark);
+  background: var(--bg-feature-band);
+}
+
+.home-hero__image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+/* The readability scrim lives here rather than in the include, so a theme can
+   change it and an author never has to think about contrast. */
+.home-hero__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--home-scrim);
+}
+
+.home-hero--left .home-hero__image::after {
+  background: linear-gradient(90deg,
+                color-mix(in srgb, var(--sage-dark) 90%, transparent) 0%,
+                color-mix(in srgb, var(--sage-dark) 62%, transparent) 38%,
+                color-mix(in srgb, var(--sage-dark) 18%, transparent) 100%);
+}
+
+.home-hero__content {
+  position: relative;
+  width: 100%;
+  max-width: var(--home-measure);
+  margin-inline: auto;
+  padding: clamp(3rem, 7vw, 6rem) var(--spacing-md);
+}
+
+.home-hero--center {
+  align-items: center;
+  text-align: center;
+}
+
+.home-hero--center .home-hero__content {
+  max-width: 46rem;
+}
+
+.home-hero h1 {
+  max-width: 16ch;
+  margin: 0 0 var(--spacing-sm);
+  font-family: var(--font-serif);
+  font-size: clamp(2.6rem, 7vw, 6rem);
+  line-height: 0.98;
+  font-weight: 700;
+  color: var(--text-on-dark);
+}
+
+.home-hero--center h1 {
+  max-width: none;
+  margin-inline: auto;
+}
+
+.home-hero .home-kicker {
+  color: var(--text-feature-band-link);
+}
+
+.home-hero__text {
+  max-width: 42rem;
+  margin: 0;
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  line-height: 1.5;
+  color: var(--text-on-dark);
+}
+
+.home-hero--center .home-hero__text {
+  margin-inline: auto;
+}
+
+.home-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-lg);
+}
+
+.home-hero--center .home-hero__actions {
+  justify-content: center;
+}
+
+.home-hero__actions a,
+.home-hero__actions a:visited {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.7rem 1.1rem;
+  border: 1px solid var(--text-feature-band-link);
+  border-bottom-color: var(--text-feature-band-link);
+  border-radius: var(--radius-sm);
+  background: var(--text-feature-band-link);
+  color: var(--sage-dark);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background var(--transition-fast), color var(--transition-fast),
+              border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.home-hero__actions a:hover,
+.home-hero__actions a:focus-visible {
+  background: var(--interactive-hover);
+  border-color: var(--interactive-hover);
+  color: var(--sage-dark);
+  transform: translateY(-2px);
+}
+
+
+/*****************************************************
+SPLIT INTRO — a large claim beside its explanation
+*****************************************************/
+
+.home-split__grid {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.9fr) minmax(18rem, 1.1fr);
+  gap: clamp(var(--spacing-md), 4vw, var(--spacing-xl));
+  align-items: start;
+}
+
+.home-split h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 4vw, 3.4rem);
+  line-height: 1.06;
+}
+
+.home-split__body > :first-child {
+  margin-top: 0;
+}
+
+.home-split__body p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.home-split__body p:last-child {
+  margin-bottom: 0;
+}
+
+
+/*****************************************************
+PICKS — a named selection from a collection
+
+Three variants share one grid. --picks-columns comes from the include, so the
+count is an authoring decision rather than a CSS edit.
+*****************************************************/
+
+.home-picks__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--picks-columns, 4), minmax(0, 1fr));
+  gap: var(--spacing-xs);
+}
+
+.home-pick {
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  border-bottom: 0;
+  border-radius: var(--radius-md);
+}
+
+/* No height here. A pick is a grid item, so it has a definite height, and a
+   height: 100% image would take all of it and push the caption out from under
+   a tile that clips its overflow. The overlay variants pin the image with
+   inset: 0 instead, and strip gives it an aspect ratio. */
+.home-pick img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  background: var(--bg-card);
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
+}
+
+.home-pick__title {
+  display: block;
+  font-family: var(--font-serif);
+  line-height: 1.08;
+}
+
+.home-pick p {
+  margin: 0.25rem 0 0;
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+
+/* --- strip: upright thumbnails, caption underneath --- */
+
+.home-picks--strip .home-pick {
+  display: block;
+  overflow: visible;
+  align-self: start;
+  border-radius: 0;
+  color: var(--text-body);
+}
+
+.home-picks--strip .home-pick img {
+  aspect-ratio: 1 / 1.18;
+  border-radius: var(--radius-md);
+}
+
+.home-picks--strip .home-pick__text {
+  padding-top: 0.6rem;
+}
+
+.home-picks--strip .home-pick__label {
+  margin-bottom: 0.2rem;
+}
+
+.home-picks--strip .home-pick__title {
+  font-size: 1.3rem;
+}
+
+.home-picks--strip .home-pick p {
+  color: var(--text-muted);
+}
+
+.home-picks--strip .home-pick:hover img {
+  transform: scale(1.03);
+}
+
+.home-picks--strip .home-pick:hover .home-pick__title {
+  color: var(--interactive-hover);
+}
+
+/* --- tiles and feature: caption laid over the image --- */
+
+.home-picks--tiles,
+.home-picks--feature {
+  background: var(--bg-feature-band);
+}
+
+.home-picks--tiles .home-section-label,
+.home-picks--feature .home-section-label {
+  color: var(--text-feature-band-link);
+}
+
+.home-picks--tiles .home-section-heading h2,
+.home-picks--feature .home-section-heading h2 {
+  color: var(--text-on-dark);
+}
+
+.home-picks--tiles .home-pick,
+.home-picks--feature .home-pick {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 22rem;
+  padding: var(--spacing-sm);
+  color: var(--text-on-dark);
+  background: var(--sage-dark);
+}
+
+.home-picks--tiles .home-pick img,
+.home-picks--feature .home-pick img {
+  position: absolute;
+  inset: 0;
+  opacity: 0.7;
+}
+
+.home-picks--tiles .home-pick::after,
+.home-picks--feature .home-pick::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--home-scrim);
+}
+
+.home-picks--tiles .home-pick__text,
+.home-picks--feature .home-pick__text {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+}
+
+.home-picks--tiles .home-pick__label,
+.home-picks--feature .home-pick__label {
+  color: var(--text-feature-band-link);
+}
+
+.home-picks--tiles .home-pick__title,
+.home-picks--feature .home-pick__title {
+  font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+  color: var(--text-on-dark);
+}
+
+.home-picks--tiles .home-pick p,
+.home-picks--feature .home-pick p {
+  color: var(--text-feature-band-muted);
+}
+
+.home-picks--tiles .home-pick:hover img,
+.home-picks--feature .home-pick:hover img {
+  opacity: 0.92;
+  transform: scale(1.04);
+}
+
+.home-picks--tiles .home-pick:hover .home-pick__label,
+.home-picks--feature .home-pick:hover .home-pick__label {
+  color: var(--interactive-hover);
+}
+
+/* --- feature: the first pick is given the height of two --- */
+
+.home-picks--feature .home-pick--lead {
+  grid-row: span 2;
+  min-height: 34rem;
+}
+
+.home-picks--feature .home-pick--lead .home-pick__title {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+}
+
+
+/*****************************************************
+FEATURE BLOCK — one item at full width
+*****************************************************/
+
+/* The band paints its own background, so it states its own text colour too.
+   Inheriting here means the block reads correctly on the page it was designed
+   on and turns invisible on the next one. */
+.feature-block {
+  background: var(--bg-section-alt);
+  color: var(--text-body);
+}
+
+/* No inner wrapper here: the block is only two children, so it is its own
+   grid and centres itself with padding, the way .section-alt does. */
+.feature-block {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(var(--spacing-md), 4vw, var(--spacing-xl));
+  align-items: center;
+  padding-inline: max(var(--spacing-md), calc(50% - var(--home-measure) / 2));
+}
+
+.feature-block--flip .feature-block__image {
+  order: 2;
+}
+
+.feature-block__image {
+  display: block;
+  overflow: hidden;
+  border-bottom: 0;
+  border-radius: var(--radius-md);
+}
+
+.feature-block__image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--bg-card);
+  transition: transform var(--transition-normal);
+}
+
+.feature-block__image:hover img {
+  transform: scale(1.03);
+}
+
+.feature-block__text h2 {
+  margin: 0 0 var(--spacing-xs);
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  line-height: 1.06;
+  color: var(--text-section-alt-heading);
+}
+
+.feature-block__text h2 a,
+.feature-block__text h2 a:visited {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+.feature-block__text h2 a:hover {
+  color: var(--interactive-hover);
+}
+
+.feature-block__text p {
+  color: var(--text-body);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.feature-block__byline {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.feature-block__cta,
+.feature-block__cta:visited {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.65rem 1.1rem;
+  border: 1px solid var(--accent-primary);
+  border-radius: var(--radius-sm);
+  background: var(--accent-primary);
+  color: var(--text-on-dark);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.feature-block__cta:hover {
+  background: var(--interactive-hover-bg);
+  border-color: var(--interactive-hover);
+  color: var(--sage-dark);
+}
+
+
+/*****************************************************
+LINK INDEX — labelled destinations, one per row
+*****************************************************/
+
+.home-index__grid {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.7fr) minmax(18rem, 1.3fr);
+  gap: clamp(var(--spacing-md), 4vw, var(--spacing-xl));
+  align-items: start;
+}
+
+.home-index__heading h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  line-height: 1.06;
+}
+
+/* A one-pixel gap over a tinted background draws the dividing rules, so hover
+   can repaint a whole row without a border shifting anything. */
+.home-index__links {
+  display: grid;
+  gap: 1px;
+  border: 1px solid var(--border-light);
+  background: var(--border-light);
+}
+
+.home-index__links a,
+.home-index__links a:visited {
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.45fr) 1fr;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background: var(--bg-page);
+  color: var(--text-body);
+  text-decoration: none;
+  border-bottom: 0;
+  transition: background var(--transition-fast);
+}
+
+.home-index__links a:hover {
+  background: var(--bg-section-alt);
+}
+
+.home-index__links strong {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  line-height: 1.08;
+}
+
+.home-index__links span {
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+
+/*****************************************************
+RESPONSIVE
+*****************************************************/
+
+@media (max-width: 60rem) {
+  .home-split__grid,
+  .home-index__grid,
+  .feature-block {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-block--flip .feature-block__image {
+    order: 0;
+  }
+
+  /* Two across is the smallest count that still reads as a set. Below that the
+     tiles are just a stack, which the phone breakpoint handles. */
+  .home-picks__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-picks--feature .home-pick--lead {
+    grid-row: auto;
+    min-height: 26rem;
+  }
+}
+
+@media (max-width: 40rem) {
+  .home-hero {
+    min-height: 32rem;
+  }
+
+  .home-picks--strip .home-picks__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-picks--tiles .home-picks__grid,
+  .home-picks--feature .home-picks__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-index__links a {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-pick img,
+  .home-hero__actions a,
+  .feature-block__image img {
+    transition: none;
+  }
+
+  .home-pick:hover img,
+  .home-hero__actions a:hover,
+  .feature-block__image:hover img {
+    transform: none;
+  }
+}
+
+} /* end @media screen */

@@ -610,6 +610,244 @@ header-position: center right
 | `header-opacity` | tier default | Override image opacity (0–1) |
 | `header-zoom` | `cover` | CSS background-size; e.g. `150%` to zoom in |
 | `header-height` | tier default | CSS height override; e.g. `60vh` |
+---
+
+## Landing Page Sections
+
+The five components below are for a homepage that has to introduce a whole
+project rather than open a single argument. Each one is a full-width band that
+takes its content from front matter, so the page body ends up as a short list of
+includes and everything editable sits at the top of the file.
+
+They are designed to be stacked. A common order is hero, split intro, feature
+block, picks, link index --- but nothing requires all five, and a homepage built
+from two of them is a perfectly good homepage.
+
+Every band spans the window and re-centres its own contents. To make them all
+wider or narrower at once, override one variable in your site's CSS:
+
+```css
+:root { --home-measure: 76rem; }
+```
+
+---
+
+## Home Hero
+
+**File:** `layout/home-hero.html`
+
+A full-bleed opening image with a headline and, if you want them, buttons.
+
+This is the sibling of **Page Header**, and which one you want depends on where
+the opening sits. A page header comes from front matter and is drawn above your
+content by the layout. A home hero is a component you place in the page body,
+so other sections can follow it directly --- and unlike the page header, it can
+carry buttons.
+
+```yaml
+{% raw %}---
+title: The Silk Road
+hero:
+  image: /assets/images/gate.jpg
+  alt: The tiled Ata Darvaza gate in Khiva, Uzbekistan
+  kicker: A digital exhibition of movement, material, and myth
+  title: The Silk Road Was Stranger Than Silk
+  text: Games, cosmetics, glass, and religion moved along the same routes.
+  buttons:
+    - label: Read the Essays
+      url: /essays/
+    - label: Browse Objects
+      url: /objects/
+---{% endraw %}
+```
+
+```
+{% raw %}{% include layout/home-hero.html hero=page.hero %}{% endraw %}
+```
+
+| Parameter | Required | Default | Notes |
+|-----------|----------|---------|-------|
+| `hero` | yes | --- | The front matter block, usually `page.hero` |
+| `align` | no | `left` | `left` or `center` |
+
+Inside `hero`: `image` (required), `alt`, `kicker`, `title`, `text`, and
+`buttons` (a list of `label` / `url` pairs).
+
+The dark scrim that keeps the headline readable is drawn by the stylesheet, not
+baked into your image, so you can drop in any photo without editing it first.
+
+---
+
+## Split Intro
+
+**File:** `layout/split-intro.html`
+
+One large claim on the left, the explanation on the right. For an opening
+argument where a single sentence carries the point and a paragraph or two does
+the qualifying.
+
+```yaml
+{% raw %}---
+opening_argument:
+  kicker: Opening Argument
+  title: The Silk Road was not a single road, and it was not only about silk.
+  text:
+    - The name evokes caravans crossing the breadth of the known world.
+    - The history is stranger, and this site follows those threads.
+---{% endraw %}
+```
+
+```
+{% raw %}{% include layout/split-intro.html intro=page.opening_argument %}{% endraw %}
+```
+
+| Parameter | Required | Default | Notes |
+|-----------|----------|---------|-------|
+| `intro` | yes | --- | The front matter block, usually `page.<name>` |
+
+Inside `intro`: `title` (required), `kicker`, and `text`. Write `text` as a list
+of paragraphs or as a single string; either works, and both accept Markdown.
+
+---
+
+## Feature Block
+
+**File:** `layout/feature-block.html`
+
+One item given the full width: a large image on one side, its title, summary,
+byline, and a link on the other. For the single thing you most want a visitor to
+read.
+
+You name the item by its slug --- the folder or file name --- and the component
+reads the rest off that page, so the block stays current when the page is
+edited.
+
+```
+{% raw %}{% include layout/feature-block.html
+    collection="essays"
+    slug="chess"
+    label="Featured Essay"
+    cta="Follow the game" %}{% endraw %}
+```
+
+| Parameter | Required | Default | Notes |
+|-----------|----------|---------|-------|
+| `collection` | yes | --- | Folder the item lives in, e.g. `essays` |
+| `slug` | yes | --- | The item's folder or file name |
+| `label` | no | `Featured` | Small caps kicker above the title |
+| `cta` | no | `Read more` | Text on the link at the bottom |
+| `image` | no | the page's `thumbnail` | Override the image |
+| `flip` | no | `false` | `true` puts the image on the right |
+
+Read from the item's own front matter: `title`, `summary`, `thumbnail`, and
+`author`.
+
+---
+
+## Picks
+
+**File:** `layout/picks.html`
+
+A chosen handful of pages from a collection, shown image-first.
+
+Card grids and gallery grids show everything in a folder, in whatever order the
+folder gives. Picks shows the few items you name, in the order you name them ---
+which is what lets a homepage make an editorial selection instead of a directory
+listing.
+
+```yaml
+{% raw %}---
+reading_paths:
+  - slug: chess
+    title: "Games & Play"
+    text: Chess, polo, and sport as evidence of cultural movement.
+  - slug: greco-buddhist-art
+    title: "Faith & Transformation"
+    text: Images and beliefs crossing languages and regions.
+---{% endraw %}
+```
+
+```
+{% raw %}{% include layout/picks.html
+    items=page.reading_paths
+    collection="essays"
+    variant="tiles"
+    kicker="Reading Paths"
+    title="Choose a thread and follow it across cultures." %}{% endraw %}
+```
+
+| Parameter | Required | Default | Notes |
+|-----------|----------|---------|-------|
+| `items` | yes | --- | List of items, each with a `slug` |
+| `collection` | yes | --- | Folder the items live in |
+| `variant` | no | `tiles` | `strip`, `tiles`, or `feature` |
+| `title` | no | --- | Heading above the block |
+| `kicker` | no | --- | Small caps label above the heading |
+| `columns` | no | by variant | Tiles across on wide screens |
+
+The three variants:
+
+- **`strip`** --- a row of upright thumbnails with the caption underneath. For
+  objects, people, or anything where the picture is the identifier. Five across
+  by default.
+- **`tiles`** --- equal tiles on a dark band, caption laid over the image. For
+  themes or routes into the site, where the text does real work. Four across.
+- **`feature`** --- like tiles, but the first item gets double height, for an
+  editor's-picks block with a clear lead. Two across.
+
+Each item takes `slug` plus any of `label`, `title`, `text`, `image`, and `alt`.
+Anything you leave out comes from the item's own page: `title` from its title,
+`text` from its summary, `image` from its thumbnail, `label` from its
+`category` if it has one.
+
+One deliberate exception: in the `strip` variant, `text` appears only if you
+write one. A row of small upright thumbnails has no room for a paragraph under
+each, so summaries are not pulled in there automatically.
+
+**Where items are looked up.** Three shapes are tried in order, so this works
+whether or not your site uses Jekyll collections: a declared collection matched
+on slug, then `<collection>/<slug>/index.md`, then `<collection>/<slug>.md`. If
+none match, the page shows a warning box naming what it looked for.
+
+---
+
+## Link Index
+
+**File:** `layout/link-index.html`
+
+A titled block of labelled links, one per row --- the "where to go from here"
+section at the foot of a landing page. Each row gives a destination a name and a
+sentence, which a plain list of links cannot do.
+
+```yaml
+{% raw %}---
+explore_links:
+  - label: Thematic Essays
+    url: /essays/
+    text: Read the full set of thematic studies.
+  - label: Eurasian Map
+    url: /map/
+    text: See where the stories sit across Eurasia.
+---{% endraw %}
+```
+
+```
+{% raw %}{% include layout/link-index.html
+    links=page.explore_links
+    kicker="Explore More"
+    title="The collection keeps opening outward." %}{% endraw %}
+```
+
+| Parameter | Required | Default | Notes |
+|-----------|----------|---------|-------|
+| `links` | yes | --- | List of `label` / `url` / `text` entries |
+| `title` | yes | --- | Heading for the block |
+| `kicker` | no | --- | Small caps label above the heading |
+
+Use it for a handful of major destinations. It is not a substitute for site
+navigation.
+
+
 
 ---
 

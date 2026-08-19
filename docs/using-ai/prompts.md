@@ -164,6 +164,32 @@ public page.
 Ask what it used, then look at the files. That is how the gallery stops being
 other people's work and starts being a parts list.
 
+### Homepages
+
+The front pages in the gallery tend to look like the biggest jump, because a
+homepage that introduces a whole project does not look like any single page in
+a starter site. It is the same move as the examples above, though: the
+[landing page sections](../reference/component-library#landing-page-sections)
+are components, and the copy lives in your front matter.
+
+**A magazine-style front page,** as on the [Silk Road](https://amaranth.unm.edu/silk-road/):
+
+> *"Build my homepage from the landing page sections: a home hero over
+> assets/images/gate.jpg with two buttons, a split intro for my opening
+> argument, a feature block for my strongest essay, and a picks block with the
+> four essays I want people to start with. Put all the copy in front matter."*
+
+**A calmer front page,** as on the [Farming Oral Histories](https://amaranth.unm.edu/farming-oral-histories/) site:
+
+> *"Give my homepage a header image with a title and subtitle, a short centred
+> lede under it, a row of three images linking to my main sections, and a
+> four-panel grid describing what the project holds."*
+
+That second one needs no new components at all --- it is `header-image` in
+front matter, then `gallery-grid` for the three image links and `feature-grid`
+for the four panels. Worth knowing before you ask for something to be built:
+often the answer is that it already exists under a different name.
+
 ---
 
 ## Fixing problems
