@@ -17,14 +17,14 @@
   <div class="figure-wrap figure-wrap--{{ img_pos }}"
     style="--figure-wrap-image-width: {{ include.image-width | default: '40%' }};">
 
-    <figure class="figure-wrap__image">
+    <figure class="figure-wrap-image">
       <img src="{{ img_url }}" alt="{{ include.alt-text | default: include.caption | default: '' }}">
       {% if include.caption %}
         <figcaption>{{ include.caption | markdownify }}</figcaption>
       {% endif %}
     </figure>
 
-    <div class="figure-wrap__text">
+    <div class="figure-wrap-text">
       {{ include.text | markdownify }}
     </div>
 

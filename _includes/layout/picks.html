@@ -68,7 +68,7 @@
         {% if include.title %}<h2>{{ include.title }}</h2>{% endif %}
       </div>
     {% endif %}
-    <div class="home-picks__grid" style="--picks-columns: {{ columns }};">
+    <div class="home-picks-grid" style="--picks-columns: {{ columns }};">
       {% for item in include.items %}
         {% include helpers/find-item.html collection=include.collection slug=item.slug %}
         {% if xanthan_item %}
@@ -86,9 +86,9 @@
               {% capture pick_image_url %}{% include helpers/image-path.html image-path=pick_image page-dir=xanthan_item.dir %}{% endcapture %}
               <img src="{{ pick_image_url | strip }}" alt="{{ item.alt | default: '' | escape }}">
             {% endif %}
-            <div class="home-pick__text">
-              {% if pick_label %}<span class="home-pick__label">{{ pick_label }}</span>{% endif %}
-              <strong class="home-pick__title">{{ pick_title }}</strong>
+            <div class="home-pick-text">
+              {% if pick_label %}<span class="home-pick-label">{{ pick_label }}</span>{% endif %}
+              <strong class="home-pick-title">{{ pick_title }}</strong>
               {% if pick_text %}<p>{{ pick_text }}</p>{% endif %}
             </div>
           </a>

@@ -27,7 +27,7 @@
           {% assign has_caption = include.captions[idx] | strip %}
           {% assign alt_text = include.alt-texts[idx] | default: has_caption | default: has_header | default: '' %}
           <li class="splide__slide">
-            <figure class="xanthan-carousel__slide">
+            <figure class="xanthan-carousel-slide">
               {% if img_url %}
                 <img src="{{ img_url }}" alt="{{ alt_text | strip }}">
               {% else %}

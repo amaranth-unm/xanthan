@@ -265,6 +265,27 @@ These rules govern all additions to the framework. They exist to keep the codeba
 - New named palette colors go in `base.css` `:root` palette block and must immediately be mapped to a semantic variable.
 - Themes override semantic variables only, never raw palette names.
 
+**Class naming.** The framework uses one convention, and it is not full BEM:
+
+```
+.block                 the component            .home-hero, .toc-row, .card
+.block-element         a part of it, hyphens    .home-hero-content, .card-body
+.block--modifier       a variant, two hyphens   .home-hero--center, .card--wide
+```
+
+Elements get a single hyphen; only variants get the double hyphen. This is
+"BEM-lite" — the marker is spent where it carries information (is this a
+different thing, or the same thing styled differently?) and saved everywhere
+else. Do not introduce `__`; 162 framework classes already follow the hyphen
+form and eight stylesheets already use `--` for variants.
+
+State classes are always compound, never bare: write `.tag-badge.active`, not a
+standalone `.active` that could mean anything. A bare state class in a
+stylesheet gives a reader no way to know what it modifies.
+
+Third-party class names are never renamed to match — `splide__slide`,
+`littlefoot__button` and `leaflet-popup` belong to their libraries.
+
 **One file per component.** A stylesheet is named for the thing it styles, and
 an AI asked to restyle that thing should be able to guess the filename. Do not
 add a component's styles to `base.css` because it is already open — that is how

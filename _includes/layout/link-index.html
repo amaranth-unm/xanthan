@@ -31,12 +31,12 @@
 {::nomarkdown}
 {% if links and links.size > 0 %}
   <section class="home-index">
-    <div class="home-index__grid">
-    <div class="home-index__heading">
+    <div class="home-index-grid">
+    <div class="home-index-heading">
       {% if include.kicker %}<p class="home-section-label">{{ include.kicker }}</p>{% endif %}
       {% if include.title %}<h2>{{ include.title }}</h2>{% endif %}
     </div>
-    <div class="home-index__links">
+    <div class="home-index-links">
       {% for link in links %}
         {% capture link_url %}{% include helpers/link-path.html link=link.url %}{% endcapture %}
         <a href="{{ link_url | strip }}">

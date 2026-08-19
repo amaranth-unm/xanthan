@@ -43,13 +43,13 @@
 {% if hero and hero.image %}
   {% capture hero_image %}{% include helpers/image-path.html image-path=hero.image %}{% endcapture %}
   <section class="home-hero home-hero--{{ align }}">
-    <div class="home-hero__image" role="img" aria-label="{{ hero.alt | default: hero.title | escape }}" style="background-image: url('{{ hero_image | strip }}');"></div>
-    <div class="home-hero__content">
+    <div class="home-hero-image" role="img" aria-label="{{ hero.alt | default: hero.title | escape }}" style="background-image: url('{{ hero_image | strip }}');"></div>
+    <div class="home-hero-content">
       {% if hero.kicker %}<p class="home-kicker">{{ hero.kicker }}</p>{% endif %}
       {% if hero.title %}<h1>{{ hero.title }}</h1>{% endif %}
-      {% if hero.text %}<p class="home-hero__text">{{ hero.text }}</p>{% endif %}
+      {% if hero.text %}<p class="home-hero-text">{{ hero.text }}</p>{% endif %}
       {% if hero.buttons %}
-        <div class="home-hero__actions">
+        <div class="home-hero-actions">
           {% for button in hero.buttons %}
             {% capture button_url %}{% include helpers/link-path.html link=button.url %}{% endcapture %}
             <a href="{{ button_url | strip }}">{{ button.label }}</a>

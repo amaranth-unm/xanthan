@@ -32,16 +32,16 @@
   <section class="feature-block{% if include.flip %} feature-block--flip{% endif %}">
     {% if block_image %}
       {% capture block_image_url %}{% include helpers/image-path.html image-path=block_image page-dir=xanthan_item.dir %}{% endcapture %}
-      <a class="feature-block__image" href="{{ block_url | strip }}" tabindex="-1" aria-hidden="true">
+      <a class="feature-block-image" href="{{ block_url | strip }}" tabindex="-1" aria-hidden="true">
         <img src="{{ block_image_url | strip }}" alt="">
       </a>
     {% endif %}
-    <div class="feature-block__text">
+    <div class="feature-block-text">
       <p class="home-section-label">{{ label }}</p>
       <h2><a href="{{ block_url | strip }}">{{ xanthan_item.title }}</a></h2>
       {% if xanthan_item.summary %}<p>{{ xanthan_item.summary }}</p>{% endif %}
-      {% if xanthan_item.author %}<p class="feature-block__byline">By {{ xanthan_item.author }}</p>{% endif %}
-      <a class="feature-block__cta" href="{{ block_url | strip }}">{{ cta }}</a>
+      {% if xanthan_item.author %}<p class="feature-block-byline">By {{ xanthan_item.author }}</p>{% endif %}
+      <a class="feature-block-cta" href="{{ block_url | strip }}">{{ cta }}</a>
     </div>
   </section>
 {% else %}

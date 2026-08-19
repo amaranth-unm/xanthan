@@ -28,11 +28,11 @@
 {::nomarkdown}
 {% if intro and intro.title %}
   <section class="home-split">
-    <div class="home-split__inner">
+    <div class="home-split-inner">
       {% if intro.kicker %}<p class="home-section-label">{{ intro.kicker }}</p>{% endif %}
-      <div class="home-split__grid">
+      <div class="home-split-grid">
         <h2>{{ intro.title }}</h2>
-        <div class="home-split__body">
+        <div class="home-split-body">
           {% if intro.text.first %}
             {% for paragraph in intro.text %}{{ paragraph | markdownify }}{% endfor %}
           {% else %}

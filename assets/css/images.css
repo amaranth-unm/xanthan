@@ -87,19 +87,19 @@ FIGURE WRAP — two-column image + text layout
   grid-template-columns: 1fr var(--figure-wrap-image-width, 40%);
 }
 
-.figure-wrap--right .figure-wrap__image {
+.figure-wrap--right .figure-wrap-image {
   order: 2;
 }
 
-.figure-wrap--right .figure-wrap__text {
+.figure-wrap--right .figure-wrap-text {
   order: 1;
 }
 
-.figure-wrap__image {
+.figure-wrap-image {
   margin: 0;
 }
 
-.figure-wrap__image img {
+.figure-wrap-image img {
   display: block;
   width: 100%;
   height: auto;
@@ -111,8 +111,8 @@ FIGURE WRAP — two-column image + text layout
     grid-template-columns: 1fr;
   }
 
-  .figure-wrap--right .figure-wrap__image,
-  .figure-wrap--right .figure-wrap__text {
+  .figure-wrap--right .figure-wrap-image,
+  .figure-wrap--right .figure-wrap-text {
     order: unset;
   }
 }
@@ -130,7 +130,7 @@ Uses Splide.js — see _includes/images/carousel.html
 }
 
 /* Figure fills the full slide height */
-.xanthan-carousel__slide {
+.xanthan-carousel-slide {
   /* Display */
   display: flex;
   flex-direction: column;
@@ -141,7 +141,7 @@ Uses Splide.js — see _includes/images/carousel.html
 }
 
 /* Image fills the slide, cropping as needed */
-.xanthan-carousel__slide img {
+.xanthan-carousel-slide img {
   /* Display */
   display: block;
   flex: 1;
@@ -155,7 +155,7 @@ Uses Splide.js — see _includes/images/carousel.html
 }
 
 /* Figcaption — appears below the image */
-.xanthan-carousel__slide figcaption {
+.xanthan-carousel-slide figcaption {
   /* Box Model */
   padding: var(--spacing-sm) var(--spacing-md);
   flex-shrink: 0;
