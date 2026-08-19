@@ -278,8 +278,15 @@ add a component's styles to `base.css` because it is already open — that is ho
   (`docs.css`, `scrollstory.css`, `page-header.css`, `search.css`). If you do,
   the header must say so — a conditionally loaded file's selectors look
   site-wide and are not.
-- If a file needs more than one top-level section banner to describe itself, it
-  is probably two files.
+- Split on components, not on variants. Two things belong in separate files when
+  they share no selectors and no base — a gallery tile and a ToC row have
+  nothing in common but a folder listing. Two *shapes of one component* stay
+  together: `.v-card` and `.h-card` are each smaller than the `.card` base they
+  build on, and separating them would mean editing three files to change one
+  hover state. The test is whether the split removes a dependency or creates
+  one.
+- Inside a file, use section banners to separate the shared base from its
+  variants. Scrolling is a navigation problem, not a reason to make a new file.
 
 **Every stylesheet opens with a header block** in this shape. It is the first
 thing anyone — person or model — reads before editing, and it is the cheapest

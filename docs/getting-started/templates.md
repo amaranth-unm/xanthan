@@ -97,7 +97,7 @@ Every Xanthan site can publish ScrollStories---it is a feature, not a format you
 
 <div class="template-buttons">
   <div class="template-btn-row">
-    <a class="template-btn" href="https://amaranth.unm.edu" target="_blank">Live example</a>
+    <a class="template-btn" href="https://amaranth.unm.edu/studio/name-origins/" target="_blank">Live example</a>
     <a class="template-btn" href="https://xanthan-web.github.io/scrollstory-template" target="_blank">View starter site</a>
   </div>
   <a class="template-btn primary" href="./?template=scrollstory">Start with this one →</a>

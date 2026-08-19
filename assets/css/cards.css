@@ -15,6 +15,13 @@ Not here: image-first tiles with the caption over the picture (gallery.css);
           *inside* a card rather than the filter component.
 *****************************************************/
 
+/*****************************************************
+SHARED BASE
+
+Common to both shapes. Anything that is true of a card regardless of whether
+its image sits above the text or beside it belongs here, not in a variant.
+*****************************************************/
+
 .card {
   /* Display */
   overflow: hidden;
@@ -111,6 +118,12 @@ Not here: image-first tiles with the caption over the picture (gallery.css);
 }
 
 /* Vertical cards for grid layouts */
+/*****************************************************
+VERTICAL CARD
+
+Image above text. Laid out by .card-grid; emitted by cards/card-grid.html.
+*****************************************************/
+
 .v-card {
   /* Display */
   display: flex;
@@ -153,6 +166,13 @@ Not here: image-first tiles with the caption over the picture (gallery.css);
 }
 
 /* Horizontal cards for stacked layouts */
+/*****************************************************
+HORIZONTAL CARD
+
+Image beside text, stacked in a list. Emitted by cards/card-stack.html.
+Collapses to vertical under 768px — see the mobile block at the end.
+*****************************************************/
+
 .h-card {
   /* Display */
   display: flex;
@@ -215,6 +235,13 @@ Not here: image-first tiles with the caption over the picture (gallery.css);
 }
 
 /* Tags in cards */
+/*****************************************************
+TAGS INSIDE A CARD
+
+Card-scoped, so it lives here rather than in tags.css, which owns the
+standalone tag filter UI.
+*****************************************************/
+
 .card .tags {
   /* Display */
   display: flex;
@@ -235,6 +262,12 @@ Not here: image-first tiles with the caption over the picture (gallery.css);
 }
 
 /* Card grid layout using CSS Grid */
+/*****************************************************
+CARD GRID
+
+The container that lays vertical cards out in columns.
+*****************************************************/
+
 .card-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -266,6 +299,13 @@ Not here: image-first tiles with the caption over the picture (gallery.css);
 }
 
 /* Legacy Bootstrap-style classes for backwards compatibility */
+/*****************************************************
+BOOTSTRAP GRID REMNANT
+
+Unused: no markup in the framework references .row or .row-cols-md-*.
+Scheduled for removal.
+*****************************************************/
+
 .row {
   display: grid;
   grid-template-columns: 1fr;
