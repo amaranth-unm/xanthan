@@ -31,8 +31,20 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css">
 
   <!-- Base CSS -->
+  <!-- Load order matters: base.css defines the tokens and the container grid
+       everything else builds on, so it comes first. The rest follow the order
+       they were written in, which is what keeps same-specificity rules
+       resolving the way they always have. -->
   <link href="{{site.baseurl}}/assets/css/base.css" rel="stylesheet">
+  <link href="{{site.baseurl}}/assets/css/feature-grid.css" rel="stylesheet">
+  <link href="{{site.baseurl}}/assets/css/jumbotron.css" rel="stylesheet">
+  <link href="{{site.baseurl}}/assets/css/images.css" rel="stylesheet">
+  <link href="{{site.baseurl}}/assets/css/footer.css" rel="stylesheet">
+  <link href="{{site.baseurl}}/assets/css/buttons.css" rel="stylesheet">
   <link href="{{site.baseurl}}/assets/css/cards.css" rel="stylesheet">
+  <link href="{{site.baseurl}}/assets/css/tags.css" rel="stylesheet">
+  <link href="{{site.baseurl}}/assets/css/gallery.css" rel="stylesheet">
+  <link href="{{site.baseurl}}/assets/css/toc.css" rel="stylesheet">
   <link href="{{site.baseurl}}/assets/css/home.css" rel="stylesheet">
   <link href="{{site.baseurl}}/assets/css/backgrounds.css" rel="stylesheet">
   <link href="{{site.baseurl}}/assets/css/typography.css" rel="stylesheet">

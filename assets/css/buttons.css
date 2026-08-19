@@ -1,0 +1,140 @@
+/*****************************************************
+BUTTONS
+
+Buttons, tags rendered as buttons, and the feature row — a line of text with a
+button on the end.
+
+Loads:    every page
+Used by:  layout/feature-row.html, and any page writing {: .btn-secondary}
+          after a link
+Needs:    base.css tokens (--button-*, --tag-*, --interactive-*)
+Not here: the tag pills and tag filter UI in cards.css, which look similar but
+          are a different component
+*****************************************************/
+
+@media screen {
+
+/* Shared styles — applied to both primary and secondary variants */
+.btn-primary,
+.btn-secondary {
+  /* Display */
+  display: inline-block;
+
+  /* Typography */
+  font-family: var(--font-body);
+  color: var(--button-text);
+  text-decoration: none;
+
+  /* Visual */
+  background: var(--button-bg);
+  border: none;
+  border-radius: var(--radius-md);
+
+  /* Interactivity */
+  transition: background-color var(--transition-normal), transform var(--transition-fast), box-shadow var(--transition-normal);
+}
+
+/*
+  Override a:visited from typography.css.
+  :visited raises specificity enough to beat a:visited.
+*/
+.btn-primary:visited,
+.btn-secondary:visited {
+  color: var(--button-text);
+  text-decoration: none;
+  border: none;
+}
+
+.btn-primary:hover,
+.btn-primary:visited:hover,
+.btn-secondary:hover,
+.btn-secondary:visited:hover {
+  color: var(--button-hover-text);
+  background: var(--button-hover-bg);
+}
+
+/* Primary — larger, full emphasis */
+.btn-primary {
+  padding: 1em 2em;
+  font-size: 1.2em;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover,
+.btn-primary:visited:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* Secondary — smaller, lower emphasis */
+.btn-secondary {
+  padding: 0.6em 1.2em;
+  font-size: 0.95em;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover,
+.btn-secondary:visited:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+/* Size modifiers — stack with any button variant */
+.btn-lg {
+  font-size: 1.75rem;
+  padding: 1rem 3rem;
+}
+
+.btn-sm {
+  font-size: 0.85rem;
+  padding: 0.4em 1em;
+}
+
+
+/*****************************************************
+HERO SECTION (Homepage)
+*****************************************************/
+
+.hero-section {
+  text-align: center;
+  max-width: 800px;
+  /* Bottom margin matters: the headline may sit directly on the opening
+     paragraph, with no tagline between them to hold the two apart. */
+  margin: 3rem auto var(--spacing-lg);
+}
+
+/* Optional subtitle between the headline and the opening paragraph. Not used
+   on the Xanthan homepage, which goes straight from headline to lede. Set a
+   little larger than body copy and on a narrower measure, with generous space
+   beneath so the hero ends without needing a rule or a button. */
+.hero-tagline {
+  text-align: center;
+  font-size: 1.3rem;
+  line-height: 1.65;
+  color: var(--hero-tagline-color);
+  margin: var(--spacing-md) auto var(--spacing-xl);
+  max-width: 34rem;
+}
+
+/* Optional centred call-to-action for a landing page. Not used on the Xanthan
+   homepage: a large button above the argument asks for a decision before the
+   reader has been given a reason. Kept for sites that want one. */
+.hero-cta {
+  text-align: center;
+  margin: 0 0 2.5rem;
+}
+
+.homepage-template-card {
+  --card-bg: var(--bg-feature-card);
+  --card-border: var(--border-feature-card);
+  --card-hover-border: var(--border-feature-card-hover);
+  --card-heading-color: var(--text-feature-card);
+  --card-text-color: var(--text-feature-card-muted);
+  opacity: 1;
+}
+
+.homepage-template-card:hover {
+  border-color: var(--border-feature-card-hover);
+}
+
+} /* end media screen */

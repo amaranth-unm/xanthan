@@ -1,21 +1,18 @@
 /*****************************************************
 CARDS
 
-Every component that presents a list of pages as a set of tiles or rows.
-
-Four families share this file, and they are not variants of each other:
-  card     — the classic image-and-text card, in grid and stack layouts
-  gallery  — image-first tiles with the caption laid over the picture
-  toc      — table-of-contents rows, the text-forward alternative to cards
-  tag      — the tag pills and the tag filter UI
+The classic image-and-text card, in two shapes: `.v-card` (image above text,
+laid out by `.card-grid`) and `.h-card` (image beside text, stacked in a list).
 
 Loads:    every page
-Used by:  cards/card-grid.html, cards/card-stack.html, cards/card-toc.html,
-          cards/card-toc-compact.html, nav/gallery-grid.html,
-          helpers/card-image.html
-Needs:    base.css tokens (--card-*, --gallery-*, --tag-*, --spacing-*)
-Not here: the picks component, which also shows a set of pages but selects
-          them editorially rather than listing a folder (home.css)
+Used by:  cards/card-grid.html, cards/card-stack.html, helpers/card-image.html
+Needs:    base.css tokens (--card-bg, --card-border, --card-hover-border,
+          --card-heading-color, --card-text-color)
+Not here: image-first tiles with the caption over the picture (gallery.css);
+          the table-of-contents rows that are the text-forward alternative to a
+          card (toc.css); the tag filter UI (tags.css). The `.card .tags` rules
+          below stay here rather than in tags.css, because they style tags
+          *inside* a card rather than the filter component.
 *****************************************************/
 
 .card {
@@ -113,7 +110,6 @@ Not here: the picks component, which also shows a set of pages but selects
   text-align: left;
 }
 
-
 /* Vertical cards for grid layouts */
 .v-card {
   /* Display */
@@ -155,7 +151,6 @@ Not here: the picks component, which also shows a set of pages but selects
   /* Visual */
   transform: scale(1.03);
 }
-
 
 /* Horizontal cards for stacked layouts */
 .h-card {
@@ -239,32 +234,6 @@ Not here: the picks component, which also shows a set of pages but selects
   font-weight: normal;
 }
 
-/* Tag pills (inline tags on cards) */
-.tag-pill {
-  display: inline-block;
-  padding: 0.3rem 0.65rem;
-  background: var(--tag-bg);
-  color: var(--tag-text);
-  border-radius: var(--radius-sm);
-  font-size: 0.85rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: background var(--transition-fast);
-  border-bottom: none;
-}
-
-/* Override a:visited from typography.css (loads after cards.css) */
-.tag-pill:visited {
-  color: var(--tag-text);
-  border-bottom: none;
-}
-
-.tag-pill:hover {
-  background: var(--tag-hover-bg);
-  color: var(--tag-text);
-}
-
-
 /* Card grid layout using CSS Grid */
 .card-grid {
   display: grid;
@@ -275,266 +244,16 @@ Not here: the picks component, which also shows a set of pages but selects
 
 @media (min-width: 768px) {
   .card-grid {
-    grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+    
   }
 }
 
 @media (min-width: 1024px) {
   .card-grid {
-    grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+    
   }
-}
-
-
-
-/* Gallery grid navigation */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--gallery-grid-min-width)), 1fr));
-  grid-auto-flow: dense;
-  gap: var(--gallery-grid-gap);
-  margin-bottom: var(--spacing-lg);
-}
-
-.gallery-grid-item {
-  position: relative;
-  min-height: 12rem;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  background: var(--bg-card);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-sm);
-}
-
-.gallery-grid-link {
-  display: block;
-  position: relative;
-  height: 100%;
-  color: var(--text-on-dark);
-  border-bottom: 0;
-}
-
-.gallery-grid-link:visited,
-.gallery-grid-link:hover {
-  color: var(--text-on-dark);
-  border-bottom: 0;
-}
-
-.gallery-grid-link img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* Tiles are square but site screenshots are tall, so a centred crop lands in
-     the middle of the body text and the site becomes unrecognisable. Anchor to
-     the top instead: the header, nav, and title are what identify a site. */
-  object-position: top;
-  opacity: 0.82;
-  filter: saturate(0.82) contrast(0.96);
-  transition: transform var(--transition-normal), filter var(--transition-normal), opacity var(--transition-normal);
-}
-
-.gallery-grid-link:hover img,
-.gallery-grid-link:focus-visible img {
-  transform: scale(1.04);
-  opacity: 1;
-  filter: saturate(1.08) contrast(1.02);
-}
-
-/* Heading and intro for a wide block. Without this the heading sits on the
-   narrower text column while the grid below starts further left, and the two
-   read as unrelated. Matches gallery-grid--wide so their left edges agree.
-   Prose inside keeps a readable measure rather than running the full width. */
-.container > .wide-header {
-  grid-column: full;
-  width: min(100% - 2 * var(--spacing-lg), 64rem);
-  margin-inline: auto;
-}
-
-.wide-header > p {
-  max-width: 44rem;
-}
-
-/* A gallery is pictures, not prose, so it has no reading measure to respect.
-   This variant breaks out of the text column to a wider block and centres
-   itself, which is what lets the tiles be smaller and more numerous without
-   the grid feeling cramped.
-   👉 Pass class="gallery-grid--wide" to the include. */
-.container > .gallery-grid--wide {
-  grid-column: full;
-  width: min(100% - 2 * var(--spacing-lg), 64rem);
-  margin-inline: auto;
-}
-
-/* The element always spans the tile; how much of the image it hides is done
-   with the gradient, which animates smoothly where a height change would not.
-   At rest it is a band across the bottom third carrying only the title. On
-   hover the scrim rises to about four fifths, leaving the top of the
-   screenshot visible so the tile still reads as a website.
-   Deliberately no backdrop-filter: it applies to the element's whole box, so
-   a blur here would frost the entire preview no matter what the gradient
-   does — which is what made the hover state feel like a full cover. */
-.gallery-grid-caption {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: var(--spacing-xs) var(--spacing-sm) var(--spacing-sm);
-  background: linear-gradient(
-    to top,
-    var(--gallery-caption-rest) 0%,
-    var(--gallery-caption-rest) 30%,
-    transparent 62%
-  );
-  text-shadow: var(--page-header-title-shadow);
-  transition: background var(--transition-normal);
-}
-
-.gallery-grid-link:hover .gallery-grid-caption,
-.gallery-grid-link:focus-visible .gallery-grid-caption {
-  background: linear-gradient(
-    to top,
-    var(--gallery-caption-active) 0%,
-    var(--gallery-caption-active) 78%,
-    transparent 94%
-  );
-}
-
-.gallery-grid-caption h3 {
-  margin: 0;
-  color: var(--text-on-dark);
-  font-size: 0.82rem;
-  font-weight: 600;
-  line-height: 1.25;
-}
-
-.gallery-grid-caption p {
-  max-height: 0;
-  margin: 0;
-  overflow: hidden;
-  color: var(--text-on-dark);
-  font-size: 0.8rem;
-  line-height: 1.45;
-  opacity: 0;
-  transform: translateY(var(--spacing-xs));
-  transition: max-height var(--transition-normal), margin var(--transition-normal), opacity var(--transition-normal), transform var(--transition-normal);
-}
-
-.gallery-grid-link:hover .gallery-grid-caption p,
-.gallery-grid-link:focus-visible .gallery-grid-caption p {
-  max-height: 14rem;
-  margin-top: var(--spacing-xs);
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Touch devices have no hover, so the description would never be reachable.
-   Show it standing rather than leaving those readers with titles only. */
-@media (hover: none) {
-  .gallery-grid-caption {
-    background: linear-gradient(
-      to top,
-      var(--gallery-caption-active) 0%,
-      var(--gallery-caption-active) 78%,
-      transparent 94%
-    );
-  }
-
-  .gallery-grid-caption p {
-    max-height: 14rem;
-    margin-top: var(--spacing-xs);
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@media (min-width: 768px) {
-  .gallery-grid--mosaic .gallery-grid-item:nth-child(6n + 1),
-  .gallery-grid--mosaic .gallery-grid-item:nth-child(6n + 5) {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-}
-
-
-/* ===== TAG PAGE STYLES ===== */
-
-/* Tag filter UI */
-.tag-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin: 1.5rem 0 2rem 0;
-  padding: 1rem 0;
-}
-
-.tag-badge {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background: var(--bg-card);
-  border: 2px solid var(--border-light);
-  color: var(--text-body);
-  border-radius: var(--radius-md);
-  font-size: 0.95rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all var(--transition-fast);
-  cursor: pointer;
-}
-
-.tag-badge:hover {
-  background: var(--tag-bg);
-  color: var(--tag-text);
-  border-color: var(--accent-primary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-.tag-badge.active {
-  background: var(--accent-primary-dark);
-  color: var(--tag-text);
-  border-color: var(--accent-primary-dark);
-}
-
-.tag-clear {
-  background: var(--accent-primary-dark);
-  color: var(--tag-text);
-  border-color: var(--accent-primary-dark);
-}
-
-.tag-clear:hover {
-  background: var(--tag-hover-bg);
-  border-color: var(--interactive-hover);
-}
-
-/* Tag page text */
-.tag-help {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
-}
-
-.tag-help code {
-  background: var(--bg-code);
-  padding: 0.15rem 0.4rem;
-  border-radius: var(--radius-sm);
-  font-family: var(--font-mono);
-  font-size: 0.9em;
-}
-
-.tag-summary {
-  color: var(--text-muted);
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.tag-empty {
-  text-align: center;
-  padding: 3rem;
-  color: var(--text-muted);
-  font-size: 1.1rem;
 }
 
 /* Ensure card links work properly */
@@ -545,7 +264,6 @@ Not here: the picks component, which also shows a set of pages but selects
   text-decoration: none;
   color: inherit;
 }
-
 
 /* Legacy Bootstrap-style classes for backwards compatibility */
 .row {
@@ -568,364 +286,93 @@ Not here: the picks component, which also shows a set of pages but selects
 
 @media (min-width: 768px) {
   .row.row-cols-md-2 {
-    grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+    
   }
 
   .row.row-cols-md-3 {
-    grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+    
   }
 
   .row.row-cols-md-4 {
-    grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, 1fr);
+    
   }
 }
 
 /* Responsive: horizontal cards become vertical on small screens */
 @media (max-width: 768px) {
   .h-card {
-    /* Display */
-    flex-direction: column;
-
-    /* Box Model */
-    margin-left: var(--spacing-md);
-    margin-right: var(--spacing-md);
+      /* Display */
+      flex-direction: column;
+  
+      /* Box Model */
+      margin-left: var(--spacing-md);
+      margin-right: var(--spacing-md);
+    
   }
 
   .h-card a.card-link {
-    /* Display */
-    flex-direction: column;
+      /* Display */
+      flex-direction: column;
+    
   }
 
   .h-card .card-img-left {
-    /* Box Model */
-    flex: 0 0 auto;
-    width: 100%;
-    height: 200px;
+      /* Box Model */
+      flex: 0 0 auto;
+      width: 100%;
+      height: 200px;
+    
   }
 
   .card-body {
-    /* Box Model */
-    padding: var(--spacing-xs);
+      /* Box Model */
+      padding: var(--spacing-xs);
+    
   }
 
   .card h3 {
-    /* Box Model */
-    margin: var(--spacing-xs) 0;
-
-    /* Typography */
-    font-size: 1.1rem;
+      /* Box Model */
+      margin: var(--spacing-xs) 0;
+  
+      /* Typography */
+      font-size: 1.1rem;
+    
   }
 
   .card-text,
   .card p {
-    /* Box Model */
-    margin-bottom: var(--spacing-xs);
-
-    /* Typography */
-    font-size: 0.9rem;
+      /* Box Model */
+      margin-bottom: var(--spacing-xs);
+  
+      /* Typography */
+      font-size: 0.9rem;
+    
   }
 
   /* Remove text padding inside cards on mobile */
   .card p,
-  .card h3,
-  .toc-row p,
-  .toc-row h3 {
-    /* Box Model */
-    padding-left: 0;
-    padding-right: 0;
+  .card h3 {
+      /* Box Model */
+      padding-left: 0;
+      padding-right: 0;
+    
   }
 
   /* Ensure text is visible in h-cards on mobile */
   .h-card .card-body h3,
   .h-card .card-body p {
-    /* Typography */
-    color: var(--text-body);
-  }
-
-  .toc-row {
-    /* Box Model */
-    padding: var(--spacing-sm);
-    margin-left: var(--spacing-md);
-    margin-right: var(--spacing-md);
-  }
-
-  .toc-row-flex {
-    /* Display */
-    justify-content: flex-start;
-    gap: var(--spacing-xs);
-  }
-
-  .toc-body {
-    /* Display */
-    flex: 1;
-  }
-
-  .toc-row h3 {
-    /* Box Model */
-    margin: var(--spacing-xs) 0;
-
-    /* Typography */
-    font-size: 110%;
-  }
-
-  .toc-row p {
-    /* Box Model */
-    margin-bottom: 0;
-
-    /* Typography */
-    font-size: 0.9rem;
-  }
-
-  .toc-arrow {
-    /* Box Model */
-    flex-shrink: 0;
-    /* margin-left: 0 moved to end of file — must come after base .toc-arrow rule */
-  }
-
-  .toc-arrow svg {
-    /* Box Model */
-    width: 2rem;
-    height: 2rem;
+      /* Typography */
+      color: var(--text-body);
+    
   }
 
   .v-card {
-    /* Box Model */
-    margin-left: var(--spacing-md);
-    margin-right: var(--spacing-md);
-  }
-}
-
-
-
-
-/*****************************************************
-ToC ROWS
-*****************************************************/
-
-.toc-row {
-  /* Display */
-  align-items: center;
-  overflow: hidden;
-
-  /* Box Model */
-  margin-bottom: var(--spacing-sm);
-  padding: var(--spacing-md);
-
-  /* Typography */
-  font-family: var(--font-body);
-  font-weight: 300;
-
-  /* Visual */
-  background: var(--bg-card);
-  border-left: 3px solid var(--accent-border);
-  border-radius: 6px;
-
-  /* Interactivity */
-  transition: all var(--transition-normal);
-}
-
-.toc-row:hover {
-  /* Visual */
-  border-left-color: var(--interactive-hover);
-
-  /* Interactivity */
-  cursor: pointer;
-}
-
-.toc-row a {
-  /* Typography */
-  font-weight: normal;
-  text-decoration: none;
-  color: inherit;
-}
-
-
-.toc-row h3 {
-  /* Box Model */
-  margin-top: 0;
-
-  /* Typography */
-  font-size: 150%;
-  color: var(--text-body);
-  text-transform: uppercase;
-}
-
-.toc-row p {
-  /* Box Model */
-  margin-bottom: 0;
-
-  /* Typography */
-  color: var(--text-muted);
-  line-height: 1.4;
-}
-
-.toc-row-flex {
-  /* Display */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.toc-body {
-  /* Display */
-  flex: 1;
-}
-
-.toc-arrow {
-  /* Display */
-  display: inline-flex;
-  align-items: center;
-  vertical-align: middle;
-  
-  /* Box Model */
-  margin-left: var(--spacing-lg);
-  
-  /* Visual */
-  opacity: 0.7;
-  
-  /* Interactivity */
-  transition: opacity var(--transition-normal);
-}
-
-.toc-arrow svg {
-  /* Box Model */
-  width: 4rem;
-  height: 4rem;
-}
-
-.toc-row:hover .toc-arrow {
-  /* Visual */
-  opacity: 1;
-}
-
-.toc-row:hover .toc-arrow polyline {
-  stroke: var(--interactive-hover);
-}
-
-/*****************************************************
-COMPACT ToC ROWS (for documentation indexes)
-*****************************************************/
-
-.toc-row-compact {
-  /* Display */
-  align-items: flex-start;
-  overflow: hidden;
-
-  /* Box Model */
-  margin-bottom: var(--spacing-xs);
-  padding: var(--spacing-sm) var(--spacing-md);
-
-  /* Typography */
-  font-family: var(--font-body);
-  font-weight: 300;
-
-  /* Visual */
-  background: var(--bg-card);
-  border-left: 2px solid var(--accent-border);
-  border-radius: 4px;
-
-  /* Interactivity */
-  transition: all var(--transition-normal);
-}
-
-.toc-row-compact:hover {
-  /* Visual */
-  border-left-color: var(--interactive-hover);
-
-  /* Interactivity */
-  cursor: pointer;
-}
-
-.toc-row-compact a {
-  /* Typography */
-  font-weight: normal;
-  text-decoration: none;
-  color: inherit;
-}
-
-.toc-row-compact h3 {
-  /* Box Model */
-  margin-top: 0;
-  margin-bottom: 0.25rem;
-
-  /* Typography */
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-body);
-}
-
-.toc-row-compact p,
-.toc-row-compact ul {
-  /* Box Model */
-  margin-bottom: 0;
-
-  /* Typography */
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.3;
-}
-
-.toc-row-compact ul {
-  /* Box Model */
-  margin-top: 0.25rem;
-  padding-left: 1.2rem;
-}
-
-.toc-row-compact li {
-  /* Box Model */
-  margin-bottom: 0.1rem;
-}
-
-.toc-row-compact .toc-row-flex {
-  /* Display */
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
-.toc-row-compact .toc-body {
-  /* Display */
-  flex: 1;
-}
-
-.toc-row-compact .toc-arrow {
-  /* Display */
-  display: inline-flex;
-  align-items: center;
-  vertical-align: middle;
-  
-  /* Box Model */
-  margin-left: var(--spacing-md);
-  margin-top: 0.2rem;
-  
-  /* Visual */
-  opacity: 0.6;
-  
-  /* Interactivity */
-  transition: opacity var(--transition-normal);
-}
-
-.toc-row-compact .toc-arrow svg {
-  /* Box Model */
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.toc-row-compact:hover .toc-arrow {
-  /* Visual */
-  opacity: 1;
-}
-
-.toc-row-compact:hover .toc-arrow polyline {
-  stroke: var(--interactive-hover);
-}
-
-/*
-  Mobile override for .toc-arrow placed here (after base .toc-arrow rule above)
-  so it wins by source order without needing !important.
-*/
-@media (max-width: 768px) {
-  .toc-arrow {
-    margin-left: 0;
+      /* Box Model */
+      margin-left: var(--spacing-md);
+      margin-right: var(--spacing-md);
+    
   }
 }

@@ -160,6 +160,30 @@ FAQs               → Common questions
 ## Architecture decisions
 
 ### CSS design system
+
+Where things live. A stylesheet is named for what it styles; if you cannot
+guess the file, the answer is in the header block at the top of each one.
+
+| File | Styles |
+|------|--------|
+| `base.css` | tokens, reset, `.container` grid, section bands, accessibility |
+| `typography.css` | prose, headings, tables, code, footnotes, alerts |
+| `buttons.css` | buttons and the feature row |
+| `feature-grid.css` | short titled points side by side |
+| `jumbotron.css` | full-bleed image band with text over it |
+| `images.css` | figures, image-plus-text, carousel |
+| `footer.css` | site footer |
+| `cards.css` | image-and-text cards, vertical and horizontal |
+| `gallery.css` | image-first tiles, caption over the picture |
+| `toc.css` | table-of-contents rows |
+| `tags.css` | tag pills and the tag filter UI |
+| `home.css` | landing page bands: hero, split intro, feature block, picks, link index |
+| `nav.css` | top nav and breadcrumbs |
+| `nav-left.css`, `nav-profile.css` | the two sidebar navigations |
+| `page-header.css` | the front-matter header studio |
+| `backgrounds.css`, `scrollstory.css` | scrollybox backgrounds and scrollstory type |
+| `search.css`, `map.css`, `docs.css`, `workshop.css` | conditionally loaded, page-type scoped |
+
 - All visual design controlled by CSS custom properties in `assets/css/base.css`
 - Variables use semantic names: `--accent-primary`, `--spacing-md`, `--text-body`, `--bg-card`
 - Themes are separate CSS files that override base variables
@@ -244,7 +268,8 @@ These rules govern all additions to the framework. They exist to keep the codeba
 **One file per component.** A stylesheet is named for the thing it styles, and
 an AI asked to restyle that thing should be able to guess the filename. Do not
 add a component's styles to `base.css` because it is already open — that is how
-`base.css` became 1,000 lines with six components inside it.
+`base.css` once grew to 1,000 lines with six components inside it, and how
+`cards.css` ended up holding four unrelated families.
 
 - A new component gets a new stylesheet, loaded unconditionally in
   `html/html-head.html` alongside the others. Many small files cost nothing on
