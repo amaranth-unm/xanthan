@@ -205,7 +205,9 @@ guess the file, the answer is in the header block at the top of each one.
 
 ### Workshop mode
 
-Workshop mode is a live-presentation feature that highlights bullet points one at a time using keyboard shortcuts. It is toggled by the checkbox in the nav (or by pressing 'W'). Not documented in public-facing docs — it's an internal feature for instructors and grad students doing presentations. Styles live in `assets/css/workshop.css`; JS lives in `assets/js/workshop.js` (or inline in `html-js.html`). The nav checkbox is rendered in `_includes/nav/nav-top.html`.
+Workshop mode is a live-presentation feature that highlights bullet points one at a time using keyboard shortcuts. Not documented in public-facing docs — it's an internal feature for instructors and grad students doing presentations. Styles live in `assets/css/workshop.css`; the JS is inline in `_includes/html/html-js.html`.
+
+**It is currently unreachable, and this description used to say otherwise.** There is no `assets/js/workshop.js`, and no workshop checkbox in `nav-top.html` — the CSS for that toggle was dead and has been removed. The script is gated on `page.url contains '/guides/'` or `page.workshop_mode`; there is no `guides/` directory any more (docs moved to `/docs/`) and no page sets the flag, so nothing activates it. Setting `workshop_mode: true` in a page's front matter still works. Decide whether to restore a toggle, repoint the gate at `/docs/`, or retire the feature.
 
 ### Templates and syncing
 - Three template repos (portfolio, scrollstory, class-project) are synced from xanthan via GitHub Actions (`.github/workflows/sync-templates.yml`)

@@ -331,8 +331,6 @@ SIDENAV - See nav-left.css and nav-profile.css for sidebar styling
 *****************************************************/
 
 
-
-
 /*****************************************************
 BREADCRUMB NAVIGATION
 *****************************************************/
@@ -360,31 +358,6 @@ BREADCRUMB NAVIGATION
   color: var(--text-muted);
 }
 
-
-.top-nav-workshop-toggle {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  padding: 0 1rem;
-}
-
-.top-nav-workshop-toggle input[type="checkbox"] {
-  cursor: pointer;
-}
-
-.top-nav-workshop-toggle label {
-  cursor: pointer;
-  margin-left: 0.5rem;
-  font-size: 0.9rem;
-  color: var(--text-on-dark);
-}
-
-@media (max-width: 768px) {
-  .top-nav-workshop-toggle {
-    padding: 0.5rem 1rem;
-    border-top: 1px solid var(--border-light);
-  }
-}
 
 } /* end media screen */
 

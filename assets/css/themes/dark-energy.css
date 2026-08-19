@@ -381,8 +381,7 @@ SCROLLSTORY BOXES
 *****************************************************/
 
 .bg-text-box,
-.sticky-bg-content,
-.story-text {
+.sticky-bg-content {
   background: color-mix(in srgb, var(--bg-page) 92%, transparent);
   color: var(--text-body);
   border: 1px solid var(--accent-border-strong);
@@ -390,8 +389,7 @@ SCROLLSTORY BOXES
 }
 
 .bg-text-box p,
-.sticky-bg-content p,
-.story-text p {
+.sticky-bg-content p {
   color: var(--text-body);
 }
 
@@ -462,7 +460,6 @@ a:hover {
 }
 
 a:focus-visible,
-.nav-link:focus-visible,
 .btn:focus-visible,
 input:focus-visible,
 textarea:focus-visible,

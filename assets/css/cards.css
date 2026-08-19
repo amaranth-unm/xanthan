@@ -298,48 +298,6 @@ The container that lays vertical cards out in columns.
   color: inherit;
 }
 
-/* Legacy Bootstrap-style classes for backwards compatibility */
-/*****************************************************
-BOOTSTRAP GRID REMNANT
-
-Unused: no markup in the framework references .row or .row-cols-md-*.
-Scheduled for removal.
-*****************************************************/
-
-.row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-md);
-}
-
-.row.row-cols-md-2 {
-  grid-template-columns: 1fr;
-}
-
-.row.row-cols-md-3 {
-  grid-template-columns: 1fr;
-}
-
-.row.row-cols-md-4 {
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 768px) {
-  .row.row-cols-md-2 {
-      grid-template-columns: repeat(2, 1fr);
-    
-  }
-
-  .row.row-cols-md-3 {
-      grid-template-columns: repeat(3, 1fr);
-    
-  }
-
-  .row.row-cols-md-4 {
-      grid-template-columns: repeat(4, 1fr);
-    
-  }
-}
 
 /* Responsive: horizontal cards become vertical on small screens */
 @media (max-width: 768px) {

@@ -149,6 +149,11 @@ p:has(+ ol) {
   text-align: left;
 }
 
+/* Editorial vocabulary you apply in Markdown with {: .class}. Not used by any
+   include, which is the point — these are for authors, not components. The
+   documented siblings are .lede, .field-note, .metadata-strip and
+   .section-intro in docs/reference/typography.md; .editorial-label and
+   .evidence-note work the same way and are not yet written up there. */
 .editorial-label,
 .kicker {
   margin: var(--spacing-lg) 0 var(--spacing-xs);

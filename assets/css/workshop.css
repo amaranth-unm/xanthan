@@ -8,7 +8,12 @@ Internal — for instructors and grad students presenting, not documented for
 site authors.
 
 Loads:    every page
-Used by:  assets/js/workshop.js, toggled by the nav checkbox in nav/nav-top.html
+Used by:  the inline script in html/html-js.html
+
+Note: as of this writing nothing can switch workshop mode on. The script is
+gated on `page.url contains '/guides/'` or `page.workshop_mode`, and there is
+no guides/ directory (the docs moved to /docs/) and no page sets the flag.
+Set `workshop_mode: true` in a page's front matter to use it.
 Needs:    base.css tokens (--overlay-dark, --text-on-photo, --font-mono)
 Not here: the nav checkbox markup itself (nav/nav-top.html)
 *****************************************************/

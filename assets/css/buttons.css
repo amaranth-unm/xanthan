@@ -124,17 +124,5 @@ HERO SECTION (Homepage)
   margin: 0 0 2.5rem;
 }
 
-.homepage-template-card {
-  --card-bg: var(--bg-feature-card);
-  --card-border: var(--border-feature-card);
-  --card-hover-border: var(--border-feature-card-hover);
-  --card-heading-color: var(--text-feature-card);
-  --card-text-color: var(--text-feature-card-muted);
-  opacity: 1;
-}
-
-.homepage-template-card:hover {
-  border-color: var(--border-feature-card-hover);
-}
 
 } /* end media screen */

@@ -22,9 +22,6 @@ CSS VARIABLE OVERRIDES
 :root {
   /* ===== Terra Cotta Color Palette ===== */
   --clay: #c05131;
-  --sage-tc: #8a9a7b;          /* Renamed to avoid conflict with base.css --sage */
-  --sage-tc-dark: #5d6b52;
-  --sage-tc-light: #a5b399;
   --sand: #e8dcc8;
   --sand-light: #f5f1e8;
   --brown: #6b4423;
