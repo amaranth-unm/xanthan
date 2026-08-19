@@ -18,7 +18,7 @@ reasons:
 # Show Your Work
 
 {: .lede}
-Xanthan makes academic websites that stay easy to change---and easy to change together. You edit plain text files and the site rebuilds itself. Students and colleagues can contribute without a license or a lesson, the work stays yours to move and keep, and it will still be running long after this year's platforms are gone.
+Xanthan makes academic websites that stay easy to change---and easy to collaborate on. You edit plain text files with a direct correspondence between what your text and your page. Students and colleagues can contribute with a few non-technical steps to get started, the work stays yours to move, and it will still be running years later even if you forget about it. And it will work the same way when you pick it up again.
 
 {% include layout/section.html style="alt" %}
 
@@ -35,7 +35,7 @@ Xanthan makes academic websites that stay easy to change---and easy to change to
 
 {% include layout/section-end.html %}
 
-## What Xanthan actually is
+## What is Xanthan?
 Xanthan is not software; it's not a platform. There is nothing to install, no account to create. It is a set of files that make a website on a free, widely used platform, and directions for what to do with them.
 
 GitHub stores files and publishes websites for millions of people, it will turn your copy into an acessible site running from your own account. From then on, editing the site means editing simple text files.
@@ -52,9 +52,9 @@ Digital humanities work should be as open in its process as in its product. Xant
 [See more in our FAQs →](faqs#why-not-use-wix-or-squarespace){: .btn-secondary .btn-sm}
 
 
-{% include layout/section.html style="cool" %}
+{% include layout/section.html style="alt" %}
 
-## Who Xanthan is for
+## Who is Xanthan for?
 
 **Scholars seeking public engagement.** Move your work beyond paywalls and PDFs. Build research portfolios, multimedia essays, and interactive arguments that reach broader audiences---on a site you control, not a platform that controls you.
 
@@ -71,11 +71,10 @@ Digital humanities work should be as open in its process as in its product. Xant
   text-shadow=false
   text="
 
-## Built for AI Collaboration
+## Built for AI Collaboration.
+AI can generate a website from a simple prompt. That's impressive, but impressive but opaque to whoever has to change it next.
 
-AI can generate a website from a blank prompt. The harder question is what it leaves behind---usually just the finished artifact, impressive but opaque to whoever has to change it next.
-
-Xanthan preserves the trail. Markdown pages, YAML navigation, CSS theme files, and components with documented parameters give AI a curated context to work inside, and leave people something they can still read.
+Xanthan provides starter sites with amply commented code that give AI a curated context to work inside, and becomes an assistant to human judgement rather than wrestle control away.
 
 Those guardrails make AI more useful, not less. You describe what you want in plain language, and you stay in the editorial role---judging results, giving feedback, and deciding what's right for your project.
 
@@ -85,7 +84,7 @@ Those guardrails make AI more useful, not less. You describe what you want in pl
 
 {% include layout/section.html style="warm" %}
 
-## Yes, it's like the gum.
+## Yes, it's like the gum!
 
 Xanthan gum is a polysaccharide used as a binder and emulsifier---it transforms disparate ingredients into something cohesive and stable. This platform does the same: it binds simple, durable web technologies into a framework for digital scholarship. Text, media, code, and argument become a coherent whole with a long shelf life.
 
@@ -93,7 +92,7 @@ Good infrastructure, like good binding agents, should be reliable, unobtrusive, 
 
 {% include layout/section-end.html %}
 
-## Easier done than said
+## Easier done than said.
 
 This is one of those things that takes longer to describe than to do. The guides run long because every step is written out---you shouldn't have to work anything out on your own, or guess what a page means by "commit."
 

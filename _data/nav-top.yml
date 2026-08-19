@@ -73,8 +73,5 @@
     - title: "Building with AI"
       url: "/docs/using-ai/prompts"
 
-- title: "About"
-  url: "/about"
-
 - title: "FAQs"
   url: "/faqs"

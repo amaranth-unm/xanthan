@@ -46,10 +46,15 @@ CSS VARIABLE OVERRIDES
   --text-section-cool-heading: var(--ponderosa-green);
   --bg-section-cool: linear-gradient(180deg, color-mix(in srgb, var(--rim-green-light) 32%, var(--granite-white)), color-mix(in srgb, var(--rim-green-light) 18%, var(--granite-white)));
   --border-section-cool: color-mix(in srgb, var(--ponderosa-green) 22%, var(--granite-white));
-  --bg-section-warm: var(--shadow-gray);
+  /* The one dark band on the page, and it is green rather than ink so it reads
+     as the dark end of the same strata as the pale rim-green elsewhere, rather
+     than a second unrelated interruption.
+     Granite on ponderosa is 8.6:1. The link had to lighten: rim-green straight
+     on ponderosa is only 3.6:1, where on the old shadow-gray it was 4.8:1. */
+  --bg-section-warm: var(--ponderosa-green);
   --text-section-warm: var(--granite-white);
   --text-section-warm-heading: var(--granite-white);
-  --text-section-warm-link: var(--rim-green-light);
+  --text-section-warm-link: color-mix(in srgb, var(--rim-green-light) 60%, var(--granite-white));
   --text-section-warm-link-hover: var(--granite-white);
   --border-section-warm: var(--canyon-red);
   --border-section-accent: var(--canyon-red);
