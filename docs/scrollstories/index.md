@@ -11,7 +11,7 @@ summary: A visual narrative where text, images, maps, and media unfold as the re
 
 {% capture scrollstories_intro %}
 {: .lede}
-If you know StoryMaps, this is the Xanthan version of that idea: a visual narrative where text, images, maps, and media unfold as the reader scrolls. The difference is that a ScrollStory is just a page in your site, written in text files and styled with the same Xanthan system as everything else.
+If you know StoryMaps, this is the Xanthan version of that idea: a visual narrative where text, images, maps, and media unfold as the reader scrolls. The difference is that a ScrollStory is just a page in your site, written in text files and not tied to a propritetary backend.
 {% endcapture %}
 
 {% include images/figure-wrap.html
