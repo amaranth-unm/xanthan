@@ -59,8 +59,13 @@ cp "$SRC/CHANGELOG.md" "$DEST/XANTHAN_CHANGELOG.md"
 # --- Per-template extras -----------------------------------------------------
 case "$NAME" in
   scrollstory)
-    # The scrollstory starter's own front page is the Forest demo.
-    "${RSYNC[@]}" "$SRC/scrollstories/forest/" "$DEST/your-story/"
+    # The Forest demo *is* this starter's front page. A scrollstory template
+    # whose homepage is a page about scrollstories buries the thing it is
+    # demonstrating one click deep, so the essay lands at the repo root.
+    # Its includes reference images/ relative to themselves, which is why the
+    # pictures go to a root images/ rather than staying alongside.
+    cp "$SRC/scrollstories/forest/index.md" "$DEST/index.md"
+    "${RSYNC[@]}" "$SRC/scrollstories/forest/images/" "$DEST/images/"
     ;;
 esac
 
