@@ -49,7 +49,7 @@ The craft is in knowing when to use which. Not every moment needs a cinematic tr
   image-position="right"
   image-width="48%"
   caption="Ferns on the forest floor. Simple figure-wrap, right-aligned at 48%."
-  image-path="images/ferns-closeup.jpg"
+  image-path="images/960px-Fern_Carpet_(9002108266).jpg"
   text=firstimage
 %}
 

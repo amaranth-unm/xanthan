@@ -3,7 +3,7 @@ title: A Visual Journey
 author: Jonathan Seyfried
 layout: scrollstory
 date: 2026-02-07
-thumbnail: images/seedling-card.png
+thumbnail: images/plute-farms-hogan-az.jpg
 summary: A transformation of a wall-mounted museum exhibit into a dynamic webpage.
 header-image: images/plute-farms-hogan-az.jpg
 header-title: A Photographic Laboratory
