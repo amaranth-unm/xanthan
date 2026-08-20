@@ -238,12 +238,14 @@ jobs:
   # ---------------------------------------------------------------------------
   # Object Collection starter site.
   #
-  # DISABLED until github.com/xanthan-web/object-collection-template exists.
-  # The local starter site is built and committed; the remote has not been
-  # created yet. To enable:
-  #   1. gh repo create xanthan-web/object-collection-template --public
-  #   2. Push the local object-collection-template repository to it.
-  #   3. Uncomment the job below.
+  # DISABLED until the object-collection-template repository has a main branch.
+  # The repository now exists but is still empty — `git ls-remote --heads` on it
+  # returns nothing — and actions/checkout fails against a repository with no
+  # branch to check out. To enable:
+  #   1. Push the local object-collection-template repository:
+  #        git -C ../object-collection-template push -u origin main
+  #   2. Uncomment the job below.
+  # Note it is currently private, so SYNC_TOKEN must have access to it.
   #
   # Left commented rather than live because the checkout step fails against a
   # repository that does not exist, and this workflow runs on every push to
