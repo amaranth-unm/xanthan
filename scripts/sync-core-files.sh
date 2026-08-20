@@ -78,6 +78,13 @@ case "$NAME" in
     # pictures go to a root images/ rather than staying alongside.
     cp "$SRC/scrollstories/forest/index.md" "$DEST/index.md"
     "${RSYNC[@]}" "$SRC/scrollstories/forest/images/" "$DEST/images/"
+
+    # The demo used to land in your-story/ instead of at the root. A sync that
+    # simply stops writing a path leaves the old one in place forever — the
+    # same trap milton-snow fell into. The copy left behind was from before the
+    # essay was updated and still called an include core no longer ships, which
+    # broke the template's Pages build even though the sync itself succeeded.
+    rm -rf "$DEST/your-story"
     ;;
 esac
 
