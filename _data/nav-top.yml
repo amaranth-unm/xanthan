@@ -28,6 +28,13 @@
     - title: "Peekaboo Images"
       url: "/docs/scrollstories/peekaboo"
 
+    - divider: true
+
+    - title: "Seedling: A Simple Essay"
+      url: "/scrollstories/seedling"
+    - title: "Forest: Every Component"
+      url: "/scrollstories/forest"
+
 - title: "Reference"
   items:
     - title: "Pages & Front Matter"
