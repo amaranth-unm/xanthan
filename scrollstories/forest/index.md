@@ -253,31 +253,40 @@ The **side-scroll** component creates a different reading pattern: images appear
 {% include scrollybox/bg-ss-image.html
   ss-id="forest-walk"
   image-path="images/960px-Fern_Carpet_(9002108266).jpg"
-  alt-text="Close-up of ferns on the forest floor"
+  alt-text="A carpet of ferns covering the forest floor"
 %}
 
-We begin in the understory. The light here is filtered through layers of leaves above, creating patterns on the forest floor. Every surface harbors life — fungi breaking down fallen wood, mosses covering rocks, insects navigating root systems.
+We begin in the understory. The light here is filtered through layers of leaves above, and what reaches the ground arrives in moving patches rather than a steady wash. Every surface harbours something: fungi breaking down fallen wood, mosses covering rock, insects working their way through root systems.
 
-Ferns unfurl from tight spirals called fiddleheads — one of the oldest plant forms on Earth, predating flowering plants by hundreds of millions of years. They thrive in the shade that would starve most other plants.
+Ferns unfurl from tight spirals called fiddleheads — one of the oldest plant forms on Earth, predating flowering plants by hundreds of millions of years. They thrive in shade that would starve most other plants, which is why they carpet ground the canopy has already claimed.
 
-
-Side-scroll sections alternate between text blocks and full-width images, letting you pace your visual narrative differently from scrollyboxes.
+A side-scroll section pairs a column of text with an image that holds its place beside it. The image stays while you read, then releases when the text beside it runs out. Give each image enough text to scroll against and the section paces itself; give it too little and the image barely moves before the next one arrives.
 
 {% include scrollybox/bg-ss-image.html
   ss-id="forest-walk"
   image-path="images/960px-Totholz-am-Teufelssee-bei-Thelkow-19-09-2008-036.jpg"
-  alt-text="Moss growing on a fallen log"
+  alt-text="Moss growing thickly over deadwood"
 %}
 
+Deadwood is not an absence of life but a concentration of it. A standing trunk that has lost its crown becomes a vertical habitat: beetles bore in, woodpeckers follow the beetles, and the holes they leave behind become nests for birds that could not have made them.
+
+Moss arrives once the bark has loosened enough to hold water. It is not taking anything from the wood — mosses have no roots to speak of — but its presence changes the surface, slowing evaporation and giving seeds somewhere to lodge that is neither bare wood nor open soil.
+
+Standing deadwood and fallen deadwood decay along quite different schedules. A trunk still upright stays drier and can take a century to come apart; the same tree on the ground, in contact with soil and its fungi, may be gone in thirty years. Foresters count both as habitat and are careful to leave some of each.
+
+This is the second image in the section, and it now has a text block of its own to move against. It is also the tallest of the three, so it needs slightly more text than its neighbours to travel the same distance — worth remembering when your own images are not all the same shape.
 
 {% include scrollybox/bg-ss-image.html
   ss-id="forest-walk"
   image-path="images/960px-Nurse_Log_(8014005473).jpg"
-  alt-text="Moss growing on a fallen log"
+  alt-text="Seedlings growing along the length of a fallen nurse log"
 %}
 
+A fallen tree becomes a nurse log — decomposing over decades, feeding the soil, hosting new seedlings along its length. Nothing in a forest is wasted; it is only moved from one account to another, on a schedule measured in decades rather than seasons.
 
-A fallen tree becomes a nurse log — decomposing over decades, feeding the soil, hosting new seedlings on its surface. Nothing in a forest is wasted. The side-scroll pattern works well for this kind of sequential observation: walk, look closely, reflect, walk again.
+Look along the top of a nurse log and you will often find a row of saplings growing in a line, all the same age. They germinated on the raised surface because it lifted them clear of the leaf litter and gave them light the forest floor could not. Decades later, when the log has gone entirely, those trees are still standing in that line.
+
+The side-scroll pattern suits this kind of sequential observation: walk, look closely, reflect, walk again. It works because each stop gets the same amount of attention — which, in layout terms, means each image gets a comparable block of text beside it.
 
 {% include scrollybox/bg-ss-close.html %}
 

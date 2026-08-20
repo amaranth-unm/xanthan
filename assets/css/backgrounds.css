@@ -168,6 +168,14 @@ SIDE SCROLL
 *****************************************************/
 
 .side-scroll-container {
+  /* Display */
+  /* flow-root makes this box contain its floated images. Without it the
+     container's height counts only the text column, the sticky images hang
+     past the bottom — by 746px on the forest essay — and whatever follows the
+     section rides up alongside them. A carousel placed after the side-scroll
+     was overlapping the last image for exactly this reason. */
+  display: flow-root;
+
   /* Box Model */
   width: 100%;
   max-width: 1200px;
