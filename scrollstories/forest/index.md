@@ -21,7 +21,7 @@ tags:
   - music
 ---
 
-This essay demonstrates everything from Seedling and Sapling, plus background image switching, sticky backgrounds, side-scroll sections, juxtapose comparisons, and the full header system. This is the complete cinematic experience.
+This essay uses every ScrollStory component at least once: simple figures and footnotes, scrollyboxes and jumbotrons, background image switching, sticky backgrounds, side-scroll sections, juxtapose comparisons, and the full header system. Read it as a demonstration, or copy any piece of it straight into your own essay.
 
 Notice the header above: it includes an **eyebrow** ("ScrollStory Demo"), a **divider** (the decorative line of symbols), and a **subtitle** below the title. These hero-only fields are set in the front matter:
 
@@ -41,9 +41,9 @@ Auto-scroll is off by default on all pages. To enable it, add `autoscroll: true`
 
 ## All the Basics Still Work
 {% capture firstimage %}
-Forest doesn't replace Seedling or Sapling—it **includes** them. You can mix simple images, footnotes, and section headings with the advanced features we're about to show you.
+The cinematic components do not replace the plain ones — you mix them. Simple images, footnotes, and section headings sit perfectly well beside the full-screen effects we're about to show you.
 
-The key to Forest essays is knowing when to use which tool. Not every moment needs a cinematic treatment. Sometimes a simple image alongside text is exactly right.
+The craft is in knowing when to use which. Not every moment needs a cinematic treatment. Sometimes a simple image alongside text is exactly right.
 {% endcapture %}
 {% include images/figure-wrap.html
   image-position="right"
@@ -87,7 +87,7 @@ The **sticky background** is similar to a scrollybox but uses CSS `position: sti
   box-content="
 **Sticky background with right-aligned text box.**
 
-This component works like the scrollybox from Sapling, but uses a different CSS technique. The image feels more grounded — it moves with the page before locking into place.
+This works like a standard scrollybox but uses a different CSS technique. The image feels more grounded — it moves with the page before locking into place.
 
 Use `bg-sticky` when:
 - You want the image to arrive with the scroll rather than being revealed behind content
@@ -105,7 +105,7 @@ Use `bg-sticky` when:
   text="A center-aligned pull quote at 70% width creates a visual pause that spans nearly the full text column. Use this for the single most important statement in your essay."
 %}
 
-The pull quote above uses `box-align=\"center\"` and `width=\"70%\"` — wider and more prominent than the left- or right-aligned versions you saw in Seedling and Sapling. Reserve center-aligned quotes for your most important ideas.
+The pull quote above uses `box-align=\"center\"` and `width=\"70%\"` — wider and more prominent than a left- or right-aligned one. Reserve center-aligned quotes for your most important ideas.
 
 
 ## Jumbotron With Right-Aligned Text
@@ -117,13 +117,13 @@ The pull quote above uses `box-align=\"center\"` and `width=\"70%\"` — wider a
   title="Autumn Canopy"
   text="A jumbotron with `box-align=\"right\"` — the gradient fades from right to left, keeping the text readable against the image."
   background-position="center"
-  caption="Sapling demonstrated a left-aligned jumbotron. Here we use the right side to show how `box-align` controls both text placement and gradient direction."
+  caption="A jumbotron can align its text either way. Here the right side shows how `box-align` controls both text placement and the direction the gradient fades."
 %}
 
 
 ## Markdown Blockquote
 
-In Seedling, you saw Markdown's `>` syntax for block quotes. That is the recommended pattern in Xanthan because it keeps source quotations readable in plain text and easy to style with CSS:
+Markdown's own `>` syntax is the recommended pattern in Xanthan for quoting a source. It keeps quotations readable in plain text and easy to style with CSS:
 
 > The forest floor receives only 2% of the sunlight that hits the canopy. What grows there has adapted to work with almost nothing — and yet the understory is where most of the forest's biodiversity lives.
 
@@ -131,7 +131,7 @@ To change the visual texture, edit the `blockquote` rule in `assets/css/typograp
 
 
 ## Standard Scrollybox
-The next section uses a basic scrollybox like you saw in Sapling. Keep scrolling to see text overlay a full-screen background image.
+The next section uses a basic scrollybox. Keep scrolling to see text overlay a full-screen background image.
 
 {% include scrollybox/bg.html
   height="320vh"
@@ -142,7 +142,7 @@ The next section uses a basic scrollybox like you saw in Sapling. Keep scrolling
   box-content="
 **Looking up through the canopy** — this scrollybox is right-aligned, using `box-align: right`.
 
-All the same Markdown works here — and this is the same component you saw in Sapling. Forest essays use it freely alongside advanced features.
+All the same Markdown works inside a scrollybox. Use them freely alongside the more elaborate components.
 
 Use `above-box-space` and `below-box-space` to control pacing — more space means slower, more contemplative scrolling.
 "
@@ -150,7 +150,7 @@ Use `above-box-space` and `below-box-space` to control pacing — more space mea
 
 
 ## Background Switching: Multiple Images
-This is what makes Forest essays truly cinematic. You're about to scroll through a section where the background image **switches multiple times** as you read, creating a visual sequence that matches your narrative.
+This is the component that makes a scrollstory truly cinematic. You're about to scroll through a section where the background image **switches multiple times** as you read, creating a visual sequence that matches your narrative.
 
 **Watch carefully:** The background starts with one image, then switches to a second, then a third. The text box stays visible throughout.
 
@@ -201,7 +201,7 @@ Duis eros odio, fringilla et pulvinar vitae, eleifend quis elit. Sed eleifend le
 
 
 ## Back to Normal Flow
-Notice how smoothly you transitioned from that immersive multi-image sequence back to regular essay format? Mixing intense and calm sections creates the rhythm that makes Forest essays compelling.
+Notice how smoothly you transitioned from that immersive multi-image sequence back to regular essay format? Mixing intense and calm sections is what creates rhythm — and rhythm is what keeps a long scrolling essay readable.
 
 
 ## Side-Scroll Section
@@ -292,11 +292,11 @@ Mist softens the boundaries between trees." | split: '|'
 
 ---
 
-**Feeling overwhelmed?** Start with [Seedling](../seedling/) or [Sapling](../sapling/) so there is just less stuff to deal with. You can always copy and paste Xanthan components into your page. There's nothing special about this page compared to the others--it just uses more components!
+**Feeling overwhelmed?** You do not have to use all of this. Delete whole sections until what is left is the essay you actually want, then add components back one at a time. There is nothing special about this page — it is an ordinary Markdown file that happens to call a lot of components.
 
 
 ## Ready to Create Your Own?
-Start with the [Getting Started guide](../../../docs/getting-started/) to create your own site first. Once you have a working site, come back here to build your ScrollStory.
+Start with the [Getting Started guide]({{ site.baseurl }}/docs/getting-started/) to create your own site first. Once you have a working site, come back here to build your ScrollStory.
 
 
 
