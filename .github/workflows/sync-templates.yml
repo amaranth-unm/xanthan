@@ -31,6 +31,11 @@ on:
         default: 'all'
 
 env:
+  # Carries .github/workflows/optimize-images.yml to the templates, so a site
+  # made from one inherits the Actions button for shrinking images. Requires
+  # SYNC_TOKEN to hold the `workflow` scope; without it GitHub rejects the whole
+  # push, not just that file.
+  SYNC_WORKFLOW_FILE: "true"
   GIT_AUTHOR_NAME: "Xanthan Sync Bot"
   GIT_AUTHOR_EMAIL: "actions@github.com"
   GIT_COMMITTER_NAME: "Xanthan Sync Bot"
