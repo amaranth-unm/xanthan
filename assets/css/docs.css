@@ -95,6 +95,48 @@ Not here: anything a reader's own site would use
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--interactive-hover) 20%, transparent);
 }
 
+/* The same idea on the starter-site chooser page, where each option is a
+   section rather than a card. */
+.coming-soon-heading {
+  opacity: 0.72;
+}
+
+.template-btn.primary[disabled] {
+  cursor: not-allowed;
+  background: transparent;
+  border-style: dashed;
+  color: var(--text-muted);
+  box-shadow: none;
+}
+
+/* A starter site that is listed but not ready yet. Shown rather than hidden so
+   a reader can see what is coming, muted so it does not read as a choice.
+   Kept legible: this is a preview, not disabled furniture, so the text stays
+   above the contrast floor rather than being dimmed into decoration. */
+.setup-option--coming-soon {
+  border-style: dashed;
+  background: transparent;
+}
+
+.setup-option--coming-soon h3,
+.setup-option--coming-soon p {
+  color: var(--text-muted);
+}
+
+.setup-option--coming-soon .template-btn.primary[disabled] {
+  cursor: not-allowed;
+  background: transparent;
+  border-style: dashed;
+  color: var(--text-muted);
+  box-shadow: none;
+}
+
+.setup-option--coming-soon .template-btn.primary[disabled]:hover {
+  background: transparent;
+  color: var(--text-muted);
+  transform: none;
+}
+
 .setup-option input[type="radio"] {
   display: none;
 }

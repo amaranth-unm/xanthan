@@ -64,19 +64,22 @@ A site that gathers writing by many people around a shared theme: student essays
 
 ---
 
-## Object Collection
+## Object Collection {#object-collection .coming-soon-heading}
 
 {% capture object_collection_text %}
+**Coming soon — not ready to use yet.**
+
 The same collaborative shape, but built around things rather than prose: artefacts, sites, specimens, images, places. Each object gets its own folder and page carrying what you actually catalogue---an image, a date, a medium, coordinates, tags---and an image-first grid assembles the directory. Add `geo` coordinates and the objects appear on a map as well as in the grid.
 
 Choose this over Essay Collection when the object *is* the entry and the writing supports it. A digital exhibit, a material-culture course, a site survey, a collection catalogue.
 
+The live example below is a real site of this shape. The starter site itself is still being finished, so there is nothing to copy yet.
+
 <div class="template-buttons">
   <div class="template-btn-row">
     <a class="template-btn" href="https://amaranth.unm.edu/silk-road/" target="_blank">Live example</a>
-    <a class="template-btn" href="https://xanthan-web.github.io/object-collection-template" target="_blank">View starter site</a>
   </div>
-  <a class="template-btn primary" href="./?template=object-collection">Start with this one →</a>
+  <button class="template-btn primary" disabled>Coming soon</button>
 </div>
 {% endcapture %}
 

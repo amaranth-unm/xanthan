@@ -64,7 +64,11 @@ document.addEventListener('DOMContentLoaded', function() {
       repoName: 'xanthan-web/object-collection-template',
       repoUrl: 'https://github.com/xanthan-web/object-collection-template',
       webUrl: 'https://xanthan-web.github.io/object-collection-template',
-      liveUrl: 'https://amaranth.unm.edu/silk-road/'
+      liveUrl: 'https://amaranth.unm.edu/silk-road/',
+      // Listed so people can see it coming, but not yet selectable: the
+      // starter repository exists and is still empty, so choosing it would
+      // point every step below at a site that is not there.
+      comingSoon: true
     },
     {
       id: 'scrollstory',
@@ -83,7 +87,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     templates.forEach(template => {
       const card = document.createElement('div');
-      card.className = 'setup-option' + (template.default ? ' selected' : '');
+      card.className = 'setup-option'
+        + (template.default ? ' selected' : '')
+        + (template.comingSoon ? ' setup-option--coming-soon' : '');
       card.dataset.templateId = template.id;
 
       const input = document.createElement('input');
@@ -104,14 +110,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const useBtn = document.createElement('button');
       useBtn.className = 'template-btn primary';
-      useBtn.textContent = 'Choose this one';
-      useBtn.addEventListener('click', () => selectTemplate(template.id));
+      if (template.comingSoon) {
+        useBtn.textContent = 'Coming soon';
+        useBtn.disabled = true;
+      } else {
+        useBtn.textContent = 'Choose this one';
+        useBtn.addEventListener('click', () => selectTemplate(template.id));
+      }
 
-      const viewBtn = document.createElement('a');
-      viewBtn.className = 'template-btn';
-      viewBtn.textContent = 'View starter site';
-      viewBtn.href = template.webUrl || template.repoUrl;
-      viewBtn.target = '_blank';
+      // The starter site is only worth linking to once it exists.
+      let viewBtn = null;
+      if (!template.comingSoon) {
+        viewBtn = document.createElement('a');
+        viewBtn.className = 'template-btn';
+        viewBtn.textContent = 'View starter site';
+        viewBtn.href = template.webUrl || template.repoUrl;
+        viewBtn.target = '_blank';
+      }
 
       // Live example button (only for starter sites with a real-world example)
       if (template.liveUrl) {
@@ -123,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
         buttonContainer.appendChild(liveBtn);
       }
 
-      buttonContainer.appendChild(viewBtn);
+      if (viewBtn) buttonContainer.appendChild(viewBtn);
       buttonContainer.appendChild(useBtn);
 
       card.appendChild(input);
@@ -135,6 +150,16 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function selectTemplate(templateId) {
+    // A starter site that is not ready cannot drive the rest of the page —
+    // every step below would name a repository that is not there. This also
+    // catches arriving with ?template=object-collection in the URL.
+    const requested = templates.find(t => t.id === templateId);
+    if (!requested || requested.comingSoon) {
+      const fallback = templates.find(t => t.default && !t.comingSoon);
+      if (!fallback || fallback.id === templateId) return;
+      templateId = fallback.id;
+    }
+
     // Update radio button
     const radio = document.getElementById(`option-${templateId}`);
     if (radio) radio.checked = true;
@@ -148,6 +173,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Reset all primary buttons, then mark the selected one
     document.querySelectorAll('.template-btn.primary').forEach(btn => {
+      // Leave a disabled button alone: its label says why it cannot be
+      // picked, and this reset would overwrite that with an invitation.
+      if (btn.disabled) return;
       btn.textContent = 'Choose this one';
       btn.classList.remove('selected-btn');
     });
