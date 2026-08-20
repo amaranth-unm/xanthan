@@ -135,6 +135,10 @@ PAGE SETUP & CUSTOMIZATION
      if the image does not fill the tile. Darker than the band tiles sit on, so
      a tile still reads as a tile before its picture arrives. */
   --bg-tile: var(--sage-dark);
+  /* Translucent scrim for text laid directly over a photograph, as in a
+     jumbotron in image mode. Dark enough to carry light text, sheer enough
+     that the picture still reads through it. */
+  --bg-scrim-sheer: color-mix(in srgb, var(--bg-scrim) 72%, transparent);
   --text-feature-band: var(--text-on-dark);
   --text-feature-band-muted: color-mix(in srgb, var(--text-on-dark) 74%, transparent);
   --text-feature-band-link: var(--sage-pale);

@@ -52,7 +52,11 @@ Not here: the page header drawn from front matter (page-header.css) and the
 
   /* Typography */
   font-family: var(--font-body);
-  color: var(--text-body);
+  /* --jumbotron-text is set inline by the include when the author passes
+     text-color, and in image mode where the text sits on the photograph.
+     Left unset in the ordinary panel case, so the defaults below still apply
+     and a heading keeps its accent colour. */
+  color: var(--jumbotron-text, var(--text-body));
 }
 
 /* Shadow for legibility when text overlays busy image detail.
@@ -64,7 +68,7 @@ Not here: the page header drawn from front matter (page-header.css) and the
 /* Center mode: text overlays the image directly */
 .jumbotron--center .jumbotron-content {
   text-align: center;
-  color: white;
+  color: var(--jumbotron-text, var(--text-on-photo));
 }
 
 .jumbotron--center.jumbotron--text-shadow .jumbotron-content {
@@ -80,11 +84,11 @@ Not here: the page header drawn from front matter (page-header.css) and the
 
   /* Typography */
   font-size: clamp(1.4rem, 2.5vw, 2rem);
-  color: var(--text-h2);
+  color: var(--jumbotron-text, var(--text-h2));
 }
 
 .jumbotron--center .jumbotron-content h2 {
-  color: white;
+  color: var(--jumbotron-text, var(--text-on-photo));
 }
 
 .jumbotron-text {

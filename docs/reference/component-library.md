@@ -88,13 +88,51 @@ Full-browser-width image that breaks out of the page content margins. Use it as 
 | `box-align` | no | `left` | `left`, `right`, or `center` — positions text and sets gradient direction |
 | `title` | no | --- | Heading above the text |
 | `text` | no | --- | Body text; supports Markdown. Gradient applied automatically when present |
-| `fade-start` | no | `0%` | Where the opaque background begins |
-| `fade-end` | no | `60%` | Where the fade becomes transparent |
-| `bg-color` | no | `var(--bg-page)` | Color of the opaque side |
+| `fade-start` | no | `35%` | How far the solid colour extends before it starts fading. At `0%` there is no solid region and the text sits on a wash |
+| `fade-end` | no | `85%` | Where the fade becomes transparent. Lower it to show more photograph, but keep it past the text or the words end up on bare image |
+| `overlay` | no | `panel` | `panel` or `image` — see below |
+| `bg-color` | no | by mode | Colour the gradient fades from |
+| `text-color` | no | by mode | Colour of the title and body text |
 | `background-position` | no | `center` | CSS `background-position`; aim the photo subject away from the text side |
 | `zoom` | no | `cover` | CSS `background-size`; e.g. `150%` to zoom in |
 | `caption` | no | --- | Caption below the image; supports Markdown |
 | `text-shadow` | no | `true` | Set to `false` when text sits on a solid/opaque area rather than busy image detail |
+
+**`overlay` picks which of the two the jumbotron is:**
+
+| `overlay` | What you see | Default `bg-color` | Default `text-color` |
+|-----------|--------------|--------------------|----------------------|
+| `panel` (default) | The text sits on a band of solid colour that fades sideways to reveal the photograph | `var(--bg-page)` | `var(--text-body)` |
+| `image` | The photograph runs the full width and the text sits on it, over a sheer dark scrim | `var(--bg-scrim-sheer)` | `var(--text-on-photo)` |
+
+Panel mode reads as part of the page; image mode reads as a picture you happen
+to be reading on. Use panel when the words matter more than the photograph, and
+image when the photograph is doing the work.
+
+```
+{% raw %}{% include images/jumbotron.html
+  image-path="/assets/images/backgrounds/pano-1.jpg"
+  overlay="image"
+  box-align="right"
+  title="Text over the photograph"
+  text="The picture runs the full width; a sheer scrim keeps the words readable."
+%}{% endraw %}
+```
+
+**Set `text-color` whenever you change `bg-color`.** The two are not linked: a
+dark `bg-color` with the default dark text is the one way to make this component
+unreadable, and it is the mistake worth guarding against.
+
+```
+{% raw %}{% include images/jumbotron.html
+  image-path="/assets/images/backgrounds/pano-1.jpg"
+  box-align="right"
+  bg-color="var(--bg-feature-band)"
+  text-color="var(--text-on-dark)"
+  title="A dark panel"
+  text="Dark band, light text — both stated, because neither implies the other."
+%}{% endraw %}
+```
 
 **`box-align` controls both text placement and gradient direction:**
 

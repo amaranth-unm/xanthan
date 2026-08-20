@@ -108,16 +108,53 @@ Use `bg-sticky` when:
 The pull quote above uses `box-align=\"center\"` and `width=\"70%\"` — wider and more prominent than a left- or right-aligned one. Reserve center-aligned quotes for your most important ideas.
 
 
-## Jumbotron With Right-Aligned Text
+## Jumbotron, Two Ways
+
+A jumbotron comes in two flavours, and `overlay` picks between them.
+
+The first is a **panel**: the words sit on a band of solid colour that fades
+sideways to reveal the photograph. The page continues into the picture.
 
 {% include images/jumbotron.html
   image-path="images/autumn-forest.jpg"
   height="60vh"
+  overlay="panel"
   box-align="right"
   title="Autumn Canopy"
-  text="A jumbotron with `box-align=\"right\"` — the gradient fades from right to left, keeping the text readable against the image."
+  text="A panel jumbotron. The band on the right is the page's own colour, fading leftward to let the photograph through. `box-align` sets both which side the text takes and which way the gradient runs."
   background-position="center"
-  caption="A jumbotron can align its text either way. Here the right side shows how `box-align` controls both text placement and the direction the gradient fades."
+  caption="Panel mode — the words sit on the page, the picture arrives beside them."
+%}
+
+The second lets the **image** run the full width, with the text over it on a
+sheer dark scrim. Nothing is hidden; the photograph is the point and the words
+are laid on top.
+
+{% include images/jumbotron.html
+  image-path="images/misty-forest.jpg"
+  height="60vh"
+  overlay="image"
+  box-align="right"
+  title="Into the Mist"
+  text="An image jumbotron. The photograph is uninterrupted and the scrim only darkens enough to carry the text, which switches to a light colour to suit it."
+  background-position="center"
+  caption="Image mode — the picture is uninterrupted and the words sit on it."
+%}
+
+Whenever you change `bg-color`, set `text-color` to match. The two are
+independent, so a dark band with the default dark text is the one reliable way
+to make a jumbotron unreadable:
+
+{% include images/jumbotron.html
+  image-path="images/forest-floor-light.jpg"
+  height="50vh"
+  box-align="left"
+  bg-color="var(--bg-feature-band)"
+  text-color="var(--text-on-dark)"
+  title="A Dark Panel"
+  text="Both the band colour and the text colour are stated here, because neither one implies the other."
+  background-position="center right"
+  caption="A panel in a colour of your choosing, with the text colour set to suit it."
 %}
 
 
