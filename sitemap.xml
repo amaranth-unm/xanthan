@@ -6,7 +6,7 @@ layout: null
   {% for page in site.pages %}
     {% unless page.url contains '/assets/' or page.url contains '/_site/' %}
     <url>
-      <loc>{{ site.url }}{{ page.url }}</loc>
+      <loc>{{ site.url }}{{ site.baseurl }}{{ page.url }}</loc>
       {% if page.date %}<lastmod>{{ page.date | date_to_xmlschema }}</lastmod>{% endif %}
       <changefreq>monthly</changefreq>
       <priority>{% if page.url == '/' %}1.0{% else %}0.8{% endif %}</priority>
