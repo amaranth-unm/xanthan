@@ -2,7 +2,7 @@
 title: Your First AI Edit
 layout: default
 date: 2026-02-16
-summary: Your first few AI edits: change a colour, swap a font, ask what a line does — so you can see how the conversation works before trying anything ambitious.
+summary: "Your first few AI edits: change a colour, swap a font, ask what a line does — so you can see how the conversation works before trying anything ambitious."
 ---
 
 {% include nav/scrollspy-toc.html %}

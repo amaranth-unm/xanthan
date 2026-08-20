@@ -2,7 +2,7 @@
 layout: default
 title: Choose a Starter Site
 date: 2026-02-14
-summary: Four starter sites, one per shape of project: a portfolio, a collection of writing, a collection of objects, or a single continuous narrative.
+summary: "Four starter sites, one per shape of project: a portfolio, a collection of writing, a collection of objects, or a single continuous narrative."
 ---
 
 {% include nav/scrollspy-toc.html %}

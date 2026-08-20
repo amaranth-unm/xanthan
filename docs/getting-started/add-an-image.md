@@ -2,7 +2,7 @@
 layout: default
 title: Add an Image
 date: 2026-02-14
-summary: Upload an image and put it on a page, using the one Xanthan workflow you will reuse everywhere: find something that works, copy it, adapt it.
+summary: "Upload an image and put it on a page, using the one Xanthan workflow you will reuse everywhere: find something that works, copy it, adapt it."
 ---
 
 {% include nav/scrollspy-toc.html %}
