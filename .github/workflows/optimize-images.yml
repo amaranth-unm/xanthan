@@ -1,0 +1,122 @@
+name: Optimize Images
+
+# Run from the Actions tab — no command line needed.
+#   Actions → Optimize Images → Run workflow
+#
+# Defaults to a dry run, so the first click only reports what it would do.
+# Read the summary, then run it again with "Actually change the files" ticked.
+
+on:
+  workflow_dispatch:
+    inputs:
+      folder:
+        description: 'Folder to process (relative to the repo root)'
+        required: true
+        default: 'assets/images'
+      max_edge:
+        description: 'Longest edge in pixels. 1600 suits full-width images; 2400 for anything meant to be viewed large'
+        required: true
+        default: '1600'
+      quality:
+        description: 'JPEG quality, 1-100. 85 is a good default; below 70 starts to show'
+        required: true
+        default: '85'
+      apply:
+        description: 'Actually change the files. Leave unticked to preview first.'
+        type: boolean
+        required: true
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v4
+
+      - name: Install ImageMagick
+        run: |
+          if ! command -v convert >/dev/null 2>&1 && ! command -v magick >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq imagemagick
+          fi
+          convert --version | head -1
+
+      - name: Check the folder exists
+        run: |
+          if [ ! -d "${{ inputs.folder }}" ]; then
+            echo "::error::No folder called '${{ inputs.folder }}' in this repository."
+            echo "Look in the file list for the folder your images are in, and use that path."
+            exit 1
+          fi
+
+      - name: Optimize
+        id: optimize
+        run: |
+          # --recursive so images sitting directly in the folder are included,
+          # not just those in subfolders. --no-backup because git already holds
+          # the originals; a backup copy here would only be committed by mistake.
+          ARGS=(--recursive --no-backup
+                --base-dir "${{ inputs.folder }}"
+                --max-edge "${{ inputs.max_edge }}"
+                --quality "${{ inputs.quality }}")
+          if [ "${{ inputs.apply }}" != "true" ]; then
+            ARGS+=(--preview)
+          fi
+
+          bash scripts/optimize-images.sh "${ARGS[@]}" 2>&1 | tee /tmp/out.txt
+          # strip the terminal colour codes before this goes in the summary
+          sed -i 's/\x1b\[[0-9;]*m//g' /tmp/out.txt
+
+      - name: Update image references after any PNG to JPG conversions
+        if: inputs.apply
+        run: |
+          if [ -f png_to_jpg_conversions.txt ]; then
+            bash scripts/update-image-refs.sh
+            rm -f png_to_jpg_conversions.txt
+          else
+            echo "No PNGs were converted, so no page references needed changing."
+          fi
+
+      - name: Report
+        run: |
+          {
+            echo "## Image optimization"
+            echo ""
+            if [ "${{ inputs.apply }}" != "true" ]; then
+              echo "**Preview only — nothing was changed.**"
+              echo ""
+              echo "If the numbers below look right, run this again with"
+              echo "**Actually change the files** ticked."
+            else
+              echo "Folder: \`${{ inputs.folder }}\` · longest edge ${{ inputs.max_edge }}px · quality ${{ inputs.quality }}"
+            fi
+            echo ""
+            echo '```'
+            tail -n 120 /tmp/out.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit the smaller images
+        if: inputs.apply
+        run: |
+          git config user.name  "Xanthan Image Bot"
+          git config user.email "actions@github.com"
+
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Every image was already optimized — nothing to commit."
+            exit 0
+          fi
+
+          git add -A
+          git commit -m "Optimize images in ${{ inputs.folder }}
+
+          Longest edge ${{ inputs.max_edge }}px, quality ${{ inputs.quality }}.
+          Run from the Actions tab.
+
+          [skip ci]"
+          git push
+          echo "Committed. Your site will rebuild in a minute or two."

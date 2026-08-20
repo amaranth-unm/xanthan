@@ -384,6 +384,59 @@ See the [ScrollStories overview](../scrollstories/) to learn what's available, o
 
 ---
 
+## Making your images smaller
+
+A photograph straight from a phone or a museum download is often 4000 pixels
+wide and several megabytes. Nothing on a web page needs that, and a page full of
+them is slow to open on a phone — which is where a good share of your readers
+are. Shrinking them changes nothing a reader can see.
+
+You do not need a command line for this. Your site ships with a job that does it
+for you:
+
+1. Go to the **Actions** tab of your repository on GitHub
+2. Choose **Optimize Images** in the left-hand list
+3. Click **Run workflow**, and check the settings:
+
+| Setting | What it means |
+|---------|---------------|
+| **Folder** | Which folder to work through. `assets/images` covers your site's shared images; an essay's own folder works too, like `essays/my-essay/images` |
+| **Longest edge** | The biggest either side is allowed to be. `1600` suits a full-width image; use `2400` for something meant to be looked at closely |
+| **Quality** | JPEG quality out of 100. `85` is a good default. Below about `70` you start to see it |
+| **Actually change the files** | Leave this **unticked** the first time |
+
+4. Click the green **Run workflow** button
+
+The first run changes nothing. It reports what it *would* do — file by file,
+with the size before and after — in the run summary. Read that, and if the
+numbers look right, run it again with **Actually change the files** ticked.
+
+When it runs for real it commits the smaller images for you, and your site
+rebuilds a minute or two later. Your originals are still in the repository's
+history if you ever want them back.
+
+**It also converts PNGs to JPGs** where that saves a lot and the image has no
+transparency — photographs saved as PNG are often several times larger than they
+need to be. When it does, it updates the references in your pages to match, so
+nothing breaks.
+
+{% include typography/alert.html
+class="info"
+title="Already-optimized images are left alone"
+text="The job skips anything that is already small enough, so running it twice does no harm and running it after adding a few new photographs only touches the new ones."
+%}
+
+If you do work at a command line, the same thing runs locally:
+
+```bash
+bash scripts/optimize-images.sh --preview --recursive --base-dir assets/images
+```
+
+Drop `--preview` to apply it. `bash scripts/optimize-images.sh --help` lists the
+rest of the options.
+
+---
+
 ## Troubleshooting
 
 {% include typography/alert.html

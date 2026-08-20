@@ -22,6 +22,7 @@ TARGET_FOLDER=""  # Empty means process all subfolders
 # Base directories to search (can specify multiple with --base-dir)
 BASE_DIRS=()
 RECURSIVE=false
+MAKE_BACKUP=true   # a copy beside the originals; pointless where git already has them
 
 # Parse command line arguments
 PREVIEW_MODE=false
@@ -41,6 +42,10 @@ while [[ $# -gt 0 ]]; do
             ;;
         --recursive)
             RECURSIVE=true
+            shift
+            ;;
+        --no-backup)
+            MAKE_BACKUP=false
             shift
             ;;
         --max-edge)
@@ -71,6 +76,8 @@ while [[ $# -gt 0 ]]; do
             echo "  --preview              Show what would be optimized (no changes)"
             echo "  --base-dir PATH        Base image directory to process (default: assets/images)"
             echo "                         Can be specified multiple times for multiple directories"
+            echo "  --no-backup            Skip the backup copy. Safe inside a git repository,"
+            echo "                         where the originals are already in history"
             echo "  --recursive            Find all image-containing directories within each base dir"
             echo "                         Use with --base-dir to scan a whole folder tree"
             echo "  --folder NAME          Process only a specific subfolder within each base dir"
@@ -317,7 +324,7 @@ for BASE_DIR in "${RESOLVED_DIRS[@]}"; do
     fi
 
     # Create backup for this base dir
-    if [ "$PREVIEW_MODE" = false ]; then
+    if [ "$PREVIEW_MODE" = false ] && [ "$MAKE_BACKUP" = true ]; then
         BACKUP_DIR="${BASE_DIR}-backup-${BACKUP_STAMP}"
         echo -e "${YELLOW}Backing up $BASE_DIR → $BACKUP_DIR${NC}"
         mkdir -p "$BACKUP_DIR"
@@ -343,6 +350,16 @@ for BASE_DIR in "${RESOLVED_DIRS[@]}"; do
             [[ "$folder" == *-backup-* ]] && continue
             optimize_dir "$dir" "${BASE_DIR##$PROJECT_ROOT/}/$folder"
         done
+
+        # This mode looks one level down, at subfolders. Images sitting loose in
+        # the base directory are not touched, which reads as the script doing
+        # nothing at all. Say so rather than exiting quietly.
+        loose=$(find "$BASE_DIR" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) | wc -l | tr -d ' ')
+        if [ "$loose" -gt 0 ]; then
+            echo -e "${YELLOW}Note: $loose image(s) sit directly in ${BASE_DIR##$PROJECT_ROOT/} and were skipped.${NC}"
+            echo -e "${YELLOW}      This mode only walks subfolders. Use --recursive to include them.${NC}"
+            echo ""
+        fi
     fi
 
 done

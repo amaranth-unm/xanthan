@@ -22,7 +22,13 @@ while IFS=' -> ' read -r old_path new_path; do
 
     # Find and replace in all .md files
     # Use pipes (|) as delimiters in sed to avoid issues with slashes in paths
-    find . -name "*.md" -type f -not -path "./_site/*" -exec sed -i '' "s|${old_base}\.png|${old_base}.jpg|g" {} +
+    # sed -i takes an argument on BSD/macOS and none on GNU/Linux. Detect once
+    # rather than assuming a laptop: this also runs on a GitHub runner.
+    if sed --version >/dev/null 2>&1; then
+        find . -name "*.md" -type f -not -path "./_site/*" -exec sed -i "s|${old_base}\.png|${old_base}.jpg|g" {} +
+    else
+        find . -name "*.md" -type f -not -path "./_site/*" -exec sed -i '' "s|${old_base}\.png|${old_base}.jpg|g" {} +
+    fi
 done < png_to_jpg_conversions.txt
 
 echo ""

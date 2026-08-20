@@ -46,7 +46,7 @@ rm -rf "$DEST/scrollstories/milton-snow"
 # Assets the shipped docs reference. These are part of the docs, not template
 # content: docs/getting-started/gallery.md reads _data/gallery.yml and renders
 # the screenshots, and the scrollstory pages use the shared backgrounds.
-mkdir -p "$DEST/_data" "$DEST/assets/images"
+mkdir -p "$DEST/_data" "$DEST/assets/images" "$DEST/scripts"
 cp "$SRC/_data/gallery.yml" "$DEST/_data/gallery.yml"
 "${RSYNC[@]}" "$SRC/assets/images/gallery/"      "$DEST/assets/images/gallery/"
 "${RSYNC[@]}" "$SRC/assets/images/backgrounds/"  "$DEST/assets/images/backgrounds/"
@@ -62,6 +62,16 @@ cp "$SRC/_data/gallery.yml" "$DEST/_data/gallery.yml"
 # data file without the image it names is what broke the nav demos.
 mkdir -p "$DEST/assets/images/profile"
 cp "$SRC/assets/images/profile/headshot_sketch.png" "$DEST/assets/images/profile/headshot_sketch.png"
+
+# --- The one workflow templates should have -----------------------------------
+# Named individually, not by syncing .github/workflows/: core's other two
+# workflows deploy this site and push to the template repositories, and neither
+# belongs in a template. This one lets someone shrink their images from the
+# Actions tab without a command line, which is the whole point of shipping it.
+mkdir -p "$DEST/.github/workflows"
+cp "$SRC/.github/workflows/optimize-images.yml" "$DEST/.github/workflows/optimize-images.yml"
+cp "$SRC/scripts/optimize-images.sh"   "$DEST/scripts/optimize-images.sh"
+cp "$SRC/scripts/update-image-refs.sh" "$DEST/scripts/update-image-refs.sh"
 
 # --- Dependency and housekeeping files ---------------------------------------
 cp "$SRC/Gemfile"      "$DEST/Gemfile"
@@ -102,6 +112,8 @@ esac
 # _data/nav-sections.yml
 # assets/images/*      — apart from gallery/, backgrounds/, site/ and the
 #                        sample headshot above
+# .github/workflows/   — apart from optimize-images.yml above; the deploy and
+#                        sync workflows are core's own
 # anything at the root — index.md, about.md and friends are template content
 
 echo "✓ ${NAME} synced"
