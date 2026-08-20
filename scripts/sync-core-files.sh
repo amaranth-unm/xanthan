@@ -51,6 +51,18 @@ cp "$SRC/_data/gallery.yml" "$DEST/_data/gallery.yml"
 "${RSYNC[@]}" "$SRC/assets/images/gallery/"      "$DEST/assets/images/gallery/"
 "${RSYNC[@]}" "$SRC/assets/images/backgrounds/"  "$DEST/assets/images/backgrounds/"
 
+# site/ holds the sample photographs the docs themselves display — the images
+# reference renders /assets/images/site/default.jpg directly. Core owns this
+# directory outright, so --delete is safe here.
+"${RSYNC[@]}" "$SRC/assets/images/site/" "$DEST/assets/images/site/"
+
+# The sample headshot that _data/nav-profile.yml points at. Copied as a single
+# file rather than syncing profile/, because the portfolio template keeps its
+# own photograph in that directory and --delete would take it away. Sending the
+# data file without the image it names is what broke the nav demos.
+mkdir -p "$DEST/assets/images/profile"
+cp "$SRC/assets/images/profile/headshot_sketch.png" "$DEST/assets/images/profile/headshot_sketch.png"
+
 # --- Dependency and housekeeping files ---------------------------------------
 cp "$SRC/Gemfile"      "$DEST/Gemfile"
 cp "$SRC/.gitignore"   "$DEST/.gitignore"
@@ -81,7 +93,8 @@ esac
 # _config.yml          — title, baseurl and theme are the template's own
 # _data/nav-top.yml    — each template has its own navigation
 # _data/nav-sections.yml
-# assets/images/*      — apart from gallery/ and backgrounds/ above
+# assets/images/*      — apart from gallery/, backgrounds/, site/ and the
+#                        sample headshot above
 # anything at the root — index.md, about.md and friends are template content
 
 echo "✓ ${NAME} synced"
