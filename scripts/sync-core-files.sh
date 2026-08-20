@@ -63,15 +63,28 @@ cp "$SRC/_data/gallery.yml" "$DEST/_data/gallery.yml"
 mkdir -p "$DEST/assets/images/profile"
 cp "$SRC/assets/images/profile/headshot_sketch.png" "$DEST/assets/images/profile/headshot_sketch.png"
 
-# --- The one workflow templates should have -----------------------------------
-# Named individually, not by syncing .github/workflows/: core's other two
-# workflows deploy this site and push to the template repositories, and neither
-# belongs in a template. This one lets someone shrink their images from the
-# Actions tab without a command line, which is the whole point of shipping it.
-mkdir -p "$DEST/.github/workflows"
-cp "$SRC/.github/workflows/optimize-images.yml" "$DEST/.github/workflows/optimize-images.yml"
+# --- Image tools --------------------------------------------------------------
 cp "$SRC/scripts/optimize-images.sh"   "$DEST/scripts/optimize-images.sh"
 cp "$SRC/scripts/update-image-refs.sh" "$DEST/scripts/update-image-refs.sh"
+
+# The Optimize Images workflow is what makes those scripts usable without a
+# command line, so a template really should carry it — a site made from the
+# template inherits .github/workflows/ along with everything else.
+#
+# It is off by default because GitHub refuses to let a Personal Access Token
+# create or update a file under .github/workflows/ unless the token carries the
+# `workflow` scope, and rejects the whole push when it tries. Every job failed
+# that way once already.
+#
+# To turn it on: give SYNC_TOKEN the `workflow` scope (a separate checkbox on a
+# classic token; "Workflows: Read and write" on a fine-grained one), then set
+# SYNC_WORKFLOW_FILE=true in the workflow env.
+if [ "${SYNC_WORKFLOW_FILE:-false}" = "true" ]; then
+    mkdir -p "$DEST/.github/workflows"
+    cp "$SRC/.github/workflows/optimize-images.yml" "$DEST/.github/workflows/optimize-images.yml"
+else
+    echo "  (skipping optimize-images.yml — set SYNC_WORKFLOW_FILE=true once SYNC_TOKEN has the workflow scope)"
+fi
 
 # --- Dependency and housekeeping files ---------------------------------------
 cp "$SRC/Gemfile"      "$DEST/Gemfile"
