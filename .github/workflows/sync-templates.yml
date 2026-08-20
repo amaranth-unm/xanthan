@@ -236,75 +236,63 @@ jobs:
           echo "✓ Changes pushed to class-project-template"
 
   # ---------------------------------------------------------------------------
-  # Object Collection starter site.
-  #
-  # DISABLED until the object-collection-template repository has a main branch.
-  # The repository now exists but is still empty — `git ls-remote --heads` on it
-  # returns nothing — and actions/checkout fails against a repository with no
-  # branch to check out. To enable:
-  #   1. Push the local object-collection-template repository:
-  #        git -C ../object-collection-template push -u origin main
-  #   2. Uncomment the job below.
-  # Note it is currently private, so SYNC_TOKEN must have access to it.
-  #
-  # Left commented rather than live because the checkout step fails against a
-  # repository that does not exist, and this workflow runs on every push to
-  # main. Jobs here are independent, so a broken one would not stop the other
-  # three syncing — it would just keep CI red.
+  # Object Collection starter site. Enabled once the repository existed with a
+  # branch to check out — actions/checkout fails against an empty repository as
+  # surely as against a missing one.
   # ---------------------------------------------------------------------------
-  # sync-object-collection-template:
-  #   if: github.event.inputs.template == 'all' || github.event.inputs.template == 'object-collection' || github.event.inputs.template == ''
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout xanthan main
-  #       uses: actions/checkout@v4
-  #       with:
-  #         path: xanthan-source
-  #         fetch-depth: 2
-  #
-  #     - name: Checkout object-collection-template
-  #       uses: actions/checkout@v4
-  #       with:
-  #         repository: xanthan-web/object-collection-template
-  #         token: ${{ secrets.SYNC_TOKEN }}
-  #         path: object-collection-template
-  #
-  #     - name: Sync core files to object-collection-template
-  #       run: |
-  #         bash xanthan-source/scripts/sync-core-files.sh \
-  #           xanthan-source object-collection-template object-collection
-  #
-  #         cd object-collection-template
-  #         git status -s
-  #
-  #     - name: Create PR or push changes
-  #       run: |
-  #         cd object-collection-template
-  #
-  #         if [[ -z $(git status -s) ]]; then
-  #           echo "✓ No changes to commit"
-  #           exit 0
-  #         fi
-  #
-  #         if [[ "${{ github.event.inputs.dry_run }}" == "true" ]]; then
-  #           git diff --stat
-  #           exit 0
-  #         fi
-  #
-  #         git add -A
-  #         cd ../xanthan-source
-  #         git log -1 --pretty=%B HEAD > /tmp/commit-msg.txt
-  #         cd ../object-collection-template
-  #
-  #         {
-  #           cat /tmp/commit-msg.txt
-  #           echo ""
-  #           echo "Synced from xanthan commit: ${{ github.sha }}"
-  #           echo ""
-  #           echo "[skip ci]"
-  #         } > /tmp/final-commit-msg.txt
-  #
-  #         git commit -F /tmp/final-commit-msg.txt
-  #         git push
-  #
-  #         echo "✓ Changes pushed to object-collection-template"
+  sync-object-collection-template:
+    if: github.event.inputs.template == 'all' || github.event.inputs.template == 'object-collection' || github.event.inputs.template == ''
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout xanthan main
+        uses: actions/checkout@v4
+        with:
+          path: xanthan-source
+          fetch-depth: 2
+
+      - name: Checkout object-collection-template
+        uses: actions/checkout@v4
+        with:
+          repository: xanthan-web/object-collection-template
+          token: ${{ secrets.SYNC_TOKEN }}
+          path: object-collection-template
+
+      - name: Sync core files to object-collection-template
+        run: |
+          bash xanthan-source/scripts/sync-core-files.sh \
+            xanthan-source object-collection-template object-collection
+
+          cd object-collection-template
+          git status -s
+
+      - name: Create PR or push changes
+        run: |
+          cd object-collection-template
+
+          if [[ -z $(git status -s) ]]; then
+            echo "✓ No changes to commit"
+            exit 0
+          fi
+
+          if [[ "${{ github.event.inputs.dry_run }}" == "true" ]]; then
+            git diff --stat
+            exit 0
+          fi
+
+          git add -A
+          cd ../xanthan-source
+          git log -1 --pretty=%B HEAD > /tmp/commit-msg.txt
+          cd ../object-collection-template
+
+          {
+            cat /tmp/commit-msg.txt
+            echo ""
+            echo "Synced from xanthan commit: ${{ github.sha }}"
+            echo ""
+            echo "[skip ci]"
+          } > /tmp/final-commit-msg.txt
+
+          git commit -F /tmp/final-commit-msg.txt
+          git push
+
+          echo "✓ Changes pushed to object-collection-template"
