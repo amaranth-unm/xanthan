@@ -224,9 +224,38 @@ Workshop mode is a live-presentation feature that highlights bullet points one a
 - Does NOT sync: `_config.yml`, `nav-top.yml`, `nav-sections.yml`, or any root content page (template-specific)
 - `_data/nav-profile.yml` syncs everywhere except portfolio, where the file is the user's own profile rather than core's sample
 - `scrollstories/milton-snow/` is excluded *and* deleted from the destination. Excluding alone is not enough: rsync protects excluded paths from `--delete`, so an old copy would sit there forever
-- The object-collection job is commented out until its GitHub repository exists
+- The object-collection job is commented out until its GitHub repository has a branch to check out
 
-**When core moves or renames an include,** the templates' own content pages do not follow — the sync never touches them. Grep the template repos for the old path and fix them in the same change, or their next sync breaks the build.
+**A path the sync stops writing has to be deleted, not just skipped.** rsync's `--delete` only tidies directories it is actually syncing, and it *protects* excluded paths from deletion — so when a file moves or a directory is retired, the old copy sits in every template forever. This has bitten twice: `scrollstories/milton-snow/` was frozen in two templates from before it was excluded, and `your-story/` survived the scrollstory demo moving to the repository root, still calling an include core no longer shipped, which broke that template's site. Both are now removed explicitly in the script. Do the same for the next one.
+
+### What the sync does not carry
+
+The sync owns framework files. A template's own content it never touches, which means **those files change only when someone pushes them to that template's repository.** Pushing core does not move them, and re-running the sync never will.
+
+Files that live only in the template repo:
+
+`_config.yml` · `_data/nav-top.yml` · `_data/nav-sections.yml` · `index.md` · `about.md` · `instructions.md` · `README.md` · anything else at the repository root
+
+Two consequences worth planning for.
+
+**Renaming anything in core is a multi-repo change.** When the card includes moved from `_includes/nav/` to `_includes/cards/`, the sync duly replaced `_includes` and removed the old path — while `index.md` and `essays/index.md` in two templates went on calling it. Their builds failed the moment the sync finally ran, months later. Grep every template for the old name and push the fix to each repo in the same session, or you have armed a trap that springs for someone else.
+
+**Restructuring a template is the same problem in reverse.** Moving the scrollstory demo to the repository root changed core, and the sync moved the essay — but that template's nav still linked to `/your-story` and its `instructions.md` named the folder nine times. Both had been fixed locally; neither had been pushed. Whenever a change to core alters what a template *looks like*, ask which of the files above now describe something that no longer exists.
+
+### A green sync is not a deployed site
+
+They are different jobs in different repositories. The sync workflow reports success once it has pushed; whether the template's site then builds is a separate Pages run in the template's own repo, and it can fail on the very content the sync just delivered. Check both:
+
+```bash
+gh run list --repo xanthan-web/<template> --limit 3
+```
+
+The templates also build differently from core. Core deploys through its own Actions workflow; the templates use GitHub's legacy Pages builder, which runs Jekyll in safe mode with a fixed gem set. **A clean local build of core is not evidence that a template will deploy** — verify against the live site, not the repository contents.
+
+Two more traps worth ruling out before blaming the code:
+
+- **The `SYNC_TOKEN` secret expires.** When it does, every job fails at *checkout* with `Bad credentials`, long before the sync script runs. That went unnoticed for five months once, which is why several templates had drifted so far. If the failure is at checkout, it is the token.
+- **`site.url` and `site.baseurl` come from GitHub Pages.** Neither needs setting in a template's `_config.yml`, and a hardcoded `url` is worse than none: the portfolio starter shipped one pointing at the Xanthan site, so every copy of it advertised Xanthan's address as its own canonical.
 
 ---
 
