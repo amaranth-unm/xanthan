@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
       name: 'Portfolio',
       description: 'Show off your work and interests. Comes with sample pages like `about`, `cv`, etc.',
       repoName: 'xanthan-web/portfolio-template',
-      repoUrl: 'http://github.com/xanthan-web/portfolio-template',
+      repoUrl: 'https://github.com/xanthan-web/portfolio-template',
       webUrl: 'https://xanthan-web.github.io/portfolio-template',
       liveUrl: 'https://xanthan-web.github.io/alexandra-ruiz/',
       default: true
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
       name: 'Essay Collection',
       description: 'Gather writing by many people into a shared public site. Contributors add readable pages; the collection can outlast the semester that started it.',
       repoName: 'xanthan-web/class-project-template',
-      repoUrl: 'http://github.com/xanthan-web/class-project-template',
+      repoUrl: 'https://github.com/xanthan-web/class-project-template',
       webUrl: 'https://xanthan-web.github.io/class-project-template',
       liveUrl: 'https://amaranth.unm.edu/campus-history/'
     },
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
       name: 'Object Collection',
       description: 'Build a collection around things rather than prose. Each object gets a page with an image, a date, tags, and optional coordinates; an image-first grid and a map assemble the directory.',
       repoName: 'xanthan-web/object-collection-template',
-      repoUrl: 'http://github.com/xanthan-web/object-collection-template',
+      repoUrl: 'https://github.com/xanthan-web/object-collection-template',
       webUrl: 'https://xanthan-web.github.io/object-collection-template',
       liveUrl: 'https://amaranth.unm.edu/silk-road/'
     },
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
       name: 'Single Story',
       description: 'A StoryMaps-style site for an immersive scrolling narrative, built from editable text files instead of a proprietary platform.',
       repoName: 'xanthan-web/scrollstory-template',
-      repoUrl: 'http://github.com/xanthan-web/scrollstory-template',
+      repoUrl: 'https://github.com/xanthan-web/scrollstory-template',
       webUrl: 'https://xanthan-web.github.io/scrollstory-template',
       liveUrl: 'https://amaranth.unm.edu/studio/name-origins/'
     }
@@ -238,8 +238,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 Rather than start from scratch, you'll copy a complete working site with example content. GitHub calls this using a template, so that's the wording on the button.
 
-1. Go to the <a href="http://github.com/xanthan-web/xanthan" class="template-repo-link">template repository</a>
-2. Click the green **"Use this Template"** button (upper right)
+1. Go to the <a href="https://github.com/xanthan-web/xanthan" class="template-repo-link" target="_blank" rel="noopener">template repository</a>
+2. Click the green **"Use this template"** button (upper right)
 3. Select **"Create a new repository"** from the dropdown
 
 ---
@@ -295,7 +295,7 @@ Don't stress—you can rename it later or start over if needed.
 </div>
 {:/nomarkdown}
 
-When ready, click the green **"Create Repository"** button.
+When ready, click the green **"Create repository from template"** button.
 
 ---
 
@@ -327,22 +327,25 @@ When ready, click the green **"Create Repository"** button.
 <div class="template-guidance class-project object-collection scrollstory" style="display: none;">
 {:/nomarkdown}
 
-If you named your repository something other than the starter site repository name, you need to make one quick edit to get your site running.
+Your site lives at `https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/`, and Xanthan has to be told that second part. Set `baseurl` to your repository name — whatever you called it in Step 4, even if you kept the starter site's name.
+
+The one exception is a repository named `YOUR-USERNAME.github.io`. That site lives at the root, so its `baseurl` stays empty.
 
 1. Click the **"Code"** tab (top left)
 2. Find and click `_config.yml` in the file list
 3. Click the pencil icon (✏️) to edit
 4. Change the `baseurl:` line to match your repository name exactly:
    ```yaml
-   baseurl: /your-repository-name/
+   baseurl: /your-repository-name
    ```
+   A leading slash, no trailing one.
 5. Click **"Commit changes"** (green button, top right)
 6. Click **"Commit changes"** again in the popup
 
 {% include typography/alert.html
 class="warning"
 title="Your baseurl and repository name must match exactly"
-text="If your repository is named `medieval-maps`, your baseurl must be `/medieval-maps/` — same capitalization, same hyphens, same everything. A mismatch (even `Medieval-Maps` vs `medieval-maps`) will break your site's links, images, and styles. This is the most common setup mistake."
+text="If your repository is named `medieval-maps`, your baseurl must be `/medieval-maps` — same capitalization, same hyphens, same everything. A mismatch (even `Medieval-Maps` vs `medieval-maps`) will break your site's links, images, and styles. This is the most common setup mistake."
 %}
 
 {::nomarkdown}
