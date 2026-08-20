@@ -21,7 +21,15 @@ Users never interact with the xanthan base repo directly. They use one of three 
 - **class-project** — for course websites and collaborative class projects
 - **scrollstory** — for scroll-driven narrative pages
 
-The xanthan base repo is the source of truth. GitHub Actions sync `_includes/`, `_layouts/`, `assets/css/`, `assets/js/`, `scrollstories/`, and `docs/` to all three templates on every push to main. Template-specific files (`_config.yml`, `_data/nav-top.yml`, `_data/nav-sections.yml`) are NOT synced.
+The xanthan base repo is the source of truth. GitHub Actions sync core files to the templates on every push to main.
+
+**What syncs is defined once, in `scripts/sync-core-files.sh`.** The workflow calls that script per template; do not add rsync lines to the workflow itself. The script is runnable locally, which is the way to check what a sync would do before pushing:
+
+```bash
+scripts/sync-core-files.sh . ../class-project-template class-project
+```
+
+Template-specific files (`_config.yml`, `_data/nav-top.yml`, `_data/nav-sections.yml`, and everything at the repo root) are NOT synced.
 
 **Implication for development:** When you make a change to xanthan, ask whether it should affect all templates or just the xanthan demo site. Changes to synced directories affect everyone.
 
@@ -210,10 +218,15 @@ Workshop mode is a live-presentation feature that highlights bullet points one a
 **It is currently unreachable, and this description used to say otherwise.** There is no `assets/js/workshop.js`, and no workshop checkbox in `nav-top.html` — the CSS for that toggle was dead and has been removed. The script is gated on `page.url contains '/guides/'` or `page.workshop_mode`; there is no `guides/` directory any more (docs moved to `/docs/`) and no page sets the flag, so nothing activates it. Setting `workshop_mode: true` in a page's front matter still works. Decide whether to restore a toggle, repoint the gate at `/docs/`, or retire the feature.
 
 ### Templates and syncing
-- Three template repos (portfolio, scrollstory, class-project) are synced from xanthan via GitHub Actions (`.github/workflows/sync-templates.yml`)
-- Sync copies: `_includes/`, `_layouts/`, `assets/css/`, `assets/js/`, `scrollstories/`, `docs/` (including root index.md), `assets/images/backgrounds/`, Gemfile, .gitignore, CHANGELOG
-- Does NOT sync: `_config.yml`, `nav-top.yml`, `nav-sections.yml` (template-specific)
-- `docs/index.md` is now synced — it uses Liquid queries to auto-generate the link list, so it works in any template without modification
+- Four template repos (portfolio, scrollstory, class-project, object-collection) are synced from xanthan via `.github/workflows/sync-templates.yml`, which calls `scripts/sync-core-files.sh`
+- The script is the spec. It copies `_includes/`, `_layouts/`, `assets/css/`, `assets/js/`, `scrollstories/`, `docs/` (including its root index.md), Gemfile, .gitignore and CHANGELOG
+- It also copies the assets the shipped docs depend on: `_data/gallery.yml` and `assets/images/gallery/` (read by `docs/getting-started/gallery.md`) and `assets/images/backgrounds/`. **A doc page that gains a data or image dependency needs a line here, or every template breaks on the next sync** — that has happened once already
+- Does NOT sync: `_config.yml`, `nav-top.yml`, `nav-sections.yml`, or any root content page (template-specific)
+- `_data/nav-profile.yml` syncs everywhere except portfolio, where the file is the user's own profile rather than core's sample
+- `scrollstories/milton-snow/` is excluded *and* deleted from the destination. Excluding alone is not enough: rsync protects excluded paths from `--delete`, so an old copy would sit there forever
+- The object-collection job is commented out until its GitHub repository exists
+
+**When core moves or renames an include,** the templates' own content pages do not follow — the sync never touches them. Grep the template repos for the old path and fix them in the same change, or their next sync breaks the build.
 
 ---
 
