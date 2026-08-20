@@ -299,58 +299,39 @@ When ready, click the green **"Create repository from template"** button.
 
 ---
 
-## Step 5: Configure Your Site
+## Step 5: Set Your Site's Address
 
-{::nomarkdown}
-<div class="template-guidance portfolio" style="display: none;">
-{:/nomarkdown}
+Xanthan has to be told where your site lives, and that depends on what you named
+the repository in Step 4. There is one rule with one exception:
 
-**If you named your repository `YOUR-USERNAME.github.io`**, you need to make one quick edit:
+- **Named it anything else** — set `baseurl` to that name, with a leading slash.
+  A repository called `medieval-maps` gets `baseurl: /medieval-maps`.
+- **Named it `YOUR-USERNAME.github.io`** — leave `baseurl` empty. That site lives
+  at the root of your account, so there is no sub-path to add.
+
+To make the edit:
 
 1. Click the **"Code"** tab (top left)
 2. Find and click `_config.yml` in the file list
 3. Click the pencil icon (✏️) to edit
-4. Make sure the `baseurl:` line is **empty** (nothing after the colon):
+4. Set the `baseurl:` line:
+   ```yaml
+   baseurl: /your-repository-name
+   ```
+   or, for a `USERNAME.github.io` repository, leave it empty:
    ```yaml
    baseurl:
    ```
 5. Click **"Commit changes"** (green button, top right)
 6. Click **"Commit changes"** again in the popup
 
-**Why empty?** Since your site lives at the root (`username.github.io/`), you don't need a subdirectory path.
-
-{::nomarkdown}
-</div>
-{:/nomarkdown}
-
-{::nomarkdown}
-<div class="template-guidance class-project object-collection scrollstory" style="display: none;">
-{:/nomarkdown}
-
-Your site lives at `https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/`, and Xanthan has to be told that second part. Set `baseurl` to your repository name — whatever you called it in Step 4, even if you kept the starter site's name.
-
-The one exception is a repository named `YOUR-USERNAME.github.io`. That site lives at the root, so its `baseurl` stays empty.
-
-1. Click the **"Code"** tab (top left)
-2. Find and click `_config.yml` in the file list
-3. Click the pencil icon (✏️) to edit
-4. Change the `baseurl:` line to match your repository name exactly:
-   ```yaml
-   baseurl: /your-repository-name
-   ```
-   A leading slash, no trailing one.
-5. Click **"Commit changes"** (green button, top right)
-6. Click **"Commit changes"** again in the popup
-
 {% include typography/alert.html
 class="warning"
 title="Your baseurl and repository name must match exactly"
-text="If your repository is named `medieval-maps`, your baseurl must be `/medieval-maps` — same capitalization, same hyphens, same everything. A mismatch (even `Medieval-Maps` vs `medieval-maps`) will break your site's links, images, and styles. This is the most common setup mistake."
+text="If your repository is named `medieval-maps`, your baseurl must be `/medieval-maps` — same capitalization, same hyphens, a leading slash and no trailing one. A mismatch (even `Medieval-Maps` vs `medieval-maps`) will break your site's links, images, and styles. This is the most common setup mistake."
 %}
 
-{::nomarkdown}
-</div>
-{:/nomarkdown}
+You do not need to set `url`. GitHub fills that in for you.
 
 ---
 
