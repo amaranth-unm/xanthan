@@ -434,9 +434,10 @@ Image-first navigation for collections. Use it when readers are choosing among p
 | Parameter | Required | Default | Notes |
 |-----------|----------|---------|-------|
 | `items` | yes | --- | A Liquid-assigned collection of pages or data objects |
-| `variant` | no | `mosaic` | `mosaic` gives varied tile sizes; `uniform` keeps all tiles equal |
-| `min-width` | no | `180px` | Minimum tile width before the grid wraps |
+| `variant` | no | `mosaic` | `mosaic` gives varied tile sizes; `uniform` keeps all tiles equal; `masonry` keeps each image's own proportions |
+| `min-width` | no | `180px` | Minimum tile width before the grid wraps, and the column width under `masonry` |
 | `gap` | no | `var(--spacing-xs)` | Space between tiles |
+| `max-height` | no | `26rem` | Under `masonry`, the tallest a tile may grow before its image crops |
 | `image-field` | no | `thumbnail` | Front matter field to use for images |
 | `show-title` | no | `true` | Show titles over images |
 | `show-summary` | no | `false` | Show summaries over images |
@@ -453,6 +454,43 @@ would sit on a different left edge and the two would read as unrelated.
 | `heading` | Section heading, aligned to the grid's left edge |
 | `intro` | Paragraph under the heading; Markdown supported |
 | `heading-level` | 2--6, level for each tile title (default 3) |
+
+### The masonry variant
+
+`mosaic` and `uniform` crop every tile to a square. That is right for
+screenshots, which are all the same shape to begin with, and wrong for
+photographs of things: a scroll is tall, a dish is wide, and squaring them
+throws away what the picture tells you for free.
+
+`masonry` lays the tiles out in columns instead, each one keeping its image's
+own proportions. Add `gallery-grid--bleed` and the wall runs the full width of
+the page rather than stopping at the text measure.
+
+```
+{% raw %}{% assign objects = site.pages | where_exp: "p", "p.path contains 'objects/'" %}
+
+{% include nav/gallery-grid.html
+  items = objects
+  variant = "masonry"
+  min-width = "220px"
+  show-summary = true
+  class = "gallery-grid--bleed"
+%}{% endraw %}
+```
+
+A single very tall image would otherwise become a column of its own, so images
+crop from the centre once a tile reaches `max-height`. Raise it to let tall
+objects run their full length; lower it for a more even wall.
+
+Write the heading and introduction in the page body for a bleed gallery rather
+than passing `heading` and `intro`. Those align to the grid's left edge, which
+here is the edge of the window; a centred introduction above a full-width wall
+is what you want instead.
+
+| Class | Notes |
+|-------|-------|
+| `gallery-grid--wide` | Breaks out of the text column to 64rem, centred |
+| `gallery-grid--bleed` | Runs the full width of the page |
 
 ---
 
