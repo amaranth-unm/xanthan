@@ -190,6 +190,7 @@ guess the file, the answer is in the header block at the top of each one.
 | `nav-left.css`, `nav-profile.css` | the two sidebar navigations |
 | `page-header.css` | the front-matter header studio |
 | `backgrounds.css`, `scrollstory.css` | scrollybox backgrounds and scrollstory type |
+| `story-map.css` | historic map overlays, pinned or as a figure (`maps/`) |
 | `search.css`, `map.css`, `docs.css`, `workshop.css` | conditionally loaded, page-type scoped |
 
 - All visual design controlled by CSS custom properties in `assets/css/base.css`
@@ -201,9 +202,21 @@ guess the file, the answer is in the header block at the top of each one.
   filename alone does not always tell you (see Coding standards → CSS)
 
 ### Components
-- All reusable components live in `_includes/` with subdirectories (images/, nav/, scrollstory/)
+- All reusable components live in `_includes/` with subdirectories (images/, nav/, scrollstory/, maps/)
 - Each include has documented parameters
 - Components are used with Liquid include tags in Markdown pages
+
+There are two different maps and they are not interchangeable:
+
+| | `nav/map.html` | `maps/` |
+|---|---|---|
+| Draws | pages that have `geo:` front matter | a GeoJSON file you supply |
+| Base | OpenStreetMap | a scanned historic map on given corner coordinates |
+| For | "where are the things on this site" | "here is a place, as somebody once drew it" |
+| Styles | `map.css` | `story-map.css` |
+
+A request to put a historic or hand-drawn map behind some routes wants `maps/`.
+A request to map the site's own content wants `nav/map.html`.
 
 ### Navigation
 - Top nav configured in `_data/nav-top.yml` (YAML list of titles, URLs, dividers)

@@ -27,6 +27,8 @@
       url: "/docs/scrollstories/side-scroll"
     - title: "Peekaboo Images"
       url: "/docs/scrollstories/peekaboo"
+    - title: "Story Maps"
+      url: "/docs/reference/component-library#story-map"
 
     - divider: true
 
@@ -34,6 +36,8 @@
       url: "/scrollstories/seedling"
     - title: "Forest: Every Component"
       url: "/scrollstories/forest"
+    - title: "Trail: A Story Map"
+      url: "/scrollstories/trail"
 
 - title: "Reference"
   items:

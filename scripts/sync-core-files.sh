@@ -72,6 +72,17 @@ done
 # directory outright, so --delete is safe here.
 "${RSYNC[@]}" "$SRC/assets/images/site/" "$DEST/assets/images/site/"
 
+# The story-map components come with one worked example — scrollstories/trail —
+# and that essay names two files outside the directories above: the
+# georeferenced scan it lays on the world, and the GeoJSON it draws. Because
+# scrollstories/ syncs wholesale the essay arrives in every template either
+# way, and without these it renders a missing image over a failed fetch. Same
+# shape of dependency as _data/gallery.yml, added here for the same reason.
+# Core owns both directories outright, so --delete is safe.
+mkdir -p "$DEST/assets/images/maps" "$DEST/assets/data"
+"${RSYNC[@]}" "$SRC/assets/images/maps/" "$DEST/assets/images/maps/"
+"${RSYNC[@]}" "$SRC/assets/data/"        "$DEST/assets/data/"
+
 # The sample headshot that _data/nav-profile.yml points at. Copied as a single
 # file rather than syncing profile/, because the portfolio template keeps its
 # own photograph in that directory and --delete would take it away. Sending the
