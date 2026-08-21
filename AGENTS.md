@@ -191,7 +191,8 @@ guess the file, the answer is in the header block at the top of each one.
 | `page-header.css` | the front-matter header studio |
 | `backgrounds.css`, `scrollstory.css` | scrollybox backgrounds and scrollstory type |
 | `story-map.css` | historic map overlays, pinned or as a figure (`maps/`) |
-| `search.css`, `map.css`, `docs.css`, `workshop.css` | conditionally loaded, page-type scoped |
+| `map.css` | the collection map and its popups (`nav/map.html`) |
+| `search.css`, `docs.css`, `workshop.css` | conditionally loaded, page-type scoped |
 
 - All visual design controlled by CSS custom properties in `assets/css/base.css`
 - Variables use semantic names: `--accent-primary`, `--spacing-md`, `--text-body`, `--bg-card`
@@ -210,7 +211,7 @@ There are two different maps and they are not interchangeable:
 
 | | `nav/map.html` | `maps/` |
 |---|---|---|
-| Draws | pages that have `geo:` front matter | a GeoJSON file you supply |
+| Draws | pages that have `geo:` front matter, optionally one folder of them | a GeoJSON file you supply |
 | Base | OpenStreetMap | a scanned historic map on given corner coordinates |
 | For | "where are the things on this site" | "here is a place, as somebody once drew it" |
 | Styles | `map.css` | `story-map.css` |
