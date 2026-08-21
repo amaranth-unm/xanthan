@@ -39,6 +39,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   duplicating in an inline `<style>` block. The map layout no longer links it,
   and a map now looks the same on any layout.
 
+### Removed
+- The **Sapling** sample ScrollStory. The examples now come in two tiers —
+  Seedling for a plain typographic essay, Forest for the whole scrollybox
+  toolkit — with the story map (Trail) alongside them rather than as a step in
+  a sequence. A middle rung asked readers to place themselves on a ladder
+  before they knew what the rungs did, and demonstrated nothing the other two
+  did not. Seedling's closing links now point at Forest.
+
 ### Fixed
 - Leaflet loads once per page rather than once per map. `nav/map.html` and the
   `maps/` components now share one guard, so a page carrying both kinds of map
