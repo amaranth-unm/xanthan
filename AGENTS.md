@@ -220,7 +220,8 @@ Workshop mode is a live-presentation feature that highlights bullet points one a
 ### Templates and syncing
 - Four template repos (portfolio, scrollstory, class-project, object-collection) are synced from xanthan via `.github/workflows/sync-templates.yml`, which calls `scripts/sync-core-files.sh`
 - The script is the spec. It copies `_includes/`, `_layouts/`, `assets/css/`, `assets/js/`, `scrollstories/`, `docs/` (including its root index.md), Gemfile, .gitignore and CHANGELOG
-- It also copies the assets the shipped docs depend on: `_data/gallery.yml` and `assets/images/gallery/` (read by `docs/getting-started/gallery.md`) and `assets/images/backgrounds/`. **A doc page that gains a data or image dependency needs a line here, or every template breaks on the next sync** — that has happened once already
+- It also copies the assets the shipped docs depend on: `assets/images/backgrounds/`, `assets/images/site/`, and the sample headshot. **A doc page that gains a data or image dependency needs a line here, or every template breaks on the next sync** — that has happened once already
+- `docs/getting-started/gallery.md` and `_data/gallery.yml` are deleted from the destination rather than copied. The gallery is core's argument for choosing Xanthan, aimed at someone still deciding, and it cost 11MB of screenshots in every template. The handful of gallery images that *other* shipped docs use are copied by reading the references back out of the synced `docs/`, so the list cannot rot
 - Does NOT sync: `_config.yml`, `nav-top.yml`, `nav-sections.yml`, or any root content page (template-specific)
 - `_data/nav-profile.yml` syncs everywhere except portfolio, where the file is the user's own profile rather than core's sample
 - `scrollstories/milton-snow/` is excluded *and* deleted from the destination. Excluding alone is not enough: rsync protects excluded paths from `--delete`, so an old copy would sit there forever

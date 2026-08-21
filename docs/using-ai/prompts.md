@@ -134,7 +134,7 @@ AI assistants can read your entire project and explain it in context. This is di
 
 ## Building something you saw in the gallery
 
-The sites in the [gallery](../getting-started/gallery) are real projects, and
+The sites in the [gallery](https://xanthan-web.github.io/docs/getting-started/gallery) are real projects, and
 several were extended past what Xanthan ships. The gap is usually smaller than
 it looks: the underlying structure is standard, and the distance from a starter
 site to something like these is mostly arranging components you already have.

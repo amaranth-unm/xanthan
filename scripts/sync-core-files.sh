@@ -43,12 +43,28 @@ rm -rf "$DEST/scrollstories/milton-snow"
 # --- Documentation, including its own root index.md --------------------------
 "${RSYNC[@]}" "$SRC/docs/" "$DEST/docs/"
 
-# Assets the shipped docs reference. These are part of the docs, not template
-# content: docs/getting-started/gallery.md reads _data/gallery.yml and renders
-# the screenshots, and the scrollstory pages use the shared backgrounds.
 mkdir -p "$DEST/_data" "$DEST/assets/images" "$DEST/scripts"
-cp "$SRC/_data/gallery.yml" "$DEST/_data/gallery.yml"
-"${RSYNC[@]}" "$SRC/assets/images/gallery/"      "$DEST/assets/images/gallery/"
+
+# The gallery page — "Sites Built with Xanthan" — is core's own. It is an
+# argument for choosing the framework, aimed at someone deciding; a person
+# reading it inside the site they already made from a template is past that
+# point. It cost 11MB of other people's screenshots in every template, so it
+# does not ship. Delete rather than skip: a template synced before this change
+# already has it, and rsync would leave it there forever.
+rm -f "$DEST/docs/getting-started/gallery.md"
+rm -f "$DEST/_data/gallery.yml"
+
+# A few gallery screenshots are used by docs pages that *do* ship — the starter
+# chooser and the scrollstory introduction. Rather than name them here and have
+# the list rot, read them back out of the docs just synced. Rebuild the folder
+# from scratch so images that stop being referenced do not linger.
+rm -rf "$DEST/assets/images/gallery"
+mkdir -p "$DEST/assets/images/gallery"
+grep -rhoE 'assets/images/gallery/[A-Za-z0-9._-]+' "$DEST/docs" 2>/dev/null | sort -u | while read -r ref; do
+    name="${ref##*/}"
+    [ -f "$SRC/assets/images/gallery/$name" ] && cp "$SRC/assets/images/gallery/$name" "$DEST/assets/images/gallery/$name"
+done
+
 "${RSYNC[@]}" "$SRC/assets/images/backgrounds/"  "$DEST/assets/images/backgrounds/"
 
 # site/ holds the sample photographs the docs themselves display — the images

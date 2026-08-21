@@ -15,7 +15,6 @@ on:
       - 'Gemfile'
       - '.gitignore'
       - '_config.yml'
-      - '_data/gallery.yml'
       # Editing the workflow itself should re-run it — otherwise a change like
       # enabling a template's job sits idle until some other file happens to move.
       - '.github/workflows/sync-templates.yml'
