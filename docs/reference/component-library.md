@@ -460,26 +460,30 @@ would sit on a different left edge and the two would read as unrelated.
 
 **File:** `nav/map.html`
 
-Leaflet-based map that auto-generates markers from pages with `geo` front matter.
+Leaflet-based map that auto-generates markers from pages with `geo` front matter, and builds each popup from the rest of that page's front matter.
 
 ```
 {% raw %}{% include nav/map.html
-  height="600px"
-  width="100%"
-  start_coords="[39.8283, -98.5795]"
-  zoom=4
+  folder="objects"
+  fields="object-date,medium,collection"
+  class="map-wrap--wide"
+  height="70vh"
 %}{% endraw %}
 ```
 
 | Parameter | Required | Default | Notes |
 |-----------|----------|---------|-------|
+| `folder` | no | every page | Map only the pages under this folder |
+| `fields` | no | --- | Front matter fields printed in the popup under the place name, comma-separated |
+| `image-field` | no | `thumbnail` | Field holding the popup image, falling back to `header-image` |
 | `height` | no | `700px` | CSS height |
 | `width` | no | `100%` | CSS width |
-| `start_coords` | no | `[44.967, -103.767]` | Initial center `[lat, lng]` |
-| `zoom` | no | `4` | Zoom level 1--18 |
+| `class` | no | --- | Extra classes on the wrapper; `map-wrap--wide` breaks out of the text column |
+| `start-coords` | no | fits the markers | Opening center `"[lat, lng]"` |
+| `zoom` | no | `8` | Opening zoom with `start-coords`; otherwise the closest the fit may go |
 | `id` | no | `map` | Unique ID for multiple maps |
 
-Pages appear as markers when they have `geo: [lat, lng]` in their front matter. Optional fields: `placename`, `summary`, `header-image`.
+Pages appear as markers when they have `geo: [lat, lng]` in their front matter. Optional fields: `placename`, `summary`, `thumbnail` or `header-image`, `alt-text`, and anything named in `fields`. With nothing to draw, the component prints a note saying so rather than an empty box.
 
 ---
 

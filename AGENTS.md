@@ -142,7 +142,7 @@ Getting Started    → "I just want to get going" (4 pages)
 Editing            → "I want to customize my site" (11 pages)
 Reference          → "I need to look something up" (5 pages)
 Using AI           → "I want to use AI to help" (3 pages)
-ScrollStories      → "I want to build a scroll narrative" (3 pages + 3 examples)
+ScrollStories      → "I want to build a scroll narrative" (5 pages + 3 examples)
 FAQs               → Common questions
 ```
 
@@ -162,6 +162,21 @@ FAQs               → Common questions
 - Overview (architectural argument + editorial model + setup)
 - Your First AI Edit (on-ramp: change a color, swap a font, ask for explanations)
 - Building with AI (ambitious examples organized by intent, with scrollspy-toc)
+
+### The sample essays (2 tiers, not 3)
+
+`scrollstories/` ships **Seedling** — plain typography, images, footnotes, pull
+quotes — and **Forest**, which uses every scrollybox and background component
+there is. `trail/` sits alongside them as the story-map demo rather than as a
+step in the sequence.
+
+There used to be a middle essay, Sapling, and it was cut. A ladder of three
+asks the reader to decide where on it they belong before they know what any of
+the rungs do, and the middle rung had no argument of its own: everything it
+demonstrated was either already in Seedling or shown better in Forest. Two
+tiers say the useful thing plainly — start plain, or see the whole toolkit.
+**Do not reintroduce an intermediate essay.** A new component belongs in
+Forest, or in a technique page under `docs/scrollstories/`.
 
 ---
 
@@ -191,7 +206,8 @@ guess the file, the answer is in the header block at the top of each one.
 | `page-header.css` | the front-matter header studio |
 | `backgrounds.css`, `scrollstory.css` | scrollybox backgrounds and scrollstory type |
 | `story-map.css` | historic map overlays, pinned or as a figure (`maps/`) |
-| `search.css`, `map.css`, `docs.css`, `workshop.css` | conditionally loaded, page-type scoped |
+| `map.css` | the collection map and its popups (`nav/map.html`) |
+| `search.css`, `docs.css`, `workshop.css` | conditionally loaded, page-type scoped |
 
 - All visual design controlled by CSS custom properties in `assets/css/base.css`
 - Variables use semantic names: `--accent-primary`, `--spacing-md`, `--text-body`, `--bg-card`
@@ -210,7 +226,7 @@ There are two different maps and they are not interchangeable:
 
 | | `nav/map.html` | `maps/` |
 |---|---|---|
-| Draws | pages that have `geo:` front matter | a GeoJSON file you supply |
+| Draws | pages that have `geo:` front matter, optionally one folder of them | a GeoJSON file you supply |
 | Base | OpenStreetMap | a scanned historic map on given corner coordinates |
 | For | "where are the things on this site" | "here is a place, as somebody once drew it" |
 | Styles | `map.css` | `story-map.css` |
@@ -232,13 +248,20 @@ Workshop mode is a live-presentation feature that highlights bullet points one a
 
 ### Templates and syncing
 - Four template repos (portfolio, scrollstory, class-project, object-collection) are synced from xanthan via `.github/workflows/sync-templates.yml`, which calls `scripts/sync-core-files.sh`
-- The script is the spec. It copies `_includes/`, `_layouts/`, `assets/css/`, `assets/js/`, `scrollstories/`, `docs/` (including its root index.md), Gemfile, .gitignore and CHANGELOG
+- The script is the spec. It copies `_includes/`, `_layouts/`, `assets/css/`, `assets/js/`, `assets/search-index.json`, `scrollstories/`, `docs/` (including its root index.md), Gemfile, .gitignore and CHANGELOG
 - It also copies the assets the shipped docs depend on: `assets/images/backgrounds/`, `assets/images/site/`, and the sample headshot. **A doc page that gains a data or image dependency needs a line here, or every template breaks on the next sync** — that has happened once already
 - `docs/getting-started/gallery.md` and `_data/gallery.yml` are deleted from the destination rather than copied. The gallery is core's argument for choosing Xanthan, aimed at someone still deciding, and it cost 11MB of screenshots in every template. The handful of gallery images that *other* shipped docs use are copied by reading the references back out of the synced `docs/`, so the list cannot rot
 - Does NOT sync: `_config.yml`, `nav-top.yml`, `nav-sections.yml`, or any root content page (template-specific)
 - `_data/nav-profile.yml` syncs everywhere except portfolio, where the file is the user's own profile rather than core's sample
 - `scrollstories/milton-snow/` is excluded *and* deleted from the destination. Excluding alone is not enough: rsync protects excluded paths from `--delete`, so an old copy would sit there forever
 - The object-collection job is commented out until its GitHub repository has a branch to check out
+
+**A file that sits outside the synced directories needs its own line.**
+`assets/search-index.json` is the case that proves it: the search index is a
+Liquid template rendered per site, but it lives at the root of `assets/`
+rather than inside `assets/js/`, so no template ever received it and every
+template with `search: true` fetched a 404. When you add a file core owns,
+ask which rsync line would carry it — and if the answer is none, write one.
 
 **A path the sync stops writing has to be deleted, not just skipped.** rsync's `--delete` only tidies directories it is actually syncing, and it *protects* excluded paths from deletion — so when a file moves or a directory is retired, the old copy sits in every template forever. This has bitten twice: `scrollstories/milton-snow/` was frozen in two templates from before it was excluded, and `your-story/` survived the scrollstory demo moving to the repository root, still calling an include core no longer shipped, which broke that template's site. Both are now removed explicitly in the script. Do the same for the next one.
 
