@@ -71,6 +71,7 @@ PAGE SETUP & CUSTOMIZATION
   --golden-clay: #b8956a;  /* Warm clay */
   --golden-clay-dark: #8b6f47;  /* Darker warm clay for headings */
   --amber: #f59e0b;        /* Bright amber */
+  --trail-red: #8c2f10;    /* Route lines over pale map scans, where clay and sage both vanish */
 
   /* ===== SEMANTIC COLOR SYSTEM ===== */
   /* Backgrounds */
@@ -192,6 +193,14 @@ PAGE SETUP & CUSTOMIZATION
   --border-medium: color-mix(in srgb, var(--text-body) 20%, transparent);
   --border-on-dark: rgba(255, 255, 255, 0.2); /* Borders/dividers on dark backgrounds */
   --accent-primary-dark: var(--sage-deep);     /* Darker accent for active/selected states */
+
+  /* Story maps. These are read by assets/js/story-map.js through
+     getComputedStyle rather than used in a rule, because Leaflet writes them
+     as SVG presentation attributes, where var() does not resolve. Changing
+     them here still changes the map — that indirection is the whole point. */
+  --map-route: var(--trail-red);               /* Route and boundary lines */
+  --map-place: var(--amber);                   /* Place markers */
+  --map-marker-edge: var(--sage-dark);         /* Outline around place markers */
 
   /* Shadows */
   --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.08);

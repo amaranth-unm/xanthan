@@ -460,26 +460,147 @@ would sit on a different left edge and the two would read as unrelated.
 
 **File:** `nav/map.html`
 
-Leaflet-based map that auto-generates markers from pages with `geo` front matter.
+Leaflet-based map that auto-generates markers from pages with `geo` front matter, and builds each popup from the rest of that page's front matter.
 
 ```
 {% raw %}{% include nav/map.html
-  height="600px"
-  width="100%"
-  start_coords="[39.8283, -98.5795]"
-  zoom=4
+  folder="objects"
+  fields="object-date,medium,collection"
+  class="map-wrap--wide"
+  height="70vh"
 %}{% endraw %}
 ```
 
 | Parameter | Required | Default | Notes |
 |-----------|----------|---------|-------|
+| `folder` | no | every page | Map only the pages under this folder |
+| `fields` | no | --- | Front matter fields printed in the popup under the place name, comma-separated |
+| `image-field` | no | `thumbnail` | Field holding the popup image, falling back to `header-image` |
 | `height` | no | `700px` | CSS height |
 | `width` | no | `100%` | CSS width |
-| `start_coords` | no | `[44.967, -103.767]` | Initial center `[lat, lng]` |
-| `zoom` | no | `4` | Zoom level 1--18 |
+| `class` | no | --- | Extra classes on the wrapper; `map-wrap--wide` breaks out of the text column |
+| `start-coords` | no | fits the markers | Opening center `"[lat, lng]"` |
+| `zoom` | no | `8` | Opening zoom with `start-coords`; otherwise the closest the fit may go |
 | `id` | no | `map` | Unique ID for multiple maps |
 
-Pages appear as markers when they have `geo: [lat, lng]` in their front matter. Optional fields: `placename`, `summary`, `header-image`.
+Pages appear as markers when they have `geo: [lat, lng]` in their front matter. Optional fields: `placename`, `summary`, `thumbnail` or `header-image`, `alt-text`, and anything named in `fields`. With nothing to draw, the component prints a note saying so rather than an empty box.
+
+---
+
+## Historic Map
+
+**File:** `maps/figure-map.html`
+
+Lays a scanned map over real coordinates and draws GeoJSON on top of it. Sits in the text column like an illustration.
+
+```
+{% raw %}{% include maps/figure-map.html
+  overlay-image="/assets/images/maps/whipple-1854.webp"
+  overlay-bounds="32.45416, -119.73999, 37.10777, -106.34216"
+  overlay-alt="Whipple's 1854 survey of a route near the 35th parallel"
+  geojson="/assets/data/old-spanish-trail.geojson"
+  caption="The Old Spanish Trail, drawn over Whipple's survey."
+%}{% endraw %}
+```
+
+| Parameter | Required | Default | Notes |
+|-----------|----------|---------|-------|
+| `overlay-image` | no | --- | The scanned map to place on the world |
+| `overlay-bounds` | with an overlay | --- | `"south, west, north, east"` corners of that scan |
+| `overlay-alt` | with an overlay | --- | Description of the scan for screen readers |
+| `overlay-opacity` | no | `0.9` | 0--1 |
+| `geojson` | no | --- | Path to a GeoJSON file of routes and places |
+| `basemap` | no | --- | XYZ tile URL drawn underneath, e.g. OpenStreetMap |
+| `basemap-opacity` | no | `0.5` | 0--1 |
+| `basemap-attribution` | no | --- | Credit for the basemap |
+| `attribution` | no | --- | Credit for the scan and the data |
+| `center` | no | fits the overlay | `"lat, lng"` |
+| `zoom` | no | fits the overlay | Zoom level |
+| `height` | no | `32rem` | CSS height |
+| `interactive` | no | `true` | `false` stops the reader panning and zooming |
+| `map-id` | no | `figure-map` | Needed only if a page holds more than one map |
+| `caption` | no | --- | Printed under the map |
+
+Give it an overlay, a GeoJSON file, or both. With neither it says so rather than rendering an empty box.
+
+### What the GeoJSON needs
+
+Any GeoJSON works. These property names are the ones the component reads:
+
+| Property | Used for |
+|----------|----------|
+| `name` | The hover label, and the value `highlight` matches against |
+| `description` | Body of the popup |
+| `place` | Small grey line under the popup title |
+| `url` | Adds a "More information" link to the popup |
+
+Lines are drawn as routes, points as markers. Anything else in the file is ignored, so a file exported from somewhere else usually works without editing.
+
+### Finding the corner coordinates
+
+`overlay-bounds` is the south, west, north, and east edges of the scan, in decimal degrees. Three ways to get them:
+
+- **The map is already georeferenced somewhere.** Collections that publish through ArcGIS or a tile server state the extent in their metadata; convert it to degrees if it is in Web Mercator.
+- **Georeference it yourself.** [Allmaps](https://allmaps.org/) and Map Warper both take a scan, let you pin it to known points, and give you back the corners.
+- **Read them off a modern map.** For a map covering a wide area, finding the latitude and longitude of each corner by eye is often close enough.
+
+Expect the fit to be approximate. `overlay-bounds` stretches the image to a rectangle; it cannot correct a projection, and most historic maps use a different one. For an essay about how a mapmaker saw a place, that is usually the honest result — but do not use it to make claims about precise locations.
+
+---
+
+## Story Map
+
+**Files:** `maps/story-map.html`, `maps/story-map-panel.html`, `maps/story-map-panel-end.html`, `maps/story-map-end.html`
+
+The same map, pinned to the viewport while passages of text scroll over it. Each passage can move the map somewhere new.
+
+```
+{% raw %}{% include maps/story-map.html map-id="trail"
+  overlay-image="/assets/images/maps/whipple-1854.webp"
+  overlay-bounds="32.45416, -119.73999, 37.10777, -106.34216"
+  overlay-alt="Whipple's 1854 survey of a route near the 35th parallel"
+  geojson="/assets/data/old-spanish-trail.geojson"
+  center="35.9, -112.0" zoom="6" %}
+
+{% include maps/story-map-panel.html map-id="trail" center="35.688, -105.938" zoom="9" %}
+## Santa Fe
+
+Your prose, in ordinary Markdown.
+{% include maps/story-map-panel-end.html %}
+
+{% include maps/story-map-panel.html map-id="trail" highlight="Armijo Route" %}
+The named route stays bold; everything else dims.
+{% include maps/story-map-panel-end.html %}
+
+{% include maps/story-map-end.html %}{% endraw %}
+```
+
+`maps/story-map.html` takes every parameter the historic map takes, plus:
+
+| Parameter | Required | Default | Notes |
+|-----------|----------|---------|-------|
+| `map-id` | **yes** | --- | Unique id; the panels use it to find this map |
+| `height` | no | `100vh` | CSS height of the pinned map |
+
+`maps/story-map-panel.html`:
+
+| Parameter | Required | Default | Notes |
+|-----------|----------|---------|-------|
+| `map-id` | **yes** | --- | Which map this panel drives |
+| `center` | no | --- | `"lat, lng"` the map moves to |
+| `zoom` | no | holds | Zoom level to settle at |
+| `highlight` | no | --- | A feature's `name`; everything else dims |
+| `overlay` | no | --- | Swap in a different scan |
+| `opacity` | no | --- | Set the overlay's opacity, 0--1 |
+| `panel-align` | no | `center` | `left`, `right`, or `center` |
+
+The map moves when a panel reaches the middle of the screen. Between panels it holds its last position, and scrolling back up retraces the steps.
+
+> **Close what you open.** `maps/story-map.html` and `maps/story-map-panel.html` each leave a `div` open so your prose stays ordinary Markdown. Every panel needs `maps/story-map-panel-end.html`, and the sequence needs `maps/story-map-end.html`. Without them the rest of the page ends up inside the map.
+
+For a beat with no words --- a wide view between two passages --- use `maps/story-map-step.html`, which takes the same parameters as a panel but renders nothing.
+
+See [The Old Spanish Trail](../../scrollstories/trail/) for all of it working together.
 
 ---
 
@@ -930,5 +1051,6 @@ All scrollybox includes that display a text box support the `box-align` paramete
 | `scrollybox/bg-multi-long.html` | Multiple background sections in sequence |
 | `scrollybox/bg-switch.html` | Switch background images as the reader scrolls |
 | `scrollybox/auto-scroll.html` | Side-scrolling text panels |
+| `maps/story-map.html` | A historic map pinned in place while text scrolls over it |
 
 See the [ScrollStory examples](../scrollstories/) for these components in action.

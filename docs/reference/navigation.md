@@ -483,7 +483,7 @@ The sidebar uses [Font Awesome](https://fontawesome.com/icons) icons:
 
 ## Interactive maps
 
-The map component automatically displays markers for any page with geographic coordinates. Clicking a marker shows the page title, summary, and a link.
+The map component draws a marker for any page with geographic coordinates, and builds the popup out of that page's own front matter. A page joins the map by gaining coordinates and leaves it by losing them, so the map is never a second list to keep in step with the first.
 
 ### Adding a page to the map
 
@@ -499,24 +499,52 @@ header-image: images/seedling-card.png
 ---
 ```
 
+The popup shows the page's `thumbnail` (falling back to `header-image`), its
+title as a link, the `placename`, and the `summary`.
+
 ### Displaying a map on a page
 
 ```
 {% raw %}{% include nav/map.html
   height="600px"
-  width="100%"
-  start_coords="[39.8283, -98.5795]"
-  zoom=4
+  class="map-wrap--wide"
 %}{% endraw %}
 ```
 
+With no opening coordinates, the map opens on the view that fits every marker
+it found — which is usually what you want, and never wrong the way a
+hardcoded centre goes wrong the moment the content moves.
+
 | Parameter | Default | What it does |
 |-----------|---------|--------------|
+| `folder` | every page | Map only the pages under this folder, e.g. `"objects"` |
+| `fields` | --- | Front matter fields to print in the popup under the place name, comma-separated, e.g. `"object-date,medium,collection"` |
+| `image-field` | `thumbnail` | Front matter field holding the popup image, falling back to `header-image` |
 | `id` | `"map"` | Unique ID (needed for multiple maps on one page) |
 | `height` | `700px` | CSS height |
 | `width` | `100%` | CSS width |
-| `start_coords` | `[44.967, -103.767]` | Initial center point as `[lat, lng]` |
-| `zoom` | `4` | Initial zoom level (1--18, higher = closer) |
+| `class` | --- | Extra classes on the map's wrapper. `map-wrap--wide` breaks out of the text column |
+| `start-coords` | fits the markers | Opening center point as `"[lat, lng]"` |
+| `zoom` | `8` | With `start-coords`, the opening zoom; without it, the closest the automatic fit may go (1--18, higher = closer) |
+
+### Mapping one part of a site
+
+A collection site usually wants its objects on the map and not its essays.
+`folder` limits the markers to one part of the site, and `fields` says which
+of the catalogue facts already in the front matter each popup should carry:
+
+```
+{% raw %}{% include nav/map.html
+  folder="objects"
+  fields="object-date,medium,collection"
+  class="map-wrap--wide"
+  height="70vh"
+%}{% endraw %}
+```
+
+A page missing one of those fields prints the rest. If nothing under the
+folder has coordinates yet, the component says so on the page rather than
+rendering an empty grey box.
 
 ### Finding coordinates
 

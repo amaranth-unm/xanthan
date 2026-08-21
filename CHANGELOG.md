@@ -22,8 +22,43 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   and slug to a page.
 - Homepage prompts in the AI documentation, covering both the composed
   magazine-style front page and the plainer header-image-and-grids kind.
+- `nav/map.html` takes `folder`, to map one part of a site rather than every
+  page that has coordinates, and `fields`, which prints named front matter
+  fields in each popup — so a collection's catalogue facts reach the map
+  without being retyped. It also takes `image-field`, and a `map-wrap--wide`
+  class that breaks the map out of the text column.
+
+### Changed
+- The collection map opens on the view that fits its markers unless
+  `start-coords` says otherwise, rather than defaulting to a point in South
+  Dakota. `start-coords` replaces `start_coords`, which is still read.
+- Popups are built from `thumbnail` before `header-image`, and their text is
+  escaped rather than written into markup as-is.
+- `map.css` is linked from `html/html-head.html` with every other component
+  stylesheet, and holds the popup styles that `nav/map.html` had been
+  duplicating in an inline `<style>` block. The map layout no longer links it,
+  and a map now looks the same on any layout.
+
+### Removed
+- The **Sapling** sample ScrollStory. The examples now come in two tiers —
+  Seedling for a plain typographic essay, Forest for the whole scrollybox
+  toolkit — with the story map (Trail) alongside them rather than as a step in
+  a sequence. A middle rung asked readers to place themselves on a ladder
+  before they knew what the rungs did, and demonstrated nothing the other two
+  did not. Seedling's closing links now point at Forest.
 
 ### Fixed
+- Site search works in the starter templates. `assets/search-index.json` sits
+  outside the `assets/css/` and `assets/js/` directories the sync copies, so no
+  template had ever received it and `search.js` was fetching a 404 on every one
+  of them that had search switched on. `scripts/sync-core-files.sh` now copies
+  it by name.
+- Leaflet loads once per page rather than once per map. `nav/map.html` and the
+  `maps/` components now share one guard, so a page carrying both kinds of map
+  no longer runs the library twice.
+- A collection map with nothing to draw says so on the page instead of
+  rendering an empty grey box, and a page whose `geo` is not a usable
+  coordinate pair is named in the console rather than silently dropped.
 - A `baseurl` written with a trailing slash (`/my-site/`) no longer produces
   doubled separators in every path resolved through `helpers/image-path.html`
   and `helpers/link-path.html`. Both forms are natural to write in `_config.yml`

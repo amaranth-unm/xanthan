@@ -192,7 +192,7 @@ If you can create this Seedling essay, you can:
 - Add alert boxes for tips and warnings
 - Show several images in one place with a carousel
 
-**That's enough to create compelling digital scholarship.** The Sapling and Forest essays use addtional Xanthan components, but this foundation works for many projects, especially when just getting used to designing an essay.
+**That's enough to create compelling digital scholarship.** The Forest essay uses additional Xanthan components, but this foundation works for many projects, especially when just getting used to designing an essay.
 
 Duis eros odio, fringilla et pulvinar vitae, eleifend quis elit. Sed eleifend lectus in bibendum elementum. Vivamus ut velit dignissim, cursus libero nec, commodo orci. Morbi lacus metus, posuere ut pretium ac, malesuada id ligula.
 
@@ -201,6 +201,6 @@ Duis eros odio, fringilla et pulvinar vitae, eleifend quis elit. Sed eleifend le
 
 **New to Xanthan?** Start with the [Getting Started guide](../../../docs/getting-started/) to create your own site first. Once you have a working site, you'll have your own scrollstory you can edit.
 
-Start simple. Get comfortable with the basics. You can always add complexity later by copying and pasting elements from the other essays.
+Start simple. Get comfortable with the basics. You can always add complexity later by copying and pasting components out of the Forest essay.
 
-To see more components in action, head over to the [Sapling Essay](../sapling).
+To see the rest of them in action, head over to the [Forest Essay](../forest).

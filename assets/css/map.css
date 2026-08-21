@@ -1,36 +1,64 @@
 /*****************************************************
-LEAFLET MAP POPUP STYLES
+COLLECTION MAP
 
-Popup styling for the Leaflet maps.
+The map of the site's own pages: a wrapper that gives Leaflet a height, and
+the card-shaped popups a marker opens.
 
 The `.leaflet-*` selectors are Leaflet's own class names, overridden here so
 popups match the site rather than the library's default blue-and-white. That is
 what the !important flags below are for.
 
-Loads:    only via the map layout
-Used by:  nav/map.html, layouts/map.html
-Needs:    base.css tokens; Leaflet's own stylesheet must load first
-Not here: nothing else — this file is only for map popups
+Loads:    every page
+Used by:  nav/map.html
+Needs:    base.css tokens; Leaflet's own stylesheet, which nav/map.html links
+Not here: historic map overlays (story-map.css) — a different component that
+          happens to use the same library
+*****************************************************/
+
+/*****************************************************
+THE MAP ITSELF
+*****************************************************/
+
+/* Leaflet measures its container on init and silently renders nothing if that
+   container has no height, so the wrapper always has one. It comes in as a
+   custom property because the include takes it as a parameter. */
+.map-wrap {
+  height: var(--map-height, 700px);
+}
+
+.collection-map {
+  display: block;
+  height: 100%;
+  width: var(--map-width, 100%);
+}
+
+/* A map is not prose and has no reading measure to respect, so it can take the
+   wider block a text column would deny it. Matches .gallery-grid--wide and
+   .wide-header, which is what keeps their left edges in agreement.
+   👉 Pass class="map-wrap--wide" to the include. */
+.container > .map-wrap--wide {
+  grid-column: full;
+  width: min(100% - 2 * var(--spacing-lg), 64rem);
+  margin-inline: auto;
+}
+
+/*****************************************************
+POPUPS
 *****************************************************/
 
 /* Override Leaflet's default max-width constraint */
 .leaflet-popup {
-  /* Box Model */
   max-width: none !important;
 }
 
 /* Reset Leaflet popup padding */
 .leaflet-popup-content-wrapper {
-  /* Box Model */
   padding: 0;
-  
-  /* Visual */
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
 }
 
 .leaflet-popup-content {
-  /* Box Model */
   margin: 0;
   padding: 0;
   width: auto !important;
@@ -43,56 +71,41 @@ Not here: nothing else — this file is only for map popups
 
 /* Horizontal card-style layout for popups */
 .popup-wrapper {
-  /* Display */
   display: flex;
   flex-direction: row;
-  
-  /* Box Model */
-  width: 350px;
-  max-height: 200px;
-  
-  /* Typography */
+  width: 440px;
+  max-height: 240px;
   font-family: var(--font-body);
-  
-  /* Visual */
-  background: white;
+  background: var(--bg-card);
   overflow: hidden;
 }
 
-/* Image container on the left - fixed size */
+/* The picture is a fixed column that stretches to whatever height the text
+   comes to. Giving it a height of its own instead leaves a band of empty card
+   under it whenever the text runs longer. */
 .popup-wrapper img {
-  /* Box Model */
-  flex: 0 0 150px;
-  width: 150px;
-  height: 150px;
-  margin-right: 1rem;
-  
-  /* Visual */
+  flex: 0 0 160px;
+  align-self: stretch;
+  width: 160px;
+  height: auto;
+  margin-right: var(--spacing-sm);
   object-fit: cover;
   object-position: center;
 }
 
 /* Text content on the right */
 .popup-text {
-  /* Display */
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
-  
-  /* Box Model */
   gap: 0.25rem;
-  padding: 0.75rem;
-  overflow: auto;
-  
-  /* Typography */
+  padding: var(--spacing-sm);
+  overflow: hidden;
   line-height: 1.4;
 }
 
 .popup-title {
-  /* Box Model */
-  margin: 0 0 0.25rem 0;
-
-  /* Typography */
+  margin: 0;
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-body);
@@ -100,68 +113,62 @@ Not here: nothing else — this file is only for map popups
 }
 
 .popup-title a {
-  /* Typography */
   color: var(--text-body);
   text-decoration: none;
   font-weight: 600;
 }
 
 .popup-title a:hover {
-  /* Typography */
-  color: var(--accent-primary);
+  color: var(--interactive-hover);
   text-decoration: underline;
 }
 
 .popup-placename {
-  /* Box Model */
-  margin: 0 0 0.5rem 0;
-
-  /* Typography */
+  margin: 0;
   font-size: 0.9rem;
   font-style: italic;
   color: var(--text-muted);
   line-height: 1.2;
 }
 
-.popup-summary {
-  /* Box Model */
+/* The catalogue line: whatever fields the include was asked to print, joined
+   with middots. Smaller and quieter than the summary, because it is a label
+   rather than a sentence. */
+.popup-meta {
   margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
 
-  /* Typography */
+/* A summary written for a card can be longer than a popup has room for. Clamp
+   it to an ellipsis rather than letting the card scroll: a line cut in half at
+   the fold reads as a rendering fault, and the whole text is one click away on
+   the page itself. */
+.popup-summary {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  margin: 0;
+  overflow: hidden;
   font-size: 0.9rem;
   color: var(--text-body);
   line-height: 1.3;
 }
 
-/* Map popup card text — shared typography for popup content */
-.map-card {
-  /* Box Model */
-  margin-top: var(--spacing-xs);
-
-  /* Typography */
-  font-family: var(--font-body);
-  font-weight: normal;
-  font-size: 0.9rem;
-  line-height: 1.2rem;
-  text-align: justify;
-  color: var(--text-body);
-}
-
 /* Responsive: vertical on small screens */
 @media (max-width: 768px) {
   .popup-wrapper {
-    /* Display */
     flex-direction: column;
-    
-    /* Box Model */
     width: 280px;
     max-height: none;
   }
 
   .popup-wrapper img {
-    /* Box Model */
     flex: 0 0 auto;
+    align-self: auto;
     width: 100%;
     height: 180px;
+    margin-right: 0;
   }
 }
