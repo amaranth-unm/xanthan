@@ -31,6 +31,14 @@ echo "── syncing core → ${NAME}"
 "${RSYNC[@]}" "$SRC/assets/css/"  "$DEST/assets/css/"
 "${RSYNC[@]}" "$SRC/assets/js/"   "$DEST/assets/js/"
 
+# The search index is a Liquid template Jekyll renders per site, not a built
+# artefact, and it sits at assets/search-index.json rather than inside
+# assets/js/ — which is how the four directories above missed it for so long.
+# Without it, assets/js/search.js fetches a 404 and the overlay finds nothing,
+# on every template whose config says search: true. Copied as a single file
+# because assets/ itself is not ours to sync wholesale.
+cp "$SRC/assets/search-index.json" "$DEST/assets/search-index.json"
+
 # milton-snow is a private demo and stays out of the templates. Excluding it
 # from the copy is not enough: rsync also protects excluded paths from
 # --delete, so a copy that predates the exclusion would sit in the template

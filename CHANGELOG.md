@@ -48,6 +48,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   did not. Seedling's closing links now point at Forest.
 
 ### Fixed
+- Site search works in the starter templates. `assets/search-index.json` sits
+  outside the `assets/css/` and `assets/js/` directories the sync copies, so no
+  template had ever received it and `search.js` was fetching a 404 on every one
+  of them that had search switched on. `scripts/sync-core-files.sh` now copies
+  it by name.
 - Leaflet loads once per page rather than once per map. `nav/map.html` and the
   `maps/` components now share one guard, so a page carrying both kinds of map
   no longer runs the library twice.
