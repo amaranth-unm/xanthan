@@ -64,22 +64,19 @@ A site that gathers writing by many people around a shared theme: student essays
 
 ---
 
-## Object Collection {#object-collection .coming-soon-heading}
+## Object Collection {#object-collection}
 
 {% capture object_collection_text %}
-**Coming soon — not ready to use yet.**
-
-The same collaborative shape, but built around things rather than prose: artefacts, sites, specimens, images, places. Each object gets its own folder and page carrying what you actually catalogue---an image, a date, a medium, coordinates, tags---and an image-first grid assembles the directory. Add `geo` coordinates and the objects appear on a map as well as in the grid.
+The same collaborative shape, but built around things rather than prose: artefacts, sites, specimens, images, places. Each object gets its own folder and page carrying what you actually catalogue---an image, a date, a medium, coordinates, tags---written once and read everywhere: an image-first grid assembles the directory, a gallery hangs the same objects at their own proportions, and adding `geo` coordinates puts them on a map without a second list to maintain. An essays folder holds the arguments that run *through* several objects rather than describing one, each essay naming what it draws on so the objects' pictures and links assemble themselves.
 
 Choose this over Essay Collection when the object *is* the entry and the writing supports it. A digital exhibit, a material-culture course, a site survey, a collection catalogue.
-
-The live example below is a real site of this shape. The starter site itself is still being finished, so there is nothing to copy yet.
 
 <div class="template-buttons">
   <div class="template-btn-row">
     <a class="template-btn" href="https://amaranth.unm.edu/silk-road/" target="_blank">Live example</a>
+    <a class="template-btn" href="https://xanthan-web.github.io/object-collection-template" target="_blank">View starter site</a>
   </div>
-  <button class="template-btn primary" disabled>Coming soon</button>
+  <a class="template-btn primary" href="./?template=object-collection">Start with this one →</a>
 </div>
 {% endcapture %}
 
@@ -87,7 +84,7 @@ The live example below is a real site of this shape. The starter site itself is 
   image-path="/assets/images/gallery/silk-road.jpg"
   image-position="right"
   image-width="45%"
-  alt-text="Object Collection starter site screenshot"
+  alt-text="Material Objects of the Silk Road, a finished site of this shape"
   text=object_collection_text
 %}
 

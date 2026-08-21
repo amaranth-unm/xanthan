@@ -8,7 +8,7 @@ Internal development reference for AI assistants and contributors working on the
 
 Xanthan is a Jekyll + Bootstrap framework for building academic websites. It's designed for people who have intellectual and editorial ambitions for their web presence but no interest in becoming web developers. The primary audience is academics, students, and digital humanities practitioners.
 
-The framework has four templates (Portfolio, Class Project, ScrollStory, Full Xanthan) and a modular design system built on CSS custom properties, Liquid includes with documented parameters, and YAML configuration.
+The framework has four templates (Portfolio, Essay Collection, Object Collection, Single Story) and a modular design system built on CSS custom properties, Liquid includes with documented parameters, and YAML configuration.
 
 A core architectural claim: Xanthan is designed to be legible not just to humans but to AI assistants. Named variables, modular components, clear file organization, and YAML config mean that AI can make targeted, predictable changes. This is a genuine technical feature, not marketing.
 
@@ -16,10 +16,13 @@ A core architectural claim: Xanthan is designed to be legible not just to humans
 
 ## Templates vs. the base repo
 
-Users never interact with the xanthan base repo directly. They use one of three templates:
-- **portfolio** — for personal/professional sites and academic portfolios
-- **class-project** — for course websites and collaborative class projects
-- **scrollstory** — for scroll-driven narrative pages
+Users never interact with the xanthan base repo directly. They use one of four
+templates. The repository names and the names readers see are not the same, and
+the chooser pages use the reader-facing ones:
+- **portfolio** — "Portfolio", for personal/professional sites and academic portfolios
+- **class-project** — "Essay Collection", for course websites and collaborative class projects
+- **object-collection** — "Object Collection", for collections built around things rather than prose
+- **scrollstory** — "Single Story", for scroll-driven narrative pages
 
 The xanthan base repo is the source of truth. GitHub Actions sync core files to the templates on every push to main.
 
@@ -254,7 +257,7 @@ Workshop mode is a live-presentation feature that highlights bullet points one a
 - Does NOT sync: `_config.yml`, `nav-top.yml`, `nav-sections.yml`, or any root content page (template-specific)
 - `_data/nav-profile.yml` syncs everywhere except portfolio, where the file is the user's own profile rather than core's sample
 - `scrollstories/milton-snow/` is excluded *and* deleted from the destination. Excluding alone is not enough: rsync protects excluded paths from `--delete`, so an old copy would sit there forever
-- The object-collection job is commented out until its GitHub repository has a branch to check out
+- All four jobs are live. The object-collection job was held back while that repository was empty; it has been syncing since the repository was filled, and the sync bot's commits are in its history
 
 **A file that sits outside the synced directories needs its own line.**
 `assets/search-index.json` is the case that proves it: the search index is a

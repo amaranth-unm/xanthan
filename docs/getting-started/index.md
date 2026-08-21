@@ -60,15 +60,11 @@ document.addEventListener('DOMContentLoaded', function() {
     {
       id: 'object-collection',
       name: 'Object Collection',
-      description: 'Build a collection around things rather than prose. Each object gets a page with an image, a date, tags, and optional coordinates; an image-first grid and a map assemble the directory.',
+      description: 'Build a collection around things rather than prose. Each object gets a page with an image, a date, tags, and optional coordinates; a grid, a gallery, a map, and thematic essays assemble themselves from what you write there.',
       repoName: 'xanthan-web/object-collection-template',
       repoUrl: 'https://github.com/xanthan-web/object-collection-template',
       webUrl: 'https://xanthan-web.github.io/object-collection-template',
-      liveUrl: 'https://amaranth.unm.edu/silk-road/',
-      // Listed so people can see it coming, but not yet selectable: the
-      // starter repository exists and is still empty, so choosing it would
-      // point every step below at a site that is not there.
-      comingSoon: true
+      liveUrl: 'https://amaranth.unm.edu/silk-road/'
     },
     {
       id: 'scrollstory',
