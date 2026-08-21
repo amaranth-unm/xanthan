@@ -46,7 +46,7 @@
 
 - title: "Amaranth"
   summary: "UNM's Digital Humanities Studio."
-  thumbnail: "/assets/images/gallery/amaranth-year-review.png"
+  thumbnail: "/assets/images/gallery/amaranth.jpg"
   link: "https://amaranth.unm.edu/"
   tags: ["digital studio", "research project"]
 
@@ -82,8 +82,8 @@
 
 - title: "Xanthan"
   summary: "An introductory class doing local research, showing that beginners can produce work worth publishing."
-  thumbnail: "/assets/images/gallery/history-1105.jpg"
-  link: "https://xanthan-web-github.io"
+  thumbnail: "/assets/images/gallery/xanthan.jpg"
+  link: "https://xanthan-web.github.io/"
   tags: ["research project", "publishing"]
 
 - title: "Food Stories"
