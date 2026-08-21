@@ -190,3 +190,90 @@ Not here: cards, which put the caption beside or beneath the image (cards.css);
     
   }
 }
+
+/*****************************************************
+MASONRY VARIANT
+
+The grid above crops every tile to a square, which is right for screenshots —
+they are all the same shape anyway — and wrong for photographs of things. A
+scroll is tall, a dish is wide, a coin is small; squaring them all throws away
+the one piece of information a picture of an object carries for free, which is
+its proportions.
+
+So this variant lays the tiles out in CSS columns instead of a grid. Each tile
+keeps its image's own aspect ratio and the column fills bottom-up, the way a
+picture wall does. Nothing else changes: the caption, the hover reveal and the
+touch fallback above all apply here too.
+
+👉 Pass variant="masonry" to nav/gallery-grid.html.
+*****************************************************/
+
+.gallery-grid--masonry {
+  display: block;
+  /* The include writes --gallery-grid-min-width from its min-width parameter.
+     In the grid variant it is a minimum before wrapping; here it is the column
+     width proper, which is close enough in effect that one parameter can mean
+     both.
+
+     column-count alongside it is a ceiling, not an instruction: the browser
+     opens as many columns as fit, but never more than the number given, and
+     widens them to fill what is left over. The include works that ceiling out
+     from how many items it was given, which is what keeps a collection of
+     three from balancing itself into a few narrow columns at the left of a
+     wide screen. A large collection never reaches the ceiling and behaves as
+     though it were not there. */
+  column-width: var(--gallery-grid-min-width);
+  column-count: var(--gallery-grid-columns, auto);
+  column-gap: var(--gallery-grid-gap);
+}
+
+/* Phones are narrow enough that a 220px column becomes one column and the wall
+   turns into a single stack of very large pictures. Capping the column at just
+   under half the viewport keeps at least two abreast without asking the page
+   to pass a second measurement. */
+@media (max-width: 640px) {
+  .gallery-grid--masonry {
+    column-width: min(var(--gallery-grid-min-width), 45vw);
+  }
+}
+
+.gallery-grid--masonry .gallery-grid-item {
+  display: inline-block;
+  /* inline-block sits on the text baseline, which would leave a descender's
+     worth of gap under every tile. */
+  vertical-align: top;
+  width: 100%;
+  /* The square tile of the grid variant, undone. */
+  min-height: 0;
+  aspect-ratio: auto;
+  margin-bottom: var(--gallery-grid-gap);
+  break-inside: avoid;
+}
+
+.gallery-grid--masonry .gallery-grid-link {
+  height: auto;
+}
+
+/* Taking the image out of absolute positioning is what lets the tile take its
+   height from the picture rather than the other way round. */
+.gallery-grid--masonry .gallery-grid-link img {
+  position: static;
+  display: block;
+  width: 100%;
+  height: auto;
+  /* One very tall object should not become a column of its own. Past this the
+     image crops from the centre, where an object usually is. */
+  max-height: var(--gallery-masonry-max-height, 26rem);
+  object-position: center;
+}
+
+/* A wall of pictures has less reason than most things to stop at a measure.
+   Where --wide breaks out to 64rem and centres, this goes to the full width of
+   the page. Use it for a page that is the gallery, not a page with one on it.
+   👉 Pass class="gallery-grid--bleed" to the include. */
+.container > .gallery-grid--bleed {
+  grid-column: full;
+  width: 100%;
+  margin-inline: 0;
+  padding-inline: var(--gallery-grid-gap);
+}

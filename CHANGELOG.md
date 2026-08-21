@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- `nav/gallery-grid.html` takes `variant="masonry"`, which lays tiles out in
+  columns and lets each image keep its own proportions instead of cropping
+  everything to a square — the difference between a wall of screenshots and a
+  wall of photographs of things. A `gallery-grid--bleed` class runs the wall
+  the full width of the page, for a page that is the gallery rather than a page
+  with one on it.
 - **Landing page sections**: five components for a homepage that introduces a
   whole project rather than opening a single argument — `layout/home-hero.html`,
   `layout/split-intro.html`, `layout/feature-block.html`, `layout/picks.html`,
