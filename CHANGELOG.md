@@ -35,6 +35,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   class that breaks the map out of the text column.
 
 ### Changed
+- The Object Collection starter site is selectable on both chooser pages. It
+  was listed but disabled while its repository was empty; the repository is
+  filled, published, and syncing, so the "coming soon" label, the disabled
+  button, and the `comingSoon` flag are gone. Its description now names the
+  gallery and the essays folder alongside the grid and the map.
 - The collection map opens on the view that fits its markers unless
   `start-coords` says otherwise, rather than defaulting to a point in South
   Dakota. `start-coords` replaces `start_coords`, which is still read.
