@@ -811,14 +811,16 @@ header-position: center right
 
 ## Landing Page Sections
 
-The five components below are for a homepage that has to introduce a whole
-project rather than open a single argument. Each one is a full-width band that
-takes its content from front matter, so the page body ends up as a short list of
-includes and everything editable sits at the top of the file.
+The six components below are for a homepage that has to introduce a whole
+project, or a person, rather than open a single argument. Each one is a
+full-width band that takes its content from front matter, so the page body ends
+up as a short list of includes and everything editable sits at the top of the
+file.
 
 They are designed to be stacked. A common order is hero, split intro, feature
-block, picks, link index --- but nothing requires all five, and a homepage built
-from two of them is a perfectly good homepage.
+block, picks, link index --- but nothing requires all six, and a homepage built
+from two of them is a perfectly good homepage. A portfolio site usually opens
+with **Profile Intro** instead of a hero.
 
 Every band spans the window and re-centres its own contents. To make them all
 wider or narrower at once, override one variable in your site's CSS:
@@ -872,6 +874,68 @@ Inside `hero`: `image` (required), `alt`, `kicker`, `title`, `text`, and
 
 The dark scrim that keeps the headline readable is drawn by the stylesheet, not
 baked into your image, so you can drop in any photo without editing it first.
+
+---
+
+## Profile Intro
+
+**File:** `layout/profile-intro.html`
+
+A photograph beside a name, a short bio, and a row of links. The opening block
+of a personal or portfolio homepage.
+
+This is the successor to the profile sidebar. The sidebar puts the same
+material in a permanent left rail, which costs a column of the window on every
+page it appears on --- and on a phone it stacks above the content anyway, so it
+becomes this block, only pushing your actual homepage text below the fold.
+Reach for the sidebar when a reader genuinely needs your links present on every
+page. Reach for this when they need them once, on the way in.
+
+It reads `_data/nav-profile.yml`, the same file the sidebar uses, so a site
+already set up for the sidebar can switch without editing any data.
+
+```yaml
+{% raw %}# _data/nav-profile.yml
+image_url: /assets/images/profile/headshot.jpg
+alt_text: A photograph of Your Name
+name: Your Name
+role: Associate Professor of History
+description: One or two sentences about who you are and what you do.
+
+links:
+  - title: GitHub
+    url: https://github.com/you
+    icon: fab fa-github
+  - title: Email
+    url: mailto:you@example.edu
+    icon: fas fa-envelope{% endraw %}
+```
+
+```
+{% raw %}{% include layout/profile-intro.html %}{% endraw %}
+```
+
+| Parameter | Required | Default | Notes |
+|-----------|----------|---------|-------|
+| `profile` | no | `site.data.nav-profile` | An object to use instead of the data file |
+| `shape` | no | `rounded` | `rounded` or `circle` |
+| `width` | no | `content` | `content` lines the block up with the page's text column; `wide` matches the other landing bands |
+| `level` | no | `1` | `2` if the page already has an `h1`, such as one with a page header |
+
+Unlike the other bands here, this one sits on the text column by default. A
+portfolio homepage is usually prose with an opening block on top rather than a
+stack of bands, and a wider opening reads as off-grid against the paragraph
+beneath it. Pass `width="wide"` on a page that really is built from bands.
+
+The name is set as the page's `h1` by default, so the page body should not also
+open with a `# Heading` --- that would give the page two.
+
+`role` is optional and new; the sidebar does not display it. Everything else
+comes from keys the sidebar already reads.
+
+Icons come from [Font Awesome](https://fontawesome.com/icons), the same set the
+sidebar uses. Links to other sites open in a new tab; internal links, anchors,
+and `mailto:` links do not.
 
 ---
 

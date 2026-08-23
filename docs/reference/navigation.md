@@ -427,9 +427,17 @@ _includes/nav/nav-left.html     # Navigation component
 
 ## Profile sidebar
 
-The profile sidebar layout displays a personal card on the left---photo, name, bio, and links---with page content on the right. Ideal for personal portfolio sites.
+The profile sidebar layout displays a personal card on the left---photo, name, bio, and links---with page content on the right.
 
 **[See the profile sidebar demo](../navigation/nav-profile-demo)** to see this layout in action.
+
+### Or the same material at the top of the page
+
+A sidebar earns a permanent column when a reader needs what is in it while reading any page. A profile usually is not that: it is the thing you say once, on the way in. And on a phone the sidebar stacks above the content anyway, which makes it an opening block --- one that pushes your actual homepage text below the fold.
+
+The **[Profile Intro](component-library#profile-intro)** component says the same thing at full width, at the top of the homepage, and leaves every page its whole column. It reads the same `_data/nav-profile.yml` described below, so you can try both without moving any content. The Portfolio template opens with it.
+
+Use the sidebar when your links really do belong on every page. Use the intro block otherwise.
 
 ### Setting it up
 

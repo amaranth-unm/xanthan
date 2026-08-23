@@ -7,11 +7,21 @@
 
     {% include nav/skip-link.html %}
 
+  {%- comment -%}
+    The sidebar and the offset that makes room for it go together. Rendering
+    the rail unconditionally left a site with no profile data a fixed, bordered
+    25vw column with nothing in it, and .main-content still pushed clear of it.
+  {%- endcomment -%}
+  {% assign has_profile = false %}
+  {% if site.data.nav-profile and site.data.nav-profile.name %}{% assign has_profile = true %}{% endif %}
+
+  {% if has_profile %}
   <div class="left-bar">
     {% include nav/nav-profile.html %}
   </div>
+  {% endif %}
 
-  <div class="main-content">
+  <div{% if has_profile %} class="main-content"{% endif %}>
 
     {% include nav/nav-top.html %}
 
