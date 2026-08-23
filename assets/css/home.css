@@ -3,14 +3,15 @@ HOME / LANDING SECTIONS
 
 The full-width bands a landing page is built from.
 
-Five components: home-hero, split-intro, feature-block, picks (in three
-variants), and link-index. Each claims the container's `full` column and
-re-centres its own contents at --home-measure, so a page can stack them
+Six components: home-hero, profile-intro, split-intro, feature-block, picks
+(in three variants), and link-index. Each claims the container's `full` column
+and re-centres its own contents at --home-measure, so a page can stack them
 without any wrapper markup.
 
 Loads:    every page
-Used by:  layout/home-hero.html, layout/split-intro.html,
-          layout/feature-block.html, layout/picks.html, layout/link-index.html
+Used by:  layout/home-hero.html, layout/profile-intro.html,
+          layout/split-intro.html, layout/feature-block.html,
+          layout/picks.html, layout/link-index.html
 Needs:    base.css tokens, and the named-line `.container` grid in base.css
 Not here: the page-header hero drawn from front matter (page-header.css),
           which is the other way to open a page
@@ -36,6 +37,7 @@ Not here: the page-header hero drawn from front matter (page-header.css),
    .container > .wide-header is: it must beat .container > * without relying
    on stylesheet order. */
 .container > .home-hero,
+.container > .home-profile,
 .container > .home-split,
 .container > .home-picks,
 .container > .home-index,
@@ -43,6 +45,7 @@ Not here: the page-header hero drawn from front matter (page-header.css),
   grid-column: full;
 }
 
+.home-profile,
 .home-split,
 .home-picks,
 .home-index,
@@ -212,6 +215,119 @@ HOME HERO
   border-color: var(--interactive-hover);
   color: var(--text-body);
   transform: translateY(-2px);
+}
+
+
+/*****************************************************
+PROFILE INTRO — a photograph beside a name, a bio, and links
+
+The opening block of a personal homepage, and the successor to the profile
+sidebar in nav-profile.css. Same material, said once at full width, so the
+rest of the page keeps the whole column.
+*****************************************************/
+
+/* Unlike the other bands, this one lines up with the text column by default.
+   A portfolio homepage is usually prose with an opening block on top rather
+   than a stack of bands, and a wider opening reads as off-grid against the
+   paragraph beneath it. `width="wide"` puts it back on --home-measure for a
+   page that really is built from bands.
+
+   48rem is the `content` column of the .container grid in base.css; the two
+   have to match for the block to line up, so change them together. */
+.home-profile-inner {
+  max-width: 48rem;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: clamp(var(--spacing-md), 4vw, var(--spacing-xl));
+  align-items: center;
+}
+
+.home-profile--wide .home-profile-inner {
+  max-width: var(--home-measure);
+}
+
+.home-profile-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* The sidebar's circular crop, for anyone who wants it. A square ratio is part
+   of the shape: a circle cut from a 4:5 portrait is an ellipse. */
+.home-profile--circle .home-profile-photo {
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.home-profile-name {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  line-height: 1.06;
+}
+
+.home-profile-role {
+  margin: var(--spacing-xs) 0 0;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+
+.home-profile-bio {
+  margin-top: var(--spacing-sm);
+}
+
+.home-profile-bio > :first-child {
+  margin-top: 0;
+}
+
+.home-profile-bio p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.home-profile-bio p:last-child {
+  margin-bottom: 0;
+}
+
+.home-profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin: var(--spacing-md) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-profile-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--border-medium);
+  border-radius: 999px;
+  color: var(--text-body);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.home-profile-links a:hover,
+.home-profile-links a:focus-visible {
+  border-color: var(--interactive-hover);
+  background: var(--interactive-subtle-hover);
+  color: var(--text-body);
+  text-decoration: none;
+}
+
+/* Fixed width so the labels line up whether or not Font Awesome has loaded. */
+.home-profile-links i {
+  width: 1.1em;
+  text-align: center;
 }
 
 
@@ -583,6 +699,17 @@ RESPONSIVE
   .home-index-grid,
   .feature-block {
     grid-template-columns: 1fr;
+  }
+
+  /* Stacked, the photo is no longer holding up a column, so it stops being
+     full width and sits with the text it introduces. */
+  .home-profile-inner {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .home-profile-photo {
+    max-width: 12rem;
   }
 
   .feature-block--flip .feature-block-image {

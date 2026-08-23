@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- `layout/profile-intro.html`, a photograph beside a name, a bio, and a row of
+  links, as the opening block of a personal homepage. It is the successor to
+  the profile sidebar and reads the same `_data/nav-profile.yml`, so a site can
+  switch without moving any content. Takes an optional `role:` line, a `circle`
+  shape for anyone who wants the sidebar's crop, and `level=2` for a page that
+  already has an `h1`. Styles live with the other landing bands in `home.css`.
 - `nav/gallery-grid.html` takes `variant="masonry"`, which lays tiles out in
   columns and lets each image keep its own proportions instead of cropping
   everything to a square — the difference between a wall of screenshots and a
@@ -35,6 +41,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   class that breaks the map out of the text column.
 
 ### Changed
+- The Portfolio starter site opens with `layout/profile-intro.html` rather than
+  the `nav-profile` sidebar. The sidebar's only page was the homepage, so it
+  was paying for a permanent column it never used, and on a phone it stacked
+  above the content and pushed the homepage text below the fold. The sidebar,
+  its layout, and its demo page all remain for sites that want them.
 - The Object Collection starter site is selectable on both chooser pages. It
   was listed but disabled while its repository was empty; the repository is
   filled, published, and syncing, so the "coming soon" label, the disabled
@@ -59,6 +70,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   did not. Seedling's closing links now point at Forest.
 
 ### Fixed
+- The `nav-profile` layout no longer reserves a column for a sidebar that is
+  not there. It rendered `.left-bar` unconditionally while the include inside
+  it checked for data, so a site with an empty `_data/nav-profile.yml` got a
+  fixed, bordered 25vw column with nothing in it — and `.main-content` still
+  pushed the page clear of it. Both are now gated on the profile existing.
 - Site search works in the starter templates. `assets/search-index.json` sits
   outside the `assets/css/` and `assets/js/` directories the sync copies, so no
   template had ever received it and `search.js` was fetching a 404 on every one

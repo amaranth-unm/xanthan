@@ -203,7 +203,7 @@ guess the file, the answer is in the header block at the top of each one.
 | `gallery.css` | image-first tiles, caption over the picture |
 | `toc.css` | table-of-contents rows |
 | `tags.css` | tag pills and the tag filter UI |
-| `home.css` | landing page bands: hero, split intro, feature block, picks, link index |
+| `home.css` | landing page bands: hero, profile intro, split intro, feature block, picks, link index |
 | `nav.css` | top nav and breadcrumbs |
 | `nav-left.css`, `nav-profile.css` | the two sidebar navigations |
 | `page-header.css` | the front-matter header studio |
@@ -241,6 +241,7 @@ A request to map the site's own content wants `nav/map.html`.
 - Top nav configured in `_data/nav-top.yml` (YAML list of titles, URLs, dividers)
 - Supports dropdowns, dividers, and direct links
 - Left-nav and profile-nav are alternative layouts (nav-left, nav-profile) with their own data files
+- The profile sidebar has a full-width successor, `layout/profile-intro.html`, which reads the same `_data/nav-profile.yml`. The portfolio template opens with it; the sidebar layout and its demo stay for sites that want a permanent rail
 - Nav demos live as unlisted pages in `docs/navigation/`
 
 ### Workshop mode
